@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block title %}Fiis{% endblock %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+    }
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f3f3f3;
+    }
+    .filters {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+{% block content %}
+     {% csrf_token %}
+    <form method="GET" class="filters bg-dark text-white p-2 w-100">
+        <div class="col flex">
+            <label for="dividend-yield-min">Dividend Yield Min:</label>
+            <br>
+            <input type="number" id="dividend-yield-min" name="dividend_yield_min" min="7.0" value="{{ filters.dividend_yield_min|default:'7.0' }}" placeholder="Dividend Yield Min">
+        </div>
+        <div class="col">
+            <label for="liquidez-min">Liquidez Min:</label>
+            <br>
+            <input type="number" id="liquidez-min" name="liquidez_min" min="500000" value="{{ filters.liquidez_min|default:'500000' }}" placeholder="Liquidez Min">
+        </div>
+        <div>
+            <label for="vacancia-max">Vacância Max:</label>
+            <br>
+            <input type="number" id="vacancia-max" name="vacancia_max" max="30.0" value="{{ filters.vacancia_max|default:'30.0' }}" placeholder="Vacância Max">
+        </div>
+        <div>
+            <label for="pvp-min">PVP Min:</label>
+            <br>
+            <input type="number" id="pvp-min" name="pvp_min" min="0.75" value="{{ filters.pvp_min|default:'0.75' }}" placeholder="PVP Min">
+        </div>
+        <div>
+            <label for="pvp-max">PVP Max:</label>
+            <br>
+            <input type="number" id="pvp-max" name="pvp_max" max="1.05" value="{{ filters.pvp_max|default:'1.05' }}" placeholder="PVP Max">
+        </div>
+        <div>
+            <label for="segmento">Segmento:</label>
+            <br>
+            <input type="text" id="segmento" name="segmento" value="{{ filters.segmento|default:'' }}" placeholder="Segmento">
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
+    <div class="m-auto">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    {% for col in columns %}
+                        <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        {% for col in columns %}
+                        <td>{{ row|get_item:col }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+{% endblock %}

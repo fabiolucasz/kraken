@@ -1,3 +1,160 @@
 from django.shortcuts import render
+import requests
+import pandas as pd
+from bs4 import BeautifulSoup
+from io import StringIO
+from sklearn.preprocessing import MinMaxScaler
 
-# Create your views here.
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+}
+
+def get_data():
+    url = 'https://www.fundamentus.com.br/fii_resultado.php'
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    table = soup.find('table')
+    df = pd.read_html(StringIO(str(table)))[0]
+    df.to_csv('fiis.csv', index=False)
+
+    return df
+
+def process_data():
+    df = pd.read_csv("../fiis.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df = df.drop(columns=["Preço do m2", "Aluguel por m2", "Qtd de imóveis", "Cap Rate"], errors="ignore")
+
+    colunas_percentuais = ["FFO Yield", "Dividend Yield", "Vacância Média"]
+    colunas_valores = ["Valor de Mercado", "Liquidez"]
+    colunas_cotacao = ["Cotação"]
+    colunas_pvp = ["P/VP"]
+
+    for col in colunas_percentuais:
+        df[col] = df[col].astype(str).str.replace("%", "", regex=False).str.replace(",", ".")
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    for col in colunas_valores:
+        df[col] = df[col].astype(str).str.replace(".", "", regex=False).str.replace(",", ".", regex=False)
+    df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    for col in colunas_cotacao:
+        df[col] = df[col].astype(str).str.replace(r"\D", "", regex=True)  
+        df[col] = df[col].apply(
+            lambda x: float(x.zfill(3)[:-2] + "." + x.zfill(3)[-2:]) if x else None
+        )
+
+    def pvp(x):
+        x = x.strip()
+        if not x.isdigit():
+            return None
+        if len(x) > 2:
+            return float(x[:-2] + "." + x[-2:])
+        else:
+            return float("0." + x)
+
+    for col in colunas_pvp:
+        df[col] = df[col].astype(str).str.replace(r"\D", "", regex=True)
+        df[col] = df[col].apply(pvp)
+    return df
+
+from sklearn.preprocessing import MinMaxScaler
+
+def rank_fiis(df):
+    df = df.copy()
+    
+    # Indicadores relevantes
+    indicadores = {
+        'Dividend Yield': 1,  # quanto maior, melhor
+        'Liquidez': 0.5,      # quanto maior, melhor
+        'Vacância Média': -1, # quanto menor, melhor
+        'P/VP': -0.5           # quanto menor, melhor
+    }
+
+    # Remover nulos
+    df = df.dropna(subset=indicadores.keys())
+
+    scaler = MinMaxScaler()
+
+    for col, peso in indicadores.items():
+        # Normalizar entre 0 e 1
+        norm = scaler.fit_transform(df[[col]])
+        if peso < 0:
+            norm = 1 - norm  # inverter se menor é melhor
+        df[f'{col}_score'] = norm * abs(peso)
+
+    # Rank final como soma ponderada dos scores
+    df['Rank'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
+    
+    # Ordenar
+    df = df.drop(columns=['Vacância Média_score', 'P/VP_score', 'Dividend Yield_score', 'Liquidez_score'])
+    df = df.sort_values(by='Rank', ascending=False)
+
+    return df
+
+
+def index(request):
+    df = process_data()
+    
+    # Aplicando filtros baseados nos parâmetros da URL
+    filters = {}
+    
+    # Dividend Yield
+    if 'dividend_yield_min' in request.GET:
+        try:
+            min_yield = float(request.GET['dividend_yield_min'])
+            df = df[df['Dividend Yield'] >= min_yield]
+            filters['dividend_yield_min'] = min_yield
+        except ValueError:
+            pass
+    
+    # Liquidez
+    if 'liquidez_min' in request.GET:
+        try:
+            min_liquidez = float(request.GET['liquidez_min'])
+            df = df[df['Liquidez'] >= min_liquidez]
+            filters['liquidez_min'] = min_liquidez
+        except ValueError:
+            pass
+    
+    # Vacância
+    if 'vacancia_max' in request.GET:
+        try:
+            max_vacancia = float(request.GET['vacancia_max'])
+            df = df[df['Vacância Média'] <= max_vacancia]
+            filters['vacancia_max'] = max_vacancia
+        except ValueError:
+            pass
+    
+    # PVP
+    if 'pvp_min' in request.GET:
+        try:
+            min_pvp = float(request.GET['pvp_min'])
+            df = df[df['P/VP'] >= min_pvp]
+            filters['pvp_min'] = min_pvp
+        except ValueError:
+            pass
+    
+    if 'pvp_max' in request.GET:
+        try:
+            max_pvp = float(request.GET['pvp_max'])
+            df = df[df['P/VP'] <= max_pvp]
+            filters['pvp_max'] = max_pvp
+        except ValueError:
+            pass
+    
+    # Segmento
+    if 'segmento' in request.GET:
+        segmento = request.GET['segmento'].strip()
+        if segmento:
+            df = df[df['Segmento'].str.contains(segmento, case=False, na=False)]
+            filters['segmento'] = segmento
+
+    df= rank_fiis(df)
+
+    data = df.to_dict('records')
+    columns = df.columns.tolist()
+    
+    return render(request, 'fiis/index.html', {
+        'data': data, 
+        'columns': columns,
+        'filters': filters
+    })
