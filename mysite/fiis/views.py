@@ -4,7 +4,6 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from io import StringIO
 from sklearn.preprocessing import MinMaxScaler
-
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
 }
@@ -15,12 +14,45 @@ def get_data():
     soup = BeautifulSoup(response.content, 'html.parser')
     table = soup.find('table')
     df = pd.read_html(StringIO(str(table)))[0]
-    df.to_csv('fiis.csv', index=False)
-
+    df.to_csv('../fiis.csv', index=False)
     return df
 
+def get_data_com():
+    #fiis =pd.read_csv("df1_filtro.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    fiis = get_data()
+    tickers = fiis["Papel"].tolist()
+    todos_os_fiis = []
+    for papel in tickers:
+        print(f"Processando complemento de: {papel}")
+
+        url = f"https://investidor10.com.br/fiis/{papel}/"
+        response = requests.get(url, headers=headers)
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        titulos = [item.text.strip() for item in soup.find_all('span', class_="name")]
+        valores = [item.text.strip() for item in soup.find_all('div', class_="value")]
+
+        dados_fiis = dict(zip(titulos, valores))
+        dados_fiis["Papel"] = papel
+        todos_os_fiis.append(dados_fiis)
+    
+    df = pd.DataFrame(todos_os_fiis)
+    df.to_csv("../fiis_com.csv", index=False)
+    return df
+
+def merge():
+    df1 = pd.read_csv("../fiis.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df2 = pd.read_csv("../fiis_com.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    merge = pd.merge(df1, df2, on="Papel", how="inner")
+    merge.to_csv("../merge.csv", index=False)
+    merge = pd.read_csv("../merge.csv")
+    ordem = ["Papel", "Segmento", "TIPO DE FUNDO", "VAL. PATRIMONIAL P/ COTA", "Cotação", "Dividend Yield", "P/VP", "ÚLTIMO RENDIMENTO", "FFO Yield", "Liquidez", "Valor de Mercado", "Qtd de imóveis", "Cap Rate", "Vacância Média", "VALOR PATRIMONIAL"]
+    merge = merge[ordem]
+    merge.to_csv("../merge.csv", index=False)
+    return merge
+
 def process_data():
-    df = pd.read_csv("../fiis.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df = pd.read_csv("../merge.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
     df = df.drop(columns=["Preço do m2", "Aluguel por m2", "Qtd de imóveis", "Cap Rate"], errors="ignore")
 
     colunas_percentuais = ["FFO Yield", "Dividend Yield", "Vacância Média"]
@@ -56,7 +88,11 @@ def process_data():
         df[col] = df[col].apply(pvp)
     return df
 
-from sklearn.preprocessing import MinMaxScaler
+def update_data():
+    get_data()
+    get_data_com()
+    merge()
+    return process_data()
 
 def rank_fiis(df):
     df = df.copy()
@@ -82,14 +118,16 @@ def rank_fiis(df):
         df[f'{col}_score'] = norm * abs(peso)
 
     # Rank final como soma ponderada dos scores
-    df['Rank'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
+    df['Rank_ponderado'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
     
     # Ordenar
     df = df.drop(columns=['Vacância Média_score', 'P/VP_score', 'Dividend Yield_score', 'Liquidez_score'])
-    df = df.sort_values(by='Rank', ascending=False)
+    df = df.sort_values(by='Rank_ponderado', ascending=False)
+    df.insert(0, 'Rank', range(1, len(df) + 1))
+    ordered_df = df[['Rank', 'Papel', 'Segmento', 'Cotação', 'Dividend Yield', 'P/VP', 'Liquidez', 'Vacância Média']]
+    df = ordered_df
 
     return df
-
 
 def index(request):
     df = process_data()
