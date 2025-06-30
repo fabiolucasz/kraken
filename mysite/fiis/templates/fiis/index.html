@@ -21,6 +21,14 @@
         justify-content: center;
         align-items: center;
     }
+    span {
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+
+    }
 </style>
 {% block content %}
      {% csrf_token %}
@@ -69,9 +77,46 @@
             <tbody>
                 {% for row in data %}
                     <tr>
-                        {% for col in columns %}
-                        <td>{{ row|get_item:col }}</td>
-                        {% endfor %}
+                        <td>
+                            <span>{{ row|get_item:'Favoritos' }}</span>
+                        </td>
+
+
+                        <td>
+                            {{ row|get_item:'Rank' }}
+                        </td>
+                        <td>
+                            <a href="https://investidor10.com.br/fiis/{{ row|get_item:'Papel' }}/">
+                                <div class="logo">
+                                    <img src="https://investidor10.com.br/assets/front/images/business-and-trade-gray.svg" alt="" width="30px" height="30px">
+                                    <span>{{ row|get_item:'Papel' }}</span>
+                                </div>
+                            </a>
+                        
+                        </td>
+                        
+                        <td>
+                            {{ row|get_item:'Segmento' }}
+                        </td>
+                        <td>
+                            {{ row|get_item:'Cotação' }}
+                        </td>
+                        <td>
+                            {{ row|get_item:'Dividend Yield' }}
+                        </td>
+                        <td>
+                            {{ row|get_item:'P/VP' }}
+                        </td>
+                       
+                        
+                        <td>
+                            {{ row|get_item:'Liquidez' }}
+                        </td>
+                        
+                        <td>
+                            {{ row|get_item:'Vacância Média' }}
+                        </td>
+                        
                     </tr>
                 {% endfor %}
             </tbody>
