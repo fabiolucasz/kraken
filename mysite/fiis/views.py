@@ -6,6 +6,7 @@ from io import StringIO
 from sklearn.preprocessing import MinMaxScaler
 import asyncio
 import aiohttp
+from .models import Fiis
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
 }
@@ -23,14 +24,6 @@ def get_df1():
     df = process_df1()
     df.to_csv('../df1.csv', index=False)
     return df
-
-def filter_df1(liquidez_minima, pvp):
-    df = pd.read_csv("../df1.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-    df = df[df["Liquidez"] >= liquidez_minima]
-    df = df[df["P/VP"] >= pvp]
-    df = df.sort_values(by="Dividend Yield", ascending=False)
-    return df
-
 
 def process_df1():
     df = pd.read_csv("../df1.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
@@ -74,41 +67,13 @@ def process_df1():
     
     return df
 
-def get_df2():
-    fiis = filter_df1(liquidez_minima, pvp_minimo)
-    tickers = fiis["Papel"].tolist()
-    all_fiis = []
-
-    for papel in tickers:
-        print(f"✔️ {papel}")
-        try:
-            url = f"https://investidor10.com.br/fiis/{papel}/"
-            response = requests.get(url, headers=headers)
-            soup = BeautifulSoup(response.text, 'html.parser')
-            titulo1 = [item.text.strip() for item in soup.find_all('span', class_="name")]
-            titulo2 = ["Dividendos em 12 meses"]
-            titulos = [titulo1,titulo2]
-            titulos = [item for sublist in titulos for item in sublist]
-            valor1 = [item.text.strip() for item in soup.find_all('div', class_="value")]
-            dividendo_div = soup.find_all('h3', class_="box-span" )
-            ultimo_valor = dividendo_div[-1].text.strip().split(" ")[6].replace(",",".")
-            valor2 = [ultimo_valor]
-            valores = [valor1,valor2]
-            valores = [item for sublist in valores for item in sublist]
-
-            dados_fiis = dict(zip(titulos, valores))
-            dados_fiis["Papel"] = papel
-            all_fiis.append(dados_fiis)
-        except Exception as e:
-            print(f"❌ Erro ao processar {papel}: {e}")
-            return {"Papel": papel}
-    
-    df = pd.DataFrame(all_fiis)
-    df.to_csv("df2.csv", index=False)
-    #df = tratar_df2()
-    df.to_csv("df2.csv", index=False)
-    merge()
+def filter_df1(liquidez_minima, pvp):
+    df = pd.read_csv("../df1.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df = df[df["Liquidez"] >= liquidez_minima]
+    df = df[df["P/VP"] >= pvp]
+    df = df.sort_values(by="Dividend Yield", ascending=False)
     return df
+
 async def fetch(session, papel, headers):
     url = f"https://investidor10.com.br/fiis/{papel}/"
     try:
@@ -146,12 +111,10 @@ async def get_data_com_async():
 
     df = pd.DataFrame(todos_os_fiis)
     df.to_csv("../df2.csv", index=False)
-    #df = tratar_df2()
-    df.to_csv("../df2.csv", index=False)
     merge()
     return df
 
-def get_data_com():
+def get_df2():
     return asyncio.run(get_data_com_async())
 
 def merge():
@@ -159,20 +122,16 @@ def merge():
     df2 = pd.read_csv("../df2.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
     merge = pd.merge(df1, df2, on="Papel", how="inner")
     merge.to_csv("../merge.csv", index=False)
-    #merge = pd.read_csv("../merge.csv")
-    #ordem = ["Papel", "Segmento", "TIPO DE FUNDO", "VAL. PATRIMONIAL P/ COTA", "Cotação", "Dividend Yield", "P/VP", "ÚLTIMO RENDIMENTO", "FFO Yield", "Liquidez", "Valor de Mercado", "Qtd de imóveis", "Cap Rate", "Vacância Média", "VALOR PATRIMONIAL"]
-    #merge = merge[ordem]
-    #merge.to_csv("../merge.csv", index=False)
+    merge = process_merged_df()
+    merge.to_csv("../merge.csv", index=False)
     return merge
 
-def process_data():
+def process_merged_df():
     df = pd.read_csv("../merge.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-    df = df.drop(columns=["Preço do m2", "Aluguel por m2", "Qtd de imóveis", "Cap Rate"], errors="ignore")
 
-    colunas_percentuais = ["FFO Yield", "Dividend Yield", "Vacância Média"]
-    colunas_valores = ["Valor de Mercado", "Liquidez"]
-    colunas_cotacao = ["Cotação"]
-    colunas_pvp = ["P/VP"]
+    colunas_percentuais = ["TAXA DE ADMINISTRAÇÃO", "VACÂNCIA"]
+    colunas_valores = ["NUMERO DE COTISTAS", "COTAS EMITIDAS"]
+    colunas_cotacao = ["VAL. PATRIMONIAL P/ COTA", "ÚLTIMO RENDIMENTO", "Dividendos em 12 meses"]
 
     for col in colunas_percentuais:
         df[col] = df[col].astype(str).str.replace("%", "", regex=False).str.replace(",", ".")
@@ -180,34 +139,18 @@ def process_data():
 
     for col in colunas_valores:
         df[col] = df[col].astype(str).str.replace(".", "", regex=False).str.replace(",", ".", regex=False)
-    df[col] = pd.to_numeric(df[col], errors="coerce")
+        df[col] = pd.to_numeric(df[col], errors="coerce")
 
     for col in colunas_cotacao:
         df[col] = df[col].astype(str).str.replace(r"\D", "", regex=True)  
-        df[col] = df[col].apply(
-            lambda x: float(x.zfill(3)[:-2] + "." + x.zfill(3)[-2:]) if x else None
-        )
+        df[col] = df[col].apply(lambda x: float(x.zfill(3)[:-2] + "." + x.zfill(3)[-2:]) if x else None)
 
-    def pvp(x):
-        x = x.strip()
-        if not x.isdigit():
-            return None
-        if len(x) > 2:
-            return float(x[:-2] + "." + x[-2:])
-        else:
-            return float("0." + x)
-
-    for col in colunas_pvp:
-        df[col] = df[col].astype(str).str.replace(r"\D", "", regex=True)
-        df[col] = df[col].apply(pvp)
+    df.to_csv('../merge.csv', index=False)
     return df
 
 
-
-
-
-def rank_fiis(df):
-    df = df.copy()
+def rank_fiis():
+    df = pd.read_csv("../merge.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
     
     # Indicadores relevantes
     indicadores = {
@@ -231,17 +174,36 @@ def rank_fiis(df):
 
     # Rank final como soma ponderada dos scores
     df['Rank_ponderado'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
+    df['YOC'] = ((df['Dividendos em 12 meses'] / df['Cotação']) * 100).round(2)
     
     # Ordenar
     df = df.drop(columns=['Vacância Média_score', 'P/VP_score', 'Dividend Yield_score', 'Liquidez_score'])
     df = df.sort_values(by='Rank_ponderado', ascending=False)
     df.insert(0, 'Rank', range(1, len(df) + 1))
-    ordered_df = df[['Favoritos', 'Rank', 'Papel', 'Segmento', 'Cotação', 'Dividend Yield', 'P/VP', 'Liquidez', 'Vacância Média']]
+    ordered_df = df[['Rank', 'Papel', 'Segmento', 'Cotação', 'Dividend Yield', 'P/VP', 'Liquidez', 'Vacância Média', 'YOC']]
     df = ordered_df
-
+    
     return df
+
+def update_data():
+    get_df1()
+    get_df2()
+
+#update_data()
+print(rank_fiis())
+def to_bd():
+    df = pd.read_csv("../merge.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    papel = df["Papel"]
+    segmento = df["Segmento"]
+    cotacao = df["Cotação"]
+    dividend_yield = df["Dividend Yield"]
+    pvp = df["P/VP"]
+    liquidez = df["Liquidez"]
+    vacancia_media = df["Vacância Média"]
+    ffo_yield = df["FFO Yield"]
+    yield_on_coast = df["Yield on Cost"]
 def index(request):
-    df = process_data()
+    df = rank_fiis()
     
     # Aplicando filtros baseados nos parâmetros da URL
     filters = {}
@@ -297,7 +259,7 @@ def index(request):
             df = df[df['Segmento'].str.contains(segmento, case=False, na=False)]
             filters['segmento'] = segmento
 
-    df= rank_fiis(df)
+    df= rank_fiis()
 
     data = df.to_dict('records')
     columns = df.columns.tolist()
@@ -307,11 +269,3 @@ def index(request):
         'columns': columns,
         'filters': filters
     })
-
-def update_data():
-    get_df1()
-    print(filter_df1(liquidez_minima, pvp_minimo))
-    #get_df2()
-    get_data_com()
-
-update_data()

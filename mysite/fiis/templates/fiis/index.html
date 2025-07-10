@@ -77,13 +77,10 @@
             <tbody>
                 {% for row in data %}
                     <tr>
-                        <td>
-                            <span>{{ row|get_item:'Favoritos' }}</span>
-                        </td>
-
+                        
 
                         <td>
-                            {{ row|get_item:'Rank' }}
+                            {{ row|get_item:'Rank' }}º
                         </td>
                         <td>
                             <a href="https://investidor10.com.br/fiis/{{ row|get_item:'Papel' }}/">
@@ -99,22 +96,25 @@
                             {{ row|get_item:'Segmento' }}
                         </td>
                         <td>
-                            {{ row|get_item:'Cotação' }}
+                            R$ {{ row|get_item:'Cotação' }}
                         </td>
                         <td>
-                            {{ row|get_item:'Dividend Yield' }}
+                            {{ row|get_item:'Dividend Yield' }} %
                         </td>
                         <td>
-                            {{ row|get_item:'P/VP' }}
+                            {{ row|get_item:'P/VP' }} %
                         </td>
                        
                         
                         <td>
-                            {{ row|get_item:'Liquidez' }}
+                            R$ {{ row|get_item:'Liquidez' }}
                         </td>
                         
                         <td>
-                            {{ row|get_item:'Vacância Média' }}
+                            {{ row|get_item:'Vacância Média' }} %
+                        </td>
+                        <td>
+                            {{ row|get_item:'YOC' }} %
                         </td>
                         
                     </tr>
