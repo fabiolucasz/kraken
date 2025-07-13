@@ -2,125 +2,271 @@
 {% load custom_filters %}
 
 {% block title %}Fiis{% endblock %}
+
+{% block styles %}
 <style>
+    .filter{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 90%; 
+        height: auto;
+        margin: auto; 
+        padding: 2%;
+        border: 1px solid #fff;
+        border-radius: 10px; 
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        margin-top: 5%;
+        margin-bottom: 5%;
+        background-color: #fff;
+    }
+    .toolbar{
+        display: flex; 
+        flex-wrap: wrap;
+    }
+    .advanced-search-filter-header span, span {
+        font-size: 14px;
+        font-weight: bold;
+        color: #000;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .title::after{
+        content: "";
+        border-bottom: 1px solid #ccc;
+        display: block;
+        width: 100%;
+        margin: 0 20px;
+    }
+    .indicadores, .grid{
+        display: flex; 
+        flex-wrap: wrap; 
+        display: grid; 
+        grid-template-columns: repeat(4, 1fr); 
+        grid-template-rows: repeat(1, 1fr); 
+        gap: 5%;
+    }
+
+    .actions{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%; 
+        height: auto;
+        margin: auto; 
+        padding: 2%;
+        border: 1px solid #ccc;
+        border-radius: 10px; 
+        margin-top: 5%;
+        margin-bottom: 5%;
+        background-color: #fff;
+    }
+    .actions:hover{
+        border: 1px solid #fff;
+        border-radius: 10px; 
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+
+    }
+    .card-indicator{
+        padding: 3%;
+    }
+
+
+
     table {
         width: 100%;
         border-collapse: collapse;
         font-family: Arial, sans-serif;
     }
     th, td {
-        border: 1px solid #ccc;
+        /*border: 1px solid #ccc;*/
         padding: 8px;
         text-align: left;
     }
     th {
         background-color: #f3f3f3;
     }
-    .filters {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    span {
-        font-size: 14px;
-        font-weight: bold;
-        color: #fff;
-        text-align: center;
-        text-transform: uppercase;
+    
+    
 
-    }
+    
 </style>
+{% endblock %}
 {% block content %}
-     {% csrf_token %}
-    <form method="GET" class="filters bg-dark text-white p-2 w-100">
-        <div class="col flex">
-            <label for="dividend-yield-min">Dividend Yield Min:</label>
-            <br>
-            <input type="number" id="dividend-yield-min" name="dividend_yield_min" min="7.0" value="{{ filters.dividend_yield_min|default:'7.0' }}" placeholder="Dividend Yield Min">
-        </div>
-        <div class="col">
-            <label for="liquidez-min">Liquidez Min:</label>
-            <br>
-            <input type="number" id="liquidez-min" name="liquidez_min" min="500000" value="{{ filters.liquidez_min|default:'500000' }}" placeholder="Liquidez Min">
-        </div>
-        <div>
-            <label for="vacancia-max">Vacância Max:</label>
-            <br>
-            <input type="number" id="vacancia-max" name="vacancia_max" max="30.0" value="{{ filters.vacancia_max|default:'30.0' }}" placeholder="Vacância Max">
-        </div>
-        <div>
-            <label for="pvp-min">PVP Min:</label>
-            <br>
-            <input type="number" id="pvp-min" name="pvp_min" min="0.75" value="{{ filters.pvp_min|default:'0.75' }}" placeholder="PVP Min">
-        </div>
-        <div>
-            <label for="pvp-max">PVP Max:</label>
-            <br>
-            <input type="number" id="pvp-max" name="pvp_max" max="1.05" value="{{ filters.pvp_max|default:'1.05' }}" placeholder="PVP Max">
-        </div>
-        <div>
-            <label for="segmento">Segmento:</label>
-            <br>
-            <input type="text" id="segmento" name="segmento" value="{{ filters.segmento|default:'' }}" placeholder="Segmento">
-        </div>
-        <button type="submit" class="btn btn-primary">Filtrar</button>
-    </form>
-    <div class="m-auto">
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    {% for col in columns %}
-                        <th>{{ col }}</th>
-                    {% endfor %}
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in data %}
-                    <tr>
-                        
 
-                        <td>
-                            {{ row|get_item:'Rank' }}º
-                        </td>
-                        <td>
-                            <a href="https://investidor10.com.br/fiis/{{ row|get_item:'Papel' }}/">
-                                <div class="logo">
-                                    <img src="https://investidor10.com.br/assets/front/images/business-and-trade-gray.svg" alt="" width="30px" height="30px">
-                                    <span>{{ row|get_item:'Papel' }}</span>
-                                </div>
-                            </a>
-                        
-                        </td>
-                        
-                        <td>
-                            {{ row|get_item:'Segmento' }}
-                        </td>
-                        <td>
-                            R$ {{ row|get_item:'Cotação' }}
-                        </td>
-                        <td>
-                            {{ row|get_item:'Dividend Yield' }} %
-                        </td>
-                        <td>
-                            {{ row|get_item:'P/VP' }} %
-                        </td>
-                       
-                        
-                        <td>
-                            R$ {{ row|get_item:'Liquidez' }}
-                        </td>
-                        
-                        <td>
-                            {{ row|get_item:'Vacância Média' }} %
-                        </td>
-                        <td>
-                            {{ row|get_item:'YOC' }} %
-                        </td>
-                        
+        <div class="filter">
+            <form method="GET">
+                <div class="toolbar">
+
+                    
+
+                    <div class="category" id="setor">
+                        <span class="title">Setor</span>
+                        <div>
+                            <input type="text" id="segmento" name="segmento" value="{{ filters.segmento|default:'' }}" placeholder="Segmento">
+                        </div>
+                        <div class="custom-select">
+                            <select name="setor" id="sector" class="select2-hidden-accessible" data-select2-id="select2-data-sector" tabindex="-1" aria-hidden="true">
+                                <option value="">Todos</option>
+                                
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="category" id="tipo">
+                        <span class="title">Tipo</span>
+                        <div class="custom-select">
+                            <select name="tipo" id="tipo" class="select2-hidden-accessible" data-select2-id="select2-data-tipo" tabindex="-1" aria-hidden="true">
+                                <option value="">Todos</option>
+                                
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+            <header>
+                <span class="title">Filtros</span>
+            </header>
+
+            <div class="indicadores grid">
+    
+                <div class="actions" id="filter-dy">
+                    <div class="card-indicator actions-card">
+        
+                        <div class="advanced-search-filter-header">
+                            <span>DY</span>
+                        </div>
+        
+                        <div class="form-inline d-flex justify-content-between align-items-center">
+                            <input type="number" name="ranges[p_vp][0]" class="js-input-from form-control form-control-sm" style="width: 48%" min="0" max="100" step="0.01" value="{{ filters.dividend_yield_min|floatformat }}">
+                        </div>
+        
+                    </div>
+                </div>
+    
+    
+    
+                <div class="actions" id="filter-liquidez">
+                    <div class="card-indicator actions-card">
+        
+                        <div class="advanced-search-filter-header">
+                            <span>Liquidez</span>
+                        </div>
+        
+                        <div class="form-inline d-flex justify-content-between align-items-center">
+                            <input type="number" name="liquidez" class="js-input-from form-control form-control-sm" style="width: 48%" value="{{ filters.liquidez_min|stringformat:'d' }}">
+                        </div>
+        
+                    </div>
+                </div>
+    
+    
+                <div class="actions" id="filter-vacancia">
+                    <div class="card-indicator actions-card">
+        
+                        <div class="advanced-search-filter-header">
+                            <span>Vacância</span>
+                        </div>
+        
+                        <div class="form-inline d-flex justify-content-between align-items-center">
+                            <input type="number" name="vacancia" class="js-input-from form-control form-control-sm" style="width: 48%" value="{{ filters.vacancia_max|floatformat }}">
+                        </div>
+        
+                    </div>
+                </div>
+        
+                <div class="actions" id="filter-p_vp">
+                    <div class="card-indicator actions-card">
+        
+                        <div class="advanced-search-filter-header">
+                            <span>P/VP</span>
+                        </div>
+        
+                        <div class="form-inline d-flex justify-content-between align-items-center">
+                            <input type="number" name="ranges[p_vp][0]" class="js-input-from form-control form-control-sm" style="width: 48%" min="0" max="100" step="0.01" value="{{ filters.pvp_min|floatformat }}">
+                            -
+                            <input type="number" name="ranges[p_vp][1]" class="js-input-to form-control form-control-sm" style="width: 48%" min="0" max="100" step="0.01" value="{{ filters.pvp_max|floatformat }}">
+                        </div>
+        
+                    </div>
+                </div>
+    
+                
+    
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+
+            </form>
+        </div>
+        
+   <div class="box margin-top advanced" style id="container-table-advanced-search">
+    <div class="filter">
+        <header>
+            <span class="title">Resultados</span>
+        </header>
+
+        <div class="scroll-h table-responsive-md datatable">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        {% for col in columns %}
+                            <th>{{ col }}</th>
+                        {% endfor %}
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                        <tr>
+                            
+    
+                            <td>
+                                {{ row|get_item:'Rank' }}º
+                            </td>
+                            <td>
+                                <a href="https://investidor10.com.br/fiis/{{ row|get_item:'Papel' }}/">
+                                    <div class="logo">
+                                        <img src="https://investidor10.com.br/assets/front/images/business-and-trade-gray.svg" alt="" width="30px" height="30px">
+                                        <span>{{ row|get_item:'Papel' }}</span>
+                                    </div>
+                                </a>
+                            
+                            </td>
+                            
+                            <td>
+                                {{ row|get_item:'Segmento' }}
+                            </td>
+                            <td>
+                                R$ {{ row|get_item:'Cotação' }}
+                            </td>
+                            <td>
+                                {{ row|get_item:'Dividend Yield' }} %
+                            </td>
+                            <td>
+                                {{ row|get_item:'P/VP' }} %
+                            </td>
+                           
+                            
+                            <td>
+                                R$ {{ row|get_item:'Liquidez' }}
+                            </td>
+                            
+                            <td>
+                                {{ row|get_item:'Vacância Média' }} %
+                            </td>
+                            <td>
+                                {{ row|get_item:'YOC' }} %
+                            </td>
+                            
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
+
+   </div>
+    
     
 {% endblock %}
