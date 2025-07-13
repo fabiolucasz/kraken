@@ -259,7 +259,12 @@ def index(request):
             df = df[df['Segmento'].str.contains(segmento, case=False, na=False)]
             filters['segmento'] = segmento
 
-    df= rank_fiis()
+    # Recalcular o ranking após os filtros
+    df = df.reset_index(drop=True)
+    df['Rank'] = range(1, len(df) + 1)
+
+    # Ordenar novamente com base no novo ranking
+    df = df.sort_values('Rank')
 
     data = df.to_dict('records')
     columns = df.columns.tolist()
