@@ -95,7 +95,8 @@
 {% block content %}
 
         <div class="filter">
-            <form id="filter-form" method="GET">
+            <form id="filter-form" method="POST">
+                {% csrf_token %}
                 <div class="toolbar">
 
                     
@@ -196,10 +197,11 @@
     
             </div>
             
-            <button type="submit" class="btn btn-primary">Filtrar</button>
+            <button type="submit" class="btn btn-primary">Buscar</button>
 
             </form>
         </div>
+
            <div class="box margin-top advanced" style id="container-table-advanced-search">
     <div class="filter">
         <header>
