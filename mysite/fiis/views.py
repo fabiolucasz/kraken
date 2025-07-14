@@ -189,83 +189,77 @@ def update_data():
     get_df1()
     get_df2()
 
-#update_data()
-print(rank_fiis())
-def to_bd():
-    df = pd.read_csv("../merge.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-    papel = df["Papel"]
-    segmento = df["Segmento"]
-    cotacao = df["Cotação"]
-    dividend_yield = df["Dividend Yield"]
-    pvp = df["P/VP"]
-    liquidez = df["Liquidez"]
-    vacancia_media = df["Vacância Média"]
-    ffo_yield = df["FFO Yield"]
-    yield_on_coast = df["Yield on Cost"]
+
+from django.core.cache import cache
+import json
+
 def index(request):
+    # Se for POST, salvamos os filtros no cache
+    if request.method == 'POST':
+        filters = request.POST.dict()
+        cache_key = f"fiis_filters_{request.session.session_key}"
+        cache.set(cache_key, filters, 3600)  # Cache por 1 hora
+    else:
+        # Se não for POST, recuperamos os filtros do cache
+        cache_key = f"fiis_filters_{request.session.session_key}"
+        filters = cache.get(cache_key, {})
+
+    # Carregamos o DataFrame
     df = rank_fiis()
-    
-    # Aplicando filtros baseados nos parâmetros da URL
-    filters = {}
-    
-    # Dividend Yield
-    if 'dividend_yield_min' in request.GET:
-        try:
-            min_yield = float(request.GET['dividend_yield_min'])
-            df = df[df['Dividend Yield'] >= min_yield]
-            filters['dividend_yield_min'] = min_yield
-        except ValueError:
-            pass
-    
-    # Liquidez
-    if 'liquidez_min' in request.GET:
-        try:
-            min_liquidez = float(request.GET['liquidez_min'])
-            df = df[df['Liquidez'] >= min_liquidez]
-            filters['liquidez_min'] = min_liquidez
-        except ValueError:
-            pass
-    
-    # Vacância
-    if 'vacancia_max' in request.GET:
-        try:
-            max_vacancia = float(request.GET['vacancia_max'])
-            df = df[df['Vacância Média'] <= max_vacancia]
-            filters['vacancia_max'] = max_vacancia
-        except ValueError:
-            pass
-    
-    # PVP
-    if 'pvp_min' in request.GET:
-        try:
-            min_pvp = float(request.GET['pvp_min'])
-            df = df[df['P/VP'] >= min_pvp]
-            filters['pvp_min'] = min_pvp
-        except ValueError:
-            pass
-    
-    if 'pvp_max' in request.GET:
-        try:
-            max_pvp = float(request.GET['pvp_max'])
-            df = df[df['P/VP'] <= max_pvp]
-            filters['pvp_max'] = max_pvp
-        except ValueError:
-            pass
-    
-    # Segmento
-    if 'segmento' in request.GET:
-        segmento = request.GET['segmento'].strip()
-        if segmento:
-            df = df[df['Segmento'].str.contains(segmento, case=False, na=False)]
-            filters['segmento'] = segmento
+
+    # Aplicamos os filtros
+    if filters:
+        # Dividend Yield
+        if 'dividend_yield_min' in filters:
+            try:
+                min_yield = float(filters['dividend_yield_min'])
+                df = df[df['Dividend Yield'] >= min_yield]
+            except ValueError:
+                pass
+        
+        # Liquidez
+        if 'liquidez_min' in filters:
+            try:
+                min_liquidez = float(filters['liquidez_min'])
+                df = df[df['Liquidez'] >= min_liquidez]
+            except ValueError:
+                pass
+        
+        # Vacância
+        if 'vacancia_max' in filters:
+            try:
+                max_vacancia = float(filters['vacancia_max'])
+                df = df[df['Vacância Média'] <= max_vacancia]
+            except ValueError:
+                pass
+        
+        # PVP
+        if 'pvp_min' in filters:
+            try:
+                min_pvp = float(filters['pvp_min'])
+                df = df[df['P/VP'] >= min_pvp]
+            except ValueError:
+                pass
+        
+        if 'pvp_max' in filters:
+            try:
+                max_pvp = float(filters['pvp_max'])
+                df = df[df['P/VP'] <= max_pvp]
+            except ValueError:
+                pass
+        
+        # Segmento
+        if 'segmento' in filters:
+            segmento = filters['segmento'].strip()
+            if segmento:
+                df = df[df['Segmento'].str.contains(segmento, case=False, na=False)]
 
     # Recalcular o ranking após os filtros
     df = df.reset_index(drop=True)
     df['Rank'] = range(1, len(df) + 1)
-
-    # Ordenar novamente com base no novo ranking
     df = df.sort_values('Rank')
 
+    # Preparar os dados para o template
     data = df.to_dict('records')
     columns = df.columns.tolist()
     
