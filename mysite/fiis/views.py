@@ -180,7 +180,7 @@ def rank_fiis():
     df = df.drop(columns=['Vacância Média_score', 'P/VP_score', 'Dividend Yield_score', 'Liquidez_score'])
     df = df.sort_values(by='Rank_ponderado', ascending=False)
     df.insert(0, 'Rank', range(1, len(df) + 1))
-    ordered_df = df[['Rank', 'Papel', 'Segmento', 'Cotação', 'Dividend Yield', 'P/VP', 'Liquidez', 'Vacância Média', 'YOC']]
+    ordered_df = df[['Rank', 'Papel', 'SEGMENTO', 'TIPO DE FUNDO', 'Cotação', 'Dividend Yield', 'P/VP', 'Liquidez', 'Vacância Média', 'YOC']]
     df = ordered_df
     
     return df
@@ -206,6 +206,10 @@ def index(request):
 
     # Carregamos o DataFrame
     df = rank_fiis()
+    #renomear coluna
+    df.rename(columns={'TIPO DE FUNDO': 'TIPO'}, inplace=True)
+    segmentos_unicos = df['SEGMENTO'].dropna().unique()
+    tipos_unicos = df['TIPO'].dropna().unique()
 
     # Aplicamos os filtros
     if filters:
@@ -249,10 +253,21 @@ def index(request):
                 pass
         
         # Segmento
-        if 'segmento' in filters:
-            segmento = filters['segmento'].strip()
+        # if 'segmento' in filters:
+        #     segmento = filters['segmento'].strip()
+        #     if segmento:
+        #         df = df[df['Segmento'].str.contains(segmento, case=False, na=False)]
+        if 'SEGMENTO' in filters:
+            segmento = filters['SEGMENTO'].strip()
             if segmento:
-                df = df[df['Segmento'].str.contains(segmento, case=False, na=False)]
+                df = df[df['SEGMENTO'].str.contains(segmento, case=False, na=False)]
+        
+        if 'TIPO' in filters:
+            tipo = filters['TIPO'].strip()
+            if tipo:
+                df = df[df['TIPO'].str.contains(tipo, case=False, na=False)]
+    
+    
 
     # Recalcular o ranking após os filtros
     df = df.reset_index(drop=True)
@@ -266,5 +281,7 @@ def index(request):
     return render(request, 'fiis/index.html', {
         'data': data, 
         'columns': columns,
-        'filters': filters
+        'filters': filters,
+        'SEGMENTO': segmentos_unicos,
+        'TIPO': tipos_unicos
     })

@@ -23,7 +23,31 @@
     .toolbar{
         display: flex; 
         flex-wrap: wrap;
+        gap: 5%;
     }
+    .select2-hidden-accessible{
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 2%;
+        margin-left: 5%;
+        width: 107%;
+    }
+    .filter header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    }
+
+    .filter header .title:after {
+    border-bottom: 1px solid #ccc;
+    content: "";
+    display: block;
+    margin: 0 20px;
+    width: 100%;
+    }
+
+
     .advanced-search-filter-header span, span {
         font-size: 14px;
         font-weight: bold;
@@ -31,13 +55,7 @@
         text-align: center;
         text-transform: uppercase;
     }
-    .title::after{
-        content: "";
-        border-bottom: 1px solid #ccc;
-        display: block;
-        width: 100%;
-        margin: 0 20px;
-    }
+    
     .indicadores, .grid{
         display: flex; 
         flex-wrap: wrap; 
@@ -69,6 +87,11 @@
     }
     .card-indicator{
         padding: 3%;
+    }
+
+    svg:not(:host).svg-inline--fa, svg:not(:root).svg-inline--fa {
+    overflow: visible;
+    box-sizing: content-box;
     }
 
 
@@ -103,13 +126,12 @@
 
                     <div class="category" id="setor">
                         <span class="title">Setor</span>
-                        <div>
-                            <input type="text" id="segmento" name="segmento" value="{{ filters.segmento|default:'' }}" placeholder="Segmento">
-                        </div>
                         <div class="custom-select">
-                            <select name="setor" id="sector" class="select2-hidden-accessible" data-select2-id="select2-data-sector" tabindex="-1" aria-hidden="true">
+                            <select name="SEGMENTO" id="sector" class="select2-hidden-accessible" data-select2-id="select2-data-sector" tabindex="-1" aria-hidden="true">
                                 <option value="">Todos</option>
-                                
+                                {% for segmento in SEGMENTO %}
+                                    <option value="{{ segmento }}" {% if segmento == filters.SEGMENTO %}selected{% endif %}>{{ segmento }}</option>
+                                {% endfor %}
                             </select>
                         </div>
 
@@ -117,9 +139,11 @@
                     <div class="category" id="tipo">
                         <span class="title">Tipo</span>
                         <div class="custom-select">
-                            <select name="tipo" id="tipo" class="select2-hidden-accessible" data-select2-id="select2-data-tipo" tabindex="-1" aria-hidden="true">
+                            <select name="TIPO" id="tipo" class="select2-hidden-accessible" data-select2-id="select2-data-tipo" tabindex="-1" aria-hidden="true">
                                 <option value="">Todos</option>
-                                
+                                {% for tipo in TIPO %}
+                                    <option value="{{ tipo }}" {% if tipo == filters.TIPO %}selected{% endif %}>{{ tipo }}</option>
+                                {% endfor %}
                             </select>
                         </div>
 
@@ -197,7 +221,12 @@
     
             </div>
             
-            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="submit" class="btn btn-primary">
+                Buscar
+                <svg class="svg-inline--fa fa-magnifying-glass" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></svg>
+            
+            
+            </button>
 
             </form>
         </div>
@@ -238,7 +267,10 @@
                             </td>
                             
                             <td>
-                                {{ row|get_item:'Segmento' }}
+                                {{ row|get_item:'SEGMENTO' }}
+                            </td>
+                            <td>
+                                {{ row|get_item:'TIPO' }}
                             </td>
                             <td>
                                 R$ {{ row|get_item:'Cotação' }}
