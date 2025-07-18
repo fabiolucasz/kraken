@@ -24,6 +24,8 @@
         display: flex; 
         flex-wrap: wrap;
         gap: 5%;
+        align-items: center;
+        justify-content: center;
     }
     .select2-hidden-accessible{
         border: 1px solid #ccc;
@@ -89,9 +91,14 @@
         padding: 3%;
     }
 
-    svg:not(:host).svg-inline--fa, svg:not(:root).svg-inline--fa {
-    overflow: visible;
-    box-sizing: content-box;
+    .btn{
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
     }
 
 
@@ -220,6 +227,14 @@
                 
     
             </div>
+            <button action="update_data" class="btn btn-primary">
+                Limpar filtro
+            </button>
+
+
+            <button action="update_data" class="btn btn-primary">
+                Atualizar base/Salvar filtro
+            </button>
             
             <button type="submit" class="btn btn-primary">
                 Buscar
@@ -289,6 +304,9 @@
                             
                             <td>
                                 {{ row|get_item:'Vacância Média' }} %
+                            </td>
+                            <td>
+                                {{ row|get_item:'DY mensal' }} %
                             </td>
                             <td>
                                 {{ row|get_item:'YOC' }} %
