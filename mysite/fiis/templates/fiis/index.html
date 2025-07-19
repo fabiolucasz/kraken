@@ -3,6 +3,10 @@
 
 {% block title %}Fiis{% endblock %}
 
+{% block scripts %}
+<!-- Removido o JavaScript para usar apenas Python/Django -->
+{% endblock %}
+
 {% block styles %}
 <style>
     .filter{
@@ -19,6 +23,34 @@
         margin-top: 5%;
         margin-bottom: 5%;
         background-color: #fff;
+    }
+
+    .favorite-star {
+        cursor: pointer;
+        font-size: 1.5em;
+        transition: color 0.3s ease;
+    }
+
+    .favorite-star-gray {
+        color: #ccc;
+    }
+
+    .favorite-star-yellow {
+        color: #ffd700;
+    }
+
+    .favorite-star {
+        cursor: pointer;
+        font-size: 1.5em;
+        transition: color 0.3s ease;
+    }
+
+    .favorite-star-gray {
+        color: #ccc;
+    }
+
+    .favorite-star-yellow {
+        color: #ffd700;
     }
     .toolbar{
         display: flex; 
@@ -115,6 +147,11 @@
     }
     th {
         background-color: #f3f3f3;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
     }
     
     
@@ -268,9 +305,10 @@
                     {% for row in data %}
                         <tr>
                             <td>
-                                <i class="favorite-star {% if row.is_favorite %}favorite-star-yellow{% else %}favorite-star-gray{% endif %}" data-papel="{{ row.Papel }}">
+                                <a href="{% url 'fiis:toggle_favorite' row.Papel %}" 
+                                   class="favorite-star {% if row.is_favorite %}favorite-star-yellow{% else %}favorite-star-gray{% endif %}">
                                     ★
-                                </i>
+                                </a>
                             </td>
                             <!-- {% for column in columns %}
                                 {% if column != 'Papel' %}
@@ -307,7 +345,6 @@
                             <td>
                                 {{ row|get_item:'P/VP' }} %
                             </td>
-                           
                             
                             <td>
                                 R$ {{ row|get_item:'Liquidez' }}

@@ -1,9 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.cache import cache
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from .fiisdata import rank_fiis
 from .models import Fiis, UserFavoriteFiis
+from django.contrib import messages
+from django.shortcuts import redirect
 
 def index(request):
     # Se for POST, salvamos os filtros no cache
@@ -112,6 +114,17 @@ def index(request):
         
         data.append(row_data)
     
+    # Adiciona status de favorito para cada FII
+    if request.user.is_authenticated:
+        favorites = UserFavoriteFiis.objects.filter(user=request.user)
+        favorite_dict = {fav.fiis.papel: fav.is_favorite for fav in favorites}
+    else:
+        favorite_dict = {}
+    
+    # Adiciona o status de favorito em cada linha de dados
+    for row in data:
+        row['is_favorite'] = favorite_dict.get(row['Papel'], False)
+    
     return render(request, 'fiis/index.html', {
         'data': data, 
         'columns': columns,
@@ -120,16 +133,25 @@ def index(request):
         'Tipo': tipos_unicos    
     })
 
+
+
 @login_required
 def toggle_favorite(request, papel):
-    if request.method == 'POST':
-        fiis = get_object_or_404(Fiis, papel=papel)
-        favorite, created = UserFavoriteFiis.objects.get_or_create(
-            user=request.user,
-            fiis=fiis
-        )
-        favorite.is_favorite = not favorite.is_favorite
-        favorite.save()
-        
-        return JsonResponse({'success': True, 'is_favorite': favorite.is_favorite})
-    return JsonResponse({'success': False}, status=400)
+    fiis = get_object_or_404(Fiis, papel=papel)
+    favorite, created = UserFavoriteFiis.objects.get_or_create(
+        user=request.user,
+        fiis=fiis
+    )
+    
+    # Altera o estado de favorito
+    favorite.is_favorite = not favorite.is_favorite
+    favorite.save()
+    
+    # Adiciona mensagem de feedback
+    if favorite.is_favorite:
+        messages.success(request, f'FII {papel} adicionado aos favoritos!')
+    else:
+        messages.success(request, f'FII {papel} removido dos favoritos!')
+    
+    # Redireciona de volta para a página principal
+    return redirect('fiis:index')
