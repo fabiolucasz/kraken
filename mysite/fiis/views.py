@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.cache import cache
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 from .fiisdata import rank_fiis
+from .models import Fiis, UserFavoriteFiis
 
 def index(request):
     # Se for POST, salvamos os filtros no cache
@@ -15,10 +18,8 @@ def index(request):
 
     # Carregamos o DataFrame
     df = rank_fiis()
-    #renomear coluna
-    df.rename(columns={'TIPO DE FUNDO': 'TIPO'}, inplace=True)
-    segmentos_unicos = df['SEGMENTO'].dropna().unique()
-    tipos_unicos = df['TIPO'].dropna().unique()
+    segmentos_unicos = df['Setor'].dropna().unique()
+    tipos_unicos = df['Tipo'].dropna().unique()
 
     # Aplicamos os filtros
     if filters:
@@ -26,7 +27,7 @@ def index(request):
         if 'dividend_yield_min' in filters:
             try:
                 min_yield = float(filters['dividend_yield_min'])
-                df = df[df['Dividend Yield'] >= min_yield]
+                df = df[df['DY'] >= min_yield]
             except ValueError:
                 pass
         
@@ -42,7 +43,7 @@ def index(request):
         if 'vacancia_max' in filters:
             try:
                 max_vacancia = float(filters['vacancia_max'])
-                df = df[df['Vacância Média'] <= max_vacancia]
+                df = df[df['Vacância'] <= max_vacancia]
             except ValueError:
                 pass
         
@@ -66,17 +67,15 @@ def index(request):
         #     segmento = filters['segmento'].strip()
         #     if segmento:
         #         df = df[df['Segmento'].str.contains(segmento, case=False, na=False)]
-        if 'SEGMENTO' in filters:
-            segmento = filters['SEGMENTO'].strip()
+        if 'Setor' in filters:
+            segmento = filters['Setor'].strip()
             if segmento:
-                df = df[df['SEGMENTO'].str.contains(segmento, case=False, na=False)]
+                df = df[df['Setor'].str.contains(segmento, case=False, na=False)]
         
-        if 'TIPO' in filters:
-            tipo = filters['TIPO'].strip()
+        if 'Tipo' in filters:
+            tipo = filters['Tipo'].strip()
             if tipo:
-                df = df[df['TIPO'].str.contains(tipo, case=False, na=False)]
-    
-    
+                df = df[df['Tipo'].str.contains(tipo, case=False, na=False)]
 
     # Recalcular o ranking após os filtros
     df = df.reset_index(drop=True)
@@ -84,13 +83,53 @@ def index(request):
     df = df.sort_values('Rank')
 
     # Preparar os dados para o template
-    data = df.to_dict('records')
+    data = []
     columns = df.columns.tolist()
+    
+    # Adicionar status de favorito para cada FII se o usuário estiver logado
+    if request.user.is_authenticated:
+        favorites = UserFavoriteFiis.objects.filter(user=request.user)
+        favorite_dict = {fav.fiis.papel: fav.is_favorite for fav in favorites}
+    
+    # Converter DataFrame para lista de dicionários compatível com o template
+    for index, row in df.iterrows():
+        row_data = {}
+        
+        # Primeiro, garantimos que temos o papel
+        papel = str(row['Papel']) if 'Papel' in df.columns else str(row['papel'])
+        row_data['Papel'] = papel
+        
+        # Adicionamos o status de favorito
+        if request.user.is_authenticated:
+            row_data['is_favorite'] = favorite_dict.get(papel, False)
+        
+        # Adicionamos os outros campos, garantindo que os nomes sejam compatíveis com o template
+        for col in columns:
+            if col != 'Papel':  # Já adicionamos o Papel acima
+                # Normalizar o nome da coluna para o template
+                col_name = col.replace(' ', '_')  # Substituir espaços por underscores
+                row_data[col_name] = row[col]
+        
+        data.append(row_data)
     
     return render(request, 'fiis/index.html', {
         'data': data, 
         'columns': columns,
         'filters': filters,
-        'SEGMENTO': segmentos_unicos,
-        'TIPO': tipos_unicos
+        'Setor': segmentos_unicos,
+        'Tipo': tipos_unicos    
     })
+
+@login_required
+def toggle_favorite(request, papel):
+    if request.method == 'POST':
+        fiis = get_object_or_404(Fiis, papel=papel)
+        favorite, created = UserFavoriteFiis.objects.get_or_create(
+            user=request.user,
+            fiis=fiis
+        )
+        favorite.is_favorite = not favorite.is_favorite
+        favorite.save()
+        
+        return JsonResponse({'success': True, 'is_favorite': favorite.is_favorite})
+    return JsonResponse({'success': False}, status=400)

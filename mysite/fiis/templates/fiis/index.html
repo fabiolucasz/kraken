@@ -134,10 +134,10 @@
                     <div class="category" id="setor">
                         <span class="title">Setor</span>
                         <div class="custom-select">
-                            <select name="SEGMENTO" id="sector" class="select2-hidden-accessible" data-select2-id="select2-data-sector" tabindex="-1" aria-hidden="true">
+                            <select name="Setor" id="sector" class="select2-hidden-accessible" data-select2-id="select2-data-sector" tabindex="-1" aria-hidden="true">
                                 <option value="">Todos</option>
-                                {% for segmento in SEGMENTO %}
-                                    <option value="{{ segmento }}" {% if segmento == filters.SEGMENTO %}selected{% endif %}>{{ segmento }}</option>
+                                {% for segmento in Setor %}
+                                    <option value="{{ segmentos_unicos }}" {% if segmento == filters.Setor %}selected{% endif %}>{{ segmento }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -146,10 +146,10 @@
                     <div class="category" id="tipo">
                         <span class="title">Tipo</span>
                         <div class="custom-select">
-                            <select name="TIPO" id="tipo" class="select2-hidden-accessible" data-select2-id="select2-data-tipo" tabindex="-1" aria-hidden="true">
+                            <select name="Tipo" id="tipo" class="select2-hidden-accessible" data-select2-id="select2-data-tipo" tabindex="-1" aria-hidden="true">
                                 <option value="">Todos</option>
-                                {% for tipo in TIPO %}
-                                    <option value="{{ tipo }}" {% if tipo == filters.TIPO %}selected{% endif %}>{{ tipo }}</option>
+                                {% for tipo in Tipo %}
+                                    <option value="{{ tipo }}" {% if tipo == filters.Tipo %}selected{% endif %}>{{ tipo }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -258,6 +258,7 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
+                        <th></th>
                         {% for col in columns %}
                             <th>{{ col }}</th>
                         {% endfor %}
@@ -266,6 +267,16 @@
                 <tbody>
                     {% for row in data %}
                         <tr>
+                            <td>
+                                <i class="favorite-star {% if row.is_favorite %}favorite-star-yellow{% else %}favorite-star-gray{% endif %}" data-papel="{{ row.Papel }}">
+                                    ★
+                                </i>
+                            </td>
+                            <!-- {% for column in columns %}
+                                {% if column != 'Papel' %}
+                                    <td>{{ row.column }}</td>
+                                {% endif %}
+                            {% endfor %} -->
                             
     
                             <td>
@@ -282,16 +293,16 @@
                             </td>
                             
                             <td>
-                                {{ row|get_item:'SEGMENTO' }}
+                                {{ row|get_item:'Setor' }}
                             </td>
                             <td>
-                                {{ row|get_item:'TIPO' }}
+                                {{ row|get_item:'Tipo' }}
                             </td>
                             <td>
                                 R$ {{ row|get_item:'Cotação' }}
                             </td>
                             <td>
-                                {{ row|get_item:'Dividend Yield' }} %
+                                {{ row|get_item:'DY' }} %
                             </td>
                             <td>
                                 {{ row|get_item:'P/VP' }} %
@@ -303,10 +314,10 @@
                             </td>
                             
                             <td>
-                                {{ row|get_item:'Vacância Média' }} %
+                                {{ row|get_item:'Vacância' }} %
                             </td>
                             <td>
-                                {{ row|get_item:'DY mensal' }} %
+                                {{ row|get_item:'DY/mês' }} %
                             </td>
                             <td>
                                 {{ row|get_item:'YOC' }} %

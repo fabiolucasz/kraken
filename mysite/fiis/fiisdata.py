@@ -173,20 +173,47 @@ def rank_fiis():
 
     # Rank final como soma ponderada dos scores
     df['Rank_ponderado'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
-    df['DY mensal'] = ((df['ÚLTIMO RENDIMENTO'] / df['Cotação'])* 100).round(2)
+    df['DY/mês'] = ((df['ÚLTIMO RENDIMENTO'] / df['Cotação'])* 100).round(2)
     df['YOC'] = ((df['Dividendos em 12 meses'] / df['Cotação']) * 100).round(2)
     
     # Ordenar
     df = df.drop(columns=['Vacância Média_score', 'P/VP_score', 'Dividend Yield_score', 'Liquidez_score'])
     df = df.sort_values(by='Rank_ponderado', ascending=False)
     df.insert(0, 'Rank', range(1, len(df) + 1))
-    ordered_df = df[['Rank', 'Papel', 'SEGMENTO', 'TIPO DE FUNDO', 'Cotação', 'Dividend Yield', 'P/VP', 'Liquidez', 'Vacância Média', 'DY mensal' ,'YOC']]
+    df.rename(columns={'Vacância Média': 'Vacância'}, inplace=True)
+    df.rename(columns={'Dividend Yield': 'DY'}, inplace=True)
+    df.rename(columns={'TIPO DE FUNDO': 'Tipo'}, inplace=True)
+    df.rename(columns={'SEGMENTO': 'Setor'}, inplace=True)
+    ordered_df = df[['Rank', 'Papel', 'Setor', 'Tipo', 'Cotação', 'DY', 'P/VP', 'Liquidez', 'Vacância', 'DY/mês' ,'YOC']]
     df = ordered_df
     
     return df
-
+print(rank_fiis())
 def update_data():
     get_df1()
     get_df2()
 
-update_data()
+
+# Função para importar FIIs do df1.csv
+import pandas as pd
+from .models import Fiis
+
+def import_fiis_from_csv():
+    try:
+        # Carrega o CSV
+        df = pd.read_csv("../df1.csv")
+        
+        # Limpa todos os registros existentes
+        Fiis.objects.all().delete()
+        
+        # Insere novos registros
+        for papel in df['Papel'].unique():
+            Fiis.objects.create(papel=papel)
+        
+        print(f"Importados {len(df['Papel'].unique())} FIIs com sucesso!")
+        return True
+    except Exception as e:
+        print(f"Erro ao importar FIIs: {str(e)}")
+        return False
+
+import_fiis_from_csv()
