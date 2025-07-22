@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.cache import cache
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-from .fiisdata import rank_fiis
+from ..fii_scraper.fii_scraper.spiders.fii_spider import FiiSpider
 from .models import Fiis, UserFavoriteFiis
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -19,7 +19,7 @@ def index(request):
         filters = cache.get(cache_key, {})
 
     # Carregamos o DataFrame
-    df = rank_fiis()
+    df = FiiSpider.rank_fiis()
     segmentos_unicos = df['Setor'].dropna().unique()
     tipos_unicos = df['Tipo'].dropna().unique()
 
