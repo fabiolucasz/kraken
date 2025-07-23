@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load custom_filters %}
 
-{% block title %}Fiis{% endblock %}
+{% block title %}Busca Avançada de FIIs{% endblock %}
 
 {% block scripts %}
 <!-- Removido o JavaScript para usar apenas Python/Django -->
@@ -173,8 +173,8 @@
                         <div class="custom-select">
                             <select name="Setor" id="sector" class="select2-hidden-accessible" data-select2-id="select2-data-sector" tabindex="-1" aria-hidden="true">
                                 <option value="">Todos</option>
-                                {% for segmento in Setor %}
-                                    <option value="{{ segmentos_unicos }}" {% if segmento == filters.Setor %}selected{% endif %}>{{ segmento }}</option>
+                                {% for setor in setor %}
+                                    <option value="{{ setor }}" {% if setor == filters.Setor %}selected{% endif %}>{{ setor }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -185,7 +185,7 @@
                         <div class="custom-select">
                             <select name="Tipo" id="tipo" class="select2-hidden-accessible" data-select2-id="select2-data-tipo" tabindex="-1" aria-hidden="true">
                                 <option value="">Todos</option>
-                                {% for tipo in Tipo %}
+                                {% for tipo in tipo %}
                                     <option value="{{ tipo }}" {% if tipo == filters.Tipo %}selected{% endif %}>{{ tipo }}</option>
                                 {% endfor %}
                             </select>
@@ -310,11 +310,6 @@
                                     ★
                                 </a>
                             </td>
-                            <!-- {% for column in columns %}
-                                {% if column != 'Papel' %}
-                                    <td>{{ row.column }}</td>
-                                {% endif %}
-                            {% endfor %} -->
                             
     
                             <td>
@@ -347,11 +342,11 @@
                             </td>
                             
                             <td>
-                                R$ {{ row|get_item:'Liquidez' }}
+                                R$ {{ row|get_item:'Liquidez' }} {{ row|get_item:'Liquidez_unidade' }}
                             </td>
                             
                             <td>
-                                {{ row|get_item:'Vacância' }} %
+                                {{ row|get_item:'VACÂNCIA' }} %
                             </td>
                             <td>
                                 {{ row|get_item:'DY/mês' }} %
