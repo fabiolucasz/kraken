@@ -1,11 +1,62 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.cache import cache
-from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-from ..fii_scraper.fii_scraper.spiders.fii_spider import FiiSpider
 from .models import Fiis, UserFavoriteFiis
 from django.contrib import messages
 from django.shortcuts import redirect
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+
+
+def rank_fiis():
+    df = pd.read_csv("/home/fabio/Documents/GitHub/kraken/final.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+
+    print("antes do rank")
+    print(df)
+
+    # Indicadores relevantes
+    indicadores = {
+        'DY': 1,  # quanto maior, melhor
+        'Liquidez': 0.5,  # quanto maior, melhor
+        'VACÂNCIA': -1,  # quanto menor, melhor
+        'P/VP': -0.5  # quanto menor, melhor
+    }
+
+    # Remover nulos nas colunas relevantes
+    #df = df.dropna(subset=indicadores.keys())
+
+    # Normalizar os dados
+    scaler = MinMaxScaler()
+
+    for col, peso in indicadores.items():
+        # Normalizar entre 0 e 1
+        norm = scaler.fit_transform(df[[col]])
+        if peso < 0:
+            norm = 1 - norm  # inverter se menor é melhor
+        df[f'{col}_score'] = norm * abs(peso)
+
+    # Rank final como soma ponderada dos scores
+    df['Rank_ponderado'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
+
+    # Calcular o DY/mês e YOC
+    df['DY/mês'] = ((df['ÚLTIMO RENDIMENTO'] / df['Cotação']) * 100).round(2)
+    df['YOC'] = ((df['DY'] / df['Cotação']) * 100).round(2)
+
+    # Ordenar
+    df.drop(columns=['VACÂNCIA_score', 'P/VP_score', 'DY_score', 'Liquidez_score'])
+    df = df.sort_values(by='Rank_ponderado', ascending=False)
+    df.insert(0, 'Rank', range(1, len(df) + 1))
+
+
+    # Organizando as colunas finais
+    ordered_df = df[['Rank', 'Papel', 'Setor', 'Tipo', 'Cotação', 'DY', 'P/VP', 'Liquidez', 'VACÂNCIA', 'DY/mês', 'YOC']]
+    df = ordered_df
+    print("depois do rank")
+    print(df)
+
+    return df
+
+print(rank_fiis())
 
 def index(request):
     # Se for POST, salvamos os filtros no cache
@@ -19,7 +70,7 @@ def index(request):
         filters = cache.get(cache_key, {})
 
     # Carregamos o DataFrame
-    df = FiiSpider.rank_fiis()
+    df = rank_fiis()
     segmentos_unicos = df['Setor'].dropna().unique()
     tipos_unicos = df['Tipo'].dropna().unique()
 
@@ -45,7 +96,7 @@ def index(request):
         if 'vacancia_max' in filters:
             try:
                 max_vacancia = float(filters['vacancia_max'])
-                df = df[df['Vacância'] <= max_vacancia]
+                df = df[df['VACÂNCIA'] <= max_vacancia]
             except ValueError:
                 pass
         
@@ -129,8 +180,8 @@ def index(request):
         'data': data, 
         'columns': columns,
         'filters': filters,
-        'Setor': segmentos_unicos,
-        'Tipo': tipos_unicos    
+        'setor': segmentos_unicos,
+        'tipo': tipos_unicos    
     })
 
 
