@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 from io import StringIO
 import time
+import os
 
 headers = {
 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
@@ -13,7 +14,6 @@ headers = {
 class FiiSpider(scrapy.Spider):
     name = "fii_spider"
     allowed_domains = ["investidor10.com.br"]
-
 
     liquidez_minima = 500_000
     pvp_minimo = 0.70
@@ -96,10 +96,6 @@ class FiiSpider(scrapy.Spider):
         try:
             item = {}
 
-            # Coleta os títulos
-            nomes2 = response.css('div.desc span.d-flex::text').getall()
-            titulos2 = [nome.strip() for nome in nomes2]
-
             nomes = response.css('div._card-header div span::text').getall()
             titulo_cotacao = nomes[0].strip().split(" ")[1]
             titulo_dy = nomes[1].strip().split(" ")[1]
@@ -109,9 +105,12 @@ class FiiSpider(scrapy.Spider):
             titulo_variacao = nomes[4].strip().split(" ")[0]
             titulo_dy_pago_ult_12m = "DY_Pago_ult_12m"
 
+            nomes2 = response.css('div.desc span.d-flex::text').getall()
+            titulos2 = [nome.strip() for nome in nomes2]
+
             titulos = [titulo_cotacao, titulo_dy, titulo_pvp, titulo_liquidez, titulo_liquidez_unidade, titulo_variacao, titulo_dy_pago_ult_12m] + titulos2
 
-            # Valores (caixas principais)
+
             valores_div = response.css('div._card-body div span::text').getall()
             cotacao = valores_div[0].strip().replace("R$ ", "").replace(",", ".")
             dy = valores_div[1].strip().replace("%", "").replace(",", ".")
@@ -193,5 +192,4 @@ if __name__ == "__main__":
     df = FiiSpider.process_df2(temp_file)
     df.to_csv('df2_teste.csv', index=False)
     # Remove o arquivo temporário
-    import os
     os.remove(temp_file)
