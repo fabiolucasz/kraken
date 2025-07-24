@@ -7,4 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('fiis/', include('fiis.urls')),
+    path('acoes/', include('acoes.urls')),
 ]

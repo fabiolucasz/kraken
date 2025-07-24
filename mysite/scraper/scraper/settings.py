@@ -1,4 +1,4 @@
-# Scrapy settings for fii_scraper project
+# Scrapy settings for scraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,10 +7,10 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "fii_scraper"
+BOT_NAME = "scraper"
 
-SPIDER_MODULES = ["fii_scraper.spiders"]
-NEWSPIDER_MODULE = "fii_scraper.spiders"
+SPIDER_MODULES = ["scraper.spiders"]
+NEWSPIDER_MODULE = "scraper.spiders"
 
 ADDONS = {}
 

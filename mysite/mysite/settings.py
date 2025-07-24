@@ -19,6 +19,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'acoes.apps.AcoesConfig',
     'fiis.apps.FiisConfig',
     'django.contrib.admin',
     'django.contrib.auth',
