@@ -469,38 +469,27 @@
 
 
                         <td>
-                            {{ row|get_item:'Setor' }}
+                            {{ row|get_item:'Cotação' }}
                         </td>
                         <td>
-                            {{ row|get_item:'Tipo' }}
+                            {{ row|get_item:'P/L' }}
                         </td>
                         <td>
-                            R$ {{ row|get_item:'Cotação' }}
+                            {{ row|get_item:'DY' }}
                         </td>
                         <td>
-                            {{ row|get_item:'DY' }} %
-                        </td>
-                        <td>
-                            {{ row|get_item:'P/VP' }} %
+                            {{ row|get_item:'P/VP' }}
                         </td>
 
 
                         <td>
-                            R$ {{ row|get_item:'Liquidez' }} {{ row|get_item:'Liquidez_unidade' }}
+                            {{ row|get_item:'ROE' }}
                         </td>
 
 
                         <td>
-                            {{ row|get_item:'VACÂNCIA' }} %
+                            {{ row|get_item:'PAYOUT' }} %
                         </td>
-                        <td>
-                            {{ row|get_item:'DY/mês' }} %
-                        </td>
-                        <td>
-                            {{ row|get_item:'YOC' }} %
-                        </td>
-
-
                     </tr>
                     {% endfor %}
                 </tbody>
