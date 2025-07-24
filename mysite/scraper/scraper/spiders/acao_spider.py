@@ -17,6 +17,10 @@ class AcaoSpider(scrapy.Spider):
         for papel in df["Ticker"]:
             url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
             yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
+        #Teste de um papel
+        # ticker = "BBAS3"
+        # url = f"https://investidor10.com.br/acoes/{ticker.lower()}/"
+        # yield scrapy.Request(url, callback=self.parse, meta={'papel': ticker})
 
     def parse(self, response):
         try:
@@ -29,10 +33,47 @@ class AcaoSpider(scrapy.Spider):
             titulo_pvp = nomes[3].strip()
             titulo_dy = nomes[4].strip()
 
-            nomes2 = response.css('div.cell span.d-flex::text').getall()
-            titulos2 = [nome.strip() for nome in nomes2]
 
-            titulos = [titulo_cotacao, titulo_variacao, titulo_pl, titulo_pvp, titulo_dy] + titulos2
+            nomes2 = response.css('div.cell span.d-flex::text').getall()
+            titulo_pl2 = nomes2[0].strip()
+            titulo_psr = nomes2[1].strip().split(" ")[0]
+            titulo_pvp2 = nomes2[2].strip().split(" ")[0]
+            titulo_dy2 = nomes2[3].strip().split(" ")[0].replace("DIVIDEND", "DY")
+
+
+            titulo_payout = nomes2[4].strip()
+            titulo_margem_liquida = nomes2[5].strip().replace(" ", "_")
+            titulo_margem_bruta = nomes2[6].strip().replace(" ", "_")
+            titulo_margem_ebit = nomes2[7].strip().replace(" ", "_")
+
+
+            titulo_margem_ebitda = nomes2[8].strip().replace(" ", "_")
+
+
+            titulo_ev_ebit = nomes2[9].strip()
+            titulo_p_ebit = nomes2[10].strip()
+            titulo_p_ativo = nomes2[11].strip()
+            titulo_p_cap_giro = nomes2[12].strip()
+
+
+            titulo_p_ativo_circ_liq = nomes2[13].strip().replace(" ", "_")
+            titulo_vpa = nomes2[14].strip()
+            titulo_lpa = nomes2[15].strip()
+            titulo_giro_ativos = nomes2[16].strip().replace(" ", "_")
+
+
+            titulo_roe = nomes2[17].strip()
+            titulo_roic = nomes2[18].strip()
+            titulo_roa = nomes2[19].strip()
+            titulo_patrimonio_ativos = nomes2[20].strip().replace(" ", "")
+
+
+            titulo_passivos_ativos = nomes2[21].strip().replace(" ", "")
+            titulo_liquidez_corrente = nomes2[22].strip().replace(" ", "_")
+            titulo_cagr_receitas_5_anos = nomes2[23].strip().replace(" ", "_")
+            titulo_cagr_lucros_5_anos = nomes2[24].strip().replace(" ", "_")
+
+            titulos = [titulo_cotacao, titulo_variacao, titulo_pl, titulo_pvp, titulo_dy] + [titulo_pl2, titulo_psr, titulo_pvp2, titulo_dy2, titulo_payout, titulo_margem_liquida, titulo_margem_bruta, titulo_margem_ebit, titulo_margem_ebitda, titulo_ev_ebit, titulo_p_ebit, titulo_p_ativo, titulo_p_cap_giro, titulo_p_ativo_circ_liq, titulo_vpa, titulo_lpa, titulo_giro_ativos, titulo_roe, titulo_roic, titulo_roa, titulo_patrimonio_ativos, titulo_passivos_ativos, titulo_liquidez_corrente, titulo_cagr_receitas_5_anos, titulo_cagr_lucros_5_anos]
 
             # Valores (caixas principais)
             valores_div = response.css('div._card-body div span::text').getall()
@@ -40,13 +81,13 @@ class AcaoSpider(scrapy.Spider):
             variacao = valores_div[1].strip().replace("%", "").replace(",", ".")
 
             valores1_div = response.css('div._card-body span::text').getall()
-            pl = valores1_div[2].strip().replace(",", ".")
-            pvp = valores1_div[3].strip().replace(",", ".")
-            dy = valores1_div[4].strip().replace(",", ".").replace("%", "")
+            pl = valores1_div[2].strip().replace(".","").replace(",", ".")
+            pvp = valores1_div[3].strip().replace(".","").replace(",", ".")
+            dy = valores1_div[4].strip().replace(".","").replace(",", ".").replace("%", "")
 
 
             valores_div2 = response.css('div.value span::text').getall()
-            valores2 = [valor.strip().replace(",", ".").replace("%", "") for valor in valores_div2]
+            valores2 = [valor.strip().replace(".","").replace(",", ".").replace("%", "") for valor in valores_div2]
 
             valores = [cotacao, variacao] + [pl, pvp, dy] + valores2
 

@@ -8,9 +8,40 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 
+def rank_acoes():
+    df = pd.read_csv('./../acoes.csv', quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    
+    indicadores = {
+        'DY': 1,
+        'P/L': 1,
+        'PAYOUT': 1,
+        'P/VP': -1,
+        'ROE': 1,
+    }
+    
+    scaler = MinMaxScaler()
+
+
+    for col, peso in indicadores.items():
+        # Normalizar entre 0 e 1
+        norm = scaler.fit_transform(df[[col]])
+        if peso < 0:
+            norm = 1 - norm  # inverter se menor é melhor
+        df[f'{col}_score'] = norm * abs(peso)
+    
+    df['Rank_ponderado'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
+    df = df.sort_values(by='Rank_ponderado', ascending=False)
+    df.insert(0, 'Rank', range(1, len(df) + 1))
+
+    ordered_df = df[['Rank', 'Papel','Cotação', 'P/L','DY','P/VP','ROE','PAYOUT']]
+    df = ordered_df
+    
+    
+    return df
+
 def index(request):
 
-    df = pd.read_csv('./../acoes.csv', quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df = rank_acoes()
 
     data = []
     columns = df.columns.tolist()
