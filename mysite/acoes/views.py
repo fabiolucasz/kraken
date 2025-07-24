@@ -43,14 +43,18 @@ def index(request):
 
     df = rank_acoes()
 
+    df = df.reset_index(drop=True)
+    df['Rank'] = range(1, len(df) + 1)
+    df = df.sort_values('Rank')
+
     data = []
     columns = df.columns.tolist()
-    
+   
     # Adicionar status de favorito para cada Ação se o usuário estiver logado
     if request.user.is_authenticated:
         favorites = UserFavoriteAcoes.objects.filter(user=request.user)
         favorite_dict = {fav.acoes.papel: fav.is_favorite for fav in favorites}
-    
+   
     # Converter DataFrame para lista de dicionários compatível com o template
     for index, row in df.iterrows():
         row_data = {}
@@ -62,6 +66,13 @@ def index(request):
         # Adicionamos o status de favorito
         if request.user.is_authenticated:
             row_data['is_favorite'] = favorite_dict.get(papel, False)
+       
+        # Adicionamos os outros campos, garantindo que os nomes sejam compatíveis com o template
+        for col in columns:
+            if col != 'Papel':  # Já adicionamos o Papel acima
+                # Normalizar o nome da coluna para o template
+                col_name = col.replace(' ', '_')  # Substituir espaços por underscores
+                row_data[col_name] = row[col]
        
         data.append(row_data)
     
