@@ -1,45 +1,64 @@
 {% extends 'base.html' %}
 {% load custom_filters %}
 
+
 {% block title %}Busca Avançada de FIIs{% endblock %}
 
 
-{% block styles %}
-<style>
-    * {
-        color: #F8F8F8;
-    }
 
-    
-    .filter{
+
+{% block extra_css %}
+<style>
+    .filter {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        width: 90%; 
+        width: 90%;
         height: auto;
-        margin: auto; 
+        margin: auto;
         padding: 2%;
         border: 1px solid #1D232C;
-        border-radius: 10px; 
+        border-radius: 10px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-        margin-top: 5%;
+        margin-top: 10%;
         margin-bottom: 5%;
         background-color: #1D232C;
     }
 
+
+    span {
+        font-size: 14px;
+        font-weight: bold;
+        color: #F8F8F8 !important;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+
+    .advanced-search-filter-header {
+        display: flex;
+        justify-content: space-around;
+        padding: 4%;
+        margin-bottom: 10%;
+    }
+
+
     .favorite-star {
         cursor: pointer;
         font-size: 1.5em;
         transition: color 0.3s ease;
     }
 
+
     .favorite-star-gray {
         color: #ccc;
     }
 
+
     .favorite-star-yellow {
         color: #ffd700;
     }
+
 
     .favorite-star {
         cursor: pointer;
@@ -47,22 +66,27 @@
         transition: color 0.3s ease;
     }
 
+
     .favorite-star-gray {
         color: #ccc;
     }
 
+
     .favorite-star-yellow {
         color: #ffd700;
     }
-    .toolbar{
-        display: flex; 
+
+
+    .toolbar {
+        display: flex;
         flex-wrap: wrap;
         gap: 5%;
         align-items: center;
         justify-content: center;
     }
 
-    .select2-hidden-accessible{
+
+    .select2-hidden-accessible {
         background-color: #1D232C;
         color: #F8F8F8;
         border: 1px solid #2B313E;
@@ -72,232 +96,336 @@
         width: 107%;
     }
 
-    .js-input-form{
+
+    .js-input-form {
         background-color: #1D232C;
         color: #F8F8F8;
         border: 1px solid #2B313E;
         border-radius: 10px;
-       
+
+
     }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+
     .filter header {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
     }
+
 
     .filter header .title:after {
-    border-bottom: 1px solid #ccc;
-    content: "";
-    display: block;
-    margin: 0 20px;
-    width: 100%;
+        border-bottom: 1px solid #ccc;
+        content: "";
+        display: block;
+        margin: 0 20px;
+        width: 100%;
     }
 
 
-    .advanced-search-filter-header span, span {
+
+
+    .advanced-search-filter-header span,
+    span {
         font-size: 14px;
         font-weight: bold;
         color: #000;
         text-align: center;
         text-transform: uppercase;
     }
-    
-    .indicadores, .grid{
-        display: flex; 
-        flex-wrap: wrap; 
-        display: grid; 
-        grid-template-columns: repeat(4, 1fr); 
-        grid-template-rows: repeat(1, 1fr); 
+
+
+    .indicadores,
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(1, 1fr);
         gap: 5%;
     }
 
-    .actions{
+
+    .actions {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        width: 100%; 
+        width: 100%;
         height: auto;
-        margin: auto; 
+        margin: auto;
         padding: 2%;
         border: 1px solid #2B313E;
-        border-radius: 10px; 
+        border-radius: 10px;
         margin-top: 5%;
         margin-bottom: 5%;
         background-color: #151B24;
     }
-    .actions:hover{
+
+
+    .actions:hover {
         border: 1px solid #2B313E;
-        border-radius: 10px; 
+        border-radius: 10px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 
+
     }
-    .card-indicator{
+
+
+    .card-indicator {
         padding: 3%;
     }
 
-    .btn{
-        font-weight: bold;
-        font-size: 14px;
-        background-color: #3691B9;
-    }
 
-    svg {
-        width: 20px;
-        height: 20px;
+    .margin-top {
+    margin-top: 40px;
     }
 
 
 
-    table {
+    .clear_save {
         width: 100%;
-        border-collapse: collapse;
-        font-family: Arial, sans-serif;
+
+
     }
-    th, td {
-        /*border: 1px solid #ccc;*/
-        padding: 8px;
-        text-align: left;
+
+
+    .d-flex {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
     }
-    th {
-        background-color: #f3f3f3;
+
+    .search {
+    padding: 0 0 0 20px;
     }
+
+
+    .btn-default {
+        display: flex;
+        background-color: #40ABDA;
+        color: #FFFFFF;
+        font: normal normal 800 14px / 19px Nunito;
+        height: 36px;
+        align-items: center;
+        border: 1px solid #2B313E;
+        border-radius: 10px;
+    }
+    
+
+    .btn-default:hover {
+        background-color: #3691B9;
+        border: 1px solid #2B313E;
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+
+
+    }
+
+    button {
+    padding: 0 30px;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+
+    th,
+    td {
+        text-align: center;
+    }
+
 
     a {
         text-decoration: none;
         color: inherit;
     }
-    
-    
-
-    
 </style>
 {% endblock %}
 {% block content %}
 
-        <div class="filter">
-            <form id="filter-form" method="POST">
-                {% csrf_token %}
-                <div class="toolbar">
 
-                    
+<div class="filter">
+    <form id="filter-form" method="POST">
+        {% csrf_token %}
+        <div class="toolbar">
 
-                    <div class="category" id="setor">
-                        <span class="title">Setor</span>
-                        <div class="custom-select">
-                            <select name="Setor" id="sector" class="select2-hidden-accessible" data-select2-id="select2-data-sector" tabindex="-1" aria-hidden="true">
-                                <option value="">Todos</option>
-                                {% for setor in setor %}
-                                    <option value="{{ setor }}" {% if setor == filters.Setor %}selected{% endif %}>{{ setor }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
 
-                    </div>
-                    <div class="category" id="tipo">
-                        <span class="title">Tipo</span>
-                        <div class="custom-select">
-                            <select name="Tipo" id="tipo" class="select2-hidden-accessible" data-select2-id="select2-data-tipo" tabindex="-1" aria-hidden="true">
-                                <option value="">Todos</option>
-                                {% for tipo in tipo %}
-                                    <option value="{{ tipo }}" {% if tipo == filters.Tipo %}selected{% endif %}>{{ tipo }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
 
-                    </div>
+
+
+
+            <div class="category" id="setor">
+                <span class="title">Setor</span>
+                <div class="custom-select">
+                    <select name="Setor" id="sector" class="select2-hidden-accessible"
+                        data-select2-id="select2-data-sector" tabindex="-1" aria-hidden="true">
+                        <option value="">Todos</option>
+                        {% for setor in setores %}
+                        <option value="{{ setor }}" {% if setor == filters.Setor %}selected{% endif %}>{{ setor }}
+                        </option>
+                        {% endfor %}
+                    </select>
                 </div>
 
-            <header>
-                <span class="title">Filtros</span>
-            </header>
 
-            <div class="indicadores grid">
-    
-                <div class="actions" id="filter-dy">
-                    <div class="card-indicator actions-card">
-        
-                        <div class="advanced-search-filter-header">
-                            <span>DY</span>
-                        </div>
-        
-                        <div class="form-inline d-flex justify-content-between align-items-center">
-                            <input type="number" name="dividend_yield_min" class="js-input-form form-control form-control-sm" style="width: 48%" min="0" max="100" step="0.01" value="{{ filters.dividend_yield_min|floatformat }}">
-                        </div>
-        
-                    </div>
-                </div>
-    
-    
-    
-                <div class="actions" id="filter-liquidez">
-                    <div class="card-indicator actions-card">
-        
-                        <div class="advanced-search-filter-header">
-                            <span>Liquidez</span>
-                        </div>
-        
-                        <div class="form-inline d-flex justify-content-between align-items-center">
-                            <input type="number" name="liquidez_min" class="js-input-form form-control form-control-sm" style="width: 48%" value="{{ filters.liquidez_min|stringformat:'d' }}">
-                        </div>
-        
-                    </div>
-                </div>
-    
-    
-                <div class="actions" id="filter-vacancia">
-                    <div class="card-indicator actions-card">
-        
-                        <div class="advanced-search-filter-header">
-                            <span>Vacância</span>
-                        </div>
-        
-                        <div class="form-inline d-flex justify-content-between align-items-center">
-                            <input type="number" name="vacancia_max" class="js-input-form form-control form-control-sm" style="width: 48%" value="{{ filters.vacancia_max|floatformat }}">
-                        </div>
-        
-                    </div>
-                </div>
-        
-                <div class="actions" id="filter-p_vp">
-                    <div class="card-indicator actions-card">
-        
-                        <div class="advanced-search-filter-header">
-                            <span>P/VP</span>
-                        </div>
-        
-                        <div class="form-inline d-flex justify-content-between align-items-center">
-                            <input type="number" name="pvp_min" class="js-input-form form-control form-control-sm" style="width: 48%" min="0" max="100" step="0.01" value="{{ filters.pvp_min|floatformat }}">
-                            -
-                            <input type="number" name="pvp_max" class="js-input-form form-control form-control-sm" style="width: 48%" min="0" max="100" step="0.01" value="{{ filters.pvp_max|floatformat }}">
-                        </div>
-        
-                    </div>
-                </div>
-    
-                
-    
             </div>
-            <button action="update_data" class="btn btn-primary">
-                Limpar filtro
-            </button>
+            <div class="category" id="tipo">
+                <span class="title">Tipo</span>
+                <div class="custom-select">
+                    <select name="Tipo" id="tipo" class="select2-hidden-accessible" data-select2-id="select2-data-tipo"
+                        tabindex="-1" aria-hidden="true">
+                        <option value="">Todos</option>
+                        {% for tipo in tipos %}
+                        <option value="{{ tipo }}" {% if tipo == filters.Tipo %}selected{% endif %}>{{ tipo }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
 
-            <button action="update_data" class="btn btn-primary">
-                Atualizar base/Salvar filtro
-            </button>
-            
-            <button type="submit" class="btn btn-primary">
-                Buscar
-                <svg class="svg-inline--fa fa-magnifying-glass" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></svg>
-            
-            
-            </button>
-
-            </form>
+            </div>
         </div>
 
-           <div class="box margin-top advanced" style id="container-table-advanced-search">
+
+        <header>
+            <span class="title">Filtros</span>
+        </header>
+
+
+        <div class="indicadores grid">
+
+
+            <div class="actions" id="filter-dy">
+                <div class="card-indicator actions-card">
+
+
+                    <div class="advanced-search-filter-header">
+                        <span>DY</span>
+                    </div>
+
+
+                    <div class="form-inline d-flex justify-content-center align-items-center">
+                        <input type="number" name="dividend_yield_min"
+                            class="js-input-form form-control form-control-sm" style="width: 48%" min="0" max="100"
+                            step="0.01" value="{{ filters.dividend_yield_min|floatformat }}">
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="actions" id="filter-liquidez">
+                <div class="card-indicator actions-card">
+
+
+                    <div class="advanced-search-filter-header">
+                        <span>Liquidez</span>
+                    </div>
+
+
+                    <div class="form-inline d-flex justify-content-center align-items-center">
+                        <input type="number" name="liquidez_min" class="js-input-form form-control form-control-sm"
+                            style="width: 48%" value="{{ filters.liquidez_min|stringformat:'d' }}">
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+            <div class="actions" id="filter-vacancia">
+                <div class="card-indicator actions-card">
+
+
+                    <div class="advanced-search-filter-header">
+                        <span>Vacância</span>
+                    </div>
+
+
+                    <div class="form-inline d-flex justify-content-center align-items-center">
+                        <input type="number" name="vacancia_max" class="js-input-form form-control form-control-sm"
+                            style="width: 48%" value="{{ filters.vacancia_max|floatformat }}">
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="actions" id="filter-p_vp">
+                <div class="card-indicator actions-card">
+
+
+                    <div class="advanced-search-filter-header">
+                        <span>P/VP</span>
+                    </div>
+
+
+                    <div class="form-inline d-flex justify-content-center align-items-center">
+                        <input type="number" name="pvp_min" class="js-input-form form-control form-control-sm"
+                            style="width: 48%" min="0" max="100" step="0.01" value="{{ filters.pvp_min|floatformat }}">
+                        -
+                        <input type="number" name="pvp_max" class="js-input-form form-control form-control-sm"
+                            style="width: 48%" min="0" max="100" step="0.01" value="{{ filters.pvp_max|floatformat }}">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="margin-top">
+            <div class="d-flex actions-btn">
+                <div class="clear_save d-flex">
+                    <button class="btn-default transparent border-radius-10">
+                        Limpar filtro
+                    </button>
+
+
+
+
+                    <button class="btn-default transparent border-radius-10 action-login">
+                        Salvar filtro
+                    </button>
+
+
+                </div>
+                <div class="search d-flex">
+                    <button type="submit" class="btn-default border-radius-10">
+                        Buscar
+                    </button>
+
+
+                </div>
+            </div>
+        </footer>
+
+
+
+
+
+
+
+
+    </form>
+</div>
+
+
+<div class="box margin-top advanced" style id="container-table-advanced-search">
     <div class="filter">
         <header>
             <span class="title">Resultados</span>
@@ -305,78 +433,90 @@
 
 
 
+
+
+
         <div class="scroll-h table-responsive-md datatable">
-            <table class="table table-striped table-hover">
+            <table class="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
                         <th></th>
                         {% for col in columns %}
-                            <th>{{ col }}</th>
+                        <th>{{ col }}</th>
                         {% endfor %}
                     </tr>
                 </thead>
                 <tbody>
                     {% for row in data %}
-                        <tr>
-                            <td>
-                                <a href="{% url 'fiis:toggle_favorite' row.Papel %}" 
-                                   class="favorite-star {% if row.is_favorite %}favorite-star-yellow{% else %}favorite-star-gray{% endif %}">
-                                    ★
-                                </a>
-                            </td>
-                            
-    
-                            <td>
-                                {{ row|get_item:'Rank' }}º
-                            </td>
-                            <td>
-                                <a href="https://investidor10.com.br/fiis/{{ row|get_item:'Papel' }}/">
-                                    <div class="logo">
-                                        <img src="https://investidor10.com.br/assets/front/images/business-and-trade-gray.svg" alt="" width="30px" height="30px">
-                                        <span>{{ row|get_item:'Papel' }}</span>
-                                    </div>
-                                </a>
-                            
-                            </td>
-                            
-                            <td>
-                                {{ row|get_item:'Setor' }}
-                            </td>
-                            <td>
-                                {{ row|get_item:'Tipo' }}
-                            </td>
-                            <td>
-                                R$ {{ row|get_item:'Cotação' }}
-                            </td>
-                            <td>
-                                {{ row|get_item:'DY' }} %
-                            </td>
-                            <td>
-                                {{ row|get_item:'P/VP' }} %
-                            </td>
-                            
-                            <td>
-                                R$ {{ row|get_item:'Liquidez' }} {{ row|get_item:'Liquidez_unidade' }}
-                            </td>
-                            
-                            <td>
-                                {{ row|get_item:'VACÂNCIA' }} %
-                            </td>
-                            <td>
-                                {{ row|get_item:'DY/mês' }} %
-                            </td>
-                            <td>
-                                {{ row|get_item:'YOC' }} %
-                            </td>
-                            
-                        </tr>
+                    <tr>
+                        <td>
+                            <a href="{% url 'fiis:toggle_favorite' row.Papel %}"
+                                class="favorite-star {% if row.is_favorite %}favorite-star-yellow{% else %}favorite-star-gray{% endif %}">
+                                ★
+                            </a>
+                        </td>
+
+
+
+
+                        <td>
+                            {{ row|get_item:'Rank' }}º
+                        </td>
+                        <td>
+                            <a href="https://investidor10.com.br/fiis/{{ row|get_item:'Papel' }}/">
+                                <div class="logo">
+                                    <span>{{ row|get_item:'Papel' }}</span>
+                                </div>
+                            </a>
+
+
+                        </td>
+
+
+                        <td>
+                            {{ row|get_item:'Setor' }}
+                        </td>
+                        <td>
+                            {{ row|get_item:'Tipo' }}
+                        </td>
+                        <td>
+                            R$ {{ row|get_item:'Cotação' }}
+                        </td>
+                        <td>
+                            {{ row|get_item:'DY' }} %
+                        </td>
+                        <td>
+                            {{ row|get_item:'P/VP' }} %
+                        </td>
+
+
+                        <td>
+                            R$ {{ row|get_item:'Liquidez' }} {{ row|get_item:'Liquidez_unidade' }}
+                        </td>
+
+
+                        <td>
+                            {{ row|get_item:'VACÂNCIA' }} %
+                        </td>
+                        <td>
+                            {{ row|get_item:'DY/mês' }} %
+                        </td>
+                        <td>
+                            {{ row|get_item:'YOC' }} %
+                        </td>
+
+
+                    </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
 
-   </div>
-    
-    
+
+</div>
+
+
+
+
 {% endblock %}

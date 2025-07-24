@@ -8,11 +8,15 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 
+
+
 def rank_fiis():
-    df = pd.read_csv("/home/fabio/Documents/GitHub/kraken/final.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df = pd.read_csv("./../final.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+
 
     print("antes do rank")
     print(df)
+
 
     # Indicadores relevantes
     indicadores = {
@@ -22,11 +26,14 @@ def rank_fiis():
         'P/VP': -0.5  # quanto menor, melhor
     }
 
+
     # Remover nulos nas colunas relevantes
     #df = df.dropna(subset=indicadores.keys())
 
+
     # Normalizar os dados
     scaler = MinMaxScaler()
+
 
     for col, peso in indicadores.items():
         # Normalizar entre 0 e 1
@@ -35,17 +42,21 @@ def rank_fiis():
             norm = 1 - norm  # inverter se menor é melhor
         df[f'{col}_score'] = norm * abs(peso)
 
+
     # Rank final como soma ponderada dos scores
     df['Rank_ponderado'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
 
-    # Calcular o DY/mês e YOC
+ # Calcular o DY/mês e YOC
     df['DY/mês'] = ((df['ÚLTIMO RENDIMENTO'] / df['Cotação']) * 100).round(2)
     df['YOC'] = ((df['DY'] / df['Cotação']) * 100).round(2)
+
 
     # Ordenar
     df.drop(columns=['VACÂNCIA_score', 'P/VP_score', 'DY_score', 'Liquidez_score'])
     df = df.sort_values(by='Rank_ponderado', ascending=False)
     df.insert(0, 'Rank', range(1, len(df) + 1))
+
+
 
 
     # Organizando as colunas finais
@@ -54,9 +65,12 @@ def rank_fiis():
     print("depois do rank")
     print(df)
 
+
     return df
 
+
 print(rank_fiis())
+
 
 def index(request):
     # Se for POST, salvamos os filtros no cache
@@ -69,10 +83,12 @@ def index(request):
         cache_key = f"fiis_filters_{request.session.session_key}"
         filters = cache.get(cache_key, {})
 
+
     # Carregamos o DataFrame
     df = rank_fiis()
     segmentos_unicos = df['Setor'].dropna().unique()
     tipos_unicos = df['Tipo'].dropna().unique()
+
 
     # Aplicamos os filtros
     if filters:
@@ -83,7 +99,7 @@ def index(request):
                 df = df[df['DY'] >= min_yield]
             except ValueError:
                 pass
-        
+       
         # Liquidez
         if 'liquidez_min' in filters:
             try:
@@ -91,7 +107,7 @@ def index(request):
                 df = df[df['Liquidez'] >= min_liquidez]
             except ValueError:
                 pass
-        
+       
         # Vacância
         if 'vacancia_max' in filters:
             try:
@@ -99,7 +115,7 @@ def index(request):
                 df = df[df['VACÂNCIA'] <= max_vacancia]
             except ValueError:
                 pass
-        
+       
         # PVP
         if 'pvp_min' in filters:
             try:
@@ -107,14 +123,14 @@ def index(request):
                 df = df[df['P/VP'] >= min_pvp]
             except ValueError:
                 pass
-        
+       
         if 'pvp_max' in filters:
             try:
                 max_pvp = float(filters['pvp_max'])
                 df = df[df['P/VP'] <= max_pvp]
             except ValueError:
                 pass
-        
+       
         # Segmento
         # if 'segmento' in filters:
         #     segmento = filters['segmento'].strip()
@@ -124,65 +140,70 @@ def index(request):
             segmento = filters['Setor'].strip()
             if segmento:
                 df = df[df['Setor'].str.contains(segmento, case=False, na=False)]
-        
+       
         if 'Tipo' in filters:
             tipo = filters['Tipo'].strip()
             if tipo:
                 df = df[df['Tipo'].str.contains(tipo, case=False, na=False)]
+
 
     # Recalcular o ranking após os filtros
     df = df.reset_index(drop=True)
     df['Rank'] = range(1, len(df) + 1)
     df = df.sort_values('Rank')
 
+
     # Preparar os dados para o template
     data = []
     columns = df.columns.tolist()
-    
+   
     # Adicionar status de favorito para cada FII se o usuário estiver logado
     if request.user.is_authenticated:
         favorites = UserFavoriteFiis.objects.filter(user=request.user)
         favorite_dict = {fav.fiis.papel: fav.is_favorite for fav in favorites}
-    
+   
     # Converter DataFrame para lista de dicionários compatível com o template
     for index, row in df.iterrows():
         row_data = {}
-        
+       
         # Primeiro, garantimos que temos o papel
         papel = str(row['Papel']) if 'Papel' in df.columns else str(row['papel'])
         row_data['Papel'] = papel
-        
+       
         # Adicionamos o status de favorito
         if request.user.is_authenticated:
             row_data['is_favorite'] = favorite_dict.get(papel, False)
-        
+       
         # Adicionamos os outros campos, garantindo que os nomes sejam compatíveis com o template
         for col in columns:
             if col != 'Papel':  # Já adicionamos o Papel acima
                 # Normalizar o nome da coluna para o template
                 col_name = col.replace(' ', '_')  # Substituir espaços por underscores
                 row_data[col_name] = row[col]
-        
+       
         data.append(row_data)
-    
+   
     # Adiciona status de favorito para cada FII
     if request.user.is_authenticated:
         favorites = UserFavoriteFiis.objects.filter(user=request.user)
         favorite_dict = {fav.fiis.papel: fav.is_favorite for fav in favorites}
     else:
         favorite_dict = {}
-    
+   
     # Adiciona o status de favorito em cada linha de dados
     for row in data:
         row['is_favorite'] = favorite_dict.get(row['Papel'], False)
-    
+   
     return render(request, 'fiis/index.html', {
-        'data': data, 
+        'data': data,
         'columns': columns,
         'filters': filters,
-        'setor': segmentos_unicos,
-        'tipo': tipos_unicos    
+        'setores': segmentos_unicos,
+        'tipos': tipos_unicos    
     })
+
+
+
 
 
 
@@ -193,16 +214,17 @@ def toggle_favorite(request, papel):
         user=request.user,
         fiis=fiis
     )
-    
+   
     # Altera o estado de favorito
     favorite.is_favorite = not favorite.is_favorite
     favorite.save()
-    
+   
     # Adiciona mensagem de feedback
     if favorite.is_favorite:
         messages.success(request, f'FII {papel} adicionado aos favoritos!')
     else:
         messages.success(request, f'FII {papel} removido dos favoritos!')
-    
+   
     # Redireciona de volta para a página principal
     return redirect('fiis:index')
+
