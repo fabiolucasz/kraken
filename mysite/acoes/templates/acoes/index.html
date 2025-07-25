@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load custom_filters %}
 
 
@@ -241,6 +242,10 @@
     td {
         text-align: center;
     }
+    .logo img{
+        width: 20px;
+        height: 20px;
+    }
 
 
     a {
@@ -460,6 +465,10 @@
                         <td>
                             <a href="https://investidor10.com.br/acoes/{{ row|get_item:'Papel' }}/">
                                 <div class="logo">
+                                    
+                                    {% with papel=row|get_item:'Papel' %}
+                                    <img src="{% static 'img/companies/'|add:papel|add:'.jpg' %}" alt="{{ papel }}">
+                                    {% endwith %}
                                     <span>{{ row|get_item:'Papel' }}</span>
                                 </div>
                             </a>
