@@ -4,10 +4,6 @@ import pandas as pd
 import time
 import os
 
-headers = {
-"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
-}
-
 class AcaoSpider(scrapy.Spider):
     name = "acao_spider"
     allowed_domains = ["investidor10.com.br"]
@@ -73,6 +69,8 @@ class AcaoSpider(scrapy.Spider):
             titulo_cagr_receitas_5_anos = nomes2[23].strip().replace(" ", "_")
             titulo_cagr_lucros_5_anos = nomes2[24].strip().replace(" ", "_")
 
+            titulo_ticker_img = "Ticker_Img"
+
             titulos = [titulo_cotacao, titulo_variacao, titulo_pl, titulo_pvp, titulo_dy] + [titulo_pl2, titulo_psr, titulo_pvp2, titulo_dy2, titulo_payout, titulo_margem_liquida, titulo_margem_bruta, titulo_margem_ebit, titulo_margem_ebitda, titulo_ev_ebit, titulo_p_ebit, titulo_p_ativo, titulo_p_cap_giro, titulo_p_ativo_circ_liq, titulo_vpa, titulo_lpa, titulo_giro_ativos, titulo_roe, titulo_roic, titulo_roa, titulo_patrimonio_ativos, titulo_passivos_ativos, titulo_liquidez_corrente, titulo_cagr_receitas_5_anos, titulo_cagr_lucros_5_anos]
 
             # Valores (caixas principais)
@@ -89,6 +87,12 @@ class AcaoSpider(scrapy.Spider):
             valores_div2 = response.css('div.value span::text').getall()
             valores2 = [valor.strip().replace(".","").replace(",", ".").replace("%", "") for valor in valores_div2]
 
+            get_img = response.css('div.logo img::attr(src)').getall()
+            img = get_img[2]
+            ticker_img = response.urljoin(img)
+
+
+
             valores = [cotacao, variacao] + [pl, pvp, dy] + valores2
 
             while len(valores) < len(titulos):
@@ -100,7 +104,7 @@ class AcaoSpider(scrapy.Spider):
             yield dados
 
         except Exception as e:
-            self.logger.error(f"Erro ao processar página: {e}")
+            self.logger.error(f"Erro ao processar página {response.meta['papel']}: {e}")
 
     @staticmethod
     def process_acoes(file_path):
