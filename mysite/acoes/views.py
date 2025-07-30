@@ -10,14 +10,6 @@ from sklearn.preprocessing import MinMaxScaler
 
 def rank_acoes():
     df = pd.read_csv('./../acoes-listadas-b3.csv', quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-    for papel in df['Ticker']:
-        try:
-            df = pd.read_csv(f'./../data_csv/{papel}_indicadores.csv', quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-            print(df)
-        except FileNotFoundError:
-            print(f"Arquivo {papel}_indicadores.csv não encontrado")
-        
-
     
     indicadores = {
         'DY': 1,
