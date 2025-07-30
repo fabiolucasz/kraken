@@ -9,7 +9,15 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 def rank_acoes():
-    df = pd.read_csv('./../acoes.csv', quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df = pd.read_csv('./../acoes-listadas-b3.csv', quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    for papel in df['Ticker']:
+        try:
+            df = pd.read_csv(f'./../data_csv/{papel}_indicadores.csv', quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+            print(df)
+        except FileNotFoundError:
+            print(f"Arquivo {papel}_indicadores.csv não encontrado")
+        
+
     
     indicadores = {
         'DY': 1,
@@ -33,15 +41,66 @@ def rank_acoes():
     df = df.sort_values(by='Rank_ponderado', ascending=False)
     df.insert(0, 'Rank', range(1, len(df) + 1))
 
-    ordered_df = df[['Rank', 'Papel','Cotação', 'P/L','DY','P/VP','ROE','PAYOUT']]
+    ordered_df = df[['Rank', 'Papel','Cotação', 'P/L','DY','P/VP','ROE','PAYOUT','MARGEM_LÍQUIDA','CAGR_LUCROS_5_ANOS']]
     df = ordered_df
     
     
     return df
 
 def index(request):
+    if request.method == 'POST':
+        filters = request.POST.dict()
+        cache_key = f"acoes_filters_{request.session.session_key}"
+        cache.set(cache_key, filters, 3600)  # Cache por 1 hora
+    else:
+        # Se não for POST, recuperamos os filtros do cache
+        cache_key = f"acoes_filters_{request.session.session_key}"
+        filters = cache.get(cache_key, {})
 
     df = rank_acoes()
+
+    if filters:
+        # ROE
+        if 'roe_min' in filters:
+            try:
+                min_roe = float(filters['roe_min'])
+                df = df[df['ROE'] >= min_roe]
+            except ValueError:
+                pass
+       
+        # CAGR
+        if 'cagr_min' in filters:
+            try:
+                min_cagr = float(filters['cagr_min'])
+                df = df[df['CAGR_LUCROS_5_ANOS'] >= min_cagr]
+            except ValueError:
+                pass
+       
+        # P/L
+        if 'pl_min' in filters:
+            try:
+                min_pl = float(filters['pl_min'])
+                df = df[df['P/L'] >= min_pl]
+            except ValueError:
+                pass
+        
+        if 'margem_liquida_min' in filters:
+            try:
+                min_margem_liquida = float(filters['margem_liquida_min'])
+                df = df[df['MARGEM_LÍQUIDA'] >= min_margem_liquida]
+            except ValueError:
+                pass
+       
+        #Fazer o scrap depois pra pegar isso
+        if 'Setor' in filters:
+            segmento = filters['Setor'].strip()
+            if segmento:
+                df = df[df['Setor'].str.contains(segmento, case=False, na=False)]
+       
+        if 'Tipo' in filters:
+            tipo = filters['Tipo'].strip()
+            if tipo:
+                df = df[df['Tipo'].str.contains(tipo, case=False, na=False)]
 
     df = df.reset_index(drop=True)
     df['Rank'] = range(1, len(df) + 1)
@@ -76,9 +135,15 @@ def index(request):
        
         data.append(row_data)
     
-    return render(request, 'acoes/index.html', {'data': data, 'columns': columns})
+    return render(request, 'acoes/index.html', {
+        'data': data, 
+        'columns': columns,
+        'filters': filters
+        })
 
-
+def acao(request, papel):
+    acoes = get_object_or_404(Acoes, papel=papel)
+    return render(request, 'acoes/acao.html', {'acoes': acoes})
 @login_required
 def toggle_favorite(request, papel):
     acoes = get_object_or_404(Acoes, papel=papel)
