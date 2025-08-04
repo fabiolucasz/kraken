@@ -230,6 +230,14 @@
 
     .table {
         font-size: 14px;
+        background-color: #1D232C !important;
+    }
+
+    .table-dark {
+    --bs-table-color: #fff;
+    --bs-table-bg: ##21252900;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color);
     }
 
 
@@ -272,14 +280,14 @@
 
 
             </div>
-            <div class="category" id="tipo">
-                <span class="title">Tipo</span>
+            <div class="category" id="segmento">
+                <span class="title">Segmento</span>
                 <div class="custom-select">
-                    <select name="Tipo" id="tipo" class="select2-hidden-accessible" data-select2-id="select2-data-tipo"
+                    <select name="Segmento" id="segmento" class="select2-hidden-accessible" data-select2-id="select2-data-segmento"
                         tabindex="-1" aria-hidden="true">
                         <option value="">Todos</option>
-                        {% for tipo in tipos %}
-                        <option value="{{ tipo }}" {% if tipo == filters.Tipo %}selected{% endif %}>{{ tipo }}</option>
+                        {% for segmento in segmentos %}
+                        <option value="{{ segmento }}" {% if segmento == filters.Segmento %}selected{% endif %}>{{ segmento }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -405,14 +413,6 @@
                 </div>
             </div>
         </footer>
-
-
-
-
-
-
-
-
     </form>
 </div>
 
@@ -429,13 +429,21 @@
 
 
         <div class="scroll-h table-responsive-md datatable">
-            <table class="table table-dark table-striped table-hover">
+            <table class="table table-dark table-hover">
                 <thead>
                     <tr>
-                        <th></th>
-                        {% for col in columns %}
+                        
+                        <!-- {% for col in columns %}
                         <th>{{ col }}</th>
-                        {% endfor %}
+                        {% endfor %} -->
+                        <th></th>
+                        <th>Rank</th>
+                        <th>Ticker</th>
+                        <th>Preço</th>
+                        <th>P/L</th>
+                        <th>DY</th>
+                        <th>P/VP</th>
+                        <th>ROE</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -458,9 +466,9 @@
                             <a href="{% url 'acoes:acao' row.Papel %}">
                                 <div class="logo">
                                     
-                                    {% with papel=row.Papel %}
-                                    <img src="{% static 'img/companies/'|add:papel|add:'.jpg' %}" alt="{{ papel }}">
-                                    {% endwith %}
+                                    
+                                    <img src="{{ row.Ticker_Img }}" alt="{{ row.Papel }}">
+                                    
                                     <span>{{ row.Papel }}</span>
                                 </div>
                             </a>
@@ -485,11 +493,6 @@
 
                         <td>
                             {{ row|get_item:'ROE' }}
-                        </td>
-
-
-                        <td>
-                            {{ row|get_item:'PAYOUT' }} %
                         </td>
                     </tr>
                     {% endfor %}
