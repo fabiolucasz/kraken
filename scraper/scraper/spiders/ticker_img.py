@@ -8,19 +8,20 @@ class BaixarImagensSpider(scrapy.Spider):
     allowed_domains = ["investidor10.com.br"]
 
     def start_requests(self):
-        df = pd.read_csv("acoes-listadas-b3.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-        for papel in df["Ticker"]:
-            url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
-            yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
+        # df = pd.read_csv("acoes-listadas-b3.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+        # for papel in df["Ticker"]:
+        #     url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
+        #     yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
         #Teste de um papel
-        # ticker = "BBAS3"
-        # url = f"https://investidor10.com.br/acoes/{ticker.lower()}/"
-        # yield scrapy.Request(url, callback=self.parse, meta={'papel': ticker})
+        ticker = "BBAS3"
+        url = f"https://investidor10.com.br/acoes/{ticker.lower()}/"
+        yield scrapy.Request(url, callback=self.parse, meta={'papel': ticker})
     def parse(self, response):
         try:
             get_img = response.css('div.logo img::attr(src)').getall()
             img = get_img[2]
             ticker_img = response.urljoin(img)
+            print(ticker_img)
             yield scrapy.Request(
                     url=ticker_img,
                     callback=self.salvar_imagem,
@@ -42,7 +43,6 @@ class BaixarImagensSpider(scrapy.Spider):
 if __name__ == "__main__":
     process = CrawlerProcess(settings={
         'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
-        'LOG_LEVEL': 'INFO',  # para menos logs ou DEBUG para mais
     })
     
     # Inicia o Scrapy

@@ -9,7 +9,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 def rank_acoes():
-    df = pd.read_csv('./../acoes-listadas-b3.csv', quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df = pd.read_csv('./../acoes.csv', quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+
     
     indicadores = {
         'DY': 1,
@@ -33,7 +34,7 @@ def rank_acoes():
     df = df.sort_values(by='Rank_ponderado', ascending=False)
     df.insert(0, 'Rank', range(1, len(df) + 1))
 
-    ordered_df = df[['Rank', 'Papel','Cotação', 'P/L','DY','P/VP','ROE','PAYOUT','MARGEM_LÍQUIDA','CAGR_LUCROS_5_ANOS']]
+    ordered_df = df[['Rank', 'Papel','Cotação', 'P/L','DY','P/VP','ROE','PAYOUT','MARGEM_LÍQUIDA','CAGR_LUCROS_5_ANOS','Ticker_Img','Setor', 'Segmento']]
     df = ordered_df
     
     
@@ -50,6 +51,9 @@ def index(request):
         filters = cache.get(cache_key, {})
 
     df = rank_acoes()
+    setores_unicos = df['Setor'].unique().tolist()
+    segmentos_unicos = df['Segmento'].unique().tolist()
+    
 
     if filters:
         # ROE
@@ -85,14 +89,14 @@ def index(request):
        
         #Fazer o scrap depois pra pegar isso
         if 'Setor' in filters:
-            segmento = filters['Setor'].strip()
-            if segmento:
-                df = df[df['Setor'].str.contains(segmento, case=False, na=False)]
+            setor = filters['Setor'].strip()
+            if setor:
+                df = df[df['Setor'].str.contains(setor, case=False, na=False)]
        
-        if 'Tipo' in filters:
-            tipo = filters['Tipo'].strip()
-            if tipo:
-                df = df[df['Tipo'].str.contains(tipo, case=False, na=False)]
+        if 'Segmento' in filters:
+            segmento = filters['Segmento'].strip()
+            if segmento:
+                df = df[df['Segmento'].str.contains(segmento, case=False, na=False)]
 
     df = df.reset_index(drop=True)
     df['Rank'] = range(1, len(df) + 1)
@@ -130,7 +134,9 @@ def index(request):
     return render(request, 'acoes/index.html', {
         'data': data, 
         'columns': columns,
-        'filters': filters
+        'filters': filters,
+        'setores': setores_unicos,
+        'segmentos': segmentos_unicos,
         })
 
 def acao(request, papel):
