@@ -99,15 +99,6 @@ def importar_dados():
     df = pd.read_csv('acoes.csv', encoding='utf-8', dtype=str)
     print(f"CSV carregado com {len(df)} linhas")
     
-    # Limpa a tabela antes de importar novos dados
-    print("Apagando dados existentes da tabela Acoes...")
-    # Primeiro tenta apagar todos os registros
-    try:
-        Acoes.objects.all().delete()
-        print("Tabela limpa!")
-    except Exception as e:
-        print(f"Erro ao limpar tabela: {str(e)}")
-        print("Continuando com a importação...")
     print(f"CSV carregado com {len(df)} linhas")
     print("Colunas do CSV:")
     for col in df.columns:
@@ -406,16 +397,15 @@ def importar_dados():
                 if campo in dados and dados[campo] is not None:
                     dados_salvar[campo] = str(dados[campo])
             
-            # Salva os dados
+            # Atualiza o registro existente
             try:
-                acao, created = Acoes.objects.update_or_create(
-                    papel=papel,
-                    defaults=dados_salvar
-                )
-                if created:
-                    print(f"Criado novo registro para {papel}")
-                else:
-                    print(f"Atualizado registro para {papel}")
+                acao = Acoes.objects.get(papel=papel)
+                # Atualiza apenas os campos que não são papel ou id
+                for campo in dados_salvar:
+                    if campo not in ['papel', 'id']:
+                        setattr(acao, campo, dados_salvar[campo])
+                acao.save()
+                print(f"Atualizado registro para {papel}")
             except Exception as e:
                 print(f"Erro ao salvar registro {papel}: {str(e)}")
                 print(f"Dados: {dados_salvar}")
