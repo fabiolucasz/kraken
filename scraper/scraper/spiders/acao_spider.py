@@ -89,6 +89,7 @@ def merge_csv():
     df['PAYOUT'] = df['PAYOUT'].apply(remover_segundo_ponto)
     df['ROE'] = df['ROE'].apply(remover_segundo_ponto)
     df = df.drop(columns=["carteira_investidor_10"])
+    df = df.applymap(lambda x: "" if x == "-" else x)
     df.to_csv("acoes.csv", index=False, encoding='utf-8')
 
 def remover_segundo_ponto(val):
@@ -104,4 +105,5 @@ def remover_segundo_ponto(val):
 
 if __name__ == "__main__":
     run_scraper()
+
 
