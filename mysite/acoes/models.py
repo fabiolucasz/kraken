@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Acoes(models.Model):
+    id = models.AutoField(primary_key=True)
     papel = models.CharField(max_length=10, unique=True)
     cotation = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     variation_12m = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
