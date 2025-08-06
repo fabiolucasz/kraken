@@ -8,39 +8,120 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 
-def rank_acoes():
-    df = pd.read_csv('./../acoes.csv', quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-
+def rank_acoes(filters=None):
+    # Buscar dados do banco de dados
+    queryset = Acoes.objects.all()
     
+    # Aplicar filtros se existirem
+    if filters:
+        # ROE
+        if 'roe_min' in filters:
+            try:
+                min_roe = float(filters['roe_min'])
+                queryset = queryset.filter(roe__gte=min_roe)
+            except ValueError:
+                pass
+        
+        # CAGR
+        if 'cagr_min' in filters:
+            try:
+                min_cagr = float(filters['cagr_min'])
+                queryset = queryset.filter(cagr_lucros_5_anos__gte=min_cagr)
+            except ValueError:
+                pass
+        
+        # P/L
+        if 'pl_min' in filters:
+            try:
+                min_pl = float(filters['pl_min'])
+                queryset = queryset.filter(pl__gte=min_pl)
+            except ValueError:
+                pass
+        
+        # Margem Líquida
+        if 'margem_liquida_min' in filters:
+            try:
+                min_margem = float(filters['margem_liquida_min'])
+                queryset = queryset.filter(margem_liquida__gte=min_margem)
+            except ValueError:
+                pass
+        
+        # Setor
+        if 'Setor' in filters:
+            setor = filters['Setor'].strip()
+            if setor:
+                queryset = queryset.filter(segmento_listagem__icontains=setor)
+        
+        # Segmento
+        if 'Segmento' in filters:
+            segmento = filters['Segmento'].strip()
+            if segmento:
+                queryset = queryset.filter(segmento_listagem__icontains=segmento)
+    
+    # Converter para DataFrame
+    df = pd.DataFrame(list(queryset.values(
+        'id',
+        'papel',
+        'cotation',
+        'pl',
+        'pv',
+        'dy',
+        'payout',
+        'roe',
+        'margem_liquida',
+        'cagr_lucros_5_anos',
+        'ticker_img',
+        'segmento_listagem'
+    )))
+    
+    # Renomear colunas para o formato esperado
+    df = df.rename(columns={
+        'papel': 'Papel',
+        'cotation': 'Cotação',
+        'pl': 'P/L',
+        'pv': 'P/VP',
+        'dy': 'DY',
+        'roe': 'ROE',
+        'payout': 'PAYOUT',
+        'margem_liquida': 'MARGEM_LÍQUIDA',
+        'cagr_lucros_5_anos': 'CAGR_LUCROS_5_ANOS',
+        'ticker_img': 'Ticker_Img',
+        'segmento_listagem': 'Setor'
+    })
+    
+    # Calcular ranking ponderado
     indicadores = {
         'DY': 1,
         'P/L': 1,
         'PAYOUT': 1,
         'P/VP': -1,
         'ROE': 1,
+        'CAGR_LUCROS_5_ANOS': 1,
+        'MARGEM_LÍQUIDA': 1
     }
     
     scaler = MinMaxScaler()
-
-
+    
     for col, peso in indicadores.items():
         # Normalizar entre 0 e 1
-        norm = scaler.fit_transform(df[[col]])
+        norm = scaler.fit_transform(df[[col]].fillna(0))  # Preencher NaN com 0
         if peso < 0:
             norm = 1 - norm  # inverter se menor é melhor
         df[f'{col}_score'] = norm * abs(peso)
     
     df['Rank_ponderado'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
     df = df.sort_values(by='Rank_ponderado', ascending=False)
-    df.insert(0, 'Rank', range(1, len(df) + 1))
-
-    ordered_df = df[['Rank', 'Papel','Cotação', 'P/L','DY','P/VP','ROE','PAYOUT','MARGEM_LÍQUIDA','CAGR_LUCROS_5_ANOS','Ticker_Img','Setor', 'Segmento']]
-    df = ordered_df
     
+    # Adicionar coluna de rank
+    df['Rank'] = range(1, len(df) + 1)
+    
+    # Manter apenas as colunas necessárias
+    df = df[['Rank', 'Papel', 'Cotação', 'P/L', 'DY', 'P/VP', 'ROE', 'PAYOUT', 'MARGEM_LÍQUIDA', 'CAGR_LUCROS_5_ANOS', 'Ticker_Img', 'Setor']]
     
     return df
 
 def index(request):
+    # Se for POST, salvamos os filtros no cache
     if request.method == 'POST':
         filters = request.POST.dict()
         cache_key = f"acoes_filters_{request.session.session_key}"
@@ -50,94 +131,55 @@ def index(request):
         cache_key = f"acoes_filters_{request.session.session_key}"
         filters = cache.get(cache_key, {})
 
-    df = rank_acoes()
-    setores_unicos = df['Setor'].unique().tolist()
-    segmentos_unicos = df['Segmento'].unique().tolist()
+    # Obter os dados e aplicar filtros diretamente no banco
+    df = rank_acoes(filters=filters)
     
-
-    if filters:
-        # ROE
-        if 'roe_min' in filters:
-            try:
-                min_roe = float(filters['roe_min'])
-                df = df[df['ROE'] >= min_roe]
-            except ValueError:
-                pass
-       
-        # CAGR
-        if 'cagr_min' in filters:
-            try:
-                min_cagr = float(filters['cagr_min'])
-                df = df[df['CAGR_LUCROS_5_ANOS'] >= min_cagr]
-            except ValueError:
-                pass
-       
-        # P/L
-        if 'pl_min' in filters:
-            try:
-                min_pl = float(filters['pl_min'])
-                df = df[df['P/L'] >= min_pl]
-            except ValueError:
-                pass
-        
-        if 'margem_liquida_min' in filters:
-            try:
-                min_margem_liquida = float(filters['margem_liquida_min'])
-                df = df[df['MARGEM_LÍQUIDA'] >= min_margem_liquida]
-            except ValueError:
-                pass
-       
-        #Fazer o scrap depois pra pegar isso
-        if 'Setor' in filters:
-            setor = filters['Setor'].strip()
-            if setor:
-                df = df[df['Setor'].str.contains(setor, case=False, na=False)]
-       
-        if 'Segmento' in filters:
-            segmento = filters['Segmento'].strip()
-            if segmento:
-                df = df[df['Segmento'].str.contains(segmento, case=False, na=False)]
-
-    df = df.reset_index(drop=True)
-    df['Rank'] = range(1, len(df) + 1)
-    df = df.sort_values('Rank')
-
+    # Obter valores únicos de setores e segmentos
+    setores_unicos = df['Setor'].unique().tolist()
+    segmentos_unicos = df['Setor'].unique().tolist()
+    
+    # Converter DataFrame para lista de dicionários compatível com o template
     data = []
-    columns = df.columns.tolist()
-   
+    
     # Adicionar status de favorito para cada Ação se o usuário estiver logado
     if request.user.is_authenticated:
         favorites = UserFavoriteAcoes.objects.filter(user=request.user)
         favorite_dict = {fav.acoes.papel: fav.is_favorite for fav in favorites}
-   
-    # Converter DataFrame para lista de dicionários compatível com o template
+    
     for index, row in df.iterrows():
         row_data = {}
-       
+        
         # Primeiro, garantimos que temos o papel
         papel = str(row['Papel']) if 'Papel' in df.columns else str(row['papel'])
         row_data['Papel'] = papel
-       
+        
         # Adicionamos o status de favorito
         if request.user.is_authenticated:
             row_data['is_favorite'] = favorite_dict.get(papel, False)
-       
-        # Adicionamos os outros campos, garantindo que os nomes sejam compatíveis com o template
-        for col in columns:
-            if col != 'Papel':  # Já adicionamos o Papel acima
-                # Normalizar o nome da coluna para o template
-                col_name = col.replace(' ', '_')  # Substituir espaços por underscores
-                row_data[col_name] = row[col]
-       
+        
+        # Adicionamos o rank
+        row_data['Rank'] = row['Rank']
+        
+        # Adicionamos os outros campos
+        row_data['Cotação'] = row['Cotação']
+        row_data['PL'] = row['P/L']
+        row_data['DY'] = row['DY']
+        row_data['PVP'] = row['P/VP']
+        row_data['ROE'] = row['ROE']
+        row_data['PAYOUT'] = row['PAYOUT']
+        row_data['MARGEM_LÍQUIDA'] = row['MARGEM_LÍQUIDA']
+        row_data['CAGR_LUCROS_5_ANOS'] = row['CAGR_LUCROS_5_ANOS']
+        row_data['Ticker_Img'] = row['Ticker_Img']
+        row_data['Setor'] = row['Setor']
+        
         data.append(row_data)
     
     return render(request, 'acoes/index.html', {
-        'data': data, 
-        'columns': columns,
+        'data': data,
         'filters': filters,
         'setores': setores_unicos,
         'segmentos': segmentos_unicos,
-        })
+    })
 
 def acao(request, papel):
     acoes = get_object_or_404(Acoes, papel=papel)

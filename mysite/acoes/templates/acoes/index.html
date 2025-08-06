@@ -460,7 +460,7 @@
 
 
                         <td>
-                            {{ row|get_item:'Rank' }}º
+                            {{ row.Rank }}º
                         </td>
                         <td>
                             <a href="{% url 'acoes:acao' row.Papel %}">
@@ -472,27 +472,21 @@
                                     <span>{{ row.Papel }}</span>
                                 </div>
                             </a>
-
-
-                        </td>
-
-
-                        <td>
-                            {{ row|get_item:'Cotação' }}
                         </td>
                         <td>
-                            {{ row|get_item:'P/L' }}
+                            {{ row.Cotação }}
                         </td>
                         <td>
-                            {{ row|get_item:'DY' }}
+                            {{ row.PL }}
                         </td>
                         <td>
-                            {{ row|get_item:'P/VP' }}
+                            {{ row.DY }}
                         </td>
-
-
                         <td>
-                            {{ row|get_item:'ROE' }}
+                            {{ row.PVP }}
+                        </td>
+                        <td>
+                            {{ row.ROE }}
                         </td>
                     </tr>
                     {% endfor %}
