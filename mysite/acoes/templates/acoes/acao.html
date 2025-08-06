@@ -143,7 +143,7 @@
         display: flex;
         flex-wrap: wrap;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(1, 1fr);
         gap: 5%;
     }
@@ -251,257 +251,41 @@
 {% endblock %}
 {% block content %}
 
-
 <div class="filter">
-    <form id="filter-form" method="POST">
-        {% csrf_token %}
-        <div class="toolbar">
-
-            <div class="category" id="setor">
-                <span class="title">Setor</span>
-                <div class="custom-select">
-                    <select name="Setor" id="sector" class="select2-hidden-accessible"
-                        data-select2-id="select2-data-sector" tabindex="-1" aria-hidden="true">
-                        <option value="">Todos</option>
-                        {% for setor in setores %}
-                        <option value="{{ setor }}" {% if setor == filters.Setor %}selected{% endif %}>{{ setor }}
-                        </option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-
+    <div class="grid">
+        <div class="margem-de-seguranca">
+            <div class="margem-card">
+                <span>Se deseja receber</span>
             </div>
-            <div class="category" id="tipo">
-                <span class="title">Tipo</span>
-                <div class="custom-select">
-                    <select name="Tipo" id="tipo" class="select2-hidden-accessible" data-select2-id="select2-data-tipo"
-                        tabindex="-1" aria-hidden="true">
-                        <option value="">Todos</option>
-                        {% for tipo in tipos %}
-                        <option value="{{ tipo }}" {% if tipo == filters.Tipo %}selected{% endif %}>{{ tipo }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-
+            <div class="margem-item">
+                <span>Margem de segurança</span>
             </div>
         </div>
 
 
-        <header>
-            <span class="title">Filtros</span>
-        </header>
-
-
-        <div class="indicadores grid">
-
-
-            <div class="actions" id="filter-pl">
-                <div class="card-indicator actions-card">
-
-
-                    <div class="advanced-search-filter-header">
-                        <span>P/L</span>
-                    </div>
-
-
-                    <div class="form-inline d-flex justify-content-center align-items-center">
-                        <input type="number" name="pl_min" class="js-input-form form-control form-control-sm"
-                            style="width: 48%" value="{{ filters.pl_min|stringformat:'d' }}">
-                    </div>
-
-
-                </div>
+        <div class="margem-de-seguranca">
+            <div class="margem-card">
+                <span>Cotação Atual</span>
+                R$ {{ row.Cotacao }}
             </div>
-
-
-
-
-
-
-            <div class="actions" id="filter-gagr">
-                <div class="card-indicator actions-card">
-
-
-                    <div class="advanced-search-filter-header">
-                        <span>GAGR</span>
-                    </div>
-
-
-                    <div class="form-inline d-flex justify-content-center align-items-center">
-                        <input type="number" name="gagr_min" class="js-input-form form-control form-control-sm"
-                            style="width: 48%" value="{{ filters.gagr_min|stringformat:'d' }}">
-                    </div>
-
-
-                </div>
+            <div class="margem-item">
+                <span>Margem de segurança</span>
             </div>
-
-
-
-
-            <div class="actions" id="filter-roe">
-                <div class="card-indicator actions-card">
-
-
-                    <div class="advanced-search-filter-header">
-                        <span>ROE</span>
-                    </div>
-
-
-                    <div class="form-inline d-flex justify-content-center align-items-center">
-                        <input type="number" name="roe_min" class="js-input-form form-control form-control-sm"
-                            style="width: 48%" value="{{ filters.roe_min|floatformat }}">
-                    </div>
-
-
-                </div>
-            </div>
-
-            <div class="actions" id="filter-margem_liquida">
-                <div class="card-indicator actions-card">
-
-
-                    <div class="advanced-search-filter-header">
-                        <span>Margem Líquida</span>
-                    </div>
-
-
-                    <div class="form-inline d-flex justify-content-center align-items-center">
-                        <input type="number" name="margem_liquida_min" class="js-input-form form-control form-control-sm"
-                            style="width: 48%" value="{{ filters.margem_liquida_min|floatformat }}">
-                    </div>
-
-
-                </div>
-            </div>
-
-
-           
-
-        <footer class="margin-top">
-            <div class="d-flex actions-btn">
-                <div class="clear_save d-flex">
-                    <button class="btn-default transparent border-radius-10">
-                        Limpar filtro
-                    </button>
-
-
-
-
-                    <button class="btn-default transparent border-radius-10 action-login">
-                        Salvar filtro
-                    </button>
-
-
-                </div>
-                <div class="search d-flex">
-                    <button type="submit" class="btn-default border-radius-10">
-                        Buscar
-                    </button>
-
-
-                </div>
-            </div>
-        </footer>
-
-
-
-
-
-
-
-
-    </form>
-</div>
-
-
-<div class="box margin-top advanced" style id="container-table-advanced-search">
-    <div class="filter">
-        <header>
-            <span class="title">Resultados</span>
-        </header>
-
-
-
-
-
-
-        <div class="scroll-h table-responsive-md datatable">
-            <table class="table table-dark table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th></th>
-                        {% for col in columns %}
-                        <th>{{ col }}</th>
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for row in data %}
-                    <tr>
-                        <td>
-                            <a href="{% url 'acoes:toggle_favorite' row.Papel %}"
-                                class="favorite-star {% if row.is_favorite %}favorite-star-yellow{% else %}favorite-star-gray{% endif %}">
-                                ★
-                            </a>
-                        </td>
-
-
-
-
-                        <td>
-                            {{ row|get_item:'Rank' }}º
-                        </td>
-                        <td>
-                            <a href="https://investidor10.com.br/acoes/{{ row|get_item:'Papel' }}/">
-                                <div class="logo">
-                                    
-                                    {% with papel=row|get_item:'Papel' %}
-                                    <img src="{% static 'img/companies/'|add:papel|add:'.jpg' %}" alt="{{ papel }}">
-                                    {% endwith %}
-                                    <span>{{ row|get_item:'Papel' }}</span>
-                                </div>
-                            </a>
-
-
-                        </td>
-
-
-                        <td>
-                            {{ row|get_item:'Cotação' }}
-                        </td>
-                        <td>
-                            {{ row|get_item:'P/L' }}
-                        </td>
-                        <td>
-                            {{ row|get_item:'DY' }}
-                        </td>
-                        <td>
-                            {{ row|get_item:'P/VP' }}
-                        </td>
-
-
-                        <td>
-                            {{ row|get_item:'ROE' }}
-                        </td>
-
-
-                        <td>
-                            {{ row|get_item:'PAYOUT' }} %
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
         </div>
+
+
+        <div class="margem-de-seguranca">
+            <div class="margem-card">
+                <span>Preço Justo</span>
+               
+            </div>
+            <div class="margem-item">
+                <span></span>
+            </div>
+        </div>
+
     </div>
-
-
 </div>
-
-
 
 
 {% endblock %}
