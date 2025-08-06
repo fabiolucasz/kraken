@@ -50,13 +50,13 @@ def rank_acoes(filters=None):
         if 'Setor' in filters:
             setor = filters['Setor'].strip()
             if setor:
-                queryset = queryset.filter(segmento_listagem__icontains=setor)
+                queryset = queryset.filter(setor__icontains=setor)
         
         # Segmento
         if 'Segmento' in filters:
             segmento = filters['Segmento'].strip()
             if segmento:
-                queryset = queryset.filter(segmento_listagem__icontains=segmento)
+                queryset = queryset.filter(segmento__icontains=segmento)
     
     # Converter para DataFrame
     df = pd.DataFrame(list(queryset.values(
@@ -71,7 +71,8 @@ def rank_acoes(filters=None):
         'margem_liquida',
         'cagr_lucros_5_anos',
         'ticker_img',
-        'segmento_listagem'
+        'setor',
+        'segmento',
     )))
     
     # Renomear colunas para o formato esperado
@@ -86,7 +87,8 @@ def rank_acoes(filters=None):
         'margem_liquida': 'MARGEM_LÍQUIDA',
         'cagr_lucros_5_anos': 'CAGR_LUCROS_5_ANOS',
         'ticker_img': 'Ticker_Img',
-        'segmento_listagem': 'Setor'
+        'setor': 'Setor',
+        'segmento': 'Segmento',
     })
     
     # Calcular ranking ponderado
@@ -116,7 +118,7 @@ def rank_acoes(filters=None):
     df['Rank'] = range(1, len(df) + 1)
     
     # Manter apenas as colunas necessárias
-    df = df[['Rank', 'Papel', 'Cotação', 'P/L', 'DY', 'P/VP', 'ROE', 'PAYOUT', 'MARGEM_LÍQUIDA', 'CAGR_LUCROS_5_ANOS', 'Ticker_Img', 'Setor']]
+    df = df[['Rank', 'Papel', 'Cotação', 'P/L', 'DY', 'P/VP', 'ROE', 'PAYOUT', 'MARGEM_LÍQUIDA', 'CAGR_LUCROS_5_ANOS', 'Ticker_Img', 'Setor', 'Segmento']]
     
     return df
 
@@ -136,7 +138,7 @@ def index(request):
     
     # Obter valores únicos de setores e segmentos
     setores_unicos = df['Setor'].unique().tolist()
-    segmentos_unicos = df['Setor'].unique().tolist()
+    segmentos_unicos = df['Segmento'].unique().tolist()
     
     # Converter DataFrame para lista de dicionários compatível com o template
     data = []
@@ -171,6 +173,7 @@ def index(request):
         row_data['CAGR_LUCROS_5_ANOS'] = row['CAGR_LUCROS_5_ANOS']
         row_data['Ticker_Img'] = row['Ticker_Img']
         row_data['Setor'] = row['Setor']
+        row_data['Segmento'] = row['Segmento']
         
         data.append(row_data)
     
