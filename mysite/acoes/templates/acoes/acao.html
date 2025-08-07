@@ -87,7 +87,7 @@
     span {
         font-size: 14px;
         font-weight: bold;
-        color: #000;
+        color: #F8F8F8 !important;
         text-align: center;
         text-transform: uppercase;
     }
@@ -208,7 +208,7 @@
 <div class="filter">
     <div class="indicadores grid">
 
-        
+            
             <div class="actions" id="margem-seguranca">
                 <div class="card-indicator actions-card">
 
@@ -234,6 +234,7 @@
                     </div>
                 </div>
             </div>
+            
 
             <div class="actions" id="margem-seguranca">
                 <div class="card-indicator actions-card">
@@ -242,7 +243,7 @@
                         <span>Cotação atual</span> 
                     </div>
                     <div class="form-inline d-flex justify-content-center align-items-center">
-                       <span>R$ 35,00</span>
+                       <span>R$ {{ acoes.cotation }}</span>
                     </div>
                 </div>
 
@@ -266,10 +267,11 @@
                         <h2>R$11,89</h2>
                     </div>
                     <div class="advanced-search-filter-header">
-                        <span>Margem de Segurança:</span>
+                        <span>Margem de Segurança</span>
                     </div>
                 </div>
             </div>
+            
         </div>
 
         <div class="preco-teto">
@@ -283,7 +285,7 @@
                         <span>Preço Teto "usuario aqui"</span>
                     </div>
                     <div class="flex-item">
-                        <span>Margem de segurança: </span>
+                        <span>Margem de segurança: {{ acoes.cotation }} %</span>
                     </div>
                 </div>
                 
@@ -328,7 +330,7 @@
                                     <span>Cotação atual</span> 
                                 </div>
                                 <div class="form-inline d-flex justify-content-center align-items-center">
-                                   <span>R$ 35,00</span>
+                                   <span>R$ {{ acoes.cotation }}</span>
                                 </div>
                             </div>
                         
@@ -342,7 +344,7 @@
                                     <span>LPA (projetivo)</span> 
                                 </div>
                                 <div class="form-inline d-flex justify-content-center align-items-center">
-                                   <span>R$ 35,00</span>
+                                   <span>R$ {{ acoes.lpa }}</span>
                                 </div>
                             </div>
                         
@@ -356,7 +358,7 @@
                                     <span> Qnt. papéis <span> 
                                 </div>
                                 <div class="form-inline d-flex justify-content-center align-items-center">
-                                   <span>R$ 35,00</span>
+                                   <span>{{ acoes.numero_papeis }}</span>
                                 </div>
                             </div>
                         
@@ -370,7 +372,7 @@
                                     <span> DPA (projetivo)</span> 
                                 </div>
                                 <div class="form-inline d-flex justify-content-center align-items-center">
-                                   <span>R$ 35,00</span>
+                                   <span>R$ {{ acoes.dpa }}</span>
                                 </div>
                             </div>
                         
@@ -383,7 +385,7 @@
                                     <span>Yield (projetivo)</span> 
                                 </div>
                                 <div class="form-inline d-flex justify-content-center align-items-center">
-                                   <span>R$ 35,00</span>
+                                   <span>{{ acoes.dy }} %</span>
                                 </div>
                             </div>
                         
@@ -396,7 +398,7 @@
                                     <span>Cotação atual</span> 
                                 </div>
                                 <div class="form-inline d-flex justify-content-center align-items-center">
-                                   <span>R$ 35,00</span>
+                                   <span>R$ {{ acoes.cotation }}</span>
                                 </div>
                             </div>
                         
