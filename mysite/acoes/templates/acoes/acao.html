@@ -1,24 +1,19 @@
 {% extends 'base.html' %}
 {% load custom_filters %}
 {% load static %}
-{% block title %}Busca Avançada de Ações{% endblock %}
+{% block title %}Análise Avançada{% endblock %}
 
 {% block extra_css %}
 <style>
     .filter {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        width: 90%;
-        height: auto;
-        margin: auto;
-        padding: 2%;
-        border: 1px solid #1D232C;
-        border-radius: 10px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-        margin-top: 10%;
-        margin-bottom: 5%;
-        background-color: #1D232C;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: 2%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+
     }
 
 
@@ -34,51 +29,6 @@
     .advanced-search-filter-header {
         display: flex;
         justify-content: space-around;
-        padding: 4%;
-        margin-bottom: 10%;
-    }
-
-
-    .favorite-star {
-        cursor: pointer;
-        font-size: 1.5em;
-        transition: color 0.3s ease;
-    }
-
-
-    .favorite-star-gray {
-        color: #ccc;
-    }
-
-
-    .favorite-star-yellow {
-        color: #ffd700;
-    }
-
-
-    .favorite-star {
-        cursor: pointer;
-        font-size: 1.5em;
-        transition: color 0.3s ease;
-    }
-
-
-    .favorite-star-gray {
-        color: #ccc;
-    }
-
-
-    .favorite-star-yellow {
-        color: #ffd700;
-    }
-
-
-    .toolbar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5%;
-        align-items: center;
-        justify-content: center;
     }
 
 
@@ -93,36 +43,11 @@
     }
 
 
-    .js-input-form {
-        background-color: #1D232C;
-        color: #F8F8F8;
-        border: 1px solid #2B313E;
-        border-radius: 10px;
-
-
-    }
 
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
-    }
-
-
-    .filter header {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 40px;
-    }
-
-
-    .filter header .title:after {
-        border-bottom: 1px solid #ccc;
-        content: "";
-        display: block;
-        margin: 0 20px;
-        width: 100%;
     }
 
 
@@ -145,147 +70,317 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(1, 1fr);
-        gap: 5%;
+        gap: 1%;
     }
 
 
     .actions {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        width: 100%;
-        height: auto;
-        margin: auto;
-        padding: 2%;
-        border: 1px solid #2B313E;
-        border-radius: 10px;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        background-color: #151B24;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    padding: 2%;
+    border: 1px solid #2B313E;
+    border-radius: 10px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #19212C;
+    align-content: center;
+    align-items: center;
     }
-
-
-    .actions:hover {
-        border: 1px solid #2B313E;
-        border-radius: 10px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-
-
-    }
-
 
     .card-indicator {
-        padding: 3%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+    width: 100%;
+    background-color: #222B3A;
+    border: 1px solid #2B313E;
+    border-radius: 10px;
+    height: 90%;
+    margin: 3%;
     }
-
-
-    .margin-top {
-    margin-top: 40px;
-    }
-
-
-
-    .clear_save {
-        width: 100%;
-
-
-    }
-
 
     .d-flex {
     align-items: center;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     }
 
-    .search {
-    padding: 0 0 0 20px;
+    .preco-teto {
+        background-color: #19212C;
+        border: 1px solid #2B313E;
+        border-radius: 10px;
+        padding: 2%;
+        margin: auto;
+        width: 100%;
+        height: auto;
+    }
+    .card-projetivo {
+    display: flex;
+    background-color: #144059;
+    border: 1px solid #91CAE9;
+    border-radius: 10px;
+    padding: 1%;
+    width: 30%;
+    height: auto;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
     }
 
-
-    .btn-default {
+    .flex-col{
         display: flex;
-        background-color: #40ABDA;
-        color: #FFFFFF;
-        font: normal normal 800 14px / 19px Nunito;
-        height: 36px;
-        align-items: center;
-        border: 1px solid #2B313E;
-        border-radius: 10px;
-    }
-    
-
-    .btn-default:hover {
-        background-color: #3691B9;
-        border: 1px solid #2B313E;
-        border-radius: 10px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-
-
+        flex-direction: column;
     }
 
-    button {
-    padding: 0 30px;
+    .flex-item{
+        display: flex;
+        flex-direction: row;
     }
 
-    .table {
-        font-size: 14px;
+    .line{
+        
+        border-bottom: 2px solid #222B3A;
+        margin: auto;
+        width: 100%;
+        margin: 2% 0px;
     }
 
-
-    th,
-    td {
-        text-align: center;
-    }
-    .logo img{
-        width: 20px;
-        height: 20px;
+    .grid-cards{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1%;
     }
 
-
-    a {
-        text-decoration: none;
-        color: inherit;
+    .flex-row{
+        display: flex;
+        flex-direction: row;
     }
+
 </style>
 {% endblock %}
 {% block content %}
 
 <div class="filter">
-    <div class="grid">
-        <div class="margem-de-seguranca">
-            <div class="margem-card">
-                <span>Se deseja receber</span>
+    <div class="indicadores grid">
+
+        
+            <div class="actions" id="margem-seguranca">
+                <div class="card-indicator actions-card">
+
+                    <div class="advanced-search-filter-header">
+                        <span>Se deseja Receber:</span> 
+                    </div>
+                    <div class="form-inline d-flex justify-content-center align-items-center">
+                        <input type="number" name="pl_min" class="js-input-form form-control form-control-sm"
+                            style="width: 48%" value="{{ filters.pl_min|stringformat:'d' }}">
+                    </div>
+                </div>
+
+
+                <div class="card-indicator actions-card">
+                    <div class="advanced-search-filter-header">
+                        <h2>R$11,89</h2>
+                    </div>
+                    <div class="advanced-search-filter-header">
+                        <span>Margem de Segurança:</span>
+                    </div>
+                    <div class="advanced-search-filter-header">
+                        <span>-13,00%</span> 
+                    </div>
+                </div>
             </div>
-            <div class="margem-item">
-                <span>Margem de segurança</span>
+
+            <div class="actions" id="margem-seguranca">
+                <div class="card-indicator actions-card">
+
+                    <div class="advanced-search-filter-header">
+                        <span>Cotação atual</span> 
+                    </div>
+                    <div class="form-inline d-flex justify-content-center align-items-center">
+                       <span>R$ 35,00</span>
+                    </div>
+                </div>
+
+
+                <div class="card-indicator actions-card">
+                    <div class="advanced-search-filter-header">
+                        <h2>R$11,89</h2>
+                    </div>
+                    <div class="advanced-search-filter-header">
+                        <span>Margem de Segurança:</span>
+                    </div>
+                    <div class="advanced-search-filter-header">
+                        <span>-13,00%</span> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions" id="margem-seguranca">
+                <div class="card-indicator actions-card">
+                    <div class="advanced-search-filter-header">
+                        <h2>R$11,89</h2>
+                    </div>
+                    <div class="advanced-search-filter-header">
+                        <span>Margem de Segurança:</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-
-        <div class="margem-de-seguranca">
-            <div class="margem-card">
-                <span>Cotação Atual</span>
-                R$ {{ row.Cotacao }}
+        <div class="preco-teto">
+            <div class="title">
+                <h3>Preço Teto Projetivo</h3>
+                <span>Ticker</span>
             </div>
-            <div class="margem-item">
-                <span>Margem de segurança</span>
+            <div class="card-projetivo">
+                <div class="flex-col">
+                    <div class="flex-item">
+                        <span>Preço Teto "usuario aqui"</span>
+                    </div>
+                    <div class="flex-item">
+                        <span>Margem de segurança: </span>
+                    </div>
+                </div>
+                
+                <div class="flex-col">
+                    <span> R$ 11,89 </span>
+                </div>
+
+            </div>
+
+            <div class="line"></div>
+
+            <div class="flex-row">
+                <div class="flex-col inputs">
+                    <div class="flex-item payout">
+                        <input type="text">       
+                    </div>
+
+                    <div class="flex-item lucro">
+                        <input type="text">   
+                        +
+                        <input type="text">    
+                    </div>
+
+                    <div class="flex-item yield">
+                        <input type="text">   
+                    </div>
+
+                    <div class="flex-item btn">
+                        <button type="submit" class="btn-default border-radius-10">Salvar</button>
+                        <button type="submit" class="btn-default border-radius-10">Reiniciar filtros</button>
+
+                    </div>
+
+                </div>
+
+                <div class="flex-item cards">
+                    <div class="grid-cards">
+            
+                            <div class="card-indicator actions-card">
+            
+                                <div class="advanced-search-filter-header">
+                                    <span>Cotação atual</span> 
+                                </div>
+                                <div class="form-inline d-flex justify-content-center align-items-center">
+                                   <span>R$ 35,00</span>
+                                </div>
+                            </div>
+                        
+
+
+
+
+                            <div class="card-indicator actions-card">
+            
+                                <div class="advanced-search-filter-header">
+                                    <span>LPA (projetivo)</span> 
+                                </div>
+                                <div class="form-inline d-flex justify-content-center align-items-center">
+                                   <span>R$ 35,00</span>
+                                </div>
+                            </div>
+                        
+
+
+
+                        
+                            <div class="card-indicator actions-card">
+            
+                                <div class="advanced-search-filter-header">
+                                    <span> Qnt. papéis <span> 
+                                </div>
+                                <div class="form-inline d-flex justify-content-center align-items-center">
+                                   <span>R$ 35,00</span>
+                                </div>
+                            </div>
+                        
+
+
+
+                       
+                            <div class="card-indicator actions-card">
+            
+                                <div class="advanced-search-filter-header">
+                                    <span> DPA (projetivo)</span> 
+                                </div>
+                                <div class="form-inline d-flex justify-content-center align-items-center">
+                                   <span>R$ 35,00</span>
+                                </div>
+                            </div>
+                        
+
+
+
+                            <div class="card-indicator actions-card">
+            
+                                <div class="advanced-search-filter-header">
+                                    <span>Yield (projetivo)</span> 
+                                </div>
+                                <div class="form-inline d-flex justify-content-center align-items-center">
+                                   <span>R$ 35,00</span>
+                                </div>
+                            </div>
+                        
+
+
+
+                        <div class="card-indicator actions-card">
+            
+                                <div class="advanced-search-filter-header">
+                                    <span>Cotação atual</span> 
+                                </div>
+                                <div class="form-inline d-flex justify-content-center align-items-center">
+                                   <span>R$ 35,00</span>
+                                </div>
+                            </div>
+                        
+
+                    </div>
+
+                </div>
             </div>
         </div>
 
+            
 
-        <div class="margem-de-seguranca">
-            <div class="margem-card">
-                <span>Preço Justo</span>
-               
-            </div>
-            <div class="margem-item">
-                <span></span>
-            </div>
-        </div>
+       
+            
 
-    </div>
+            
 </div>
+
+
+
 
 
 {% endblock %}
