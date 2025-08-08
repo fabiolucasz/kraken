@@ -11,7 +11,13 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 def rank_fiis():
-    df = pd.read_csv("./../final.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df = pd.read_csv("./../fiis.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+
+    #filtro prévio
+    df = df[df['DY'] > 6]
+    df = df[df['Liquidez'] > 0]
+    df = df[df['VACÂNCIA'] <= 30]
+    df = df[df['P/VP'] >= 0.75]
 
 
     print("antes do rank")
@@ -46,7 +52,12 @@ def rank_fiis():
     # Rank final como soma ponderada dos scores
     df['Rank_ponderado'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
 
- # Calcular o DY/mês e YOC
+    # Converter colunas para numérico, forçando erros para NaN
+    df['ÚLTIMO RENDIMENTO'] = pd.to_numeric(df['ÚLTIMO RENDIMENTO'], errors='coerce')
+    df['Cotação'] = pd.to_numeric(df['Cotação'], errors='coerce')
+    df['DY'] = pd.to_numeric(df['DY'], errors='coerce')
+
+    # Calcular o DY/mês e YOC
     df['DY/mês'] = ((df['ÚLTIMO RENDIMENTO'] / df['Cotação']) * 100).round(2)
     df['YOC'] = ((df['DY'] / df['Cotação']) * 100).round(2)
 
@@ -69,7 +80,7 @@ def rank_fiis():
     return df
 
 
-print(rank_fiis())
+rank_fiis()
 
 
 def index(request):
