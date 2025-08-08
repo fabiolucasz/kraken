@@ -1,9 +1,6 @@
 import scrapy
 from scrapy.crawler import CrawlerProcess
 import pandas as pd
-import requests
-from bs4 import BeautifulSoup
-from io import StringIO
 import time
 import os
 
@@ -15,79 +12,8 @@ class FiiSpider(scrapy.Spider):
     name = "fii_spider"
     allowed_domains = ["investidor10.com.br"]
 
-    liquidez_minima = 500_000
-    pvp_minimo = 0.70
-
-    @staticmethod
-    def get_df1():
-        url = 'https://www.fundamentus.com.br/fii_resultado.php'
-        response = requests.get(url, headers=headers)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        table = soup.find('table')
-        df = pd.read_html(StringIO(str(table)))[0]
-        df = df.to_csv('df1.csv', index=False)
-        df = FiiSpider.process_df1()
-        return df
-    
-    @staticmethod
-    def process_df1():
-        df = pd.read_csv("df1.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-        
-        colunas_percentuais = ["FFO Yield", "Dividend Yield", "Cap Rate", "Vacância Média"]
-        colunas_valores = ["Valor de Mercado", "Liquidez", "Preço do m2", "Aluguel por m2"]
-        colunas_inteiras = ["Qtd de imóveis"]
-        colunas_cotacao = ["Cotação"]
-        colunas_pvp = ["P/VP"]
-
-        for col in colunas_percentuais:
-            df[col] = df[col].astype(str).str.replace("%", "", regex=False).str.replace(",", ".")
-            df[col] = pd.to_numeric(df[col], errors="coerce")
-
-        for col in colunas_valores:
-            df[col] = df[col].astype(str).str.replace(".", "", regex=False).str.replace(",", ".", regex=False)
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-
-        for col in colunas_inteiras:
-            df[col] = pd.to_numeric(df[col], errors="coerce", downcast="integer")
-
-        for col in colunas_cotacao:
-            df[col] = df[col].astype(str).str.replace(r"\D", "", regex=True)  
-            df[col] = df[col].apply(
-                lambda x: float(x.zfill(3)[:-2] + "." + x.zfill(3)[-2:]) if x else None
-            )
-
-        def pvp(x):
-            x = x.strip()
-            if not x.isdigit():
-                return None
-            if len(x) > 2:
-                return float(x[:-2] + "." + x[-2:])
-            else:
-                return float("0." + x)
-
-        for col in colunas_pvp:
-            df[col] = df[col].astype(str).str.replace(r"\D", "", regex=True)
-            df[col] = df[col].apply(pvp)
-        df = df.to_csv('df1.csv', index=False)
-        return df
-
-
-
-
-    @staticmethod
-    def filter_df1():
-        
-        # Lê o arquivo df1.csv filtrado
-        df = pd.read_csv("df1.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-        # Itera sobre cada linha do DataFrame liquidez mínima e P/VP
-        df = df[df["Liquidez"] >= FiiSpider.liquidez_minima]
-        df = df[df["P/VP"] >= FiiSpider.pvp_minimo]
-        # Ordena pelo Dividend Yield
-        df = df.sort_values(by="Dividend Yield", ascending=False)
-        return df
-
     def start_requests(self):
-        df_filtered = FiiSpider.filter_df1()
+        df_filtered = pd.read_csv("fiis-listados-b3-tratado.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
         for papel in df_filtered["Papel"]:
             url = f"https://investidor10.com.br/fiis/{papel.lower()}/"
             yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
@@ -138,7 +64,7 @@ class FiiSpider(scrapy.Spider):
             yield dados
 
         except Exception as e:
-            self.logger.error(f"Erro ao processar página: {e}")
+            self.logger.error(f"Erro ao processar {response.meta['papel']}: {e}")
 
     @staticmethod
     def process_df2(file_path):
@@ -165,10 +91,8 @@ class FiiSpider(scrapy.Spider):
             "TIPO DE FUNDO": "Tipo",
         }, inplace=True)
 
-        df.to_csv('/home/fabio/Documents/GitHub/kraken/final.csv', index=False)
         return df
 
-FiiSpider.get_df1()
 
 
 if __name__ == "__main__":
@@ -190,6 +114,6 @@ if __name__ == "__main__":
 
     # Após o Spider concluir, processa o arquivo temporário e salva o resultado final
     df = FiiSpider.process_df2(temp_file)
-    df.to_csv('df2_teste.csv', index=False)
+    df.to_csv('fiis.csv', index=False)
     # Remove o arquivo temporário
     os.remove(temp_file)
