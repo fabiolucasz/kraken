@@ -8,38 +8,29 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 
-
-
 def rank_fiis():
-    df = pd.read_csv("./../fiis.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df = pd.read_csv("./../fundos_imobiliarios.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df = df.rename(columns={
+        "Fundos": "Papel",
+        "Preço Atual (R$)": "Cotação",
+        "DY (12M) Acumulado": "DY",
+        "Liquidez Diária (R$)": "Liquidez",
+    })
 
     #filtro prévio
     df = df[df['DY'] > 6]
-    df = df[df['Liquidez'] > 0]
-    df = df[df['VACÂNCIA'] <= 30]
+    df = df[df['Liquidez'] > 500000]
     df = df[df['P/VP'] >= 0.75]
-
-
-    print("antes do rank")
-    print(df)
-
 
     # Indicadores relevantes
     indicadores = {
         'DY': 1,  # quanto maior, melhor
         'Liquidez': 0.5,  # quanto maior, melhor
-        'VACÂNCIA': -1,  # quanto menor, melhor
         'P/VP': -0.5  # quanto menor, melhor
     }
 
-
-    # Remover nulos nas colunas relevantes
-    #df = df.dropna(subset=indicadores.keys())
-
-
     # Normalizar os dados
     scaler = MinMaxScaler()
-
 
     for col, peso in indicadores.items():
         # Normalizar entre 0 e 1
@@ -48,40 +39,28 @@ def rank_fiis():
             norm = 1 - norm  # inverter se menor é melhor
         df[f'{col}_score'] = norm * abs(peso)
 
-
     # Rank final como soma ponderada dos scores
     df['Rank_ponderado'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
 
     # Converter colunas para numérico, forçando erros para NaN
-    df['ÚLTIMO RENDIMENTO'] = pd.to_numeric(df['ÚLTIMO RENDIMENTO'], errors='coerce')
+    df['Último Dividendo'] = pd.to_numeric(df['Último Dividendo'], errors='coerce')
     df['Cotação'] = pd.to_numeric(df['Cotação'], errors='coerce')
     df['DY'] = pd.to_numeric(df['DY'], errors='coerce')
 
     # Calcular o DY/mês e YOC
-    df['DY/mês'] = ((df['ÚLTIMO RENDIMENTO'] / df['Cotação']) * 100).round(2)
+    df['DY/mês'] = ((df['Último Dividendo'] / df['Cotação']) * 100).round(2)
     df['YOC'] = ((df['DY'] / df['Cotação']) * 100).round(2)
 
-
     # Ordenar
-    df.drop(columns=['VACÂNCIA_score', 'P/VP_score', 'DY_score', 'Liquidez_score'])
+    df.drop(columns=['P/VP_score', 'DY_score', 'Liquidez_score'])
     df = df.sort_values(by='Rank_ponderado', ascending=False)
     df.insert(0, 'Rank', range(1, len(df) + 1))
 
-
-
-
     # Organizando as colunas finais
-    ordered_df = df[['Rank', 'Papel', 'Setor', 'Tipo', 'Cotação', 'DY', 'P/VP', 'Liquidez', 'VACÂNCIA', 'DY/mês', 'YOC']]
+    ordered_df = df[['Rank', 'Papel', 'Setor', 'Cotação', 'DY', 'P/VP', 'Liquidez', 'Dividend Yield']]
     df = ordered_df
-    print("depois do rank")
-    print(df)
-
 
     return df
-
-
-rank_fiis()
-
 
 def index(request):
     # Se for POST, salvamos os filtros no cache
@@ -94,12 +73,9 @@ def index(request):
         cache_key = f"fiis_filters_{request.session.session_key}"
         filters = cache.get(cache_key, {})
 
-
     # Carregamos o DataFrame
     df = rank_fiis()
     segmentos_unicos = df['Setor'].dropna().unique()
-    tipos_unicos = df['Tipo'].dropna().unique()
-
 
     # Aplicamos os filtros
     if filters:
@@ -119,14 +95,6 @@ def index(request):
             except ValueError:
                 pass
        
-        # Vacância
-        if 'vacancia_max' in filters:
-            try:
-                max_vacancia = float(filters['vacancia_max'])
-                df = df[df['VACÂNCIA'] <= max_vacancia]
-            except ValueError:
-                pass
-       
         # PVP
         if 'pvp_min' in filters:
             try:
@@ -143,26 +111,15 @@ def index(request):
                 pass
        
         # Segmento
-        # if 'segmento' in filters:
-        #     segmento = filters['segmento'].strip()
-        #     if segmento:
-        #         df = df[df['Segmento'].str.contains(segmento, case=False, na=False)]
         if 'Setor' in filters:
             segmento = filters['Setor'].strip()
             if segmento:
                 df = df[df['Setor'].str.contains(segmento, case=False, na=False)]
-       
-        if 'Tipo' in filters:
-            tipo = filters['Tipo'].strip()
-            if tipo:
-                df = df[df['Tipo'].str.contains(tipo, case=False, na=False)]
-
 
     # Recalcular o ranking após os filtros
     df = df.reset_index(drop=True)
     df['Rank'] = range(1, len(df) + 1)
     df = df.sort_values('Rank')
-
 
     # Preparar os dados para o template
     data = []
@@ -210,12 +167,7 @@ def index(request):
         'columns': columns,
         'filters': filters,
         'setores': segmentos_unicos,
-        'tipos': tipos_unicos    
     })
-
-
-
-
 
 
 @login_required
@@ -238,4 +190,3 @@ def toggle_favorite(request, papel):
    
     # Redireciona de volta para a página principal
     return redirect('fiis:index')
-

@@ -7,3 +7,6 @@ html5lib==1.1
 scikit-learn==1.7.0
 aiohttp==3.12.13
 scrapy==2.13.3
+selenium==4.34.2
+webdriver-manager==4.0.2
+python-dotenv==1.1.1
