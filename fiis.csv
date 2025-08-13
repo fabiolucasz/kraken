@@ -1,323 +1,534 @@
-Cotação,DY,P/VP,Liquidez,Liquidez_unidade,VARIAÇÃO,DY_Pago_ult_12m,Razão Social,CNPJ,PÚBLICO-ALVO,MANDATO,Setor,Tipo,PRAZO DE DURAÇÃO,TIPO DE GESTÃO,TAXA DE ADMINISTRAÇÃO,VACÂNCIA,NUMERO DE COTISTAS,COTAS EMITIDAS,VAL. PATRIMONIAL P/ COTA,VALOR PATRIMONIAL,ÚLTIMO RENDIMENTO,Papel
-7.25,11.26,0.6,245.15,K,-3.33,0.84,AJ MALLS,51.472.985/0001-99,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,8.76,13009,31625967,12.15,R$ 384.21 Milhões,0.06,AJFI11
-91.68,12.74,0.97,1.04,M,7.27,11.4,AF INVEST CRI FUNDO DE INVESTIMENTO IMOBILIÁRIO - RECEBÍVEIS IMOBILIÁRIOS,36.642.293/0001-58,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,39573,4555607,94.76,R$ 431.69 Milhões,1.09,AFHI11
-72.63,0.0,0.93,781.77,K,-15.05,0.0,ALIANZA URBAN HUB RENDA FUNDO DE INVESTIMENTO IMOBILIÁRIO,41.076.823/0001-88,Investidor Qualificado,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,16.0,16,898503,77.92,R$ 70.01 Milhões,0.2,AURB11
-7.61,18.06,0.81,330.5,K,-5.82,11.27,ALIANZA CRÉDITO IMOBILIÁRIO FUNDO DE INVESTIMENTO IMOBILIÁRIO,40.011.324/0001-40,fii.QUALIFIED_INVESTOR,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,1.3,0.0,8840,20050219,9.36,R$ 187.68 Milhões,0.1,ALZC11
-10.01,9.62,0.93,1.54,M,1.73,9.16,ALIANZA TRUST RENDA IMOBILIARIA - FUNDO DE INVESTIMENTO IMOBILIARIO,28.737.771/0001-85,Geral,Renda,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,0.0,164417,122266239,10.79,R$ 1.32 Bilhão,0.09,ALZR11
-88.90,5.24,0.72,563.15,K,-6.49,6.61,FUNDO DE INVESTIMENTO IMOBILIÁRIO APEX MALLS,43.010.485/0001-07,Geral,Híbridos,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,0.0,598,2829131,123.36,R$ 349.01 Milhões,0.29,APXM11
-1.04,7.23,1.09,6.51,K,7.22,0.07,AROEIRA 333 RENDA LOGÍSTICA,44.674.528/0001-11,Geral,Desenvolvimento para renda,Outros,Fundo de desenvolvimento,Indeterminado,Ativa,,0.0,4530,167926821,0.95,R$ 159.98 Milhões,0.01,AROA11
-46.00,13.11,0.59,354.91,K,-3.16,8.52,AUTONOMY EDIFÍCIOS CORPORATIVOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.765.826/0001-26,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,0.0,16329,4824976,77.57,R$ 374.25 Milhões,0.34,AIEC11
-7.39,15.87,0.8,64.66,K,-12.34,11.4,ARX DOVER RECEBÍVEIS FUNDO DE INVESTIMENTO IMOBILIÁRIO,44.527.494/0001-32,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,1.02,0.0,1748,9011159,9.18,R$ 82.74 Milhões,0.1,ARXD11
-7.53,15.28,0.77,474.28,K,-10.99,0.37,AZ QUEST PANORAMA LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO - RESPONSABILIDADE LIMITADA,51.890.054/0001-00,Geral,Renda,Logístico / Indústria / Galpões,Fundo misto,Indeterminado,Ativa,,0.0,6585,18209635,9.71,R$ 176.75 Milhões,0.21,AZPL11
-64.16,15.21,0.75,504.11,K,12.15,9.29,BANESTES RECEBÍVEIS IMOBILIÁRIOS FUNDO DE INVESTIMENTO,22.219.335/0001-38,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,43338,6257862,85.65,R$ 535.99 Milhões,0.91,BCRI11
-71.19,18.77,0.91,97.21,K,-30.82,16.35,BANRISUL NOVAS FRONTEIRAS FUNDO DE INVESTIMENTO IMOBILIÁRIO,15.570.431/0001-60,Geral,Desenvolvimento para renda,Agências bancárias,Fundo de Tijolo,Indeterminado,Ativa,,9.3,6012,699989,78.13,R$ 54.69 Milhões,1.0,BNFS11
-347.09,0.0,0.52,41.04,K,-44.91,922.08,BB FUNDO DE INVESTIMENTO IMOBILIÁRIO PROGRESSIVO,07.000.400/0001-46,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,100.0,6206,129989,698.17,R$ 90.76 Milhões,100.41,BBFI11
-62.30,13.31,0.83,178.02,K,-1.6,7.77,BB FUNDO DE FUNDOS - FUNDO DE INVESTIMENTO IMOBILIÁRIO,37.180.091/0001-02,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Passiva,,0.0,6962,4003889,74.89,R$ 299.83 Milhões,0.76,BBFO11
-6.89,14.65,0.73,899.86,K,-15.98,0.58,BB PREMIUM MALLS FUNDO DE INVESTIMENTO IMOBILIÁRIO DE RESPONSABILIDADE LIMITADA,54.375.187/0001-37,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,0.8,1.72,31505,99120983,9.43,R$ 934.45 Milhões,0.08,BBIG11
-97.48,13.18,0.93,73.29,K,-3.09,13.3,BB RENDA CORPORATIVA FUNDO DE INVESTIMENTO IMOBILIÁRIO,12.681.340/0001-04,Geral,Desenvolvimento para renda,Agências bancárias,Fundo de Tijolo,Indeterminado,Passiva,,5.6,9151,1589989,104.54,R$ 166.21 Milhões,1.05,BBRC11
-33.53,12.23,0.47,319.95,K,2.07,5.11,BLUEMACAW LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO,34.081.637/0001-71,Geral,Renda,Outros,Fundo de Tijolo,Indeterminado,Ativa,,0.0,12902,4674537,71.26,R$ 333.11 Milhões,0.36,BLMG11
-95.99,8.81,0.91,84.41,K,5.68,23.69,FUNDO DE INVESTIMENTO IMOBILIÁRIO BM BRASCAN LAJES CORPORATIVAS,14.376.247/0001-11,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,2.0,1302,998394,105.79,R$ 105.62 Milhões,0.69,BMLC11
-54.89,13.85,0.77,497.43,K,-8.49,7.4,FUNDO DE INVESTIMENTO IMOBILIÁRIO - BRASIL PLURAL ABSOLUTO,17.324.357/0001-28,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,20488,4492315,71.21,R$ 319.89 Milhões,0.7,BPFF11
-81.80,12.47,0.83,453.65,K,-9.66,10.34,BRADESCO CARTEIRA IMOBILIÁRIA ATIVA – FUNDO DE INVESTIMENTO IMOBILIÁRIO,20.216.935/0001-17,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,24216,3719027,99.44,R$ 369.81 Milhões,0.84,BCIA11
-899.00,7.21,0.85,90.0,K,7.05,90.37,BRIO CRÉDITO ESTRUTURADO - FUNDO DE INVESTIMENTO IMOBILIÁRIO,39.332.032/0001-20,Investidor Qualificado,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Determinado,Ativa,,0.0,115,133403,1053.25,R$ 140.52 Milhões,4.66,BICE11
-106.83,9.9,0.91,3.23,M,4.81,10.56,BRESCO LOGÍSTICA - FUNDO DE INVESTIMENTO IMOBILIÁRIO,20.748.515/0001-81,Geral,Híbridos,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,4.5,120732,15905122,117.88,R$ 1.87 Bilhão,0.87,BRCO11
-1.20,0.0,0.17,7.88,K,-28.99,0.0,BRAZILIAN GRAVEYARD DEATH CARE FDO INV IMOB - FII,13.584.584/0001-31,Geral,Títulos e valores mobiliários,Híbrido,Fundo misto,Indeterminado,Ativa,,0.0,11701,35769908,6.99,R$ 249.93 Milhões,0.01,CARE11
-82.61,11.92,0.84,2.0,M,2.25,10.2,FUNDO DE INVESTIMENTO IMOBILIÁRIO ATHENA I,30.567.216/0001-02,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,0.38,18297,4611756,98.53,R$ 454.40 Milhões,0.8,FATN11
-1.382.00,5.03,1.76,3.23,K,5.85,79.42,FUNDO DE INVESTIMENTO IMOBILIÁRIO BRASIL VAREJO,21.126.204/0001-43,Geral,Renda,Outros,Fundo de Tijolo,Indeterminado,Passiva,,0.0,127,625529,786.6,R$ 492.05 Milhões,3.9,BVAR11
-6.92,15.36,0.83,47.67,K,11.97,0.99,BRIO MULTIESTRATÉGIA FUNDO DE INVESTIMENTO IMOBILIÁRIO,41.081.356/0001-84,Geral,Renda,Híbrido,Outro,Indeterminado,Ativa,,0.0,8550,5845591,8.39,R$ 49.07 Milhões,0.09,BIME11
-513.40,42.87,1.38,12.83,K,6.57,314.32,BRIO REAL ESTATE II - FUNDO DE INVESTIMENTO IMOBILIÁRIO,23.964.843/0001-03,Geral,Híbridos,Outros,Fundo de desenvolvimento,Determinado,Ativa,,0.0,679,124126,371.24,R$ 46.08 Milhões,80.56,BRIM11
-715.00,43.01,1.04,13.33,K,37.4,356.53,BRIO REAL ESTATE III FUNDO DE INVESTIMENTO IMOBILIÁRIO,34.895.752/0001-80,Geral,Híbridos,Híbrido,Fundo de desenvolvimento,Determinado,Ativa,,0.0,432,215464,687.8,R$ 148.20 Milhões,11.77,BRIP11
-54.02,11.8,0.5,265.93,K,29.27,5.95,BRPR CORPORATE OFFICES FDO DE INV IMOB,48.978.859/0001-04,Geral,Renda,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,8.8,9763,11610801,108.25,R$ 1.26 Bilhão,0.62,BROF11
-42.19,10.69,0.61,22.76,K,18.44,3.96,BTG PACTUAL HOTÉIS FII,18.308.516/0001-63,Geral,Híbridos,Hotéis,Fundo de Tijolo,Indeterminado,Ativa,0.95,45.5,1397,9218501,68.62,R$ 632.62 Milhões,0.41,BTHI11
-57.20,0.0,1.1,63.21,K,-0.12,12.79,BS2 ALLINVESTMENTS FUNDO DE INVESTIMENTO IMOBILIÁRIO,41.218.404/0001-33,Investidor Qualificado,Desenvolvimento para venda,Híbrido,Fundo misto,Indeterminado,Ativa,,0.0,72,361129,52.09,R$ 18.81 Milhões,1.7,LLAO11
-9.18,12.23,0.9,1.81,M,6.0,1.11,BTG Pactual Fundo de CRI,09.552.812/0001-14,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,0.95,0.0,192178,99521161,10.15,R$ 1.01 Bilhão,0.1,BTCI11
-98.50,9.58,0.94,6.78,M,8.67,9.27,BTG PACTUAL LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO,11.839.593/0001-09,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,1.0,393460,43249140,104.21,R$ 4.51 Bilhões,0.78,BTLG11
-41.60,13.58,0.49,1.17,M,-6.31,5.73,FUNDO DE INVESTIMENTO IMOBILIÁRIO - BTG PACTUAL CORPORATE OFFICE,08.924.783/0001-01,Geral,Híbridos,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,12.1,124584,26638191,84.97,R$ 2.26 Bilhões,0.41,BRCR11
-8.25,9.11,0.83,6.64,M,7.84,0.1,BTG PACTUAL REAL ESTATE HEDGE FUND FII - RESP LTDA,45.188.176/0001-57,Geral,Títulos e valores mobiliários,Híbrido,Fundo de papel,Indeterminado,Ativa,,0.0,340382,205846929,9.89,R$ 2.04 Bilhões,0.09,BTHF11
-51.62,8.55,0.47,87.61,K,17.51,5.17,FUNDO DE INVESTIMENTO IMOBILIÁRIO BTG PACTUAL TERRAS AGRÍCOLAS,41.076.607/0001-32,Geral,Renda,Fiagros,Outro,Indeterminado,Ativa,,0.0,12764,3364548,111.44,R$ 374.96 Milhões,0.83,BTRA11
-78.38,13.11,0.7,498.35,K,17.3,9.32,FUNDO DE INVESTIMENTO IMOBILIÁRIO BTG PACTUAL AGRO LOGÍSTICA,36.642.244/0001-15,Geral,Renda,Outros,Fundo de Tijolo,Indeterminado,Ativa,,0.0,39591,5982725,111.41,R$ 666.53 Milhões,0.9,BTAL11
-78.92,18.59,0.61,752.09,K,11.22,12.31,FUNDO DE INVESTIMENTO IMOBILIÁRIO BTG PACTUAL SHOPPINGS,33.046.142/0001-49,Investidor Qualificado,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,7.2,5631,7441734,130.22,R$ 969.09 Milhões,0.92,BPML11
-101.32,7.13,0.86,123.33,K,-12.36,7.55,BTOWERS - FUNDO DE INVESTIMENTO IMOBILIÁRIO,20.132.453/0001-89,Investidor Qualificado,Renda,Lajes Corporativas,Fundo de desenvolvimento,Indeterminado,Passiva,,6.0,135,809258,118.49,R$ 95.89 Milhões,0.6,BTWR11
-109.59,2.05,0.94,2.71,K,-4.7,8.95,BTSP II FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.930.464/0001-44,Geral,Desenvolvimento para renda,Híbrido,Fundo de desenvolvimento,Indeterminado,Ativa,,0.0,188,5723063,117.07,R$ 669.99 Milhões,0.78,BTSI11
-151.45,7.56,1.0,1.53,K,3.05,11.15,BTSP I FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.098.375/0001-83,Geral,Desenvolvimento para renda,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,0.0,102,775004,152.08,R$ 117.86 Milhões,1.0,BTSG11
-8.88,11.06,0.85,265.28,K,-4.41,2.63,CANUMA CAPITAL MULTIESTRATÉGIA FUNDO DE INVESTIMENTO IMOBILIÁRIO,43.010.844/0001-26,Geral,Híbridos,Outros,Fundo misto,Indeterminado,Ativa,,2.9,8248,67797042,10.45,R$ 708.57 Milhões,0.09,CCME11
-56.20,14.44,0.59,108.12,K,-11.17,8.06,FUNDO DE INVESTIMENTO IMOBILIÁRIO CAIXA IMÓVEIS CORPORATIVOS,38.658.984/0001-75,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,0.0,12592,3924489,96.06,R$ 376.98 Milhões,0.66,CXCO11
-67.61,10.08,0.89,9.39,K,-2.76,7.41,CAIXA RIO BRAVO FUNDO DE FUNDOS DE INVESTIMENTO IMOBILIÁRIO II,31.887.401/0001-39,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,1246,690029,81.92,R$ 56.53 Milhões,0.61,CRFF11
-61.00,11.36,0.77,9.77,K,-12.62,7.05,CAIXA RIO BRAVO FUNDO DE INVESTIMENTO IMOBILIÁRIO,17.098.794/0001-70,Geral,Híbridos,Híbrido,Fundo de fundos,Indeterminado,Ativa,,0.0,1819,1575749,81.24,R$ 128.02 Milhões,0.59,CXRI11
-10.75,9.96,1.12,3.67,M,19.18,5.04,Classe Única do Capitânia HBC Renda Urbana,34.691.520/0001-00,Geral,Renda,Híbrido,Outro,Indeterminado,Ativa,,2.2,1309,62371124,9.59,R$ 598.34 Milhões,0.06,CPUR11
-11.75,6.88,1.22,6.88,M,19.29,0.33,CAPITÂNIA LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO - FII,52.371.756/0001-40,Geral,Híbridos,Logístico / Indústria / Galpões,Fundo misto,Indeterminado,Ativa,,0.0,334,34345209,9.63,R$ 330.74 Milhões,0.03,CPLG11
-7.30,12.95,0.81,5.54,M,1.96,0.9,CAPITANIA SECURITIES II FUNDO DE INVESTIMENTO IMOBILIÁRIO,18.979.895/0001-13,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,357034,328558318,8.96,R$ 2.95 Bilhões,0.09,CPTS11
-108.50,8.11,0.99,5.52,M,8.49,8.82,CAPITÂNIA OFFICE FII - FDO DE INV IMOB,48.916.699/0001-60,Geral,Renda,Híbrido,Fundo misto,Indeterminado,Ativa,,3.0,118,4772394,109.69,R$ 523.49 Milhões,0.75,CPOF11
-9.43,12.98,0.79,4.43,M,0.75,4.01,SHOPPINGS AAA FDO DE INV IMOB,47.896.665/0001-99,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,4.9,21496,79699807,11.83,R$ 943.03 Milhões,0.1,CPSH11
-88.64,18.25,0.92,1.33,M,1.04,16.38,CARTESIA RECEBÍVEIS IMOBILIÁRIOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,32.065.364/0001-46,Geral,Híbridos,Híbrido,Fundo de papel,Indeterminado,Ativa,,0.0,24211,4836313,95.85,R$ 463.55 Milhões,1.35,CACR11
-94.00,6.24,0.75,135.86,K,-1.95,10.23,BLUEMACAW CATUAÍ TRIPLE A FUNDO DE INVESTIMENTO IMOBILIÁRIO,41.076.748/0001-55,Geral,Híbridos,Lajes Corporativas,Fundo misto,Indeterminado,Ativa,,0.0,471,1599989,129.03,R$ 206.44 Milhões,0.5,BLCA11
-22.00,4.55,0.33,36.78,K,-18.03,1.16,CASTELLO BRANCO OFFICE PARK FUNDO DE INVESTIMENTO IMOBILIÁRIO,17.144.039/0001-85,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,41.6,2262,1414989,67.29,R$ 95.21 Milhões,0.1,CBOP11
-1.21,6.54,0.16,475.23,K,-14.18,0.32,FUNDO DE INVESTIMENTO IMOBILIÁRIO - CENESP,13.551.286/0001-45,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,59.4,91936,34134814,7.57,R$ 258.46 Milhões,0.01,CNES11
-650.00,23.05,0.66,225.2,K,1.08,112.0,CF3 FUNDO DE INVESTIMENTO IMOBILIÁRIO,41.325.993/0001-59,Investidor Qualificado,Desenvolvimento para venda,Híbrido,Fundo de desenvolvimento,Determinado,Ativa,,0.0,107,126308,992.02,R$ 125.31 Milhões,3.85,CFII11
-5.55,0.36,0.26,1.19,K,-31.99,0.0,FUNDO DE INVESTIMENTO IMOBILIÁRIO CENTRO TÊXTIL INTERNACIONAL,00.762.723/0001-28,Geral,Desenvolvimento para renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,0.0,2279,4659595,21.52,R$ 100.29 Milhões,0.02,CTXT11
-320.00,16.69,0.93,300.74,K,5.15,14.0,CF2 FUNDO DE INVESTIMENTO IMOBILIÁRIO,34.508.923/0001-70,Investidor Qualificado,Híbridos,Outros,Fundo de desenvolvimento,Indeterminado,Ativa,,0.0,96,94589,345.89,R$ 32.72 Milhões,25.8,CFHI11
-60.10,3.23,0.82,5.31,K,-2.13,1.63,CIDADE JARDIM CONTINENTAL TOWER FUNDO DE INVESTIMENTO IMOBILIÁRIO,10.347.985/0001-80,Investidor Qualificado,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,31.8,882,3139989,72.92,R$ 228.97 Milhões,0.2,CJCT11
-89.66,13.89,0.91,1.34,M,8.68,11.82,CLAVE ÍNDICES DE PREÇOS,49.005.348/0001-60,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,11656,4346752,97.94,R$ 425.72 Milhões,1.1,CLIN11
-95.00,0.0,0.79,1.51,M,-5.0,0.0,CYRELA DESENVOLVIMENTO LOGÍSTICO FII,43.010.601/0001-98,Investidor Qualificado,Desenvolvimento para venda,Logístico / Indústria / Galpões,Fundo de Tijolo,Determinado,Ativa,,0.0,102,1241836,120.58,R$ 149.75 Milhões,0.0,CYLD11
-8.58,14.14,0.91,493.26,K,1.18,1.25,CYRELA CRÉDITO - FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.501.233/0001-15,Geral,Títulos e valores mobiliários,Outros,Fundo de papel,Indeterminado,Ativa,,0.0,18063,36549434,9.42,R$ 344.40 Milhões,0.11,CYCR11
-54.00,18.71,0.6,131.46,K,-8.97,10.33,FUNDO DE INVESTIMENTO IMOBILIÁRIO DE CRI INTEGRAL BREI,40.011.251/0001-96,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,3837,958412,90.05,R$ 86.31 Milhões,0.84,IBCR11
-7.10,13.08,0.84,12.9,K,-20.58,0.54,DAMA FUNDO DE INVESTIMENTO IMOBILIÁRIO,53.866.872/0001-01,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,751,5537020,8.47,R$ 46.89 Milhões,0.09,DAMA11
-4.45,0.64,0.47,6.23,K,5.95,0.0,DAYCOVAL REAL ESTATE MULTIESTRATÉGIA FII RL,38.293.921/0001-62,Geral,Híbridos,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,9.6,1,17100927,9.89,R$ 169.09 Milhões,0.03,DAYM11
-10.888.00,0.0,1.12,380.66,K,7.89,0.0,ASA RETROFITS I FUNDO DE INVESTIMENTO IMOBILIÁRIO - FII,451.880/3300-01,Investidor Qualificado,Híbridos,Híbrido,Fundo de desenvolvimento,Determinado,Ativa,2.2,0.0,63,3989,9714.85,R$ 38.86 Milhões,0.0,ASRF11
-32.66,16.23,0.34,684.17,K,-0.27,6.12,DEVANT RECEBÍVEIS IMOBILIÁRIOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,37.087.810/0001-37,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,88412,14044897,97.16,R$ 1.36 Bilhão,0.34,DEVA11
-2.92,0.0,0.02,1.16,K,-31.78,0.0,ENERGY RESORT FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.969.658/0001-53,Geral,Títulos e valores mobiliários,Outros,Fundo de desenvolvimento,Indeterminado,Passiva,,0.0,84,762207,149.0,R$ 113.57 Milhões,0.0,EGYR11
-11.803.62,1.24,0.65,1.51,M,6.42,,ESTOQUE RESIDENCIAL E COMERCIAL RJ FUNDO DE INVESTIMENTO IMOBILIÁRIO,37.266.902/0001-84,Investidor Qualificado,Desenvolvimento para renda,Híbrido,Fundo de Tijolo,Indeterminado,Passiva,,0.0,10,2365,18117.19,R$ 43.05 Milhões,146.5,ERCR11
-126.97,1.98,0.8,198.62,K,-5.25,9.68,EUROPA 105 - FUNDO DE INVESTIMENTO IMOBILIÁRIO,31.469.385/0001-64,Investidor Qualificado,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,0.0,599,500911,159.5,R$ 79.89 Milhões,0.94,ERPA11
-850.00,13.62,1.48,105.96,K,19.39,398.1,EVEN II KINEA FUNDO DE INVESTIMENTO IMOBILIÁRIO,32.317.313/0001-64,Investidor Qualificado,Desenvolvimento para venda,Outros,Fundo de desenvolvimento,Determinado,Passiva,,0.0,445,147689,573.17,R$ 84.66 Milhões,34.53,KEVE11
-7.82,14.9,0.82,177.15,K,0.9,1.11,EQI RECEBÍVEIS IMOBILIÁRIOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,41.076.380/0001-25,Investidor Qualificado,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Outro,Indeterminado,Ativa,,0.0,10129,10909304,9.59,R$ 104.61 Milhões,0.11,EQIR11
-9.40,15.32,0.97,13.45,K,10.72,3.28,EXES FUNDO DE INVESTIMENTO IMOBILIÁRIO,41.076.851/0001-03,Investidor Qualificado,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,690,7105433,9.7,R$ 68.96 Milhões,0.13,EXES11
-96.78,14.78,1.04,77.03,K,15.24,13.63,FARIA LIMA CAPITAL RECEBÍVEIS IMOBILIÁRIOS I - FUNDO DE INVESTIMENTO IMOBILIÁRIO,33.884.145/0001-51,Investidor Qualificado,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,3008,751833,93.09,R$ 69.99 Milhões,1.05,FLCR11
-1.144.05,0.0,1.25,30.98,K,12.82,0.0,FII EGDB,53.866.393/0001-87,Geral,Híbridos,Híbrido,Outro,Indeterminado,Ativa,,0.0,2222,72997,914.17,R$ 66.74 Milhões,0.0,EGDB11
-74.88,13.35,0.89,1.22,M,-4.77,10.1,FATOR VERITA FUNDO DE INVESTIMENTO IMOBILIÁRIO,11.664.201/0001-00,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,113015,15592413,84.55,R$ 1.32 Bilhão,0.85,VRTA11
-6.80,15.66,0.73,541.34,K,-28.12,1.08,FATOR VERITÀ MULTIESTRATÉGIA,51.870.412/0001-13,Geral,Híbridos,Híbrido,Outro,Indeterminado,Ativa,,0.0,11765,46971234,9.33,R$ 438.07 Milhões,0.09,VRTM11
-133.50,9.53,0.6,96.09,K,4.87,12.35,FUNDO DE INVESTIMENTO IMOBILIÁRIO CONTINENTAL SQUARE FARIA LIMA,04.141.645/0001-03,Geral,Renda,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,20.7,12261,1380659,220.54,R$ 304.49 Milhões,1.02,FLMA11
-232.00,9.94,0.7,38.17,K,3.78,22.56,FUNDO DE INVESTIMENTO IMOBILIÁRIO EUROPAR,05.437.916/0001-27,Geral,Híbridos,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Passiva,,0.0,2090,383925,329.69,R$ 126.58 Milhões,2.0,EURO11
-600.02,7.31,0.28,15.76,K,-1.11,15.0,FUNDO DE INVESTIMENTO IMOBILIÁRIO - TORRE ALMIRANTE,07.122.725/0001-00,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,46.34,1966,111166,2108.52,R$ 234.42 Milhões,3.93,ALMI11
-75.00,4.87,0.65,6.83,K,66.78,0.96,FUNDO DE INVESTIMENTO IMOBILIÁRIO MEMORIAL OFFICE,01.633.741/0001-72,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,0.0,225,507997,115.99,R$ 58.92 Milhões,0.43,FMOF11
-150.00,4.7,0.95,10.87,M,3.94,3.65,FOF JHSF CAPITAL INSTITUCIONAL FII,50.718.976/0001-72,Investidor Qualificado,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Passiva,,0.0,9,1317706,157.25,R$ 207.22 Milhões,0.62,JCIN11
-75.70,11.88,0.85,702.4,K,-4.5,9.53,FUNDO DE FUNDOS DE INVESTIMENTO IMOBILIÁRIO KINEA FII,30.091.444/0001-40,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,28799,7014554,88.65,R$ 621.82 Milhões,0.75,KFOF11
-86.31,13.65,0.94,2.39,M,5.97,11.18,FUNDO DE INVESTIMENTO IMOBILIÁRIO - VBI CRI,28.729.197/0001-13,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,84438,11010217,92.12,R$ 1.01 Bilhão,1.05,CVBI11
-6.21,13.28,0.73,205.73,K,-4.75,0.85,FUNDO DE INVESTIMENTO IMOBILIÁRIO DEVANT FOF IMOBILIÁRIOS,39.863.059/0001-49,Geral,Títulos e valores mobiliários,Híbrido,Fundo de fundos,Indeterminado,Ativa,,0.0,1843,11009489,8.41,R$ 92.62 Milhões,0.07,DVFF11
-716.00,146.23,0.39,15.24,K,-7.59,0.0,FUNDO DE INVESTIMENTO IMOBILIÁRIO - EDIFÍCIO ALMIRANTE BARROSO,05.562.312/0001-02,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,89.31,2102,122527,1838.27,R$ 225.26 Milhões,45.43,FAMB11
-144.17,13.48,0.65,58.82,K,9.52,18.61,FUNDO DE INVESTIMENTO IMOBILIÁRIO – FII ANHANGUERA EDUCACIONAL,11.179.118/0001-45,Geral,Renda,Outros,Fundo de Tijolo,Indeterminado,Passiva,,0.0,4209,692366,222.03,R$ 153.73 Milhões,1.66,FAED11
-125.42,8.31,1.02,267.24,K,18.0,10.16,FUNDO DE INVESTIMENTO IMOBILIÁRIO – CAMPUS FARIA LIMA,11.602.654/0001-01,Geral,Renda,Educacional,Fundo de Tijolo,Indeterminado,Passiva,,0.0,3200,3473999,123.21,R$ 428.04 Milhões,0.9,FCFL11
-15.23,5.48,0.32,7.32,K,-14.25,0.88,FUNDO DE INVESTIMENTO IMOBILIÁRIO - EDIFÍCIO GALERIA,15.333.306/0001-37,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,23.55,4022,3812044,46.99,R$ 179.14 Milhões,0.08,EDGA11
-42.40,12.92,0.58,37.52,K,11.67,5.27,FUNDO DE INVESTIMENTO IMOBILIÁRIO - CYRELA COMMERCIAL PROPERTIES,15.799.397/0001-09,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,0.0,4103,1815685,72.77,R$ 132.13 Milhões,0.47,CEOC11
-271.99,11.71,0.83,39.33,K,8.74,32.1,FUNDO DE INVESTIMENTO IMOBILIÁRIO - HOSPITAL DA CRIANÇA,04.066.582/0001-60,Geral,Renda,Hospitalar,Fundo de Tijolo,Indeterminado,Passiva,,0.0,2999,199989,326.0,R$ 65.20 Milhões,2.86,HCRI11
-8.00,15.11,0.82,193.86,K,0.5,1.92,FUNDO DE INVESTIMENTO IMOBILIÁRIO - NCH BRASIL RECEBÍVEIS IMOBILIÁRIOS,18.085.673/0001-57,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,10863,15281377,9.78,R$ 149.49 Milhões,0.1,FYTO11
-168.26,11.12,0.8,361.92,K,3.51,18.73,FUNDO DE INVESTIMENTO IMOBILIÁRIO - HOSPITAL NOSSA SENHORA DE LOURDES,08.014.513/0001-63,Geral,Renda,Hospitalar,Fundo de Tijolo,Indeterminado,Passiva,,0.0,5490,1293275,210.11,R$ 271.73 Milhões,1.66,NSLU11
-87.55,12.12,0.95,2.77,M,9.56,9.93,FUNDO DE INVESTIMENTO IMOBILIÁRIO - RBR RENDIMENTO HIGH GRADE,29.467.977/0001-03,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,125317,15057190,92.35,R$ 1.39 Bilhão,1.0,RBRR11
-851.00,41.3,1.07,5.99,K,5.1,183.5,FUNDO DE INVESTIMENTO IMOBILIÁRIO - RBR DESENVOLVIMENTO III,32.441.656/0001-36,Investidor Qualificado,Renda,Híbrido,Fundo de desenvolvimento,Indeterminado,Ativa,,0.0,122,139654,794.38,R$ 110.95 Milhões,13.0,RBRI11
-2.367.00,9.8,0.72,158.38,K,38.91,202.3,FUNDO DE INVESTIMENTO IMOBILIÁRIO - PARQUE DOM PEDRO SHOPPING CENTER,10.869.155/0001-12,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Passiva,,3.74,3321,100550,3346.61,R$ 336.54 Milhões,18.33,PQDP11
-63.26,20.35,0.61,72.16,K,6.19,22.42,FUNDO DE INVESTIMENTO IMOBILIÁRIO - MAX RETAIL,11.274.415/0001-70,Geral,Renda,Outros,Fundo de Tijolo,Indeterminado,Ativa,,26.0,4379,1125644,102.91,R$ 115.84 Milhões,0.52,MAXR11
-83.32,14.34,0.94,2.6,M,15.98,10.6,FUNDO DE INVESTIMENTO IMOBILIÁRIO - FII REC RECEBÍVEIS IMOBILIÁRIOS,28.152.272/0001-26,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,170969,26441639,88.98,R$ 2.35 Bilhões,0.95,RECR11
-74.13,11.95,0.64,158.24,K,9.08,8.36,FUNDO DE INVESTIMENTO IMOBILIÁRIO CAIXA AGÊNCIAS,40.189.596/0001-34,Geral,Renda,Agências bancárias,Fundo de Tijolo,Indeterminado,Passiva,,0.0,11874,2090610,115.83,R$ 242.16 Milhões,0.7,CXAG11
-64.60,14.16,0.76,165.92,K,-9.76,9.14,FUNDO DE INVESTIMENTO IMOBILIÁRIO CAIXA CARTEIRA IMOBILIÁRIA,42.066.916/0001-94,Geral,Títulos e valores mobiliários,Fundo de Fundos,Fundo de fundos,Indeterminado,Ativa,,0.0,5360,2057715,85.43,R$ 175.79 Milhões,0.75,CXCI11
-99.00,0.0,0.56,14.46,K,1.02,1.05,FUNDO DE INVESTIMENTO IMOBILIÁRIO - TORRE NORTE,04.722.883/0001-02,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,31.9,535,3935551,176.85,R$ 696.00 Milhões,0.07,TRNT11
-30.35,14.23,0.33,218.08,K,1.74,4.47,FUNDO DE INVESTIMENTO IMOBILIÁRIO - FII REC RENDA IMOBILIÁRIA,32.274.163/0001-59,Geral,Híbridos,Híbrido,Outro,Indeterminado,Ativa,,9.8,53351,8543482,90.91,R$ 776.67 Milhões,0.37,RECT11
-40.68,12.98,0.64,14.62,K,14.59,5.04,FUNDO DE INVESTIMENTO IMOBILIÁRIO CAIXA CEDAE,10.991.914/0001-15,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,0.0,3084,1712939,63.43,R$ 108.66 Milhões,0.46,CXCE11
-225.42,9.03,0.57,3.97,K,13.21,23.73,FUNDO DE INVESTIMENTO IMOBILIÁRIO CAIXA SEQ LOGÍSTICA RENDA,12.887.506/0001-43,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Passiva,,0.0,635,53586,392.08,R$ 21.01 Milhões,0.29,CXTL11
-130.49,11.9,0.62,4.78,K,-22.73,13.1,FUNDO DE INVESTIMENTO IMOBILIÁRIO EDIFÍCIO OUROINVEST,06.175.262/0001-73,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,28.27,475,235989,210.44,R$ 49.66 Milhões,1.23,EDFO11
-1.081.93,0.0,0.99,257.33,K,8.49,0.0,FUNDO DE INVESTIMENTO IMOBILIÁRIO DEVELOPMENT V1,40.102.445/0001-05,Investidor Qualificado,Híbridos,Híbrido,Fundo de papel,Indeterminado,Ativa,,0.0,96,66800,1091.85,R$ 72.95 Milhões,0.0,LKDV11
-12.30,9.07,0.74,7.86,K,12.23,1.1,FUNDO DE INVESTIMENTO IMOBILIÁRIO - NOVO HORIZONTE,17.025.970/0001-44,fii.QUALIFIED_INVESTOR,Desenvolvimento para renda,Hospitalar,Fundo de Tijolo,Indeterminado,Ativa,,0.0,1831,41494522,16.61,R$ 689.12 Milhões,0.09,NVHO11
-74.85,13.3,0.75,661.27,K,4.61,9.48,FUNDO DE INVESTIMENTO IMOBILIARIO GREEN TOWERS,23.740.527/0001-58,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,0.0,36414,11999989,99.79,R$ 1.20 Bilhão,0.9,GTWR11
-138.00,14.71,1.11,3.5,M,18.82,13.48,HBC RENDA URBANA FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.501.159/0001-37,fii.GENERAL,Desenvolvimento para renda,Lajes Corporativas,Fundo misto,Indeterminado,Ativa,,0.0,32,1599989,124.37,R$ 199.00 Milhões,0.53,HBCR11
-94.40,11.23,0.64,2.28,K,-3.35,10.56,FUNDO DE INVESTIMENTO IMOBILIÁRIO HOSPITAL UNIMED SUL CAPIXABA,28.851.767/0001-43,Geral,Desenvolvimento para renda,Hospitalar,Fundo de Tijolo,Indeterminado,Passiva,,0.0,747,850810,148.65,R$ 126.47 Milhões,0.86,HUSC11
-83.58,9.08,0.92,1.68,K,-4.12,8.97,FUNDO DE INVESTIMENTO IMOBILIÁRIO HOUSI,34.081.631/0001-02,Geral,Híbridos,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,0.0,1164,573439,91.11,R$ 52.25 Milhões,0.65,HOSI11
-39.91,2.53,0.65,168.59,K,39.55,0.0,FUNDO DE INVESTIMENTO IMOBILIÁRIO OURINVEST LOGÍSTICA,13.974.819/0001-00,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,0.0,3536,2481272,61.62,R$ 152.90 Milhões,0.24,OULG11
-500.01,9.03,1.06,182.72,K,9.12,42.85,FUNDO DE INVESTIMENTO IMOBILIARIO INDUSTRIAL DO BRASIL,14.217.108/0001-45,Geral,Híbridos,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Passiva,,0.0,15320,684989,475.22,R$ 325.53 Milhões,3.58,FIIB11
-87.40,11.66,0.93,2.96,M,10.47,9.7,FUNDO DE INVESTIMENTO IMOBILIÁRIO MAUÁ CAPITAL RECEBÍVEIS IMOBILIÁRIOS,23.648.935/0001-84,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,108562,16960013,94.37,R$ 1.60 Bilhão,0.9,MCCI11
-62.73,15.04,0.76,4.31,M,1.26,9.08,FUNDO DE INVESTIMENTO IMOBILIÁRIO IRIDIUM RECEBÍVEIS IMOBILIÁRIOS,28.830.325/0001-10,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,276865,36433816,82.84,R$ 3.02 Bilhões,0.84,IRDM11
-7.76,14.57,0.78,16.26,K,-10.7,1.19,FUNDO DE INV IMOB RBR CRÉD PULVERIZADO RESP LTDA,53.018.363/0001-10,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,929,12000229,9.94,R$ 119.28 Milhões,0.1,PULV11
-92.77,13.11,0.96,2.37,M,9.83,11.66,FUNDO DE INVESTIMENTO IMOBILIÁRIO RBR PRIVATE CRÉDITO IMOBILIÁRIO,30.166.700/0001-11,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,59461,12769501,96.98,R$ 1.24 Bilhão,1.15,RBRY11
-68.01,9.01,0.78,61.65,K,33.3,1.56,FUNDO DE INVESTIMENTO IMOBILIÁRIO REC LOGÍSTICA,37.112.770/0001-36,Geral,Híbridos,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,0.0,4255,1334551,86.8,R$ 115.84 Milhões,0.8,RELG11
-50.29,11.23,0.66,838.09,K,1.07,5.99,FUNDO DE INVESTIMENTO IMOBILIÁRIO RBR PROPERTIES,21.408.063/0001-51,Geral,Renda,Outros,Fundo de Tijolo,Indeterminado,Ativa,,6.63,64194,12179175,76.02,R$ 925.85 Milhões,0.4,RBRP11
-386.40,0.0,0.94,12.37,K,-31.9,50.33,FUNDO DE INVESTIMENTO IMOBILIÁRIO ROOFTOP I,38.456.598/0001-09,Investidor Qualificado,Desenvolvimento para venda,Outros,Fundo de desenvolvimento,Determinado,Ativa,,0.0,75,77484,412.38,R$ 31.96 Milhões,41.72,ROOF11
-61.05,9.63,0.53,6.86,K,9.7,4.74,FUNDO DE INVESTIMENTO IMOBILIÁRIO SC 401,12.804.013/0001-00,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,7.12,216,1699985,114.19,R$ 194.11 Milhões,0.5,FISC11
-89.40,13.71,0.93,2.39,M,10.08,11.15,FUNDO DE INVESTIMENTO IMOBILIÁRIO RIZA TERRAX,36.501.128/0001-86,Geral,Renda,Híbrido,Outro,Indeterminado,Ativa,,0.0,143075,18851709,96.61,R$ 1.82 Bilhão,1.0,RZTR11
-100.57,9.51,0.86,2.94,M,-1.15,10.74,FUNDO DE INVESTIMENTO IMOBILIÁRIO VBI LOGÍSTICO,30.629.603/0001-18,fii.GENERAL,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,10.7,130843,16118554,117.64,R$ 1.90 Bilhão,0.75,LVBI11
-84.70,15.02,0.76,3.99,M,-17.27,15.1,FUNDO DE INVESTIMENTO IMOBILIARIO TG ATIVO REAL,25.032.881/0001-53,Geral,Híbridos,Híbrido,Fundo de desenvolvimento,Indeterminado,Ativa,,0.0,155763,23567957,111.15,R$ 2.62 Bilhões,1.0,TGAR11
-72.31,8.87,0.67,3.33,M,-15.17,7.6,FUNDO DE INVESTIMENTO IMOBILIÁRIO - VBI PRIME PROPERTIES,35.652.102/0001-76,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,20.9,161936,27130056,107.88,R$ 2.93 Bilhões,0.5,PVBI11
-24.27,11.94,0.79,1.67,K,150.46,1.63,FUNDO DE INVESTIMENTO IMOBILIÁRIO POLO SHOPPING INDAIATUBA,14.721.889/0001-00,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Passiva,,0.0,118,8071886,30.74,R$ 248.12 Milhões,0.27,VPSI11
-79.20,13.59,0.87,953.82,K,12.85,9.53,FUNDO DE INVESTIMENTO IMOBILIÁRIO BARIGUI RENDIMENTOS IMOBILIÁRIOS I,29.267.567/0001-00,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,33780,4634180,91.23,R$ 422.77 Milhões,0.95,BARI11
-3.30,0.0,0.55,20.06,K,17.44,0.0,FUNDO DE INVESTIMENTO IMOBILIÁRIO VIDA NOVA,17.854.016/0001-64,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Passiva,,56.0,3934,9412619,5.89,R$ 55.45 Milhões,0.0,FIVN11
-83.66,13.58,0.81,191.2,K,0.35,11.12,FUNDO DE INVESTIMENTO IMOBILIÁRIO VOTORANTIM LOGÍSTICA,27.368.600/0001-63,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,0.0,5881,2114989,104.98,R$ 222.03 Milhões,1.03,VTLT11
-71.26,11.51,0.62,24.44,K,11.85,8.49,FUNDO DE INVESTIMENTO IMOBILIÁRIO VOTORANTIM SHOPPING,23.740.595/0001-17,fii.GENERAL,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,5.1,3383,2098789,114.86,R$ 241.06 Milhões,0.46,VSHO11
-112.34,0.0,1.18,16.4,K,11.17,0.0,Galapagos Desenvolvimento Logistico Fundo de Investimento Imobiliario Responsabilidade Limitada,56.061.587/0001-01,Geral,Renda,Logístico / Indústria / Galpões,Outro,Determinado,Ativa,,0.0,2157,256202,94.97,R$ 24.33 Milhões,0.0,GCDL11
-79.99,15.47,0.79,207.75,K,-8.04,7.42,FUNDO DE INVESTIMENTO IMOBILIÁRIO SMART REAL ESTATE – FII RESPONSABILIDADE LIMITADA,53.730.029/0001-95,Investidor Qualificado,Híbridos,Outros,Outro,Indeterminado,Ativa,0.22,0.0,1420,1044484,101.29,R$ 105.80 Milhões,1.01,SMRE11
-145.92,0.0,2.26,433.69,K,0.0,0.0,FUNDO DE INVESTIMENTO IMOBILIÁRIO TOURMALET V - ED. CIDADE NOVA,34.197.700/0001-30,Investidor Qualificado,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,0.0,105,849649,64.46,R$ 54.77 Milhões,0.0,TCIN11
-43.20,5.41,0.47,416.33,K,-22.44,9.21,GAZIT MALLS FUNDO DE INVESTIMENTO IMOBILIÁRIO,15.447.108/0001-02,Investidor Qualificado,Híbridos,Híbrido,Fundo misto,Indeterminado,Ativa,,4.7,7141,21841220,91.11,R$ 1.99 Bilhão,0.78,GZIT11
-63.90,16.42,0.7,166.43,K,5.99,10.71,GALAPAGOS RECEBÍVEIS IMOBILIÁRIOS - FUNDO DE INVESTIMENTO IMOBILIÁRIO,38.293.897/0001-61,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,4425,1453848,90.35,R$ 131.35 Milhões,0.87,GCRI11
-46.46,11.47,0.61,171.91,K,-4.8,5.18,GENERAL SHOPPING ATIVO E RENDA FUNDO DE INVESTIMENTO IMOBILIÁRIO,17.590.518/0001-25,Geral,Desenvolvimento para venda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Passiva,,7.7,12161,2849989,76.26,R$ 217.35 Milhões,0.48,FIGS11
-700.00,0.0,1.14,2.05,M,4.01,93.02,VX XVI - FUNDO DE INVESTIMENTO IMOBILIÁRIO,30.982.974/0001-89,Investidor Qualificado,Renda,Outros,Fundo de desenvolvimento,Indeterminado,Ativa,,0.0,13,276435,613.88,R$ 169.70 Milhões,93.02,VXXV11
-84.60,9.13,0.8,97.56,K,41.09,7.1,FUNDO DE INVESTIMENTO IMOBILIÁRIO GRAND PLAZA SHOPPING,01.201.140/0001-90,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Passiva,,2.3,14898,4709071,106.8,R$ 502.95 Milhões,0.5,ABCP11
-9.63,12.33,0.86,4.44,M,0.0,3.55,GGR COVEPI RENDA FUNDO DE INVESTIMENTO IMOBILIÁRIO,26.614.291/0001-00,Geral,Híbridos,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,1.4,178717,152455655,11.18,R$ 1.71 Bilhão,0.1,GGRC11
-8.53,12.98,0.91,110.27,K,5.83,1.09,FUNDO DE INVESTIMENTO IMOBILIÁRIO GUARDIAN MULTIESTRATÉGIA I,41.269.052/0001-45,Geral,Títulos e valores mobiliários,Outros,Fundo de papel,Indeterminado,Ativa,,0.0,21963,21697666,9.39,R$ 203.76 Milhões,0.1,GAME11
-9.07,11.45,1.0,4.88,M,13.23,1.05,FUND. DE INVEST. IMOBILIÁRIO GUARDIAN REAL ESTATE,37.295.919/0001-60,Geral,Híbridos,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,0.0,379017,147458212,9.0,R$ 1.33 Bilhão,0.08,GARE11
-8.64,0.0,0.66,1.59,M,8.14,0.0,GENERAL SHOP E OUTLETS DO BRASIL FUNDO DE INVESTIMENTO IMOBILIÁRIO,11.769.604/0001-13,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Passiva,,10.4,6484,96106655,13.06,R$ 1.26 Bilhão,0.0,GSFI11
-79.05,15.92,0.84,789.74,K,6.44,12.18,HABITAT II - FUNDO DE INVESTIMENTO IMOBILIÁRIO,30.578.417/0001-05,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,62120,8126772,94.2,R$ 765.54 Milhões,1.05,HABT11
-77.40,13.13,0.82,230.5,K,28.87,9.1,HECTARE RECEBÍVEIS HIGH GRADE FUNDO DE INVESTIMENTO IMOBILIÁRIO,34.508.959/0001-54,Geral,Títulos e valores mobiliários,Outros,Fundo de papel,Indeterminado,Ativa,,0.0,588,1199989,94.29,R$ 113.15 Milhões,0.71,HCHG11
-23.33,17.64,0.22,800.35,K,-5.81,4.14,HECTARE CE - FUNDOS INVESTIMENTO IMOBILIÁRIOS,30.248.180/0001-96,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,140604,22084191,104.49,R$ 2.31 Bilhões,0.3,HCTR11
-50.01,3.48,0.7,11.93,K,52.33,1.99,HEDGE AAA FUNDO DE INVESTIMENTO IMOBILIÁRIO,27.445.482/0001-40,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,17.0,220,3454989,66.49,R$ 229.71 Milhões,0.08,HAAA11
-8.45,14.44,0.88,32.89,K,-5.27,1.42,HEDGE BRASIL LOGÍSTICO IND FUND INV IMOB RESP LIM,53.466.467/0001-98,Investidor Qualificado,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,0.0,4740,25135494,9.57,R$ 240.47 Milhões,0.07,HGBL11
-64.49,8.38,0.59,62.0,K,13.54,6.26,PLURAL LOGÍSTICA FDO. INV. IMOB.,36.501.198/0001-34,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,0.7,28.0,2027,749989,108.64,R$ 81.48 Milhões,0.41,GLOG11
-20.47,8.67,1.01,18.72,K,9.41,162.5,FUNDO DE INVESTIMENTO IMOBILIÁRIO - FLORIPA SHOPPING,10.375.382/0001-91,fii.GENERAL,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Passive,,1.2,1383,7399989,20.32,R$ 150.34 Milhões,0.14,FLRP11
-85.98,13.49,0.83,10.09,K,-12.14,21.7,HEDGE DESENVOLVIMENTO LOGÍSTICO FII,44.514.162/0001-13,Investidor Qualificado,Desenvolvimento para venda,Logístico / Indústria / Galpões,Fundo de Tijolo,Determinado,Passiva,,0.0,103,839989,103.79,R$ 87.18 Milhões,11.6,HDEL11
-100.00,0.0,1.05,783.47,K,4.17,0.0,HEDGE DESENVOLVIMENTO LOGÍSTICO FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.688.460/0001-39,Investidor Qualificado,Desenvolvimento para venda,Lajes Corporativas,Fundo de desenvolvimento,Determinado,Ativa,,0.0,113,3369989,95.51,R$ 321.87 Milhões,0.0,HDOF11
-8.20,8.2,0.73,52.83,K,7.19,5.47,HEDGE LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO,27.486.542/0001-72,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,0.0,3715,42499989,11.04,R$ 469.33 Milhões,0.07,HLOG11
-3.00,0.0,0.43,1.61,K,-3.23,0.0,HEDGE REALTY DEVELOPMENT FUNDO DE INVESTIMENTO IMOBILIÁRIO,16.929.519/0001-99,Investidor Qualificado,Desenvolvimento para venda,Híbrido,Fundo de desenvolvimento,Determinado,Ativa,,0.0,905,1517414,7.05,R$ 10.70 Milhões,34.0,HRDF11
-18.30,10.45,0.85,2.06,M,-4.94,20.5,HEDGE BRASIL SHOPPING FUNDO DE INVESTIMENTO IMOBILIÁRIO,08.431.747/0001-06,fii.GENERAL,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,4.8,131721,129132999,21.61,R$ 2.79 Bilhões,0.15,HGBS11
-28.00,0.0,0.43,413.19,K,-6.04,0.46,HEDGE OFFICE INCOME FUNDO DE INVESTIMENTO IMOBILIÁRIO,31.894.369/0001-19,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,49.0,5240,3778990,65.53,R$ 247.63 Milhões,0.21,HOFC11
-99.20,12.12,1.11,326.18,K,18.46,11.5,HEDGE SEED FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.689.497/0001-81,Investidor Qualificado,Híbridos,Híbrido,Outro,Determinado,Ativa,,0.0,126,1639989,89.08,R$ 146.09 Milhões,0.86,SEED11
-89.00,7.37,0.97,301.31,K,10.13,6.36,HEDGE SHOPPING PARQUE DOM PEDRO FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.586.415/0001-73,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Passiva,,2.9,361,3287989,92.66,R$ 304.67 Milhões,0.56,HPDP11
-5.79,11.87,0.78,1.75,M,-6.01,7.41,HEDGE TOP FOFII 3 FUNDO DE INVESTIMENTO IMOBILIÁRIO,18.307.582/0001-19,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,74817,230459989,7.37,R$ 1.70 Bilhão,0.06,HFOF11
-69.00,16.0,0.59,19.44,K,-11.8,11.28,HGI CRÉDITOS IMOBILIÁRIOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,38.456.508/0001-71,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,607,462695,110.91,R$ 51.32 Milhões,0.8,HGIC11
-8.15,12.58,0.93,208.62,K,7.8,0.97,HEDGE RECEBÍVEIS FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.507.262/0001-21,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,2625,51685906,8.77,R$ 453.52 Milhões,0.09,HREC11
-140.97,15.67,0.97,427.1,K,-9.16,26.32,FUNDOS INVESTIMENTO IMOBILÍARIOS FII HOTEL MAXINVEST,08.706.065/0001-69,Geral,Renda,Hotéis,Fundo de Tijolo,Indeterminado,Ativa,,32.0,37343,2888083,144.94,R$ 418.61 Milhões,1.22,HTMX11
-1.241.00,8.22,1.0,8.5,K,10.97,98.07,HUSI FUNDO DE INVESTIMENTO IMOBILIÁRIO,30.017.492/0001-99,Geral,Desenvolvimento para renda,Hospitalar,Fundo de Tijolo,Indeterminado,Ativa,,0.0,95,116351,1247.13,R$ 145.12 Milhões,8.31,HUSI11
-101.50,10.9,1.13,219.96,K,13.46,9.61,HSI RENDA IMOBILIÁRIA FUNDO DE INVESTIMENTO IMOBILIÁRIO,08.098.114/0001-28,Geral,Renda,Híbrido,Fundo misto,Indeterminado,Ativa,,4.2,359,8898713,89.91,R$ 800.09 Milhões,0.85,HSRE11
-81.00,10.69,0.76,2.27,M,-5.45,9.52,HSI MALLS FUNDO DE INVESTIMENTO IMOBILIÁRIO,32.892.018/0001-31,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,4.3,188975,20808561,104.89,R$ 2.18 Bilhões,0.66,HSML11
-76.99,14.33,0.87,241.46,K,7.38,10.45,HSI ATIVOS FINANCEIROS - FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.360.687/0001-50,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,8909,2526349,88.51,R$ 223.61 Milhões,0.95,HSAF11
-78.28,10.49,0.71,421.61,K,0.93,8.88,HSI LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO,32.903.621/0001-71,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,0.0,41235,12660056,110.44,R$ 1.40 Bilhão,0.66,HSLG11
-7.90,14.02,0.83,312.1,K,-4.36,0.22,Icatu Vanguarda GRU Logístico,54.483.412/0001-59,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,0.0,5203,24699989,9.59,R$ 236.84 Milhões,0.11,GRUL11
-64.44,13.3,0.93,41.08,K,-10.71,8.28,INTER TEVA INDICE DE PAPEL FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.312.772/0001-06,Geral,Renda,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Passiva,,0.0,8843,748140,70.03,R$ 52.40 Milhões,0.8,ITIP11
-70.58,10.35,0.6,25.24,K,7.56,6.8,Inter Residence,34.835.191/0001-23,Geral,Renda,Residencial,Fundo de desenvolvimento,Indeterminado,Ativa,,5.9,7094,1130695,118.53,R$ 134.03 Milhões,0.63,INRD11
-73.44,12.68,0.73,142.48,K,-3.14,8.91,INTER LOGÍSTICO  FUNDO DE INVESTIMENTO IMOBILIÁRIO – FII,34.598.181/0001-11,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,0.3,17651,4512092,100.26,R$ 452.38 Milhões,0.77,INLG11
-67.97,10.81,0.89,59.98,K,0.8,7.4,INTER TEVE INDICE DE TIJOLO FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.293.425/0001-83,Geral,Renda,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Passiva,,0.0,10409,900483,76.21,R$ 68.62 Milhões,0.63,ITIT11
-67.54,14.99,0.77,40.96,K,6.3,9.67,IRIDIUM FUNDO DE INVESTIMENTO IMOBILIÁRIO,41.076.564/0001-95,Geral,Híbridos,Híbrido,Fundo de papel,Indeterminado,Ativa,,0.0,2525,1919989,86.47,R$ 166.02 Milhões,0.9,IRIM11
-92.01,14.91,0.92,486.1,K,9.89,10.06,ITAÚ CRÉDITO IMOBILIÁRIO IPCA,51.294.441/0001-84,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,8938,3857348,100.0,R$ 385.73 Milhões,1.1,ICRI11
-76.59,12.64,0.8,795.05,K,-6.08,6.33,ITAÚ TOTAL RETURN FUNDO DE INVESTIMENTO IMOBILIÁRIO,52.270.671/0001-76,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo misto,Indeterminado,Ativa,,0.0,15897,6249989,95.76,R$ 598.50 Milhões,0.82,ITRI11
-79.13,14.93,0.85,188.41,K,-2.5,12.51,ITAÚ TEMPUS FUNDO DE INVESTIMENTO IMOBILIÁRIO,42.737.077/0001-99,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Outro,Determinado,Ativa,,0.0,1975,978957,93.81,R$ 91.84 Milhões,0.85,TMPS11
-161.00,2.66,0.85,6.09,M,9.55,1.37,JHSF CAPITAL CIDADE JARDIM - FUNDO DE INVESTIMENTO IMOBILIÁRIO,50.701.686/0001-16,Geral,Renda,Fundo de Fundos,Fundo de fundos,Indeterminado,Ativa,0.3,0.0,118,1668494,189.81,R$ 316.69 Milhões,0.36,JCCJ11
-14.88,1.06,1.9,62.38,K,-34.36,67.59,JBFO FOF FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.615.915/0001-59,Geral,Títulos e valores mobiliários,Fundo de Fundos,Fundo de papel,Indeterminado,Ativa,,0.0,364,1279059,7.81,R$ 10.00 Milhões,0.04,JBFO11
-98.50,7.71,0.87,15.03,K,-7.43,7.18,JASC RENDA VAREJO FUNDO DE INVESTIMENTO IMOBILIÁRIO,40.886.241/0001-02,Geral,Renda,Outros,Fundo de Tijolo,Indeterminado,Ativa,,0.9,162,3489331,113.2,R$ 394.98 Milhões,0.67,JASC11
-150.50,1.81,0.92,8.56,K,9.8,3.48,JFDCAM FUNDO DE INVESTIMENTO IMOBILIÁRIO,15.489.509/0001-17,Investidor Qualificado,Renda,Híbrido,Fundo misto,Indeterminado,Ativa,,0.0,91,4876118,163.87,R$ 799.06 Milhões,0.82,VJFD11
-67.35,9.69,0.63,22.38,K,3.6,7.34,JFL LIVING FI IMOBILIÁRIO CLASSE UNICA,36.501.181/0001-87,Geral,Renda,Outros,Fundo de Tijolo,Indeterminado,Ativa,,23.0,2598,1500587,106.87,R$ 160.37 Milhões,0.4,JFLL11
-77.99,16.66,0.8,150.77,K,12.3,12.12,JPP ALLOCATION MOGNO - FUNDO DE INVESTIMENTO IMOBILIÁRIO,30.982.880/0001-00,Geral,Títulos e valores mobiliários,Híbrido,Fundo de papel,Indeterminado,Ativa,,0.0,6701,904039,97.47,R$ 88.12 Milhões,1.06,JPPA11
-132.97,56.44,0.86,12.02,K,822.12,75.06,JPP CAPITAL FUNDO DE INVESTIMENTO IMOBILIÁRIO,17.216.625/0001-98,Geral,Híbridos,Híbrido,Fundo de desenvolvimento,Determinado,Ativa,,0.0,326,54989,154.1,R$ 8.48 Milhões,75.06,JPPC11
-8.10,13.87,0.86,381.6,K,-7.22,4.27,JS Recebíveis Imobiliários,54.866.214/0001-74,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,3760,22137089,9.4,R$ 208.10 Milhões,0.1,JSCR11
-7.32,15.02,0.81,1.42,M,-8.84,11.64,JS ATIVOS FINANCEIROS FUNDO DE INVESTIMENTO IMOBILIÁRIO,42.085.661/0001-07,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,21803,77523279,9.02,R$ 699.10 Milhões,0.09,JSAF11
-62.51,9.19,0.61,1.66,M,6.29,5.7,JS REAL ESTATE MULTIGESTÃO - FII,13.371.132/0001-71,Geral,Híbridos,Híbrido,Outro,Indeterminado,Ativa,,4.5,88744,20767317,101.94,R$ 2.12 Bilhões,0.48,JSRE11
-6.74,12.28,0.83,437.21,K,-6.65,0.87,KLIMA FIC FUNDO IMOBILIÁRIO SUNO 30,36.669.660/0001-07,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,107615,44196039,8.1,R$ 357.98 Milhões,0.07,KISU11
-64.99,17.6,0.76,327.58,K,-4.89,12.02,KILIMA VOLKANO RECEBÍVEIS IMOBILIÁRIOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,42.273.325/0001-98,Investidor Qualificado,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,6729,2222725,84.98,R$ 188.88 Milhões,0.95,KIVO11
-89.29,12.53,0.89,4.12,M,7.33,10.81,KINEA HEDGE FUND FDO DE INV IMOB,42.754.342/0001-47,Geral,Renda,Híbrido,Fundo misto,Indeterminado,Ativa,,5.6,43517,19663224,99.82,R$ 1.96 Bilhão,1.0,KNHF11
-100.50,14.04,1.01,2.51,M,9.93,13.1,KINEA HIGH YIELD CRI FUNDO DE INVESTIMENTO IMOBILIÁRIO,30.130.708/0001-28,Investidor Qualificado,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,25688,28169496,99.15,R$ 2.79 Bilhões,1.3,KNHY11
-8.40,14.25,0.88,352.68,K,1.69,6.39,KINEA CREDITAS FUNDO DE INVESTIMENTO IMOBILIÁRIO,42.502.802/0001-40,Geral,Renda,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,15566,35999989,9.57,R$ 344.47 Milhões,0.11,KCRE11
-86.50,12.72,0.93,5.3,M,2.94,10.29,KINEA INDICES DE PRECOS FUNDO DE INVESTIMENTO IMOBILIARIO - FII,24.960.430/0001-13,Investidor Qualificado,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,72774,80078175,92.18,R$ 7.38 Bilhões,0.8,KNIP11
-0.25,1.81,0.37,2.54,K,150.0,0.0,KINEA II REAL ESTATE EQUITY FUNDO DE INVESTIMENTO IMOBILIÁRIO,14.423.780/0001-97,Investidor Qualificado,Desenvolvimento para venda,Outros,Fundo misto,Determinado,Ativa,,0.0,5972,18547150,0.67,R$ 12.41 Milhões,0.0,KNRE11
-68.15,22.01,0.64,2.59,M,-20.23,14.44,Kinea Oportunidades Real Estate,52.219.978/0001-42,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,9.35,24716,9624989,105.93,R$ 1.02 Bilhão,1.25,KORE11
-139.80,8.59,0.86,4.62,M,-1.5,12.0,KINEA RENDA IMOBILIÁRIA FDO INV IMOB - FII,12.005.956/0001-65,Geral,Renda,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,4.49,299240,28204036,163.03,R$ 4.60 Bilhões,1.0,KNRI11
-8.51,13.19,0.96,4.05,M,4.93,1.01,KINEA SECURITIES FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.864.448/0001-38,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,219908,202202374,8.81,R$ 1.78 Bilhão,0.1,KNSC11
-102.67,12.62,1.01,10.92,M,11.79,11.8,KINEA RENDIMENTOS IMOBILIARIOS FUNDO DE INVESTIMENTO IMOBILIARIO - FII,16.706.958/0001-32,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,414910,76509713,101.82,R$ 7.79 Bilhões,1.35,KNCR11
-540.00,3.47,1.62,1.24,M,15.29,203.69,LAGO DA PEDRA - FUNDO DE INVESTIMENTO IMOBILIÁRIO,37.262.752/0001-30,Investidor Qualificado,Desenvolvimento para venda,Outros,Outro,Indeterminado,Ativa,,0.0,14,580499,334.03,R$ 193.91 Milhões,4.96,LPLP11
-104.04,13.91,1.02,2.18,M,15.7,12.75,KINEA UNIQUE HY CDI FUNDO DE INVESTIMENTO IMOB,42.754.362/0001-18,Geral,Renda,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,36088,15312506,101.26,R$ 1.55 Bilhão,1.5,KNUQ11
-80.54,0.0,0.97,3.13,K,0.01,0.0,FUNDO DE INVESTIMENTO IMOBILIÁRIO LEBLON REALTY DESENVOLVIMENTO I,41.088.534/0001-07,Investidor Qualificado,Híbridos,Híbrido,Fundo de desenvolvimento,Indeterminado,Ativa,,0.0,96,370233,83.2,R$ 30.81 Milhões,0.0,LRDI11
-95.90,13.91,0.71,1.19,M,4.17,7.72,LEGATUS SHOPPINGS FUNDO DE INVESTIMENTO IMOBILIÁRIO,30.248.158/0001-46,Geral,Desenvolvimento para renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,4.2,398,2940287,135.03,R$ 397.04 Milhões,0.92,LASC11
-8.52,17.78,0.86,763.3,K,-4.05,1.58,Life Capital Partners Fund de Investimento Imob,39.753.295/0001-02,Geral,Híbridos,Outros,Outro,Indeterminado,Ativa,,0.0,17137,37901296,9.95,R$ 376.95 Milhões,0.12,LIFE11
-8.63,14.75,0.93,1.26,M,7.2,1.25,MANATÍ CAPITAL HEDGE FUND FUNDO DE INVESTIMENTO IMOBILIÁRIO,42.888.583/0001-89,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Outro,Indeterminado,Ativa,,0.0,27241,37536129,9.3,R$ 349.05 Milhões,0.11,MANA11
-6.74,0.0,0.12,34.8,K,164.31,28.38,LOFT II FUNDO DE INVESTIMENTO IMOBILIÁRIO,24.796.967/0001-90,Investidor Qualificado,Híbridos,Outros,Fundo de papel,Indeterminado,Ativa,,0.0,709,664989,57.65,R$ 38.34 Milhões,3.67,LFTT11
-10.75,4.5,0.78,2.07,M,6.75,0.0,MAUÁ CAPITAL LOGÍSTICA FUNDO DE INVESTIMENTO IMOB,57.466.934/0001-30,fii.GENERAL,Títulos e valores mobiliários,Logístico / Indústria / Galpões,Outro,Determinado,Ativa,,0.0,188,124642849,13.81,R$ 1.72 Bilhão,0.09,MCLO11
-9.42,12.11,0.99,9.36,M,6.2,1.18,MAXI RENDA FUNDO DE INVESTIMENTO IMOBILIÁRIO,97.521.225/0001-25,Geral,Híbridos,Híbrido,Fundo de papel,Indeterminado,Ativa,,0.0,1314627,437325286,9.48,R$ 4.15 Bilhões,0.1,MXRF11
-65.59,2.2,1.97,278.8,K,-38.4,0.0,MÉRITO CEMITÉRIOS FII - FDO DE INV IMOB,46.157.247/0001-17,Geral,Híbridos,Outros,Outro,Indeterminado,Ativa,,0.0,166,2959866,33.23,R$ 98.37 Milhões,0.48,MCEM11
-15.78,0.0,0.58,224.28,K,-26.6,3.01,FUNDO DE INVESTIMENTO IMOBILIÁRIO MOGNO HOTÉIS,34.197.776/0001-65,Investidor Qualificado,Renda,Hotéis,Fundo de Tijolo,Indeterminado,Ativa,,0.0,4453,1313773,27.26,R$ 35.82 Milhões,0.13,MGHT11
-79.74,17.05,0.77,815.11,K,-7.45,14.2,MÉRITO DESENVOLVIMENTO IMOBILIÁRIO - FUNDO DE INVESTIMENTO IMOBILIÁRIO,16.915.968/0001-88,Geral,Híbridos,Híbrido,Fundo de desenvolvimento,Indeterminado,Ativa,,0.0,33038,5962384,103.82,R$ 619.00 Milhões,1.06,MFII11
-8.48,14.88,0.88,5.2,M,6.0,1.29,MAUÁ CAPITAL REAL ESTATE FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.655.973/0001-06,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,100276,111598910,9.64,R$ 1.08 Bilhão,0.11,MCRE11
-8.01,14.9,0.84,9.26,K,6.94,1.16,NAVI CRÉDITO IMOBILIÁRIO,40.041.603/0001-56,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,1164,3949988,9.95,R$ 39.29 Milhões,0.1,NCRI11
-70.45,13.86,0.83,69.61,K,-4.68,12.94,NAVI IMOBILIÁRIO TOTAL RETURN FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.652.252/0001-80,Geral,Renda,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,2645,612271,85.51,R$ 52.35 Milhões,0.98,NAVT11
-8.32,13.02,0.85,31.72,K,-0.95,1.08,NAVI RESIDENCIAL FUNDO DE INVESTIMENTO IMOBILIÁRIO,42.432.327/0001-82,Geral,Híbridos,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,21.0,8425,4612216,9.76,R$ 45.00 Milhões,0.09,APTO11
-102.45,11.13,0.8,196.35,K,-1.17,11.87,NEWPORT LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO,32.527.626/0001-47,Geral,Híbridos,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,0.0,9913,2817401,127.94,R$ 360.47 Milhões,0.95,NEWL11
-79.99,1.28,1.03,142.0,K,1.42,1.52,NEWPORT RENDA URBANA FUNDO DE INVESTIMENTO IMOBILIÁRIO,14.793.782/0001-78,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,35.37,1116,741989,77.78,R$ 57.71 Milhões,0.2,NEWU11
-89.95,8.81,1.01,31.57,K,-2.47,9.25,OCTO FDO DE INV IMOB,44.680.435/0001-08,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo misto,Indeterminado,Ativa,,0.0,462,422975,89.07,R$ 37.68 Milhões,0.64,OCRE11
-6.87,15.82,0.81,242.59,K,-12.15,1.18,FUNDO DE INVESTIMENTO IMOBILIÁRIO ÁTRIO REIT RECEBÍVEIS IMOBILIÁRIOS,32.006.821/0001-21,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,23944,20726962,8.47,R$ 175.65 Milhões,0.09,ARRI11
-77.20,15.63,0.77,448.99,K,16.6,10.59,OURINVEST JPP FUNDO DE INVESTIMENTO IMOBILIÁRIO,26.091.656/0001-50,Geral,Títulos e valores mobiliários,Híbrido,Fundo de papel,Indeterminado,Ativa,,0.0,24930,3252373,100.22,R$ 325.94 Milhões,1.0,OUJP11
-7.76,14.9,0.84,320.16,K,-4.43,1.12,Paramis Hedge Fund,51.868.778/0001-58,Geral,Títulos e valores mobiliários,Híbrido,Outro,Indeterminado,Ativa,,0.0,7064,14803231,9.29,R$ 137.60 Milhões,0.09,PMIS11
-49.00,0.0,1.34,744.06,K,-13.75,49.52,PANORAMA PROPERTIES FUNDO DE INVESTIMENTO IMOBILIÁRIO,26.813.118/0001-22,Investidor Qualificado,Híbridos,Híbrido,Fundo de desenvolvimento,Indeterminado,Ativa,,8.4,17,897805,36.53,R$ 32.80 Milhões,1.23,PNPR11
-1.040.00,0.33,0.98,1.61,M,-9.33,3.41,FUNDO DE INVESTIMENTO IMOBILIÁRIO PANORAMA DESENVOLVIMENTO LOGÍSTICO,37.899.400/0001-90,Investidor Qualificado,Híbridos,Outros,Fundo de desenvolvimento,Determinado,Ativa,,10.6,51,144321,1061.19,R$ 153.16 Milhões,3.41,PNDL11
-56.50,9.88,1.02,1.17,M,4.49,5.5,PARQUE ANHANGUERA FUNDO DE INVESTIMENTO IMOBILIÁRIO,12.978.943/0001-72,Geral,Desenvolvimento para renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,0.0,465,13991879,55.41,R$ 775.28 Milhões,0.47,PQAG11
-63.48,14.05,0.77,520.19,K,-13.73,8.4,CSHG IMOBILIÁRIO FOF - FUNDO DE INVESTIMENTO IMOBILIÁRIO,32.784.898/0001-22,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,15242,2863586,81.82,R$ 234.29 Milhões,0.68,HGFF11
-152.32,8.65,0.94,5.76,M,3.51,13.2,CSHG LOGÍSTICA - FUNDO DE INVESTIMENTO IMOBILIÁRIO,11.728.688/0001-47,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,3.5,506049,33787564,162.74,R$ 5.50 Bilhões,1.1,HGLG11
-37.31,4.21,0.92,38.09,K,10.98,3.06,PÁTRIA EDIFÍCIOS CORPORATIVOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,30.048.651/0001-12,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,34.7,5416,3477423,41.21,R$ 143.32 Milhões,0.05,PATC11
-107.83,10.75,0.69,1.54,M,5.46,10.5,CSHG REAL ESTATE - FUNDO DE INVESTIMENTO IMOBILIÁRIO,09.072.017/0001-29,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,13.3,142895,11817756,155.74,R$ 1.84 Bilhão,0.85,HGRE11
-54.91,12.71,0.57,1.25,M,4.85,6.99,PÁTRIA LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.754.164/0001-99,Geral,Desenvolvimento para renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,0.73,8.8,25725,4991524,96.58,R$ 482.09 Milhões,0.57,PATL11
-136.05,99.83,0.97,156.4,K,-1.64,205.25,CSHG PRIME OFFICES - FUNDO DE INVESTIMENTO IMOBILIÁRIO,11.260.134/0001-68,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,0.0,10209,1753046,140.3,R$ 245.96 Milhões,130.4,HGPO11
-94.59,10.39,0.78,2.1,M,-4.72,10.05,Genial Malls Fundo de Investimento Imobiliário,26.499.833/0001-32,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,4.0,129572,13982082,121.22,R$ 1.69 Bilhão,0.86,PMLL11
-63.57,10.18,0.5,375.98,K,7.47,7.85,VECTIS RENDA RESIDENCIAL FUNDO DE INVESTIMENTO IMOBILIÁRIO,40.041.723/0001-53,Geral,Renda,Outros,Fundo de Tijolo,Indeterminado,Ativa,,24.84,3585,1999989,126.95,R$ 253.90 Milhões,0.5,VCRR11
-79.10,12.83,0.87,493.15,K,5.62,9.32,FUNDO DE INVESTIMENTO IMOBILIÁRIO PLURAL RECEBÍVEIS,32.527.683/0001-26,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,14580,2109158,91.4,R$ 192.77 Milhões,0.9,PLCR11
-91.54,13.19,0.94,4.01,M,0.85,11.45,CSHG RECEBÍVEIS IMOBILIÁRIOS - FUNDO DE INVESTIMENTO IMOBILIÁRIO,11.160.521/0001-22,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,102035,15418095,97.65,R$ 1.51 Bilhão,1.05,HGCR11
-39.01,20.12,0.63,1.35,K,48.78,6.04,PERFORMA REAL ESTATE FUNDO DE INVESTIMENTO IMOBILIÁRIO,34.736.510/0001-43,Investidor Qualificado,Títulos e valores mobiliários,Outros,Fundo de papel,Indeterminado,Ativa,,0.0,292,551989,61.71,R$ 34.06 Milhões,0.37,PEMA11
-8.09,13.27,0.85,346.48,K,1.38,4.58,POLO FUNDO DE INVESTIMENTO IMOBILIÁRIO - RECEBÍVEIS IMOBILIÁRIOS II,17.156.502/0001-09,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,44174,37283739,9.6,R$ 357.86 Milhões,0.09,PORD11
-122.49,10.13,0.96,3.18,M,6.99,12.15,CSHG RENDA URBANA - FUNDO DE INVESTIMENTO IMOBILIÁRIO,29.641.226/0001-53,Geral,Renda,Híbrido,Fundo misto,Indeterminado,Ativa,,0.8,221390,23238013,127.75,R$ 2.97 Bilhões,0.95,HGRU11
-13.00,18.54,0.87,2.72,K,94.9,4.89,POLO FUNDO DE INVESTIMENTO IMOBILIÁRIO - RECEBÍVEIS IMOBILIÁRIOS I,14.080.689/0001-16,Investidor Qualificado,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,894,954293,14.88,R$ 14.20 Milhões,1.36,PLRI11
-213.33,6.9,0.6,1.36,M,0.57,10.98,FUNDO DE INVESTIMENTO IMOBILIÁRIO PROJETO ÁGUA BRANCA,03.251.720/0001-18,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,18.0,716,749989,354.71,R$ 266.03 Milhões,1.35,FPAB11
-0.20,247.07,0.07,1.04,K,0.0,0.18,PERSONALE I FUNDO DE INVESTIMENTO IMOBILIÁRIO,14.056.001/0001-62,Investidor Qualificado,Desenvolvimento para venda,Outros,Fundo de desenvolvimento,Determinado,Ativa,,0.0,966,3231236,2.84,R$ 9.17 Milhões,0.33,PRSN11
-139.97,9.98,0.84,21.19,K,1.41,13.64,Raizz Renda Logística,35.652.278/0001-28,Investidor Qualificado,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Passiva,,0.0,432,4813161,166.3,R$ 800.42 Milhões,1.2,RZZR11
-149.01,11.33,0.75,505.89,K,-0.67,17.2,RB CAPITAL RENDA I FUNDO DE INVESTIMENTO IMOBILIÁRIO,08.696.175/0001-97,Geral,Renda,Híbrido,Fundo de Tijolo,Indeterminado,Passiva,,0.0,6438,927151,199.37,R$ 184.85 Milhões,1.4,FIIP11
-87.86,8.95,0.89,87.7,K,20.37,3.01,RB CAPITAL DESENVOLVIMENTO RESIDENCIAL IV FUNDO DE INVESTIMENTO IMOBILIÁRIO,31.161.410/0001-48,Geral,Desenvolvimento para venda,Outros,Fundo de desenvolvimento,Determinado,Ativa,,0.0,1477,1528604,100.03,R$ 152.90 Milhões,2.23,RBIR11
-950.00,12.49,0.91,72.57,K,4.24,31.71,RB CAPITAL DESENVOLVIMENTO RESIDENCIAL III FUNDO DE INVESTIMENTO IMOBILIÁRIO,19.249.989/0001-08,Investidor Qualificado,Desenvolvimento para venda,Outros,Fundo de desenvolvimento,Determinado,Ativa,,0.0,132,149000,1047.47,R$ 156.08 Milhões,49.74,RSPD11
-75.00,13.6,0.83,18.69,K,13.11,10.32,RB CAPITAL RECEBÍVEIS IMOBILIÁRIOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.689.733/0001-60,Geral,Renda,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,1767,481746,90.21,R$ 43.46 Milhões,0.85,RRCI11
-61.25,13.09,0.87,490.55,K,-0.66,8.65,FUNDO DE INVESTIMENTO IMOBILIÁRIO RB CAPITAL I FUNDO DE FUNDOS,34.027.774/0001-28,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,4149,1078153,70.31,R$ 75.81 Milhões,0.65,RFOF11
-38.00,18.18,0.63,2.16,K,-32.68,44.96,RB CAPITAL LOGÍSTICO FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.652.227/0001-04,Investidor Qualificado,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,0.0,246,640188,60.37,R$ 38.65 Milhões,0.61,RBLG11
-39.02,14.42,0.6,54.38,K,18.24,4.4,RB CAPITAL RENDA II FUNDO DE INVESTIMENTO IMOBILIÁRIO,09.006.914/0001-34,Geral,Renda,Híbrido,Fundo de Tijolo,Indeterminado,Passiva,,16.0,7582,1851775,64.84,R$ 120.07 Milhões,0.5,RBRD11
-350.02,0.0,0.92,3.38,K,-53.33,366.21,RB CAPITAL TFO SITUS FUNDO DE INVESTIMENTO IMOBILIÁRIO,29.299.737/0001-39,Investidor Qualificado,Híbridos,Outros,Fundo de desenvolvimento,Determinado,Ativa,,0.0,136,56514,380.9,R$ 21.53 Milhões,6.19,RBTS11
-97.89,28.45,0.96,14.39,K,33.0,20.81,RBR DESENVOLVIMENTO COMERCIAL FEEDER FOF FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.689.670/0001-41,Investidor Qualificado,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Determinado,Ativa,,0.0,122,323189,102.42,R$ 33.10 Milhões,3.55,RCFF11
-6.51,12.66,0.76,1.81,M,-1.96,1.25,RBR ALPHA MULTIESTRATÉGIA REAL ESTATE FUNDO DE INVESTIMENTO IMOBILIÁRIO,27.529.279/0001-51,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,118182,136807689,8.62,R$ 1.18 Bilhão,0.06,RBRF11
-84.02,10.63,0.8,670.69,K,16.68,8.3,RBR LOG - FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.705.463/0001-33,Geral,Híbridos,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,0.0,13353,6687024,104.92,R$ 701.63 Milhões,0.75,RBRL11
-83.49,7.22,0.78,195.16,K,28.15,5.29,REAG MULTI ATIVOS IMOBILIÁRIOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,17.374.696/0001-19,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,15.9,1071,2443789,106.63,R$ 260.59 Milhões,0.54,RMAI11
-103.33,12.48,0.98,331.13,K,6.24,14.37,REAL INVESTOR FUNDO DE INVESTIMENTO IMOBILIÁRIO,44.625.612/0001-45,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Outro,Indeterminado,Ativa,,0.0,3835,3279521,104.31,R$ 342.09 Milhões,1.05,RINV11
-85.71,14.54,0.87,389.17,K,7.62,12.1,RBR Premium Recebíveis Imobiliários,42.502.842/0001-91,Geral,Títulos e valores mobiliários,Híbrido,Fundo de papel,Indeterminado,Ativa,1.6,0.0,4198,3471717,98.03,R$ 340.34 Milhões,1.05,RPRI11
-7.79,12.93,0.8,546.4,K,-2.99,1.12,FII RBR MULT,41.088.458/0001-21,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,11779,29468648,9.77,R$ 287.99 Milhões,0.1,RBRX11
-8.92,6.39,0.92,53.41,K,9.05,0.0,REC MULTIESTRATÉGIA - FUNDO DE INVESTIMENTO IMOBILIÁRIO - RESPONSABILIDADE LIMITADA,56.430.935/0001-62,Geral,Híbridos,Híbrido,Fundo de papel,Indeterminado,Ativa,,0.0,646,8400506,9.72,R$ 81.67 Milhões,0.12,RECM11
-72.52,17.06,0.79,296.8,K,-5.6,12.15,RIO BRAVO CRÉDITO IMOBILIÁRIO HIGH YIELD FUNDO DE INVESTIMENTO IMOBILIÁRIO,37.899.479/0001-50,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,3222,1893494,92.77,R$ 175.66 Milhões,1.05,RBHY11
-210.00,6.19,0.3,23.74,K,-39.8,52.29,RIO BRAVO OPORTUNIDADES IMOBILIÁRIAS FII,13.500.306/0001-59,Geral,Renda,Outros,Outro,Indeterminado,Ativa,1.1,71.74,3101,101653,684.72,R$ 69.61 Milhões,3.5,RBOP11
-66.55,14.9,0.76,325.04,K,-7.85,11.0,RIO BRAVO CRÉDITO IMOBILIÁRIO HIGH GRADE FUNDO DE INVESTIMENTO IMOBILIÁRIO,30.647.758/0001-87,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,8962,2167946,87.66,R$ 190.05 Milhões,0.8,RBHG11
-50.29,12.18,0.83,292.64,K,-4.79,6.1,RIO BRAVO FUNDO DE FUNDOS DE INVESTIMENTO IMOBILIARIO,17.329.029/0001-14,fii.GENERAL,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,26324,3749204,60.62,R$ 227.29 Milhões,0.51,RBFF11
-45.43,3.13,0.47,48.46,K,7.83,0.82,RIO BRAVO RENDA RESIDENCIAL FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.517.660/0001-91,Geral,Renda,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,45.0,1010,1734288,95.89,R$ 166.30 Milhões,0.07,RBRS11
-123.87,9.03,0.61,839.96,K,-1.44,11.55,FUNDO DE INVESTIMENTO IMOBILIÁRIO - RIO BRAVO RENDA CORPORATIVA,03.683.056/0001-86,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,0.8,27743,3690684,200.7,R$ 740.72 Milhões,0.92,RCRB11
-8.38,13.25,0.79,2.33,M,-8.91,11.9,FUNDO DE INVESTIMENTO IMOBILIÁRIO RIO BRAVO RENDA VAREJO - FII,15.576.907/0001-70,Geral,Desenvolvimento para renda,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,6.9,74111,156143039,10.63,R$ 1.66 Bilhão,0.09,RBVA11
-88.83,14.11,0.88,651.99,K,3.92,12.75,RIZA ARCTIUM REAL ESTATE FUNDO DE INVESTIMENTO IMOBILIÁRIO,28.267.696/0001-36,Geral,Híbridos,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,0.0,35228,4235031,101.33,R$ 429.14 Milhões,1.05,RZAT11
-8.53,14.12,0.86,154.18,K,7.3,7.81,SANTANDER PAPÉIS IMOBILIÁRIOS,51.646.298/0001-42,fii.GENERAL,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,3129,15436829,9.96,R$ 153.75 Milhões,0.11,SAPI11
-49.99,8.99,0.6,68.59,K,20.02,4.58,FUNDO DE INVESTIMENTO IMOBILIÁRIO RIO NEGRO,15.006.286/0001-90,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,19.6,7815,2675989,83.76,R$ 224.14 Milhões,0.27,RNGO11
-81.60,17.02,0.94,1.37,M,17.19,12.71,RIZA AKIN FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.642.219/0001-31,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,45006,8807874,87.01,R$ 766.41 Milhões,1.15,RZAK11
-8.65,13.2,0.9,171.91,K,9.49,9.34,SANTANDER PAPEIS IMOBILIÁRIOS CDI FUNDO DE INVESTIMENTO IMOBILIÁRIO,32.903.521/0001-45,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,11025,15486829,9.66,R$ 149.55 Milhões,0.11,SADI11
-4.55,5.56,0.58,550.02,K,20.05,3.25,SANTANDER RENDA DE ALUGUÉIS FUNDO DE INVESTIMENTO IMOBILIÁRIO,32.903.702/0001-71,Geral,Renda,Híbrido,Fundo misto,Indeterminado,Ativa,,36.3,29533,92343279,7.81,R$ 720.87 Milhões,0.03,SARE11
-2.87,0.0,0.27,3.82,K,5.9,0.06,FUNDO DE INVESTIMENTO IMOBILIÁRIO SCP,01.657.856/0001-05,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,30.0,4531,4199989,10.62,R$ 44.59 Milhões,0.05,SCPF11
-47.34,14.72,0.51,43.38,K,5.76,7.26,SEQUOIA III RENDA IMOBILIÁRIA - FUNDO DE INVESTIMENTO IMOBILIÁRIO,09.517.273/0001-82,Geral,Renda,Outros,Outro,Indeterminado,Ativa,,9.6,4728,1665684,92.91,R$ 154.77 Milhões,0.58,SEQR11
-981.00,8.34,0.97,61.08,K,20.48,56.6,FUNDO DE INVESTIMENTO IMOBILIÁRIO SHOPPING PÁTIO HIGIENÓPOLIS,03.507.519/0001-59,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Passiva,,2.4,2129,608939,1013.93,R$ 617.43 Milhões,5.3,SHPH11
-1.051.35,0.0,1.13,548.95,K,0.0,0.0,SOLARIUM FUNDO DE INVESTIMENTO IMOBILIÁRIO,22.169.671/0001-13,Investidor Qualificado,Híbridos,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,0.0,48,65523,934.16,R$ 61.22 Milhões,4.77,SOLR11
-49.93,9.66,0.75,6.99,K,-11.5,4.53,FUNDO DE INVESTIMENTO IMOBILIÁRIO - SHOPPING WEST PLAZA,09.326.861/0001-39,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Passiva,,8.4,1584,1169989,66.57,R$ 77.89 Milhões,1.0,WPLZ11
-15.60,0.0,11.17,1.95,K,90.01,11.88,SJ AU LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO,27.771.547/0001-47,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Passiva,,0.0,305,7932237,1.4,R$ 11.07 Milhões,11.88,SJAU11
-85.96,9.74,0.98,103.3,K,-1.16,1.66,SPECIALE REAL ESTATE FUND OF FUNDS FUNDO DE INVESTIMENTO IMOBILIÁRIO,50.135.849/0001-40,Investidor Qualificado,Desenvolvimento para venda,Híbrido,Outro,Determinado,Ativa,,0.0,188,975896,87.69,R$ 85.58 Milhões,0.84,PMFO11
-33.77,14.86,0.58,65.52,K,-2.96,5.25,SP Downtown Fundo de Investimento,15.538.445/0001-05,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,0.0,19457,1797989,58.28,R$ 104.78 Milhões,0.42,SPTW11
-8.38,14.19,0.89,448.48,K,4.49,1.16,SPX SYN MULT,43.010.543/0001-00,Geral,Híbridos,Híbrido,Outro,Indeterminado,Ativa,0.8,0.0,19787,20189029,9.42,R$ 190.25 Milhões,0.1,SPXS11
-8.52,15.26,1.05,1.04,M,5.97,9.9,FUNDO DE INVEST IMOBILIARIO SUNO ENERGIAS LIMPAS,43.741.171/0001-84,Geral,Híbridos,Outros,Outro,Indeterminado,Ativa,,0.0,34554,38334191,8.12,R$ 311.11 Milhões,0.1,SNEL11
-69.20,13.3,0.82,429.27,K,-11.62,10.32,SUNO FUNDO DE FUNDOS IMOBILIÁRIO,40.011.225/0001-68,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,28238,4020624,83.89,R$ 337.30 Milhões,0.72,SNFF11
-0.98,266.42,3.18,24.13,K,-50.75,2.1,Suno Log Fundo de Investimento Imobiliario,40.041.711/0001-29,fii.GENERAL,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,1.0,0.0,11527,2529955,0.31,R$ 796.40 Mil,0.84,SNLG11
-9.47,13.49,0.97,42.98,K,12.34,1.27,SUNO MULTIESTRATÉGIA,52.227.760/0001-30,Geral,Híbridos,Híbrido,Fundo misto,Indeterminado,Ativa,,0.0,3819,7418232,9.7,R$ 71.93 Milhões,0.11,SNME11
-85.70,13.95,0.88,526.42,K,2.48,11.55,SUNO RECEBÍVEIS IMOBILIÁRIOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,41.076.710/0001-82,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Outro,Indeterminado,Ativa,,0.0,37652,4199989,98.18,R$ 412.34 Milhões,1.0,SNCI11
-9.95,7.39,1.01,104.07,K,7.22,0.07,TELLUS MULTIESTRATÉGIA - FII FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA,45.188.099/0001-35,Investidor Qualificado,Híbridos,Híbrido,Fundo misto,Indeterminado,Ativa,,0.0,108,2147351,9.86,R$ 21.17 Milhões,0.1,TELM11
-53.20,14.35,0.62,458.12,K,-38.51,9.61,FDO DE INVEST IMOB TELLUS RIO BRAVO RENDA LOGISTIC,16.671.412/0001-93,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,0.84,2.5,50225,7739081,86.83,R$ 671.96 Milhões,0.6,TRBL11
-79.20,13.32,0.81,574.53,K,2.11,10.49,TELLUS PROPERTIES FUNDO DE INVESTIMENTO IMOBILIÁRIO,26.681.370/0001-25,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,0.0,29291,4221956,97.16,R$ 410.19 Milhões,0.91,TEPP11
-91.25,13.29,0.88,1.98,M,1.28,11.63,TIVIO RENDA IMOBILIÁRIA FUNDO DE INVESTIMENTO IMOBILIÁRIO,14.410.722/0001-29,Geral,Renda,Agências bancárias,Fundo de Tijolo,Indeterminado,Ativa,0.277,3.1,63021,15919679,104.05,R$ 1.66 Bilhão,1.05,TVRI11
-99.84,11.65,1.02,4.26,K,13.27,11.42,TISHMAN SPEYER RENDA CORPORATIVA FUNDO DE INVESTIMENTO IMOBILIÁRIO,34.847.042/0001-84,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,0.0,19,1384749,97.95,R$ 135.64 Milhões,0.96,TSER11
-70.79,11.0,0.77,13.78,K,-4.53,9.56,VOTORANTIM SECURITIES MASTER FUNDO DE INVESTIMENTO IMOBILIÁRIO,17.870.926/0001-30,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,626,827902,92.03,R$ 76.19 Milhões,0.63,VOTS11
-3.40,3.31,0.1,23.85,K,-59.33,0.0,TORDESILHAS EI FUNDO DE INVESTIMENTO IMOBILIÁRIO,30.230.870/0001-18,Geral,Híbridos,Híbrido,Outro,Indeterminado,Ativa,,0.0,50830,5841881,35.72,R$ 208.66 Milhões,0.01,TORD11
-250.50,14.35,0.97,22.28,K,6.04,31.46,TJK RENDA IMOBILIÁRIA FUNDO DE INVESTIMENTO IMOBILIÁRIO,39.714.024/0001-48,Investidor Qualificado,Renda,Lajes Corporativas,Outro,Indeterminado,Ativa,,0.0,319,1164636,258.77,R$ 301.38 Milhões,2.9,TJKB11
-9.63,9.87,1.03,72.46,K,6.17,0.0,TRX Hedge Fundo de Investimento Imobiliário de Responsabilidade Limitada,43.985.938/0001-10,Geral,Híbridos,Híbrido,Outro,Indeterminado,Ativa,0.0,0.0,622,3609709,9.36,R$ 33.79 Milhões,0.11,TRXY11
-14.09,0.0,0.98,9.39,K,7.64,0.0,V2 EDIFÍCIOS CORPORATIVOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,15.006.267/0001-63,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,0.0,2698,9899989,14.42,R$ 142.75 Milhões,0.32,VVCO11
-152.00,14.78,1.46,3.59,K,-4.69,16.77,TRX REAL ESTATE II FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.368.925/0001-37,Geral,Títulos e valores mobiliários,Híbrido,Fundo de desenvolvimento,Determinado,Passiva,,0.0,443,3746009,104.4,R$ 391.07 Milhões,1.6,TRXB11
-88.99,9.97,0.95,76.55,K,-1.39,11.46,V2 RENDA IMOBILIÁRIA FDO DE INV IMOB,49.184.940/0001-77,Geral,Renda,Híbrido,Outro,Indeterminado,Ativa,,15.09,155,802672,93.79,R$ 75.28 Milhões,1.34,VVRI11
-97.83,13.59,0.94,7.37,M,6.15,11.9,TRX REAL ESTATE FUNDO DE INVESTIMENTO IMOBILIÁRIO,28.548.288/0001-52,Geral,Renda,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,,0.22,184941,20035552,103.88,R$ 2.08 Bilhões,0.93,TRXF11
-9.71,11.84,0.97,55.08,K,10.72,1.2,V2 RECEBÍVEIS IMOBILIÁRIOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,23.120.027/0001-13,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Determinado,Ativa,,0.0,2233,7508321,10.32,R$ 77.50 Milhões,0.1,VVCR11
-9.51,14.0,0.97,5.68,M,11.49,1.27,VALORA RE III FUNDO DE INVESTIMENTO IMOBILIÁRIO,29.852.732/0001-91,Geral,Renda,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,258785,146101276,9.76,R$ 1.43 Bilhão,0.12,VGIR11
-12.70,2.76,0.31,197.6,K,-31.61,0.87,V2 PRIME PROPERTIES FUNDO DE INVESTIMENTO  IMOBILIÁRIO – FII,30.654.849/0001-40,Geral,Renda,Outros,Fundo misto,Indeterminado,Ativa,,35.59,37788,7316160,40.65,R$ 297.44 Milhões,0.07,VPPR11
-81.55,14.49,0.91,1.77,M,5.12,10.13,VALORA CRI ÍNDICE DE PREÇO FUNDO DE INVESTIMENTO IMOBILIÁRIO,34.197.811/0001-46,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,84153,11787236,89.6,R$ 1.06 Bilhão,1.25,VGIP11
-33.90,26.59,0.34,841.23,K,-50.96,12.24,URCA PRIME RENDA FUNDO DE INVESTIMENTO IMOBILIÁRIO,34.508.872/0001-87,Geral,Híbridos,Outros,Fundo de papel,Indeterminado,Ativa,,0.0,70557,11733884,99.72,R$ 1.17 Bilhão,0.4,URPR11
-49.49,5.73,0.79,627.82,K,29.83,0.0,VBI AGRO - FUNDO DE INVESTIMENTO IMOBILIÁRIO,32.754.734/0001-52,Geral,Renda,Outros,Fundo misto,Indeterminado,Ativa,,0.0,16135,5221828,62.14,R$ 324.47 Milhões,0.51,PLAG11
-79.63,14.68,0.84,2.95,M,0.62,11.0,VECTIS JUROS REAL FUNDO DE INVESTIMENTO IMOBILIÁRIO,32.400.250/0001-05,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,31570,14723959,94.2,R$ 1.39 Bilhão,0.95,VCJR11
-85.00,6.94,0.81,90.42,K,10.53,5.33,VBI OFFICE FUND II - FUNDO DE INVESTIMENTO IMOBILIÁRIO,34.895.894/0001-47,Geral,Híbridos,Lajes Corporativas,Fundo de Tijolo,Determinado,Ativa,,0.0,323,994803,104.85,R$ 104.31 Milhões,0.53,BLMO11
-8.52,19.34,0.81,514.09,K,15.14,1.32,VALORA RENDA IMOB FUNDO DE INVES IMOB -RESP LIMIT,53.656.482/0001-07,Geral,Renda,Híbrido,Fundo de Tijolo,Indeterminado,Ativa,0.085,19.6,16911,35021725,10.56,R$ 369.99 Milhões,0.12,VGRI11
-62.75,13.86,0.83,1.0,M,-3.54,9.0,VBI REITS FOF - FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.507.457/0001-71,Geral,Renda,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,54574,10276001,75.52,R$ 776.04 Milhões,0.7,RVBI11
-7.57,14.29,0.88,2.56,M,0.13,1.09,VALORA HEDGE FUND. FUNDO DE INVESTIMENTO IMOBILIÁRIO - FII,36.771.692/0001-19,Geral,Títulos e valores mobiliários,Híbrido,Fundo de papel,Indeterminado,Ativa,,0.0,393849,164721672,8.57,R$ 1.41 Bilhão,0.09,VGHF11
-2.82,15.07,0.28,96.83,K,-4.08,0.48,VERSALHES RECEBÍVEIS IMOBILIÁRIOS - FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.244.015/0001-42,Geral,Híbridos,Outros,Fundo de papel,Indeterminado,Ativa,,0.0,69579,29864080,10.08,R$ 301.12 Milhões,0.03,VSLH11
-71.54,8.85,0.41,98.36,K,13.86,6.67,FUNDO DE INVESTIMENTO IMOBILIÁRIO VIA PARQUE SHOPPING,00.332.266/0001-31,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Passiva,,10.1,3997,2800138,174.43,R$ 488.44 Milhões,0.81,FVPQ11
-6.95,15.47,0.74,218.56,K,-5.83,1.12,VINCI CREDIT SECURITIES FUNDO DE INVESTIMENTO,41.081.374/0001-66,,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,14287,20543652,9.4,R$ 193.03 Milhões,0.09,VCRI11
-5.20,15.2,0.6,323.91,K,-9.57,0.81,VINCI IMÓVEIS URBANOS FUNDO DE INVESTIMENTO IMOBILIÁRIO,36.445.587/0001-90,Geral,Renda,Outros,Fundo misto,Indeterminado,Ativa,,3.0,45975,26946209,8.75,R$ 235.72 Milhões,0.07,VIUR11
-7.39,6.63,0.93,2.18,M,7.73,0.87,VINCI INSTRUMENTOS FINANCEIROS FUNDO DE INVESTIMENTO IMOBILIÁRIO,31.547.855/0001-60,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,5516,8089179,7.97,R$ 64.51 Milhões,0.07,VIFI11
-79.42,9.89,0.71,1.56,M,1.93,7.35,VINCI LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO,24.853.044/0001-22,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,2.78,145502,14997385,112.42,R$ 1.69 Bilhão,0.72,VILG11
-7.59,15.47,0.91,9.79,K,125.22,7.53,WARREN SECURITIES FUNDO DE INVESTIMENTO IMOBILIÁRIO,43.440.579/0001-16,Investidor Qualificado,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,648,2456499,8.33,R$ 20.46 Milhões,0.1,WSEC11
-7.59,0.0,0.28,17.39,K,-2.06,0.02,XP CORPORATE MACAÉ FUNDO DE INVESTIMENTO IMOBILIÁRIO,16.802.320/0001-03,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Passiva,,57.0,17700,2414559,26.26,R$ 63.40 Milhões,0.02,XPCM11
-8.67,14.24,0.89,339.87,K,4.96,1.2,WHG REAL ESTATE FUNDO DE INVESTIMENTO IMOBILIÁRIO,41.256.643/0001-88,Geral,Híbridos,Híbrido,Fundo misto,Indeterminado,Ativa,,0.0,13768,30912368,9.77,R$ 301.97 Milhões,0.1,WHGR11
-101.34,9.52,0.82,3.69,M,-0.96,10.93,VINCI SHOPPING CENTERS FUNDO DE INVESTIMENTO IMOBILIÁRIO,17.554.274/0001-25,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,5.5,344148,28828629,123.95,R$ 3.57 Bilhões,0.81,VISC11
-95.99,10.05,0.9,3.0,M,4.87,9.36,XP LOG FUNDO DE INVESTIMENTO IMOBILIÁRIO,26.502.794/0001-85,Geral,Renda,Logístico / Indústria / Galpões,Fundo de Tijolo,Indeterminado,Ativa,,7.9,338826,31175920,106.9,R$ 3.33 Bilhões,0.82,XPLG11
-81.04,12.83,0.9,1.58,M,7.82,10.31,XP CREDITO IMOBILIÁRIO - FUNDO DE INVESTIMENTO IMOBILIÁRIO,28.516.301/0001-91,fii.GENERAL,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de papel,Indeterminado,Ativa,,0.0,67450,8701541,89.69,R$ 780.45 Milhões,0.96,XPCI11
-5.01,12.62,0.49,502.9,K,-5.65,0.67,VINCI OFFICES FUNDO DE INVESTIMENTO IMOBILIÁRIO,12.516.185/0001-70,Geral,Renda,Lajes Corporativas,Fundo de Tijolo,Indeterminado,Ativa,,8.0,145571,82826284,10.24,R$ 847.82 Milhões,0.05,VINO11
-68.67,12.58,0.66,331.23,K,0.16,7.76,XP INDUSTRIAL FUNDO DE INVESTIMENTO IMOBILIARIO,28.516.325/0001-40,Geral,Renda,Outros,Fundo de Tijolo,Indeterminado,Ativa,,5.6,43527,7150411,104.09,R$ 744.29 Milhões,0.74,XPIN11
-5.94,13.1,0.77,361.12,K,-9.73,0.87,XP SELECTION FUNDO DE FUNDOS DE INVESTIMENTO IMOBILIÁRIO,30.983.020/0001-90,Geral,Títulos e valores mobiliários,Títulos e Valores Mobiliários,Fundo de fundos,Indeterminado,Ativa,,0.0,61046,43302129,7.74,R$ 335.00 Milhões,0.07,XPSF11
-100.95,10.93,0.86,11.05,M,-0.37,10.99,XP Malls Fundo de Investimento Imobiliario - Fii,28.757.546/0001-00,Geral,Renda,Shoppings / Varejo,Fundo de Tijolo,Indeterminado,Ativa,,4.0,592429,56720776,117.39,R$ 6.66 Bilhões,0.92,XPML11
-505.00,0.0,0.29,28.72,K,-33.99,0.0,ZION CAPITAL FUNDO DE INVESTIMENTO IMOBILIÁRIO,35.820.768/0001-96,Geral,Desenvolvimento para renda,Híbrido,Fundo de desenvolvimento,Indeterminado,Ativa,,0.0,88,47474,1768.87,R$ 83.99 Milhões,3.3,ZIFI11
-86.10,16.04,0.63,74.55,K,-10.51,14.36,FUNDO DE INVESTIMENTO IMOBILIÁRIO ZAVIT REAL ESTATE,40.575.940/0001-23,Geral,Renda,Híbrido,Fundo misto,Indeterminado,Ativa,,0.9,3053,1173311,135.66,R$ 159.18 Milhões,1.1,ZAVI11
+﻿Fundos,Setor,Preço Atual (R$),Liquidez Diária (R$),P/VP,Último Dividendo,Dividend Yield,DY (3M) Acumulado,DY (6M) Acumulado,DY (12M) Acumulado,DY (3M) média,DY (6M) média,DY (12M) média,DY Ano,Variação Preço,Rentab. Período,Rentab. Acumulada,Patrimônio Líquido,VPA,P/VPA,DY Patrimonial,Variação Patrimonial,Rentab. Patr. Período,Rentab. Patr. Acumulada,Quant. Ativos,Volatilidade,Num. Cotistas,Tax. Gestão,Tax. Performance,Tax. Administração
+AAGR11,Indefinido,93.00,20851.73,,1.31,1.34 ,4.09 ,8.15 ,15.72 ,1.36 ,1.36 ,1.31 ,9.45 ,1.50 ,2.86 ,19.41 ,,,,0.00 ,0.00 ,0.00 ,0.00 ,0,67.82,0,,,
+AAZQ11,Indefinido,7.50,336758.45,0.88,0.10,1.28 ,4.40 ,8.57 ,18.01 ,1.47 ,1.43 ,1.50 ,12.12 ,5.11 ,6.46 ,37.63 ,207159461.77,8.62,0.87,1.10 ,0.00 ,0.00 ,0.00 ,0,18.87,29467,,1.20  aa,10.00  aa
+ABCP11,Shoppings,84.83,83240.05,0.80,0.50,0.53 ,2.84 ,4.96 ,10.80 ,0.95 ,0.83 ,0.90 ,6.44 ,8.20 ,8.78 ,53.42 ,502949501.57,106.80,0.79,0.75 ,16.31 ,17.19 ,25.53 ,1,23.62,14903,,0.10  aa,
+AFHI11,Papéis,91.42,564635.00,0.97,1.09,1.17 ,3.37 ,6.71 ,13.24 ,1.12 ,1.12 ,1.10 ,7.81 ,1.97 ,3.16 ,19.22 ,431693502.56,94.76,0.96,1.07 ,-0.22 ,0.84 ,7.17 ,14,11.56,39578,,1.00  aa,
+AGRX11,Indefinido,7.95,86055.95,0.77,0.12,1.50 ,4.56 ,8.90 ,15.12 ,1.52 ,1.48 ,1.26 ,10.30 ,-2.56 ,-1.10 ,29.04 ,186427095.95,10.41,0.76,1.15 ,0.00 ,0.00 ,0.00 ,0,31.28,18819,,1.00  aa,10.00  aa
+AIEC11,Lajes Corporativas,46.15,194842.14,0.59,0.34,0.74 ,2.12 ,4.26 ,13.25 ,0.71 ,0.71 ,1.10 ,7.38 ,0.94 ,1.69 ,15.35 ,374250889.38,77.57,0.59,0.41 ,-17.05 ,-16.70 ,-15.74 ,2,19.21,16334,,0.75  aa,20.00  aa
+AJFI11,Shoppings,7.30,606076.09,0.60,0.06,0.83 ,2.47 ,5.46 ,11.53 ,0.82 ,0.91 ,0.96 ,7.57 ,-0.41 ,0.41 ,14.46 ,384210693.68,,,,,,,12,14.84,13014,0.60  aa,0.10  aa,
+ALMI11,Lajes Corporativas,615.99,11458.26,0.28,3.93,0.00 ,1.48 ,2.74 ,7.03 ,0.49 ,0.46 ,0.59 ,4.27 ,0.00 ,0.00 ,,234419016.12,2046.78,0.30,0.00 ,-0.05 ,-0.05 ,0.90 ,1,44.73,1971,,0.38  aa,
+ALZC11,Papéis,7.66,318868.64,0.81,0.10,1.22 ,3.86 ,7.95 ,14.96 ,1.29 ,1.33 ,1.25 ,9.43 ,-2.45 ,-1.26 ,2.80 ,187684487.17,,,,,,,14,39.68,8845,,1.30  aa,20.00  aa
+ALZM11,Fundo de Fundos,6.32,164.43,0.85,0.40,6.30 ,0.00 ,6.30 ,13.17 ,0.00 ,1.05 ,1.10 ,7.55 ,-1.25 ,4.97 ,4.65 ,113203496.22,7.46,0.85,1.07 ,-91.94 ,-91.85 ,-91.51 ,14,17.14,12195,,0.80  aa,20.00  aa
+ALZR11,Misto,10.04,1119925.00,0.93,0.09,0.92 ,2.52 ,5.03 ,9.83 ,0.84 ,0.84 ,0.82 ,5.88 ,0.10 ,1.02 ,17.05 ,1319772054.67,10.78,0.93,0.76 ,-89.91 ,-89.84 ,-89.03 ,18,11.56,164422,0.70  aa,0.25  aa,
+APTO11,Imóveis Residenciais,8.32,13421.73,0.85,0.09,1.07 ,3.27 ,6.52 ,12.92 ,1.09 ,1.09 ,1.08 ,8.71 ,-0.59 ,0.47 ,9.31 ,44996179.30,9.76,0.85,0.92 ,-2.01 ,-1.10 ,12.92 ,3,20.42,8430,,1.50  aa,20.00  aa
+APXM11,Shoppings,89.43,225707.27,0.73,0.29,0.32 ,1.02 ,2.43 ,5.01 ,0.34 ,0.41 ,0.42 ,2.75 ,-2.00 ,-1.69 ,-5.36 ,349007936.68,,,,,,,1,59.01,603,,,
+ARCT11,Imóveis Industriais e Logísticos,87.13,1053903.45,0.87,0.50,0.00 ,1.30 ,3.82 ,12.55 ,0.43 ,0.64 ,1.05 ,0.00 ,0.00 ,0.00 ,,371534654.03,99.77,0.87,0.76 ,0.04 ,0.80 ,6.31 ,9,15.63,43228,,1.00  aa,20.00  aa
+AROA11,Imóveis Industriais e Logísticos,1.03,3842.55,1.09,0.01,0.63 ,1.89 ,3.85 ,7.79 ,0.63 ,0.64 ,0.65 ,5.15 ,4.00 ,4.66 ,11.71 ,159983951.78,,,,,,,6,31.23,4535,,,
+ARRI11,Papéis,6.75,170783.14,0.80,0.09,1.30 ,3.80 ,7.44 ,14.53 ,1.27 ,1.24 ,1.21 ,9.88 ,-2.80 ,-1.54 ,-4.42 ,175649111.20,8.47,0.80,1.06 ,-4.40 ,-3.39 ,-89.38 ,1,16.23,23949,,,
+ARXD11,Papéis,7.54,61867.36,0.80,0.10,1.25 ,3.72 ,7.72 ,15.50 ,1.24 ,1.29 ,1.29 ,10.59 ,-1.68 ,-0.45 ,10.37 ,82741433.18,,,,,,,14,30.76,1753,,1.02  aa,
+ASMT11,Lajes Corporativas,4.10,12484.00,0.41,0.08,1.12 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,2.19 ,-4.46 ,-3.39 ,-3.83 ,169085584.25,,,,,,,3,52.59,1,,1.20  aa,20.00  aa
+ASRF11,Indefinido,10888.00,494.91,1.12,256.33,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,38859385.03,,,,,,,2,21.59,68,,,
+ATSA11,Shoppings,49.99,98.83,0.65,0.15,0.30 ,1.60 ,2.08 ,5.02 ,0.53 ,0.35 ,0.42 ,4.08 ,-0.02 ,0.28 ,-1.81 ,134233814.83,76.66,0.65,0.16 ,-5.87 ,-5.72 ,-14.38 ,1,26.67,307,,0.50  aa,
+AURB11,Imóveis Comerciais - Outros,72.80,15440370.00,0.93,0.20,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,70011487.00,,,,,,,2,38.22,21,,,
+AZIN11,,101.27,493449.05,,1.50,1.53 ,4.71 ,9.48 ,9.48 ,1.57 ,1.58 ,0.79 ,9.48 ,3.10 ,4.68 ,33.28 ,,,,,,,,0,12.30,0,,1.25  aa,20.00  aa
+AZPE11,Papéis,,,,0.21,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,124498605.64,,,,,,,6,,7,,,
+AZPL11,Serviços Financeiros Diversos,7.62,748821.45,0.77,0.08,1.06 ,3.52 ,7.55 ,14.05 ,1.17 ,1.26 ,1.17 ,10.52 ,2.44 ,3.53 ,29.95 ,176751372.28,,,,,,,1,32.60,6590,,1.10  aa,
+BARI11,Papéis,79.20,895612.38,0.87,0.95,0.00 ,2.60 ,6.69 ,14.24 ,0.87 ,1.12 ,1.19 ,9.77 ,0.00 ,0.00 ,,422774839.54,91.23,0.87,1.06 ,-4.33 ,-3.31 ,1.06 ,2,19.24,33785,1.11  aa,0.20  aa,20.00  aa
+BBFI11B,Lajes Corporativas,1257.10,182918.19,0.41,634.23,47.51 ,0.00 ,47.51 ,69.77 ,0.00 ,7.92 ,5.81 ,69.77 ,4.22 ,53.73 ,119.39 ,111645834.19,864.77,1.45,73.34 ,-60.09 ,-30.81 ,-43.61 ,1,43.40,6989,,3.50  aa,
+BBFO11,Fundo de Fundos,61.80,140758.14,0.86,0.76,1.20 ,3.61 ,7.06 ,13.62 ,1.20 ,1.18 ,1.14 ,9.57 ,-1.17 ,0.01 ,19.36 ,290643427.56,72.59,0.85,1.07 ,-11.18 ,-10.23 ,-5.96 ,14,15.33,6963,,0.50  aa,
+BBGO11,Indefinido,65.14,161206.05,0.69,0.90,1.35 ,4.12 ,8.04 ,16.10 ,1.37 ,1.34 ,1.34 ,13.47 ,-2.82 ,-1.51 ,7.39 ,376205273.02,93.93,0.69,1.01 ,-4.09 ,-3.12 ,4.73 ,0,20.01,11750,,0.85  aa,10.00  aa
+BBIG11,Serviços Financeiros Diversos,6.87,720533.45,0.74,0.08,1.14 ,3.31 ,6.92 ,13.76 ,1.10 ,1.15 ,1.15 ,9.49 ,-5.01 ,-3.92 ,17.60 ,923684712.61,,,,,,,1,22.38,31784,,0.80  aa,
+BBIM11,Papéis,,,,0.10,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,667.50,,,0.00 ,-100.00 ,0.00 ,0.00 ,14,,20,,,
+BBRC11,Agências de Bancos,98.51,71454.27,0.94,1.05,1.07 ,3.06 ,6.34 ,12.93 ,1.02 ,1.06 ,1.08 ,8.66 ,-2.13 ,-1.08 ,5.32 ,166087534.33,104.46,0.94,0.96 ,-2.97 ,-2.04 ,9.10 ,21,18.17,8954,,0.60  aa,
+BCIA11,Fundo de Fundos,82.50,273304.64,0.85,0.84,0.98 ,2.94 ,6.00 ,12.29 ,0.98 ,1.00 ,1.02 ,8.28 ,-1.69 ,-0.73 ,18.08 ,362556988.30,97.49,0.85,0.86 ,-2.76 ,-1.93 ,2.50 ,14,18.00,22044,,0.50  aa,20.00  aa
+BCRI11,Papéis,64.15,287571.32,0.75,0.91,1.40 ,3.97 ,7.62 ,15.83 ,1.32 ,1.27 ,1.32 ,10.52 ,-2.17 ,-0.80 ,25.39 ,535990598.86,85.65,0.75,1.03 ,-15.12 ,-14.25 ,-7.84 ,14,16.76,43343,,1.00  aa,
+BDIF11,Indefinido,72.90,1472500.64,,0.80,1.04 ,3.48 ,7.70 ,14.98 ,1.16 ,1.28 ,1.25 ,9.25 ,1.03 ,2.08 ,21.61 ,,,,,,,,0,16.11,0,,0.75  aa,20.00  aa
+BDIV11,Indefinido,38.13,254693.86,,1.60,3.97 ,8.30 ,13.05 ,234.87 ,2.77 ,2.18 ,19.57 ,13.05 ,9.23 ,13.57 ,14.93 ,,,,,,,,0,23.42,0,,1.10  aa,
+BETW11,Indefinido,,,,0.49,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,263625753.54,,,,,,,1,,2,,,
+BICE11,Fundo de Fundos,899.00,429722.00,0.85,4.66,0.00 ,0.40 ,1.93 ,6.14 ,0.40 ,0.32 ,0.51 ,3.61 ,0.00 ,0.00 ,,140517792.41,1053.25,0.85,0.34 ,5.66 ,6.02 ,13.69 ,14,45.20,120,,,
+BICR11,Papéis,35.92,72.00,0.86,0.36,1.02 ,0.00 ,0.00 ,2.34 ,0.00 ,0.00 ,0.20 ,4.52 ,-10.54 ,-9.63 ,-26.97 ,20805910.51,42.51,0.84,0.85 ,-57.20 ,-56.84 ,-52.66 ,14,34.75,641,,,
+BIDB11,Indefinido,77.12,250026.91,,1.10,1.42 ,4.06 ,9.03 ,17.32 ,1.35 ,1.51 ,1.44 ,12.15 ,-1.26 ,0.14 ,19.08 ,,,,,,,,0,18.21,0,,0.80  aa,
+BIME11,Indefinido,6.95,34519.91,0.83,0.09,1.29 ,3.81 ,7.86 ,16.01 ,1.27 ,1.31 ,1.33 ,10.69 ,-2.64 ,-1.39 ,21.44 ,49073312.88,8.39,0.83,1.07 ,-7.09 ,-6.09 ,0.69 ,3,17.54,8555,,1.50  aa,20.00  aa
+BINC11,Papéis,93.97,428935.82,,1.18,1.28 ,1.28 ,4.76 ,9.14 ,0.43 ,0.79 ,1.31 ,7.19 ,1.16 ,2.45 ,13.56 ,,,,,,,,0,22.20,0,,0.90  aa,
+BIPD11,Indefinido,1000.00,700000.00,0.98,27.17,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,113223333.04,,,,,,,1,11.26,111,,,
+BLCA11,Indefinido,96.50,353105.67,0.73,0.85,0.92 ,2.02 ,3.72 ,6.97 ,0.67 ,0.62 ,0.58 ,4.87 ,2.02 ,2.96 ,5.65 ,206442191.92,129.03,0.75,0.39 ,-10.16 ,-9.81 ,27.52 ,1,68.22,476,,1.15  aa,20.00  aa
+BLCP11,Imóveis Industriais e Logísticos,91.00,103127.50,1.43,0.56,0.63 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,4.26 ,0.00 ,0.00 ,,118155565.38,111.74,0.81,0.50 ,-0.02 ,0.49 ,15.81 ,14,0.87,8102,,,
+BLMC11,Papéis,85.75,150671.33,1.34,5.34,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.74 ,0.00 ,0.00 ,,118155565.38,94.69,0.91,1.13 ,-1.48 ,-0.36 ,2.88 ,14,3.23,8102,,,
+BLMG11,Imóveis Industriais e Logísticos,32.30,276402.32,0.46,0.36,1.07 ,2.85 ,6.34 ,17.33 ,0.95 ,1.06 ,1.44 ,11.41 ,-13.58 ,-12.66 ,22.20 ,333106992.36,71.26,0.45,0.49 ,-25.72 ,-25.36 ,-22.14 ,2,27.94,12907,,0.95  aa,20.00  aa
+BLMO11,Lajes Corporativas,85.00,3722.55,0.81,0.53,0.63 ,2.04 ,3.97 ,7.72 ,0.68 ,0.66 ,0.64 ,5.17 ,-1.18 ,-0.55 ,26.69 ,104310469.82,104.85,0.81,0.55 ,-99.65 ,-99.64 ,-99.59 ,1,41.59,328,,1.00  aa,15.00  aa
+BLMR11,Fundo de Fundos,6.78,1157702.33,0.11,0.37,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,7.61,0.89,0.70 ,-1.68 ,-0.99 ,1.82 ,14,3.49,8102,,1.00  aa,20.00  aa
+BLOG11,Misto,10.00,33.44,0.89,0.04,0.37 ,1.01 ,2.31 ,4.58 ,0.34 ,0.39 ,0.38 ,2.56 ,-2.00 ,-1.64 ,-1.16 ,346922775.80,,,,,,,6,76.91,80,,,
+BLUR11,Papéis,76.03,228.00,1.00,74.29,0.00 ,1.55 ,4.01 ,7.66 ,0.52 ,0.67 ,0.64 ,4.01 ,0.00 ,0.00 ,,6851720.42,,,,,,,14,95.86,1,,,
+BMLC11,Lajes Corporativas,97.42,173367.19,0.92,0.69,0.71 ,2.16 ,4.34 ,8.91 ,0.72 ,0.72 ,0.74 ,5.84 ,-0.02 ,0.69 ,10.55 ,105619613.44,105.79,0.92,0.66 ,-6.77 ,-6.15 ,2.47 ,1,988.34,1307,,,
+BNFS11,Agências de Bancos,71.54,63732.55,0.92,1.00,1.36 ,3.97 ,8.21 ,16.28 ,1.32 ,1.37 ,1.36 ,10.76 ,-3.55 ,-2.24 ,-7.97 ,54689379.71,78.13,0.92,1.18 ,-14.52 ,-13.51 ,-7.90 ,18,19.86,6017,,0.30  aa,
+BODB11,Indefinido,7.11,1310020.55,,0.10,1.35 ,3.02 ,6.26 ,12.88 ,1.01 ,1.04 ,1.07 ,12.05 ,3.35 ,4.74 ,15.53 ,,,,,,,,0,21.62,0,,0.90  aa,20.00  aa
+BPFF11,Fundo de Fundos,54.92,263959.73,0.77,0.70,1.26 ,3.62 ,6.93 ,13.45 ,1.21 ,1.16 ,1.12 ,9.28 ,-6.87 ,-5.69 ,10.80 ,319893763.01,71.21,0.77,0.98 ,-3.10 ,-2.15 ,0.73 ,14,17.44,20493,,0.40  aa,20.00  aa
+BPLC11,Misto,,,,14.42,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,322050810.89,,,,,,,1,,118,,,
+BPML11,Shoppings,79.90,658597.09,0.63,0.92,1.16 ,3.61 ,7.62 ,16.84 ,1.20 ,1.27 ,1.40 ,10.88 ,-2.25 ,-1.11 ,38.92 ,939187214.73,130.22,0.61,0.81 ,4.38 ,5.23 ,6.23 ,4,18.89,5835,,1.00  aa,
+BPRP11,Imóveis Industriais e Logísticos,107.50,2150.00,0.86,0.93,0.00 ,0.00 ,0.00 ,0.86 ,0.00 ,0.00 ,0.86 ,4.54 ,0.00 ,0.00 ,,169496975.27,,,,,,,15,3.93,171,,,
+BRCO11,Imóveis Industriais e Logísticos,107.18,2052644.55,0.91,0.87,0.79 ,2.54 ,5.05 ,10.34 ,0.85 ,0.84 ,0.86 ,6.90 ,-0.54 ,0.24 ,24.16 ,1874839675.06,117.88,0.91,0.74 ,-2.96 ,-2.25 ,6.38 ,12,14.66,120737,1.00  aa,,20.00  aa
+BRCR11,Lajes Corporativas,40.80,689287.41,0.48,0.41,0.99 ,2.84 ,6.23 ,13.72 ,0.95 ,1.04 ,1.14 ,8.81 ,-4.09 ,-3.14 ,19.55 ,2263415655.42,84.97,0.48,0.48 ,-15.08 ,-14.67 ,-15.91 ,6,13.74,124589,1.50  aa,0.25  aa,
+BREV11,Lajes Corporativas,105.00,532138.00,1.65,0.58,0.55 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,10.03 ,0.32 ,0.87 ,22.08 ,118155565.38,,,0.00 ,-100.00 ,0.00 ,0.00 ,1,0.34,8102,,,
+BRFT11,Misto,83.10,46368.91,,1.48,1.78 ,5.01 ,9.70 ,19.34 ,1.67 ,1.62 ,1.61 ,14.59 ,1.72 ,3.53 ,31.51 ,,,,0.00 ,0.00 ,0.00 ,0.00 ,0,47.63,0,,,
+BRIM11,Fundo de Desenvolvimento,513.89,11424.18,1.35,80.56,14.66 ,14.66 ,36.63 ,78.29 ,4.89 ,6.11 ,6.52 ,59.43 ,7.05 ,22.74 ,29.89 ,46084097.35,,,,,,,2,113.85,684,,1.70  aa,
+BRIP11,Fundo de Desenvolvimento,714.00,7067.05,1.02,46.41,6.49 ,22.23 ,34.51 ,62.23 ,7.41 ,5.75 ,5.19 ,43.42 ,-3.16 ,3.13 ,51.59 ,148204546.16,,,,,,,10,126.87,437,,2.00  aa,
+BRIX11,Indefinido,1673.35,195781.00,1.59,180.14,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,124639909.42,,,,,,,10,,103,,,
+BRLA11,Imóveis Industriais e Logísticos,148.00,21194.28,0.84,1.15,0.78 ,2.38 ,3.11 ,4.64 ,0.79 ,0.52 ,0.39 ,4.64 ,4.99 ,5.81 ,5.06 ,815145198.38,166.46,0.89,0.69 ,5.36 ,6.09 ,-2.26 ,8,76.52,435,,,
+BROF11,Lajes Corporativas,53.69,349159.00,0.50,0.62,1.16 ,3.50 ,7.18 ,13.79 ,1.17 ,1.20 ,1.15 ,8.46 ,1.88 ,3.06 ,47.30 ,1256900849.67,,,,,,,2,23.26,9768,0.45  aa,0.15  aa,
+BRZP11,,141.10,779417.77,,0.92,0.66 ,1.79 ,3.64 ,7.86 ,0.60 ,0.61 ,0.66 ,5.13 ,-4.66 ,-4.03 ,64.43 ,,,,,,,,0,22.84,0,1.50  aa,0.12  aa,
+BTAG11,Indefinido,94.50,51583.27,,1.30,1.37 ,4.06 ,8.01 ,712.25 ,1.35 ,1.34 ,59.35 ,678.72 ,-2.62 ,-1.29 ,1258.16 ,,,,0.00 ,0.00 ,0.00 ,0.00 ,0,31.86,0,1.00  aa,0.15  aa,10.00  aa
+BTAL11,Imóveis Industriais e Logísticos,78.35,476921.77,0.69,0.90,1.07 ,3.30 ,6.85 ,14.44 ,1.10 ,1.14 ,1.20 ,8.14 ,1.48 ,2.57 ,49.50 ,674618517.06,111.41,0.70,0.81 ,6.04 ,6.90 ,15.89 ,9,16.55,39596,,1.10  aa,
+BTCI11,Papéis,9.03,1385903.18,0.89,0.10,1.09 ,3.26 ,6.54 ,13.12 ,1.09 ,1.09 ,1.09 ,8.79 ,-0.97 ,0.11 ,31.54 ,1010388844.93,,,,,,,14,16.21,192183,,0.95  aa,
+BTCR11,Papéis,88.00,571148.00,1.38,0.90,0.98 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,12.53 ,-5.96 ,-5.04 ,14.54 ,118155565.38,95.27,0.92,0.94 ,0.64 ,1.59 ,4.62 ,14,32.78,8102,,,
+BTHF11,Papéis,8.20,2426933.36,0.80,0.09,1.12 ,3.22 ,6.84 ,10.93 ,1.07 ,1.14 ,1.21 ,9.66 ,-6.36 ,-5.31 ,19.02 ,2096713527.42,,,,,,,0,17.50,322900,,1.10  aa,
+BTHI11,Hotéis,41.00,13097.00,0.62,0.41,0.95 ,3.17 ,5.66 ,11.50 ,1.06 ,0.94 ,0.96 ,7.69 ,2.31 ,3.28 ,12.73 ,632619412.15,,,,,,,14,33.61,1402,,0.80  aa,20.00  aa
+BTLG11,Imóveis Industriais e Logísticos,98.16,4992761.00,0.95,0.78,0.77 ,2.33 ,4.84 ,10.07 ,0.78 ,0.81 ,0.84 ,5.80 ,0.59 ,1.36 ,23.33 ,4506950051.66,103.94,0.94,0.75 ,5.23 ,6.02 ,11.50 ,28,14.22,393465,,0.90  aa,
+BTML11,Lajes Corporativas,101.37,,0.80,0.89,0.00 ,0.00 ,2.57 ,7.03 ,0.00 ,0.43 ,0.59 ,4.59 ,0.00 ,0.00 ,,144707018.00,,,,,,,2,2.45,1,,,
+BTRA11,Indefinido,51.12,93914.91,0.46,0.83,1.56 ,2.99 ,4.73 ,9.47 ,1.00 ,0.79 ,0.79 ,5.68 ,-3.35 ,-1.84 ,41.87 ,374960815.89,111.44,0.46,0.36 ,-19.65 ,-19.37 ,14.81 ,6,26.14,12769,,1.20  aa,20.00  aa
+BTSG11,Imóveis Industriais e Logísticos,158.10,27.65,1.04,1.00,0.00 ,0.00 ,1.80 ,4.78 ,0.00 ,0.30 ,0.40 ,3.00 ,0.00 ,0.00 ,,117863450.71,152.09,1.04,0.62 ,10.49 ,11.18 ,22.45 ,1,27.27,107,,,
+BTSI11,Misto,109.59,110.00,0.94,0.78,0.00 ,0.70 ,2.81 ,6.24 ,0.70 ,0.47 ,0.52 ,3.51 ,0.00 ,0.00 ,,669992550.03,,,,,,,5,25.43,193,,,
+BTWR11,Fundo de Desenvolvimento,105.49,15.85,0.89,0.60,0.00 ,0.00 ,1.67 ,4.45 ,0.00 ,0.28 ,0.37 ,2.72 ,0.00 ,0.00 ,,95890837.49,118.49,0.89,0.55 ,5.79 ,6.37 ,14.93 ,1,33.99,140,,,
+BTYU11,Incorporações,9.79,2037.27,0.97,0.11,1.10 ,4.53 ,7.65 ,16.00 ,1.51 ,1.28 ,1.33 ,8.97 ,-0.97 ,0.12 ,11.17 ,303617574.02,,,,,,,14,66.05,390,,,
+BZEL11,Misto,,,,5.09,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,514334784.40,,,,,,,14,,3,,,
+CACR11,Papéis,85.36,1920455.05,0.86,1.35,1.40 ,4.30 ,8.70 ,17.78 ,1.43 ,1.45 ,1.48 ,11.97 ,-4.78 ,-3.45 ,25.66 ,463551963.41,95.17,0.90,1.52 ,-8.08 ,-6.67 ,30.34 ,14,20.62,24216,,1.00  aa,20.00  aa
+CARE11,Misto,1.19,4625.95,0.17,0.01,1.13 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,6.79 ,-2.63 ,-1.53 ,-2.26 ,249929600.60,1.60,0.74,0.10 ,-0.24 ,-0.14 ,3.56 ,14,40.67,11706,,1.55  aa,20.00  aa
+CBOP11,Lajes Corporativas,22.57,3937.81,0.34,0.10,0.43 ,1.22 ,2.58 ,4.33 ,0.41 ,0.43 ,0.36 ,3.52 ,3.20 ,3.64 ,3.89 ,95214307.23,67.29,0.34,0.15 ,-8.85 ,-8.71 ,-18.64 ,1,53.13,2267,,,
+CCME11,Indefinido,8.71,222926.82,0.85,0.08,0.95 ,2.86 ,5.81 ,11.67 ,0.95 ,0.97 ,0.97 ,7.88 ,-3.08 ,-2.16 ,23.45 ,708571659.84,,,,,,,2,30.55,8253,1.25  aa,0.15  aa,20.00  aa
+CCRF11,Papéis,92.50,1276.82,1.45,3.50,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,93.23,0.99,3.76 ,-2.86 ,0.79 ,3.55 ,14,8.06,8102,,,
+CCVA11,Indefinido,98.97,159202.27,1.01,0.42,0.00 ,0.00 ,1.79 ,3.92 ,0.00 ,0.30 ,0.36 ,2.29 ,0.00 ,0.00 ,,60392841.21,,,,,,,1,4.68,1,,,
+CDII11,Indefinido,106.44,3242056.00,,1.61,1.51 ,4.11 ,7.66 ,14.78 ,1.37 ,1.28 ,1.23 ,10.00 ,0.67 ,2.19 ,19.98 ,,,,,,,,0,14.26,0,,1.00  aa,
+CEOC11,Lajes Corporativas,42.11,18646.27,0.58,0.47,1.11 ,3.35 ,7.00 ,14.37 ,1.12 ,1.17 ,1.20 ,9.50 ,-0.68 ,0.42 ,29.55 ,132131315.53,72.77,0.58,0.65 ,-7.65 ,-7.06 ,-15.23 ,1,19.91,4108,,0.20  aa,
+CFHI11,Fundo de Desenvolvimento,320.00,240.00,0.93,65.00,0.00 ,0.00 ,21.79 ,23.53 ,0.00 ,3.63 ,2.14 ,23.53 ,0.00 ,0.00 ,,32721010.44,,,,,,,8,87.18,101,,,
+CFII11,Indefinido,650.00,520.00,0.66,3.85,0.00 ,0.00 ,5.19 ,13.43 ,0.00 ,0.87 ,1.68 ,13.43 ,0.00 ,0.00 ,,125310767.43,,,,,,,5,63.44,112,,,
+CIXM11,Misto,9.04,220499.50,0.23,0.15,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,239776833.04,,,,,,,14,,108,,,
+CJCT11,Lajes Corporativas,60.10,32611.11,0.82,0.20,0.33 ,1.23 ,2.10 ,3.39 ,0.41 ,0.35 ,0.28 ,2.74 ,-1.44 ,-1.11 ,23.04 ,228970708.84,57.90,1.04,0.00 ,0.58 ,0.58 ,0.58 ,1,31.45,887,,,
+CLIN11,Fundo de Fundos,88.40,546886.50,0.89,1.00,1.12 ,3.58 ,7.46 ,14.71 ,1.19 ,1.24 ,1.23 ,10.12 ,-3.79 ,-2.72 ,26.14 ,425723702.30,,,,,,,14,19.07,11661,,1.05  aa,
+CNES11,Lajes Corporativas,1.23,132102.82,0.16,0.01,0.55 ,1.49 ,4.10 ,7.35 ,0.50 ,0.68 ,0.61 ,4.12 ,15.38 ,16.02 ,16.72 ,258456830.82,7.57,0.16,0.08 ,-91.54 ,-91.53 ,-91.16 ,1,32.98,91941,,0.30  aa,
+COPP11,Lajes Corporativas,103.00,1827632.00,0.94,0.75,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,523490818.64,,,,,,,7,17.75,123,,,
+CORM11,Lajes Corporativas,,,,0.77,0.90 ,2.76 ,5.35 ,11.38 ,0.92 ,0.89 ,0.95 ,6.20 ,-2.97 ,-2.10 ,-4.27 ,,90.56,,0.89 ,-2.33 ,-1.45 ,0.21 ,0,,0,,,
+CPFO11,Fundo de Fundos,,,,31.42,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,,,,,,,14,,8102,,,
+CPLG11,Misto,11.75,19050981.91,1.22,0.03,0.26 ,0.67 ,4.42 ,7.75 ,0.67 ,0.74 ,0.97 ,4.42 ,2.44 ,2.71 ,21.44 ,330737508.54,,,,,,,1,37.53,339,,,
+CPOF11,Misto,108.50,108.00,0.99,0.75,0.00 ,0.60 ,2.15 ,6.24 ,0.60 ,0.36 ,0.52 ,2.96 ,0.00 ,0.00 ,,523490818.64,,,,,,,7,45.02,123,,,
+CPSH11,Indefinido,9.37,1557374.18,0.81,0.10,1.01 ,3.10 ,6.54 ,13.50 ,1.03 ,1.09 ,1.13 ,7.71 ,2.59 ,3.63 ,26.97 ,933384512.43,,,,,,,7,14.57,22116,,0.92  aa,10.00  aa
+CPTI11,Indefinido,81.39,1307555.09,,1.00,1.22 ,3.61 ,7.31 ,14.79 ,1.20 ,1.22 ,1.23 ,9.96 ,-1.78 ,-0.58 ,13.54 ,,,,,,,,0,16.49,0,,1.00  aa,
+CPTR11,Indefinido,7.65,201890.59,0.77,0.11,1.47 ,4.37 ,7.96 ,11.85 ,1.46 ,1.33 ,0.99 ,7.96 ,4.31 ,5.84 ,2.88 ,195821494.27,9.88,0.77,1.11 ,-89.99 ,-89.88 ,-89.73 ,0,17.75,22095,,1.00  aa,20.00  aa
+CPTS11,Papéis,7.27,3568970.95,0.82,0.09,1.18 ,3.57 ,7.21 ,13.88 ,1.19 ,1.20 ,1.16 ,8.43 ,4.50 ,5.73 ,33.10 ,2928770236.61,8.96,0.81,0.97 ,-89.91 ,-89.81 ,-89.71 ,14,15.68,357039,0.82  aa,,
+CRAA11,Indefinido,94.70,492705.64,0.93,1.25,1.30 ,3.92 ,7.69 ,14.00 ,1.31 ,1.28 ,1.17 ,9.64 ,-0.99 ,0.30 ,31.08 ,241845274.08,102.05,0.93,1.22 ,0.00 ,0.00 ,0.00 ,0,12.21,9123,,1.15  aa,20.00  aa
+CRFF11,Fundo de Fundos,72.00,14519.23,0.86,0.61,0.87 ,2.55 ,5.05 ,10.74 ,0.85 ,0.84 ,0.90 ,8.04 ,-3.52 ,-2.68 ,15.83 ,56421416.83,81.77,0.88,0.75 ,-2.65 ,-1.93 ,3.56 ,14,40.74,1244,,,
+CSMC11,Indefinido,,,,9.21,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,1669753940.45,,,,,,,8,,1,,,
+CTXT11,Lajes Corporativas,5.45,541.95,0.26,0.01,0.04 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,1.34 ,1.40 ,1.44 ,-49.65 ,100290936.71,48.33,0.11,0.19 ,-0.10 ,0.09 ,0.54 ,1,57.51,2284,,,
+CVBI11,Papéis,84.32,1261711.86,0.92,1.05,1.22 ,3.67 ,7.51 ,14.67 ,1.22 ,1.25 ,1.22 ,10.31 ,-0.34 ,0.88 ,31.08 ,1014208936.99,92.12,0.92,1.14 ,-1.85 ,-0.74 ,5.91 ,14,18.81,84443,0.90  aa,0.10  aa,
+CVPR11,Indefinido,,,,0.59,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,59351825.28,,,,,,,14,,3,,,
+CXAG11,Agências de Bancos,72.80,154184.55,0.63,0.70,0.94 ,3.45 ,6.48 ,12.58 ,1.15 ,1.08 ,1.05 ,8.55 ,-1.11 ,-0.18 ,19.80 ,242156908.21,115.83,0.63,0.60 ,1.03 ,1.64 ,20.99 ,32,13.75,11879,,0.58  aa,
+CXCE11B,Lajes Corporativas,44.01,9205.00,0.60,0.43,1.09 ,3.25 ,6.56 ,12.24 ,1.08 ,1.09 ,1.02 ,12.24 ,0.18 ,1.27 ,3.73 ,110543765.88,64.53,0.68,0.67 ,-1.63 ,-0.97 ,0.19 ,1,22.21,3247,,,
+CXCI11,Indefinido,64.00,270492.41,0.75,0.75,1.16 ,3.59 ,7.09 ,13.92 ,1.20 ,1.18 ,1.16 ,9.55 ,-4.88 ,-3.78 ,11.58 ,175786419.18,83.34,0.77,1.08 ,-10.49 ,-9.53 ,-7.58 ,14,17.39,5365,,,
+CXCO11,Lajes Corporativas,56.84,83882.59,0.58,0.66,1.11 ,3.90 ,7.41 ,14.17 ,1.30 ,1.24 ,1.18 ,10.16 ,-5.29 ,-4.24 ,23.24 ,376982512.26,96.06,0.59,0.68 ,-3.26 ,-2.60 ,9.75 ,10,23.57,12597,0.13  aa,0.13  aa,
+CXRI11,Fundo de Fundos,60.59,17962.59,0.76,0.59,0.96 ,2.84 ,5.64 ,11.13 ,0.95 ,0.94 ,0.93 ,8.53 ,-2.71 ,-1.78 ,2.19 ,128022175.43,81.24,0.75,0.73 ,-1.71 ,-0.99 ,3.61 ,1,40.35,1824,,,
+CXTL11,Imóveis Industriais e Logísticos,225.42,4731.28,0.57,0.29,0.13 ,1.13 ,4.97 ,10.69 ,0.38 ,0.83 ,0.89 ,6.05 ,5.54 ,5.68 ,24.36 ,21014376.59,392.08,0.57,0.55 ,-19.90 ,-19.46 ,-32.48 ,1,61.52,640,,,
+CYCR11,Indefinido,8.75,493361.95,0.92,0.11,1.23 ,3.81 ,7.61 ,14.58 ,1.27 ,1.27 ,1.22 ,10.19 ,-3.79 ,-2.61 ,21.50 ,344402011.50,9.42,0.93,1.22 ,-1.26 ,-0.05 ,-89.22 ,14,17.08,18068,,0.95  aa,20.00  aa
+DAMA11,Misto,7.10,11146.59,0.84,0.09,1.25 ,3.64 ,6.95 ,11.73 ,1.21 ,1.16 ,0.98 ,8.43 ,1.28 ,2.55 ,-14.40 ,46888703.08,,,,,,,14,35.62,756,,,
+DAMT11B,Shoppings,11.45,23.00,0.77,0.40,3.50 ,3.50 ,3.50 ,3.50 ,1.17 ,0.58 ,0.29 ,3.50 ,-11.86 ,-8.77 ,-8.77 ,264384853.88,,,,,,,2,11.75,518,,,
+DCRA11,Indefinido,7.01,56394.91,0.73,0.09,1.24 ,3.59 ,7.47 ,16.39 ,1.20 ,1.25 ,1.37 ,10.67 ,-4.34 ,-3.16 ,26.49 ,64977348.91,9.64,0.73,0.93 ,0.00 ,0.00 ,0.00 ,0,19.85,16230,0.87  aa,0.17  aa,10.00  aa
+DEVA11,Papéis,28.09,536238.59,0.29,0.34,1.09 ,3.79 ,8.34 ,17.22 ,1.26 ,1.39 ,1.44 ,11.46 ,-9.58 ,-8.59 ,24.92 ,1364551185.73,97.16,0.29,0.46 ,-4.09 ,-3.64 ,15.54 ,14,25.07,88417,1.00  aa,0.20  aa,10.00  aa
+DLMT11,Varejo,,,,0.00,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,8514149.96,,,,,,,7,,9,,,
+DPRO11,Indefinido,6.05,239.55,0.65,0.06,1.01 ,2.89 ,5.72 ,11.53 ,0.96 ,0.95 ,0.96 ,7.90 ,-1.32 ,-0.33 ,11.73 ,45780618.97,,,,,,,1,48.69,737,,,
+DRIT11B,Lajes Corporativas,83.30,1547.00,0.62,0.53,0.63 ,1.94 ,3.25 ,13.98 ,0.65 ,0.54 ,1.17 ,1.94 ,17.70 ,18.44 ,16.76 ,60485010.41,130.56,0.64,0.46 ,-1.36 ,-0.91 ,7.46 ,4,29.85,348,,,
+DVFF11,Fundo de Fundos,6.00,53817.55,0.71,0.07,1.05 ,3.18 ,6.33 ,13.24 ,1.06 ,1.06 ,1.10 ,8.85 ,3.85 ,4.94 ,14.16 ,92622392.74,8.41,0.71,0.77 ,-90.77 ,-90.70 ,-89.84 ,14,26.30,1848,,,
+EDFO11B,Lajes Corporativas,229.98,7938.50,0.56,0.49,0.42 ,2.45 ,5.30 ,11.89 ,0.82 ,0.88 ,0.99 ,3.59 ,-0.22 ,0.20 ,-17.93 ,49670858.85,210.47,1.09,0.60 ,9.69 ,10.35 ,20.16 ,1,181.93,490,,,
+EDGA11,Lajes Corporativas,14.80,65485.73,0.32,0.08,0.49 ,1.02 ,2.68 ,5.08 ,0.34 ,0.45 ,0.42 ,3.48 ,-3.59 ,-3.11 ,6.65 ,177778761.15,46.99,0.31,0.17 ,-23.34 ,-23.21 ,-28.02 ,1,23.37,4027,,0.20  aa,
+EGAF11,Indefinido,93.74,300328.68,0.94,1.58,1.66 ,4.58 ,9.01 ,17.98 ,1.53 ,1.50 ,1.50 ,12.25 ,-0.05 ,1.61 ,35.01 ,310197301.58,99.04,0.95,1.42 ,0.00 ,0.00 ,0.00 ,0,12.86,11410,,1.20  aa,10.00  aa
+EMET11,Misto,11.29,1355104.00,1.04,0.10,1.04 ,1.04 ,1.04 ,1.04 ,1.04 ,1.04 ,1.04 ,1.04 ,0.00 ,0.00 ,,51901295.40,,,,,,,14,39.85,41,,,
+ENDD11,Indefinido,107.50,418777.57,,0.16,0.15 ,0.15 ,0.15 ,5.10 ,0.15 ,0.15 ,0.43 ,0.15 ,9.99 ,10.15 ,10.15 ,,,,,,,,0,17.55,0,,,
+EQIA11,Fiagro,,,,0.45,,,,,,,,,,,,,,,,,,,0,,0,,,
+EQIR11,Indefinido,7.89,118103.82,0.82,0.11,1.30 ,3.82 ,7.84 ,15.36 ,1.27 ,1.31 ,1.28 ,9.16 ,1.38 ,2.69 ,33.01 ,104612361.62,9.59,0.82,1.04 ,-1.74 ,-0.72 ,-89.58 ,14,16.33,10134,,1.00  aa,
+ERCR11,Varejo,15707.85,,0.87,712.11,0.00 ,0.00 ,0.93 ,16.74 ,0.00 ,0.93 ,1.40 ,0.93 ,0.00 ,0.00 ,,43046433.20,18117.19,0.87,1.03 ,-72.77 ,-72.49 ,-70.81 ,14,12.50,10,,0.10  aa,
+ERPA11,Lajes Corporativas,126.02,11464.89,0.80,0.94,0.74 ,1.47 ,3.52 ,6.67 ,0.49 ,0.59 ,0.56 ,4.76 ,-0.80 ,-0.06 ,0.97 ,79894939.43,159.50,0.79,0.60 ,16.36 ,17.06 ,44.01 ,2,37.92,604,,,
+ESUD11,Indefinido,315.99,1579.95,,72.93,23.08 ,0.00 ,0.00 ,23.08 ,0.00 ,0.00 ,5.77 ,23.08 ,0.00 ,0.00 ,,,,,,,,,0,26.87,0,,,
+ESUT11,Indefinido,32.00,609.52,,67.49,210.90 ,0.00 ,0.00 ,210.90 ,0.00 ,0.00 ,52.73 ,210.90 ,0.00 ,0.00 ,,,,,,,,,0,9.96,0,,,
+ESUU11,Indefinido,32.00,3200.00,,63.84,199.49 ,0.00 ,0.00 ,199.49 ,0.00 ,0.00 ,49.87 ,199.49 ,0.00 ,0.00 ,,,,,,,,,0,10.03,0,,,
+EURO11,Imóveis Industriais e Logísticos,231.01,23001.77,0.70,2.00,0.79 ,2.46 ,5.06 ,10.33 ,0.82 ,0.84 ,0.86 ,6.91 ,6.31 ,7.15 ,28.95 ,126578477.92,329.69,0.70,0.59 ,1.53 ,2.13 ,13.77 ,7,28.79,2095,,,
+EVBI11,Misto,9.50,32194.42,1.03,0.11,1.05 ,2.88 ,5.14 ,9.85 ,0.96 ,0.86 ,0.82 ,9.85 ,5.74 ,6.85 ,23.48 ,411540046.98,9.86,0.96,0.96 ,-90.11 ,-90.02 ,-89.22 ,13,14.99,1313,,,
+EXES11,Indefinido,9.40,53545.73,0.97,0.13,1.38 ,4.13 ,8.45 ,16.13 ,1.38 ,1.41 ,1.34 ,9.71 ,-0.53 ,0.84 ,23.68 ,68957163.78,,,,,,,14,15.13,695,,1.00  aa,
+FAED11,Educacional,145.00,35659.68,0.64,1.66,1.15 ,3.51 ,7.21 ,14.59 ,1.17 ,1.20 ,1.22 ,9.74 ,-2.01 ,-0.88 ,26.91 ,153730513.04,222.03,0.65,0.77 ,2.02 ,2.81 ,9.41 ,4,19.54,4214,,,
+FAMB11B,Lajes Corporativas,609.99,47041.93,0.18,1001.61,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,424524340.32,3593.26,0.17,0.25 ,0.53 ,0.79 ,12.82 ,1,47.01,2173,,2.50  aa,
+FAOE11,Indefinido,926.90,,14.53,11.16,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,,,,,,,3,,8102,,,
+FATN11,Lajes Corporativas,82.00,1255789.18,0.83,0.80,0.97 ,3.05 ,6.31 ,12.74 ,1.02 ,1.05 ,1.06 ,8.54 ,7.98 ,9.02 ,18.17 ,454398531.66,98.53,0.83,0.81 ,-0.48 ,0.32 ,5.80 ,56,9.67,18302,,0.80  aa,
+FCFL11,Educacional,125.32,201074.91,1.03,0.90,0.72 ,2.19 ,4.56 ,9.42 ,0.73 ,0.76 ,0.79 ,5.44 ,-1.46 ,-0.75 ,27.23 ,428039871.09,123.21,1.02,0.74 ,6.06 ,6.84 ,25.95 ,1,16.81,3205,,0.30  aa,
+FEXC11,Papéis,83.50,860137.12,0.10,0.50,0.00 ,1.08 ,4.14 ,11.48 ,0.36 ,0.69 ,0.96 ,0.00 ,0.00 ,0.00 ,,1001470167.13,90.75,0.92,0.99 ,-1.13 ,-0.15 ,7.12 ,0,14.57,36232,0.95  aa,,
+FGAA11,Indefinido,8.44,759289.23,0.90,0.12,1.38 ,4.13 ,6.89 ,14.43 ,1.38 ,1.15 ,1.20 ,14.43 ,-1.02 ,0.34 ,48.76 ,423529768.37,9.39,0.90,0.64 ,0.00 ,0.00 ,0.00 ,0,13.78,49758,,1.15  aa,10.00  aa
+FIGS11,Shoppings,46.50,172051.41,0.61,0.48,0.98 ,3.02 ,6.02 ,11.68 ,1.01 ,1.00 ,0.97 ,8.06 ,5.96 ,7.00 ,16.14 ,217349151.64,76.26,0.61,0.59 ,-0.29 ,0.30 ,-19.31 ,2,17.51,12166,,0.50  aa,
+FIIB11,Imóveis Industriais e Logísticos,503.98,112240.91,1.05,3.58,0.70 ,2.25 ,4.58 ,9.33 ,0.75 ,0.76 ,0.78 ,6.17 ,0.10 ,0.80 ,15.63 ,325527137.05,475.22,1.06,0.82 ,2.98 ,3.82 ,14.16 ,9,12.24,15325,,,
+FIIP11B,Imóveis Industriais e Logísticos,161.37,1172.80,0.73,1.40,0.96 ,2.95 ,5.92 ,10.89 ,0.98 ,0.99 ,0.91 ,4.03 ,-1.78 ,-0.84 ,6.81 ,184360354.72,198.84,0.81,0.70 ,6.81 ,7.56 ,8.46 ,7,11.96,6586,,,
+FISC11,Lajes Corporativas,61.05,215.25,0.53,0.50,0.00 ,1.53 ,3.95 ,8.61 ,0.51 ,0.66 ,0.72 ,5.46 ,0.00 ,0.00 ,,194114123.39,114.19,0.53,0.44 ,-0.76 ,-0.32 ,0.17 ,5,84.93,221,,,
+FLCR11,Papéis,95.75,41373.27,1.03,1.05,1.08 ,3.73 ,7.31 ,15.47 ,1.24 ,1.22 ,1.29 ,10.25 ,0.12 ,1.21 ,20.62 ,69992579.56,93.09,1.03,1.24 ,-5.42 ,-4.25 ,5.30 ,1,8.53,3013,,1.00  aa,20.00  aa
+FLFL11,Fundo de Desenvolvimento,,,,0.18,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,477347358.72,,,,,,,1,,1,,,
+FLMA11,Lajes Corporativas,135.37,141256.27,0.60,1.02,0.77 ,2.59 ,4.75 ,9.88 ,0.86 ,0.79 ,0.82 ,6.42 ,0.14 ,0.91 ,12.41 ,304487013.03,220.64,0.61,0.49 ,37.68 ,38.36 ,51.01 ,2,21.09,12266,,0.12  aa,
+FLRP11,Shoppings,20.13,12983.41,1.01,0.14,0.68 ,2.74 ,4.95 ,9.26 ,0.91 ,0.83 ,0.77 ,6.49 ,-1.43 ,-0.76 ,22.20 ,150341235.09,20.32,0.99,0.69 ,-98.89 ,-98.88 ,-98.75 ,1,45.21,1388,,,
+FMOF11,Lajes Corporativas,74.16,1949.00,0.65,0.43,0.57 ,1.76 ,3.85 ,6.47 ,0.59 ,0.64 ,0.54 ,6.47 ,-3.83 ,-3.29 ,57.14 ,58924917.62,115.99,0.64,0.36 ,-2.19 ,-1.84 ,-4.90 ,2,72.45,230,,,
+FPAB11,Lajes Corporativas,239.99,84415.81,0.60,1.35,0.56 ,1.25 ,3.45 ,6.95 ,0.42 ,0.58 ,0.58 ,4.92 ,22.74 ,23.43 ,17.01 ,266029899.60,354.71,0.68,0.37 ,-5.42 ,-5.07 ,-8.93 ,3,69.16,721,,,
+FPOR11,Indefinido,22.00,220.00,,0.04,0.18 ,0.18 ,0.18 ,0.18 ,0.18 ,0.18 ,0.18 ,0.18 ,0.00 ,0.00 ,,,,,,,,,0,144.44,0,,,
+FRHY11,Indefinido,,,,1.03,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,2173001.91,,,,,,,14,,7,,,
+FTCA11,Indefinido,8.36,56927.14,0.77,0.12,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,47372226.36,10.62,0.79,1.13 ,0.00 ,0.00 ,0.00 ,0,23.00,7836,1.10  aa,,
+FVPQ11,Shoppings,72.50,82067.18,0.42,0.81,1.12 ,3.92 ,6.93 ,12.08 ,1.31 ,1.16 ,1.01 ,9.57 ,2.61 ,3.75 ,78.42 ,488443810.15,174.43,0.42,0.57 ,-9.28 ,-8.76 ,-7.24 ,1,29.46,4002,,0.12  aa,
+FYTO11,Papéis,7.92,157808.50,0.81,0.10,1.25 ,3.86 ,7.68 ,15.25 ,1.29 ,1.28 ,1.27 ,10.40 ,-6.10 ,-4.93 ,20.20 ,149494885.57,,,,,,,0,17.19,10868,,1.10  aa,
+FZDA11,Indefinido,118.50,3531.40,0.65,4.11,3.40 ,0.00 ,3.40 ,3.40 ,0.00 ,1.70 ,1.70 ,3.40 ,-0.69 ,2.69 ,2.69 ,281086032.96,173.55,0.68,2.37 ,0.00 ,0.00 ,0.00 ,0,74.05,310,,,
+FZDB11,Indefinido,135.00,6882.50,0.76,4.21,3.32 ,0.00 ,3.32 ,3.32 ,0.00 ,3.32 ,3.32 ,3.32 ,21.43 ,25.46 ,25.46 ,642880849.04,168.93,0.80,2.49 ,0.00 ,0.00 ,0.00 ,0,43.61,115,,,
+GAME11,Indefinido,8.39,80788.77,0.90,0.10,1.13 ,3.35 ,6.83 ,13.66 ,1.12 ,1.14 ,1.14 ,9.18 ,-2.77 ,-1.67 ,18.70 ,203760629.17,9.39,0.89,1.01 ,-4.57 ,-3.61 ,-98.87 ,14,13.11,21968,,1.10  aa,20.00  aa
+GARE11,Imóveis Industriais e Logísticos,9.04,5426444.91,1.01,0.08,0.92 ,2.80 ,5.81 ,12.42 ,0.93 ,0.97 ,1.04 ,8.07 ,0.33 ,1.26 ,17.50 ,1327190841.90,,,,,,,4,14.40,379022,,1.00  aa,20.00  aa
+GCFF11,Fundo de Fundos,69.30,87694.83,1.09,3.07,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,4.27 ,0.00 ,0.00 ,,118155565.38,77.31,0.90,0.97 ,-5.00 ,-4.08 ,-7.97 ,1,1.15,8102,,,
+GCOI11,Indefinido,98.90,27197.50,1.02,0.81,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,10910843.87,,,,,,,5,3.38,381,,,
+GCRA11,Indefinido,50.41,79983.41,0.59,0.66,1.29 ,3.88 ,7.87 ,16.21 ,1.29 ,1.31 ,1.35 ,10.75 ,-1.18 ,0.09 ,46.58 ,150786404.35,86.12,0.59,0.77 ,-12.12 ,-11.45 ,-0.17 ,0,24.07,7434,,1.15  aa,20.00  aa
+GCRI11,Papéis,63.81,138673.50,0.70,0.87,1.29 ,4.04 ,8.55 ,17.43 ,1.35 ,1.43 ,1.45 ,10.09 ,5.38 ,6.74 ,37.16 ,131350982.48,90.35,0.71,0.96 ,-4.26 ,-3.34 ,-1.27 ,14,18.77,4430,,1.00  aa,20.00  aa
+GESE11B,Educacional,1520.00,,23.82,1112.72,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,1119.08,1.36,104.32 ,-36.85 ,29.02 ,33.17 ,14,,8102,,,
+GGRC11,Imóveis Industriais e Logísticos,9.62,3755082.86,0.86,0.10,1.02 ,3.06 ,6.20 ,12.35 ,1.02 ,1.03 ,1.03 ,8.29 ,-2.78 ,-1.79 ,12.50 ,1705208177.61,11.18,0.86,0.89 ,-91.01 ,-90.93 ,-90.69 ,27,12.82,178722,1.10  aa,,
+GLOG11,Imóveis Industriais e Logísticos,64.36,28462.64,0.58,0.41,0.64 ,1.99 ,4.29 ,9.72 ,0.66 ,0.72 ,0.81 ,6.10 ,2.28 ,2.93 ,26.57 ,81479162.72,,,,,,,1,26.30,2032,,,
+GRUL11,Logística,7.98,294052.73,0.83,0.11,1.37 ,4.01 ,8.18 ,14.41 ,1.34 ,1.36 ,1.60 ,11.51 ,-4.29 ,-2.97 ,23.81 ,236843425.73,,,,,,,1,34.25,5208,1.00  aa,0.15  aa,
+GRWA11,Indefinido,7.60,2721.27,0.79,0.06,0.76 ,2.25 ,5.21 ,12.64 ,0.75 ,0.87 ,1.05 ,7.66 ,-3.07 ,-2.33 ,8.06 ,27712820.61,10.03,0.76,0.60 ,0.00 ,0.00 ,0.00 ,0,30.75,2295,,,
+GSFI11,Shoppings,8.71,4185076.73,0.67,0.00,0.03 ,0.03 ,0.03 ,0.03 ,0.01 ,0.00 ,0.00 ,0.03 ,0.00 ,0.03 ,0.03 ,1255570604.31,11.90,0.73,0.01 ,0.01 ,0.02 ,0.02 ,9,16.64,6489,,1.00  aa,
+GTLG11,Imóveis Industriais e Logísticos,63.99,22885.25,1.00,60.62,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,37.59 ,0.00 ,0.00 ,,118155565.38,60.62,1.06,100.00 ,-35.83 ,28.33 ,35.22 ,1,34.61,8102,,,
+GTWR11,Lajes Corporativas,75.65,576146.14,0.76,0.90,1.18 ,3.42 ,7.11 ,14.14 ,1.14 ,1.19 ,1.18 ,9.63 ,-2.76 ,-1.62 ,24.66 ,1197356381.10,99.78,0.76,0.87 ,5.36 ,6.28 ,11.89 ,3,13.22,35639,,0.25  aa,
+GURB11,Indefinido,108.00,5000076.00,0.85,0.70,0.65 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.65 ,0.00 ,0.00 ,,144707018.00,,,,,,,2,1.17,1,,,
+GZIT11,Indefinido,43.29,373545.45,0.47,0.78,1.68 ,4.96 ,10.20 ,21.43 ,1.65 ,1.70 ,1.79 ,12.33 ,-1.61 ,0.04 ,42.80 ,1989907157.48,,,,,,,6,29.32,7146,,0.96  aa,20.00  aa
+HAAA11,Lajes Corporativas,48.51,9643.86,0.75,0.08,0.16 ,1.24 ,2.20 ,4.96 ,0.41 ,0.37 ,0.41 ,4.01 ,-0.18 ,-0.02 ,64.28 ,229710838.27,66.49,0.73,0.12 ,-25.84 ,-25.75 ,-24.55 ,2,72.07,225,,,
+HABT11,Papéis,79.04,595709.05,0.84,1.05,1.27 ,4.03 ,8.19 ,16.51 ,1.34 ,1.37 ,1.38 ,11.28 ,-0.43 ,0.83 ,33.87 ,765536712.75,94.20,0.84,1.22 ,-5.59 ,-4.44 ,11.88 ,14,16.64,62125,1.26  aa,,20.00  aa
+HBCR11,Indefinido,138.00,750720.00,1.11,0.53,0.00 ,0.47 ,4.94 ,10.60 ,0.47 ,0.82 ,0.88 ,8.31 ,0.00 ,0.00 ,,198998055.26,,,,,,,2,70.84,37,,,
+HBRH11,Lajes Corporativas,90.80,14627.00,0.80,0.50,0.55 ,1.65 ,6.85 ,9.22 ,0.55 ,1.14 ,0.77 ,9.22 ,1.00 ,1.56 ,2.46 ,316852348.31,112.23,0.81,0.45 ,-0.86 ,-0.42 ,7.60 ,5,13.98,720,,,
+HCHG11,Papéis,74.99,66616.40,0.81,0.71,0.90 ,3.23 ,6.56 ,14.62 ,1.08 ,1.09 ,1.22 ,9.60 ,-0.25 ,0.64 ,34.42 ,113151334.18,94.29,0.80,1.01 ,-6.75 ,-5.81 ,8.77 ,14,33.99,593,,,
+HCRA11,Indefinido,10.22,0.83,,14.85,145.30 ,145.30 ,154.29 ,247.69 ,48.43 ,25.72 ,20.64 ,233.94 ,2.20 ,150.70 ,11.17 ,,,,0.00 ,0.00 ,0.00 ,0.00 ,0,1483.17,0,,,
+HCRI11,Hospitalar,264.23,24659.36,0.80,2.86,1.10 ,3.21 ,6.68 ,12.81 ,1.07 ,1.11 ,1.07 ,7.50 ,0.09 ,1.19 ,15.03 ,65200720.56,326.00,0.81,0.84 ,5.86 ,6.74 ,14.24 ,1,35.79,3004,,2.00  aa,
+HCTR11,Papéis,22.10,591887.14,0.21,0.30,1.29 ,4.01 ,8.62 ,20.41 ,1.34 ,1.44 ,1.70 ,14.50 ,-3.36 ,-2.11 ,8.56 ,2307509700.09,104.49,0.21,0.27 ,-13.92 ,-13.68 ,1.77 ,14,38.11,140609,0.99  aa,0.21  aa,10.00  aa
+HDEL11,Imóveis Industriais e Logísticos,100.01,16.67,0.96,14.03,0.00 ,0.00 ,0.00 ,11.84 ,0.00 ,0.00 ,1.69 ,0.00 ,0.00 ,0.00 ,,87182870.21,,,,,,,1,64.87,108,,1.50  aa,20.00  aa
+HFOF11,Fundo de Fundos,5.89,1294977.82,0.79,0.06,0.95 ,2.82 ,5.91 ,12.00 ,0.94 ,0.99 ,1.00 ,8.03 ,-0.84 ,0.10 ,17.05 ,1697927927.41,7.37,0.80,0.76 ,-90.89 ,-90.82 ,-90.44 ,14,13.96,74822,,0.60  aa,20.00  aa
+HGAG11,Indefinido,12.11,1077.44,0.51,0.10,0.67 ,7.99 ,11.33 ,17.83 ,2.66 ,1.89 ,1.49 ,12.25 ,-1.85 ,-1.19 ,34.18 ,5847321.50,23.55,0.51,0.85 ,0.00 ,0.00 ,0.00 ,0,120.61,1123,,,
+HGBL11,Misto,8.53,36746.77,0.89,0.07,0.83 ,2.64 ,5.19 ,13.60 ,0.88 ,0.87 ,1.13 ,7.34 ,0.58 ,1.42 ,-4.88 ,240473954.64,,,,,,,1,15.05,4745,0.50  aa,0.10  aa,
+HGBS11,Shoppings,18.67,1774061.09,0.86,0.15,0.81 ,2.42 ,5.00 ,10.26 ,0.81 ,0.83 ,0.86 ,6.84 ,-6.53 ,-5.78 ,9.52 ,2790289688.28,21.61,0.86,0.74 ,-90.26 ,-90.19 ,-89.14 ,16,14.46,131726,,0.60  aa,
+HGCR11,Papéis,91.69,2560721.14,0.94,1.05,1.10 ,3.30 ,6.67 ,13.12 ,1.10 ,1.11 ,1.09 ,8.96 ,0.58 ,1.69 ,15.67 ,1505630495.93,97.65,0.94,1.08 ,-3.28 ,-2.24 ,11.17 ,14,13.47,102040,,0.80  aa,20.00  aa
+HGFF11,Fundo de Fundos,63.70,346112.09,0.78,0.68,1.06 ,3.01 ,6.00 ,13.08 ,1.00 ,1.00 ,1.09 ,9.11 ,-5.42 ,-4.42 ,6.96 ,234290424.18,81.82,0.78,0.83 ,-5.78 ,-5.00 ,0.08 ,14,17.31,15247,,0.80  aa,20.00  aa
+HGIC11,Papéis,67.19,12114.50,0.61,0.80,1.16 ,3.43 ,6.51 ,13.78 ,1.14 ,1.09 ,1.15 ,9.04 ,-1.19 ,-0.04 ,-10.25 ,51320999.36,110.91,0.61,0.72 ,-3.32 ,-2.62 ,15.77 ,2,55.65,612,,,
+HGLG11,Imóveis Industriais e Logísticos,152.20,4756809.09,0.93,1.10,0.71 ,2.09 ,4.27 ,8.74 ,0.70 ,0.71 ,0.73 ,5.76 ,-3.10 ,-2.41 ,12.80 ,5498583897.35,162.74,0.94,0.68 ,5.65 ,6.37 ,23.31 ,28,12.18,506054,,0.60  aa,
+HGPO11,Lajes Corporativas,135.80,4701461.18,0.97,57.05,48.22 ,0.00 ,0.00 ,51.25 ,0.00 ,0.00 ,4.27 ,62.51 ,5.05 ,55.71 ,101.25 ,245955667.64,155.61,0.87,36.66 ,-48.02 ,-28.96 ,-15.36 ,2,11.08,10214,,,
+HGRE11,Lajes Corporativas,107.51,998224.77,0.69,0.85,0.76 ,3.63 ,6.00 ,10.81 ,1.21 ,1.00 ,0.90 ,7.68 ,-7.26 ,-6.56 ,23.88 ,1840540878.33,155.74,0.69,0.55 ,-0.73 ,-0.19 ,0.12 ,13,20.93,142900,,1.00  aa,
+HGRS11,Imóveis Residenciais,,,,29.32,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,92.86,,0.00 ,0.00 ,0.00 ,0.00 ,14,,8102,,,
+HGRU11,Misto,121.77,2349730.59,0.95,0.95,0.77 ,2.75 ,5.07 ,10.72 ,0.92 ,0.85 ,0.89 ,7.61 ,-0.73 ,0.04 ,23.12 ,2968593925.25,127.75,0.95,0.70 ,3.95 ,4.69 ,19.01 ,104,12.89,221395,,0.70  aa,20.00  aa
+HILG11,Indefinido,184.96,186.67,0.90,1.44,0.00 ,0.00 ,2.19 ,5.83 ,0.00 ,0.37 ,0.49 ,3.51 ,0.00 ,0.00 ,,107618817.57,,,,,,,1,9.50,104,,,
+HLOG11,Imóveis Industriais e Logísticos,8.17,64637.59,0.74,0.07,0.85 ,2.42 ,4.93 ,8.32 ,0.81 ,0.82 ,0.69 ,6.29 ,-0.72 ,0.12 ,11.19 ,469333781.84,11.04,0.74,0.59 ,-90.52 ,-90.47 ,-89.43 ,4,12.68,3720,,0.80  aa,
+HOFC11,Lajes Corporativas,28.53,879870.00,0.43,0.21,0.65 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,2.01 ,75.72 ,76.86 ,67.59 ,247631451.45,,,,,,,3,47.56,5245,,0.83  aa,-1.00  aa
+HOSI11,Imóveis Residenciais,82.00,3919.57,0.91,0.65,0.78 ,2.84 ,5.11 ,9.77 ,0.95 ,0.85 ,0.81 ,5.93 ,-4.83 ,-4.08 ,2.73 ,52247856.96,91.11,0.90,1.27 ,-1.03 ,0.23 ,6.03 ,14,37.05,1169,,,
+HPDP11,Shoppings,89.58,1079523.83,0.97,0.56,0.00 ,1.25 ,3.18 ,7.07 ,0.42 ,0.53 ,0.59 ,4.53 ,0.00 ,0.00 ,,304674701.25,92.66,0.97,0.60 ,3.81 ,4.44 ,4.20 ,1,28.49,366,,,
+HRDF11,Fundo de Desenvolvimento,3.00,13.40,0.43,6.80,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,10703440.80,,,,,,,14,46.88,910,,,
+HREC11,Papéis,8.24,161154.00,0.94,0.09,1.01 ,3.18 ,6.57 ,13.11 ,1.06 ,1.10 ,1.09 ,8.93 ,0.24 ,1.25 ,23.20 ,453519687.47,8.77,0.94,1.03 ,-90.13 ,-90.03 ,-89.03 ,14,19.56,2630,,0.80  aa,20.00  aa
+HRES11,Imóveis Residenciais,147.64,477.60,1.14,1.65,0.00 ,0.00 ,4.01 ,6.65 ,0.00 ,0.67 ,0.83 ,5.58 ,0.00 ,0.00 ,,60387832.96,,,,,,,14,5.53,136,,,
+HSAF11,Papéis,77.25,225755.82,0.88,0.95,1.21 ,3.57 ,7.28 ,14.96 ,1.19 ,1.21 ,1.25 ,10.55 ,-1.53 ,-0.34 ,25.22 ,223613939.10,88.51,0.87,1.07 ,-3.10 ,-2.06 ,6.84 ,14,22.66,8914,,1.00  aa,20.00  aa
+HSLG11,Imóveis Industriais e Logísticos,77.56,524818.59,0.71,0.66,0.82 ,2.38 ,4.89 ,10.64 ,0.79 ,0.82 ,0.89 ,6.85 ,-2.37 ,-1.57 ,13.63 ,1398230000.23,110.44,0.70,0.59 ,5.24 ,5.86 ,7.33 ,6,17.51,41240,,0.85  aa,20.00  aa
+HSML11,Shoppings,80.15,1859542.05,0.76,0.66,0.83 ,2.35 ,4.78 ,10.71 ,0.78 ,0.80 ,0.89 ,6.86 ,-6.22 ,-5.45 ,9.97 ,2182644730.91,104.89,0.76,0.62 ,7.49 ,8.16 ,13.82 ,13,16.74,188980,1.05  aa,,20.00  aa
+HSRE11,Misto,101.50,1803948.32,1.13,0.85,0.84 ,3.22 ,5.18 ,11.49 ,1.07 ,0.86 ,0.96 ,7.05 ,2.53 ,3.39 ,16.43 ,800089570.15,89.91,1.13,0.72 ,-6.38 ,-5.71 ,0.29 ,24,22.34,364,,,
+HTMX11,Hotéis,139.68,359472.55,0.96,1.22,0.85 ,2.99 ,4.80 ,14.83 ,1.00 ,0.80 ,1.24 ,8.25 ,-1.09 ,-0.25 ,9.13 ,418606197.51,144.94,0.96,1.06 ,3.27 ,4.37 ,20.77 ,22,18.65,37348,,0.50  aa,20.00  aa
+HUCG11,Hospitalar,101.50,233.13,0.99,0.53,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,115079912.51,,,,,,,1,54.27,234,,,
+HUSC11,Hospitalar,92.45,2578.74,0.62,0.86,0.00 ,1.83 ,4.59 ,10.28 ,0.61 ,0.77 ,0.86 ,6.69 ,0.00 ,0.00 ,,126474750.31,148.65,0.62,0.58 ,1.29 ,1.88 ,10.22 ,2,48.92,752,,,
+HUSI11,Hospitalar,1241.00,1241.00,1.00,8.42,0.00 ,1.37 ,2.79 ,7.05 ,0.46 ,0.47 ,0.59 ,0.71 ,0.00 ,0.00 ,,145118032.78,1247.13,1.00,0.69 ,25.57 ,26.44 ,32.99 ,14,42.12,100,,,
+IAAG11,Indefinido,7.65,86524.50,0.78,0.11,1.44 ,4.30 ,8.23 ,15.52 ,1.43 ,1.37 ,1.29 ,11.13 ,4.37 ,5.87 ,6.14 ,102136674.18,9.77,0.78,1.02 ,0.00 ,0.00 ,0.00 ,0,26.83,13270,,1.15  aa,20.00  aa
+IAGR11,Indefinido,3.81,11569.45,0.61,0.01,0.15 ,0.15 ,0.61 ,2.29 ,0.15 ,0.61 ,0.19 ,1.03 ,-3.18 ,-3.03 ,45.49 ,17527841.08,6.26,0.61,0.10 ,0.00 ,0.00 ,0.00 ,0,32.63,3579,,,
+IBBP11,Indefinido,8.04,19402.45,0.91,0.07,0.87 ,1.70 ,4.24 ,5.99 ,0.57 ,0.71 ,0.86 ,5.99 ,-0.12 ,0.75 ,-4.72 ,395689679.30,,,,,,,24,42.26,440,,,
+IBCR11,Papéis,53.39,98156.05,0.60,0.75,1.39 ,4.38 ,9.07 ,18.39 ,1.46 ,1.51 ,1.53 ,12.51 ,-8.80 ,-7.53 ,17.64 ,86308371.72,90.05,0.59,1.00 ,-4.12 ,-3.16 ,5.03 ,14,17.18,3842,0.80  aa,0.20  aa,20.00  aa
+IBFF11,Fundo de Fundos,66.40,162549.50,1.04,14.79,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,6.25 ,0.00 ,0.00 ,,118155565.38,14.78,4.49,100.08 ,-79.09 ,-58.15 ,-58.47 ,14,4.20,8102,,,
+ICNE11,Imóveis Residenciais,653.96,,0.89,0.58,0.00 ,0.00 ,1.68 ,7.64 ,0.00 ,0.28 ,0.64 ,7.64 ,0.00 ,0.00 ,,88343992.91,,,,,,,14,6.66,5,,,
+ICRI11,Misto,91.98,430441.95,0.92,1.10,1.17 ,3.38 ,7.01 ,15.66 ,1.13 ,1.17 ,1.31 ,10.12 ,-2.81 ,-1.67 ,19.76 ,384164266.80,,,,,,,14,19.30,8636,,1.00  aa,
+IDFI11,Indefinido,2.00,2592.80,1.25,1.56,78.04 ,0.00 ,0.00 ,418.46 ,0.00 ,0.00 ,34.87 ,1043.04 ,-54.34 ,-18.70 ,44259.43 ,3283391.87,1.60,1.25,269.79 ,-97.14 ,-89.43 ,-91.38 ,1,81.49,617,,,
+IDGR11,Misto,1.50,332.83,16.67,0.09,5.99 ,0.00 ,0.00 ,66.25 ,0.00 ,0.00 ,5.52 ,5.99 ,-50.98 ,-48.04 ,-48.04 ,79368.95,,,,,,,1,118.98,171,,,
+IDUA11,Imóveis Comerciais - Outros,64.42,,0.90,4.59,0.00 ,0.00 ,2.34 ,10.08 ,0.00 ,0.39 ,0.84 ,12.00 ,0.00 ,0.00 ,,28805119.10,,,,,,,14,9.46,1,,,
+IFRA11,Indefinido,93.74,1268026.05,,1.03,1.06 ,3.83 ,6.94 ,13.64 ,1.28 ,1.16 ,1.14 ,9.16 ,0.82 ,1.88 ,15.26 ,,,,,,,,0,18.60,0,,0.85  aa,
+IFRI11,Misto,98.77,1403679.09,,1.75,1.76 ,3.50 ,7.69 ,14.00 ,1.17 ,1.28 ,1.17 ,9.65 ,3.53 ,5.35 ,22.74 ,,,,,,,,0,16.79,0,,0.85  aa,
+IMOV11,Indefinido,,,,0.10,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,500469713.59,,,,,,,14,,13027,,,
+INFA11,Outros,9.82,,,0.09,0.00 ,0.00 ,12.94 ,16.31 ,0.00 ,2.16 ,2.04 ,14.56 ,0.00 ,0.00 ,,,,,,,,,0,2.41,0,,,
+INFB11,Indefinido,92.02,8573.47,,1.00,0.99 ,0.99 ,2.10 ,5.21 ,0.99 ,0.53 ,1.30 ,2.10 ,12.70 ,13.82 ,9.66 ,,,,,,,,0,44.00,0,,,
+INLG11,Imóveis Industriais e Logísticos,74.04,78778.27,0.73,0.77,1.04 ,3.10 ,6.39 ,12.97 ,1.03 ,1.07 ,1.08 ,8.74 ,-2.56 ,-1.54 ,19.86 ,452380097.84,,,,,,,5,17.32,17656,,0.46  aa,
+INRD11,Fundo de Desenvolvimento,70.61,12517.59,0.59,0.63,0.88 ,2.55 ,5.46 ,11.01 ,0.85 ,0.91 ,0.92 ,7.38 ,-4.37 ,-3.53 ,20.82 ,134027873.65,,,,,,,5,16.96,7099,,1.00  aa,
+IRDM11,Papéis,61.43,4956760.55,0.75,0.78,1.25 ,3.70 ,7.27 ,15.12 ,1.23 ,1.21 ,1.26 ,10.10 ,-8.31 ,-7.16 ,19.06 ,3018082901.63,82.84,0.74,0.99 ,-10.73 ,-9.85 ,-6.23 ,1,15.69,276870,0.83  aa,0.17  aa,
+IRIF11,Papéis,8.60,31673.27,,0.11,1.24 ,2.50 ,6.26 ,6.26 ,0.83 ,1.04 ,1.04 ,6.26 ,2.18 ,3.45 ,10.26 ,,,,,,,,0,38.88,0,,,
+IRIM11,Indefinido,66.25,111699.27,0.77,0.81,1.20 ,3.72 ,7.40 ,15.93 ,1.24 ,1.23 ,1.33 ,10.53 ,-2.65 ,-1.49 ,31.78 ,166019583.84,86.47,0.77,0.96 ,-11.15 ,-10.30 ,-6.89 ,14,19.35,2530,,,
+ISCJ11,Papéis,81.00,980.00,0.36,20.00,20.00 ,21.38 ,21.98 ,25.74 ,7.13 ,3.66 ,2.15 ,26.36 ,14.94 ,37.93 ,58.04 ,42177004.46,,,,,,,14,67.32,59,,,
+ITIP11,Papéis,64.48,28240.00,0.92,0.80,1.21 ,3.62 ,7.12 ,13.24 ,1.21 ,1.19 ,1.10 ,9.21 ,0.30 ,1.52 ,13.19 ,52396013.70,70.03,0.92,1.14 ,-12.56 ,-11.56 ,-9.46 ,14,15.89,8848,,,
+ITIT11,Fundo de Fundos,67.75,61043.91,0.89,0.63,0.91 ,2.68 ,5.51 ,10.97 ,0.89 ,0.92 ,0.91 ,7.43 ,-0.23 ,0.68 ,14.93 ,68624871.90,76.21,0.89,0.81 ,-3.48 ,-2.70 ,3.83 ,14,13.14,10414,,0.30  aa,
+ITRI11,Shoppings,77.34,561589.45,0.84,0.82,1.03 ,3.10 ,6.15 ,12.71 ,1.03 ,1.03 ,1.06 ,8.34 ,-2.50 ,-1.50 ,15.77 ,569672404.26,,,,,,,14,16.77,14872,,1.20  aa,-1.00  aa
+IVCI11,Papéis,96.86,,0.98,1.42,0.00 ,0.00 ,4.49 ,8.33 ,0.00 ,0.75 ,1.04 ,5.17 ,0.00 ,0.00 ,,49384882.72,,,,,,,0,3.36,16,,,
+JASC11,Imóveis Comerciais - Outros,98.50,22655.00,0.87,0.67,0.00 ,0.64 ,2.52 ,5.51 ,0.64 ,0.42 ,0.46 ,3.16 ,0.00 ,0.00 ,,394977165.15,,,,,,,19,49.51,167,,,
+JBFO11,Papéis,15.03,82.00,1.95,0.04,0.00 ,0.00 ,0.50 ,111.75 ,0.00 ,0.50 ,9.31 ,0.77 ,0.00 ,0.00 ,,9864392.02,,,,,,,14,103.63,369,,,
+JCCJ11,Papéis,162.00,3997683.29,0.85,0.36,0.00 ,0.23 ,1.07 ,2.89 ,0.23 ,0.18 ,0.24 ,1.37 ,0.00 ,0.00 ,,316690599.39,,,,,,,14,24.90,123,,,
+JCIN11,Fundo de Fundos,150.00,14741507.14,0.95,0.62,0.00 ,0.00 ,1.11 ,3.14 ,0.00 ,0.19 ,0.26 ,1.52 ,0.00 ,0.00 ,,207217425.71,,,,,,,14,19.90,9,,,
+JFLL11,Imóveis Residenciais,67.51,13755.55,0.63,0.40,0.57 ,2.30 ,4.44 ,9.60 ,0.77 ,0.74 ,0.80 ,6.00 ,-0.27 ,0.30 ,7.22 ,160366274.57,106.87,0.63,0.53 ,5.83 ,6.40 ,15.62 ,2,17.77,2603,,1.15  aa,
+JGPX11,Indefinido,71.03,272510.59,0.74,1.20,1.64 ,3.54 ,6.35 ,13.63 ,1.18 ,1.06 ,1.14 ,8.53 ,14.76 ,16.65 ,40.90 ,205673202.93,96.17,0.74,0.68 ,0.21 ,0.89 ,11.86 ,0,33.76,5991,1.00  aa,0.18  aa,20.00  aa
+JMBI11,Outros,83.36,691307.77,,1.10,1.29 ,2.62 ,6.53 ,9.17 ,0.87 ,1.09 ,1.02 ,9.17 ,-0.40 ,0.89 ,10.95 ,,,,,,,,0,42.10,0,,1.25  aa,20.00  aa
+JPPA11,Papéis,78.62,57683.50,0.79,1.06,1.34 ,4.20 ,8.20 ,17.22 ,1.40 ,1.37 ,1.44 ,11.61 ,-1.66 ,-0.34 ,20.55 ,88119199.24,97.47,0.81,1.09 ,-0.86 ,0.21 ,12.78 ,14,14.51,6706,,1.05  aa,20.00  aa
+JRDM11,Shoppings,85.00,610682.00,1.33,7.83,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,5.00 ,0.00 ,0.00 ,,118155565.38,88.84,0.96,0.45 ,-1.16 ,-0.71 ,7.23 ,14,9.34,8102,,,
+JSAF11,Fundo de Fundos,7.32,1275390.86,0.81,0.09,1.23 ,3.53 ,7.27 ,14.49 ,1.18 ,1.21 ,1.21 ,10.00 ,-6.33 ,-5.18 ,8.98 ,699102470.95,9.02,0.81,1.01 ,-90.40 ,-90.30 ,-89.53 ,14,24.22,21808,1.00  aa,,20.00  aa
+JSCR11,Papéis,8.07,317758.09,0.86,0.10,1.14 ,3.40 ,7.07 ,65.73 ,1.13 ,1.18 ,5.48 ,21.27 ,-0.60 ,0.54 ,38.86 ,208096950.62,,,,,,,14,31.55,3765,,,
+JSRE11,Misto,62.86,1055112.64,0.61,0.48,0.75 ,2.21 ,4.66 ,9.80 ,0.74 ,0.78 ,0.82 ,6.47 ,-3.38 ,-2.66 ,25.21 ,2117039977.37,101.94,0.62,0.47 ,-9.76 ,-9.34 ,-5.37 ,6,19.69,88749,,1.00  aa,20.00  aa
+JURO11,Indefinido,97.35,2779813.14,,1.00,1.02 ,3.04 ,6.21 ,11.75 ,1.01 ,1.04 ,0.98 ,7.64 ,-0.43 ,0.59 ,10.89 ,,,,,,,,0,14.81,0,,1.00  aa,
+KCRE11,Indefinido,8.53,276198.27,0.89,0.11,1.26 ,4.05 ,7.73 ,14.28 ,1.35 ,1.29 ,1.19 ,10.38 ,-3.10 ,-1.88 ,18.72 ,344467744.56,9.57,0.89,1.46 ,-90.23 ,-90.08 ,-89.97 ,14,16.85,15571,,1.20  aa,
+KDIF11,Indefinido,120.62,2430159.86,,1.25,1.04 ,2.86 ,6.39 ,12.22 ,0.95 ,1.07 ,1.02 ,8.43 ,-5.84 ,-4.87 ,11.63 ,,,,,,,,0,16.61,0,,1.11  aa,
+KDOL11,Misto,93.67,144289.77,0.93,0.45,0.48 ,1.45 ,3.02 ,4.44 ,0.48 ,0.50 ,0.56 ,3.92 ,-1.61 ,-1.14 ,-3.13 ,67913502.47,101.22,0.93,0.41 ,0.00 ,0.00 ,0.00 ,0,24.06,1983,,,
+KEVE11,Fundo de Desenvolvimento,850.00,4403.60,1.48,34.53,0.00 ,0.00 ,5.23 ,29.78 ,0.00 ,0.87 ,2.48 ,8.30 ,0.00 ,0.00 ,,84657766.50,555.84,1.53,2.44 ,-40.37 ,-38.92 ,-41.27 ,14,186.01,450,,,
+KFEN11,Indefinido,1100.00,1571.43,1.15,9.22,0.00 ,0.00 ,3.28 ,4.40 ,0.00 ,0.55 ,0.73 ,4.40 ,0.00 ,0.00 ,,170549927.62,,,,,,,14,31.84,129,,,
+KFOF11,Fundo de Fundos,76.40,705924.32,0.86,0.75,0.96 ,2.79 ,5.83 ,12.12 ,0.93 ,0.97 ,1.01 ,8.10 ,-3.86 ,-2.93 ,18.89 ,621816542.79,88.65,0.86,0.85 ,-2.44 ,-1.62 ,3.86 ,14,16.59,28804,,0.92  aa,20.00  aa
+KINP11,Fundo de Desenvolvimento,10.00,38394.20,0.16,2.90,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,19.95 ,0.00 ,0.00 ,,118155565.38,,,0.00 ,-100.00 ,0.00 ,0.00 ,14,12.74,8102,,,
+KISU11,Fundo de Fundos,6.69,368403.59,0.83,0.07,1.02 ,3.02 ,6.06 ,12.02 ,1.01 ,1.01 ,1.00 ,8.18 ,-1.30 ,-0.29 ,11.07 ,357983276.20,8.10,0.83,0.86 ,-7.11 ,-6.31 ,-4.14 ,14,18.49,107620,,0.60  aa,
+KIVO11,Papéis,64.30,275393.95,0.76,0.95,1.38 ,4.57 ,9.04 ,17.63 ,1.52 ,1.51 ,1.47 ,12.42 ,-2.62 ,-1.28 ,19.73 ,188883701.32,,,,,,,14,24.89,6734,,1.15  aa,10.00  aa
+KNCA11,Indefinido,91.69,1993788.45,0.91,1.25,1.33 ,3.68 ,7.41 ,14.52 ,1.23 ,1.24 ,1.21 ,10.01 ,-4.05 ,-2.78 ,21.16 ,2215475114.27,,,0.00 ,-100.00 ,0.00 ,0.00 ,0,20.45,76572,1.20  aa,,
+KNCR11,Papéis,102.50,8985777.82,1.01,1.35,1.29 ,3.59 ,6.86 ,13.02 ,1.20 ,1.14 ,1.09 ,9.00 ,-0.19 ,1.10 ,18.60 ,7790099315.25,101.82,1.01,1.18 ,1.06 ,2.25 ,15.74 ,14,9.80,414915,1.00  aa,,
+KNHF11,Indefinido,90.45,2532712.50,0.91,1.00,1.10 ,3.27 ,6.49 ,13.18 ,1.09 ,1.08 ,1.10 ,8.87 ,-3.18 ,-2.12 ,25.80 ,1962693381.64,,,,,,,3,17.96,43522,,1.20  aa,
+KNHY11,Papéis,100.12,2736779.32,1.01,1.30,1.28 ,3.88 ,7.71 ,14.54 ,1.29 ,1.29 ,1.21 ,10.23 ,-1.09 ,0.17 ,19.23 ,2793036416.69,99.15,1.01,1.36 ,1.43 ,2.81 ,16.14 ,14,11.35,25693,,1.60  aa,
+KNIP11,Papéis,86.40,5214028.86,0.95,0.80,0.92 ,2.95 ,6.68 ,12.70 ,0.98 ,1.11 ,1.06 ,9.04 ,-4.37 ,-3.49 ,13.65 ,7381774473.40,92.18,0.94,1.13 ,-1.79 ,-0.68 ,8.42 ,14,9.76,72779,,1.00  aa,
+KNOX11,Indefinido,101.50,512116.80,,2.64,2.68 ,2.68 ,2.68 ,8.58 ,0.89 ,0.45 ,0.72 ,2.68 ,6.21 ,9.06 ,9.06 ,,,,,,,,0,24.97,0,,,
+KNPR11,Indefinido,,,,3.30,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,54885857.18,,,,,,,14,,593,,,
+KNRE11,Fundo de Desenvolvimento,0.27,2204.91,0.37,0.00,1.68 ,1.68 ,338.66 ,338.66 ,0.56 ,56.44 ,28.22 ,338.66 ,575.00 ,586.34 ,1099.67 ,12410539.50,0.76,0.36,9.22 ,0.00 ,9.22 ,0.46 ,14,374.60,5977,,0.04  aa,20.00  aa
+KNRI11,Misto,137.96,4778328.82,0.85,1.00,0.70 ,2.08 ,4.28 ,8.87 ,0.69 ,0.71 ,0.74 ,5.83 ,-1.46 ,-0.77 ,20.34 ,4598154320.06,163.03,0.85,0.61 ,2.00 ,2.62 ,11.19 ,20,15.99,299245,1.11  aa,,
+KNSC11,Papéis,8.52,3140990.00,0.97,0.10,1.13 ,3.26 ,6.85 ,13.37 ,1.09 ,1.14 ,1.11 ,9.24 ,-0.89 ,0.23 ,22.00 ,1781246617.52,8.81,0.97,1.14 ,-90.00 ,-89.89 ,-88.83 ,14,15.18,219913,1.20  aa,,
+KNUQ11,Indefinido,103.97,1760891.55,1.03,1.50,1.43 ,4.08 ,7.79 ,14.61 ,1.36 ,1.30 ,1.22 ,10.26 ,0.10 ,1.53 ,21.69 ,1550598377.86,,,,,,,14,11.12,36093,,1.40  aa,
+KOPA11,Indefinido,905.00,320830.14,0.95,19.73,2.11 ,5.58 ,10.66 ,20.94 ,1.86 ,1.78 ,1.75 ,17.85 ,-0.86 ,1.23 ,55.01 ,341578440.24,,,0.00 ,0.00 ,0.00 ,0.00 ,0,27.89,3523,,2.00  aa,20.00  aa
+KORE11,Lajes Corporativas,70.02,2626186.27,0.66,1.25,1.71 ,4.62 ,9.35 ,18.82 ,1.54 ,1.56 ,1.57 ,12.79 ,-12.39 ,-10.89 ,11.20 ,1019573723.22,,,,,,,4,23.93,24721,,1.06  aa,
+KRES11,Misto,,,,0.00,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,231579046.50,,,,,,,1,,131,,,
+LAFI11,Misto,115.91,465419.40,1.03,4.94,4.30 ,4.30 ,4.30 ,12.22 ,4.30 ,4.30 ,12.22 ,12.22 ,-1.98 ,2.24 ,2.24 ,86900712.37,111.46,1.04,4.43 ,0.00 ,0.00 ,0.00 ,0,44.62,1270,,,
+LASC11,Shoppings,93.02,356230.05,0.70,5.73,5.65 ,10.29 ,12.46 ,15.72 ,3.43 ,2.08 ,1.31 ,13.28 ,1.51 ,7.25 ,13.30 ,397036305.08,135.03,0.69,0.63 ,26.24 ,27.04 ,27.58 ,2,35.05,403,,,
+LAVF11,Indefinido,,,,1.30,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,,,,,,,14,,8102,,,
+LFTT11,Papéis,6.80,17061.00,0.49,1.74,25.82 ,58.86 ,139.26 ,59723349.74 ,19.62 ,23.21 ,4976945.81 ,139.26 ,-4.66 ,19.96 ,604.07 ,45148172.48,57.65,0.12,1.20 ,43.98 ,45.71 ,-48.65 ,51,304.73,714,,,
+LGCP11,Imóveis Industriais e Logísticos,82.95,163106.04,0.65,0.80,1.13 ,3.17 ,5.76 ,10.78 ,1.06 ,0.96 ,0.90 ,10.78 ,-7.22 ,-6.17 ,-7.05 ,457171677.92,101.32,0.82,0.79 ,-1.43 ,-0.65 ,7.48 ,5,9.47,19183,,0.46  aa,
+LIFE11,Imóveis Comerciais - Outros,8.53,452120.18,0.86,0.12,1.34 ,4.06 ,8.31 ,17.56 ,1.35 ,1.39 ,1.46 ,11.54 ,0.11 ,1.45 ,16.42 ,376945358.39,,,,,,,14,27.21,17142,,1.38  aa,20.00  aa
+LLAO11,Misto,57.20,57.00,1.10,7.31,11.32 ,0.00 ,11.32 ,13.43 ,0.00 ,1.89 ,1.92 ,11.32 ,-2.11 ,8.97 ,8.97 ,18811597.16,,,,,,,13,25.26,77,,,
+LOFT11B,Fundo de Desenvolvimento,29.90,,29.31,47.90,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,142.96 ,0.00 ,0.00 ,,1999372.83,,,,,,,2,,8,,,
+LPLP11,Indefinido,560.00,685.00,1.68,1.21,0.00 ,0.00 ,1.16 ,5.40 ,0.00 ,0.19 ,0.45 ,11.25 ,0.00 ,0.00 ,,193907290.56,,,,,,,14,38.01,14,,,
+LRDI11,Indefinido,80.54,81.00,0.97,5.95,0.00 ,0.00 ,13.52 ,13.52 ,0.00 ,13.52 ,13.52 ,13.52 ,0.00 ,0.00 ,,30805678.41,,,,,,,14,144.20,101,,,
+LSAG11,Indefinido,74.78,54391.59,0.77,1.20,1.59 ,4.42 ,8.63 ,18.57 ,1.47 ,1.44 ,1.55 ,13.88 ,-1.72 ,-0.16 ,28.21 ,99258389.07,,,0.00 ,0.00 ,0.00 ,0.00 ,0,21.19,2845,,1.47  aa,
+LSOI11,Misto,85.00,,7.89,0.10,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,12992114.48,,,,,,,2,,18,,,
+LSPA11,Papéis,24.01,453.61,1.15,20.85,86.84 ,0.00 ,0.00 ,210.27 ,0.00 ,0.00 ,17.52 ,299.45 ,0.00 ,86.84 ,153.73 ,8473824.04,,,,,,,14,80.60,727,,,
+LTMT11,Imóveis Residenciais,94.53,53693.00,1.00,8.38,8.80 ,0.00 ,0.00 ,8.80 ,0.00 ,0.00 ,8.80 ,8.80 ,0.00 ,0.00 ,,11811175.48,,,,,,,1,30.98,110,,,
+LUGG11,Imóveis Residenciais,72.82,23956.00,0.55,0.59,0.88 ,2.59 ,5.08 ,9.23 ,0.86 ,0.85 ,0.77 ,9.23 ,-3.20 ,-2.35 ,-10.08 ,132968746.75,117.60,0.62,0.51 ,-7.97 ,-7.50 ,-0.34 ,5,10.07,7962,,1.00  aa,
+LVBI11,Imóveis Industriais e Logísticos,101.96,2283572.59,0.88,0.75,0.73 ,2.20 ,4.55 ,9.84 ,0.73 ,0.76 ,0.82 ,6.39 ,-0.61 ,0.11 ,18.23 ,1896241753.56,117.64,0.87,0.64 ,1.85 ,2.50 ,7.77 ,10,18.08,130848,0.80  aa,,
+MALL11,Shoppings,99.90,1230798.43,0.82,0.86,0.85 ,2.54 ,5.27 ,10.16 ,0.85 ,0.88 ,0.85 ,6.13 ,1.45 ,2.31 ,17.74 ,1694865745.73,121.22,0.82,0.70 ,1.09 ,1.80 ,18.43 ,11,12.50,129577,0.50  aa,,
+MANA11,Indefinido,8.58,882105.18,0.93,0.11,1.26 ,3.75 ,7.64 ,15.70 ,1.25 ,1.27 ,1.31 ,10.50 ,-1.46 ,-0.22 ,26.11 ,349050253.18,,,,,,,14,14.87,27246,,1.00  aa,20.00  aa
+MATV11,Indefinido,86.63,13027.43,1.36,0.60,0.73 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,3.11 ,-1.41 ,-0.69 ,-1.08 ,118155565.38,91.09,0.95,0.66 ,-1.89 ,-1.24 ,-0.18 ,1,0.37,8102,,,
+MAXR11,Varejo,63.46,61340.73,0.60,0.52,0.81 ,1.83 ,3.37 ,31.55 ,0.61 ,0.56 ,2.63 ,4.46 ,-3.41 ,-2.62 ,11.19 ,115755627.51,102.91,0.62,0.31 ,-16.39 ,-16.13 ,-9.93 ,7,17.27,4384,,0.30  aa,
+MBRF11,Lajes Corporativas,,,,0.50,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,,1136.01,,0.88 ,-0.17 ,0.71 ,10.03 ,0,,0,,,
+MCCI11,Papéis,86.50,1926298.27,0.92,0.90,1.02 ,3.16 ,6.67 ,12.94 ,1.05 ,1.11 ,1.08 ,7.76 ,3.79 ,4.85 ,31.78 ,1600526696.03,94.37,0.92,0.95 ,2.02 ,2.99 ,7.78 ,14,16.26,108567,0.80  aa,0.20  aa,20.00  aa
+MCEM11,Shoppings,65.59,196940.60,1.97,0.48,0.73 ,2.21 ,2.21 ,7.42 ,0.74 ,0.74 ,2.47 ,2.21 ,0.28 ,1.01 ,25.74 ,98370276.23,,,,,,,14,670.66,171,,,
+MCHF11,Papéis,9.10,1778820.09,0.14,2.59,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,1.51 ,0.00 ,0.00 ,,118155565.38,10.38,0.88,0.67 ,9.15 ,9.88 ,12.93 ,1,7.84,8102,0.77  aa,0.18  aa,20.00  aa
+MCHY11,Papéis,8.58,4789731.61,0.72,0.10,1.39 ,3.81 ,7.19 ,13.89 ,1.27 ,1.20 ,1.16 ,13.89 ,-12.22 ,-11.00 ,-21.94 ,1060212799.64,9.50,0.90,1.05 ,-90.53 ,-90.43 ,-89.35 ,1,26.95,93666,1.10  aa,0.20  aa,20.00  aa
+MCLO11,Imóveis Industriais e Logísticos,10.68,1988671.40,0.78,0.09,0.00 ,1.90 ,1.90 ,1.90 ,0.63 ,0.48 ,0.48 ,1.90 ,0.00 ,0.00 ,,1718587618.18,,,,,,,4,19.30,196,,,
+MCRE11,Papéis,8.48,2038989.91,0.83,0.11,1.27 ,3.77 ,7.86 ,15.73 ,1.26 ,1.31 ,1.31 ,9.25 ,0.93 ,2.21 ,43.69 ,1140898084.80,,,,,,,1,21.58,83044,1.10  aa,0.20  aa,20.00  aa
+MFAI11,Fundo de Fundos,69.98,11326.82,0.99,34.18,48.84 ,0.00 ,0.00 ,49.90 ,0.00 ,0.00 ,4.16 ,56.24 ,2.66 ,52.79 ,89.75 ,27463042.22,,,0.00 ,-100.00 ,0.00 ,0.00 ,14,16.08,2301,,,
+MFII11,Fundo de Desenvolvimento,79.99,665119.45,0.78,1.06,1.31 ,3.98 ,8.05 ,16.17 ,1.33 ,1.34 ,1.35 ,10.90 ,-1.03 ,0.27 ,5.02 ,619000725.64,103.82,0.77,1.06 ,-1.81 ,-0.77 ,9.71 ,1,21.80,33043,,2.00  aa,20.00  aa
+MGCR11,Papéis,9.40,259145.59,0.15,0.33,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,8.00 ,0.00 ,0.00 ,,118155565.38,9.78,0.96,1.02 ,-89.08 ,-88.97 ,-88.55 ,14,14.56,8102,,,
+MGFF11,Fundo de Fundos,69.99,2558695.75,1.10,4.26,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,73.54,0.95,0.71 ,2.57 ,3.29 ,-0.09 ,14,8.07,8102,,0.20  aa,20.00  aa
+MGHT11,Hotéis,15.88,12993.14,0.59,0.13,0.42 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,7.24 ,-14.42 ,-14.07 ,-21.90 ,35816206.27,50.81,0.31,0.26 ,-40.63 ,-40.48 ,-43.69 ,1,63.02,4458,,1.20  aa,20.00  aa
+MGLG11,Imóveis Industriais e Logísticos,40.99,55314.19,0.55,0.35,0.86 ,2.58 ,4.56 ,11.69 ,0.86 ,0.76 ,0.97 ,0.86 ,-3.60 ,-2.77 ,-2.77 ,116088485.68,61.55,0.67,0.57 ,57.54 ,58.43 ,-18.62 ,2,27.79,3712,,,
+MGRI11,Indefinido,58.18,,0.95,1.42,0.00 ,0.00 ,8.02 ,19.66 ,0.00 ,1.34 ,1.64 ,12.42 ,0.00 ,0.00 ,,16732908.34,,,,,,,1,5.99,2,,,
+MINT11,Educacional,96.50,2171.20,0.99,14.67,15.20 ,0.00 ,0.00 ,15.20 ,0.00 ,0.00 ,7.60 ,19.77 ,-5.85 ,8.46 ,14.95 ,50527673.91,,,,,,,3,20.29,94,,,
+MMPD11,Indefinido,,,,1.24,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,59454315.28,,,,,,,14,,102,,,
+MORC11,Papéis,89.87,1741368.33,1.41,3.08,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,1.03 ,0.00 ,0.00 ,,118155565.38,97.73,0.92,0.34 ,0.11 ,0.45 ,5.63 ,14,3.25,8102,,,
+MORE11,Fundo de Fundos,76.21,1327577.67,1.19,6.02,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,86.87,0.88,0.81 ,4.88 ,5.72 ,2.91 ,14,2.67,8102,,,
+MXRF11,Papéis,9.42,8121578.23,0.99,0.10,1.04 ,3.15 ,6.29 ,12.59 ,1.05 ,1.05 ,1.05 ,8.46 ,0.74 ,1.78 ,19.63 ,4148018667.95,9.48,0.99,1.05 ,-6.23 ,-5.24 ,0.29 ,5,12.06,1314632,,0.90  aa,
+NAVT11,Papéis,70.90,37070.59,0.84,0.98,1.35 ,3.29 ,6.72 ,14.20 ,1.10 ,1.12 ,1.18 ,7.96 ,2.08 ,3.46 ,33.54 ,52353801.82,85.51,0.83,0.82 ,-4.54 ,-3.76 ,-2.66 ,14,33.99,2650,,1.00  aa,20.00  aa
+NCHB11,Papéis,7.97,63111.70,0.82,0.11,1.34 ,4.06 ,7.73 ,15.13 ,1.35 ,1.29 ,1.26 ,4.06 ,11.10 ,12.58 ,10.18 ,148979591.77,9.75,0.82,1.02 ,-89.12 ,-89.01 ,-88.60 ,14,17.09,11451,,1.10  aa,
+NCRI11,Papéis,8.15,2301.23,0.83,0.10,1.18 ,3.66 ,7.59 ,15.31 ,1.22 ,1.27 ,1.28 ,10.28 ,-7.76 ,-6.67 ,24.80 ,39286672.24,,,,,,,1,40.50,1169,,,
+NELO11,Logística,,,,113.97,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,563627765.46,1284.77,,0.34 ,0.00 ,0.00 ,0.00 ,57,,2,,,
+NEWL11,Imóveis Industriais e Logísticos,103.27,426544.95,0.81,0.95,0.92 ,2.74 ,5.82 ,11.58 ,0.91 ,0.97 ,0.97 ,7.86 ,-2.28 ,-1.38 ,13.75 ,360473246.88,127.94,0.81,0.74 ,6.54 ,7.33 ,22.49 ,3,17.47,9918,,0.95  aa,20.00  aa
+NEWU11,Lajes Corporativas,87.00,52093.05,1.09,0.20,0.25 ,0.42 ,0.70 ,1.20 ,0.42 ,0.70 ,0.10 ,0.93 ,-0.19 ,0.06 ,3.74 ,57714686.23,77.78,1.12,0.09 ,11.74 ,11.84 ,19.85 ,3,52.87,1121,,,
+NEXG11,Agricultura,130.99,157258.59,1.29,0.98,0.74 ,2.24 ,4.49 ,8.59 ,0.75 ,0.75 ,0.72 ,5.88 ,1.92 ,2.68 ,18.54 ,69929275.36,100.11,1.31,0.98 ,0.00 ,0.00 ,0.00 ,0,23.88,624,,,
+NSLU11,Hospitalar,176.42,150432.45,0.83,1.66,0.98 ,2.93 ,6.03 ,12.24 ,0.98 ,1.01 ,1.02 ,8.27 ,1.80 ,2.79 ,24.68 ,271727197.87,210.11,0.84,0.74 ,5.63 ,6.41 ,12.91 ,1,20.63,5495,,2.50  aa,
+NUIF11,Indefinido,90.51,65214.41,,1.20,1.31 ,2.57 ,6.38 ,13.62 ,0.86 ,1.06 ,1.14 ,7.56 ,5.15 ,6.53 ,14.45 ,,,,,,,,0,29.14,0,,,
+NVHO11,Hospitalar,11.78,1385.41,0.74,0.09,0.71 ,2.07 ,4.32 ,8.81 ,0.69 ,0.72 ,0.73 ,5.86 ,-3.14 ,-2.46 ,6.88 ,689116335.47,16.61,0.71,0.51 ,19.07 ,19.68 ,40.04 ,4,70.12,1836,,,
+NVIF11B,Fundo de Desenvolvimento,227.50,,0.86,1.11,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,88829544.94,263.28,0.86,0.42 ,-15.74 ,-15.38 ,5.40 ,2,,7,,,
+NVRP11,Indefinido,150.00,5250.00,,64.73,107.40 ,0.00 ,0.00 ,107.40 ,0.00 ,0.00 ,107.40 ,107.40 ,0.00 ,0.00 ,,,,,,,,,0,425.28,0,,,
+OBAL11,Imóveis Residenciais,1095.00,35040.00,0.95,81.96,0.00 ,0.00 ,7.34 ,7.34 ,0.00 ,3.67 ,3.67 ,7.34 ,0.00 ,0.00 ,,162555429.54,,,,,,,4,13.72,108,,,
+OCRE11,Papéis,98.99,65907.59,1.11,0.64,0.76 ,2.48 ,4.58 ,9.33 ,0.83 ,0.76 ,0.78 ,6.07 ,15.23 ,16.10 ,-0.88 ,37675825.63,,,,,,,1,72.10,467,,,
+OGHY11,Indefinido,8.72,22847.10,0.14,9.40,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.99 ,0.00 ,0.00 ,,118155565.38,,,,,,,14,57.14,8102,,,
+OGIN11,Misto,7.87,75088.86,,0.08,1.00 ,2.50 ,3.47 ,11.44 ,0.83 ,0.58 ,0.95 ,4.55 ,-2.45 ,-1.47 ,-13.02 ,,,,,,,,0,22.10,0,,,
+OIAG11,Indefinido,7.60,123193.59,0.78,0.11,1.41 ,4.22 ,8.52 ,17.18 ,1.41 ,1.42 ,1.43 ,11.47 ,-0.76 ,0.63 ,29.52 ,89006430.94,9.85,0.77,1.07 ,0.00 ,0.00 ,0.00 ,0,16.64,12444,,1.10  aa,20.00  aa
+ONEF11,Lajes Corporativas,200.03,114431.47,3.13,2.85,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,182.79,1.09,17.78 ,-9.26 ,6.88 ,30.26 ,14,9.40,8102,,,
+OPTM11,Misto,,,,0.14,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,4359523.97,,,,,,,1,,15,,,
+ORPD11,Fundo de Desenvolvimento,93.00,402.75,0.66,1.38,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,41078624.14,124.68,0.75,1.11 ,0.95 ,2.06 ,2.06 ,14,24.80,7,,,
+OUFF11,Fundo de Fundos,61.10,264340.11,0.96,0.76,1.25 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,7.10 ,-1.44 ,-0.20 ,-4.01 ,118155565.38,78.55,0.78,0.96 ,3.49 ,4.49 ,11.00 ,1,0.13,8102,,0.35  aa,30.00  aa
+OUJP11,Papéis,78.20,345403.14,0.77,1.00,1.28 ,4.34 ,8.32 ,16.52 ,1.45 ,1.39 ,1.38 ,11.57 ,-5.12 ,-3.90 ,23.75 ,325939060.66,100.22,0.78,1.15 ,0.33 ,1.48 ,16.63 ,14,17.04,24935,,1.05  aa,20.00  aa
+OULG11,Imóveis Industriais e Logísticos,40.00,1180855.86,0.65,0.24,0.65 ,0.65 ,3.02 ,3.02 ,0.65 ,0.50 ,0.25 ,3.02 ,16.52 ,17.27 ,23.89 ,152902492.42,61.68,0.65,1.24 ,-7.82 ,-6.67 ,-13.60 ,2,19.60,3541,,1.00  aa,
+OURE11,Misto,78.20,224923.68,1.23,1.09,1.39 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,8.68 ,3.84 ,5.28 ,19.42 ,118155565.38,100.43,0.78,1.08 ,10.33 ,11.52 ,23.93 ,1,6.17,8102,,0.95  aa,25.00  aa
+PABY11,Fundo de Desenvolvimento,10.81,93.13,0.23,0.13,,,,,,,,,,,,-22837821.36,251.42,0.04,0.00 ,1.74 ,1.74 ,5.49 ,15,46.41,553,,,
+PATA11,Misto,9.30,2298.58,1.08,0.11,1.02 ,2.74 ,5.80 ,11.18 ,0.91 ,0.97 ,1.02 ,8.51 ,-1.05 ,-0.04 ,7.69 ,17000137.44,,,,,,,14,81.45,246,,,
+PATB11,Lajes Corporativas,,,,6.81,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,840739971.77,,,,,,,3,,1,,,
+PATC11,Fundo de Desenvolvimento,38.24,361530.23,0.92,0.05,0.13 ,0.70 ,1.97 ,4.53 ,0.70 ,0.33 ,0.38 ,2.84 ,-0.03 ,0.10 ,15.06 ,143317450.38,41.21,0.93,0.36 ,-46.05 ,-45.86 ,-48.30 ,4,13.05,5421,,1.18  aa,
+PATL11,Imóveis Industriais e Logísticos,55.58,534478.73,0.57,0.57,1.01 ,3.50 ,7.24 ,14.48 ,1.17 ,1.21 ,1.21 ,9.86 ,7.30 ,8.39 ,45.11 ,482094322.66,96.58,0.58,0.59 ,-1.57 ,-0.99 ,6.43 ,5,23.67,25730,,1.13  aa,
+PCAS11,Indefinido,,,,428.57,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,270521885.84,,,,,,,4,,100,,,
+PEMA11,Papéis,39.01,1115.00,0.63,0.37,1.02 ,1.84 ,10.80 ,19.68 ,0.61 ,1.80 ,1.64 ,13.33 ,-16.63 ,-15.78 ,15.03 ,34063393.63,,,,,,,14,129.61,297,,,
+PFIN11,Indefinido,75.80,527926.32,,0.75,0.98 ,1.94 ,1.94 ,5.33 ,0.65 ,0.32 ,0.44 ,1.94 ,-2.09 ,-1.13 ,20.10 ,,,,,,,,0,17.79,0,,,
+PICE11,Indefinido,37.35,121696.62,,0.40,1.16 ,0.00 ,1.16 ,1.16 ,0.00 ,0.19 ,0.10 ,1.16 ,-8.02 ,-6.95 ,-6.95 ,,,,,,,,0,41.16,0,,,
+PLAG11,agro,49.30,848818.77,0.79,0.51,1.04 ,2.94 ,6.09 ,12.51 ,0.98 ,1.02 ,1.04 ,8.34 ,1.03 ,2.08 ,27.79 ,324466500.56,,,,,,,12,9.85,16140,,1.00  aa,
+PLCA11,Indefinido,70.16,58525.91,0.74,1.00,1.40 ,4.19 ,7.38 ,15.95 ,1.40 ,1.23 ,1.33 ,10.63 ,-0.71 ,0.68 ,22.92 ,53217831.63,,,0.00 ,0.00 ,0.00 ,0.00 ,0,17.44,2578,,1.15  aa,10.00  aa
+PLCR11,Papéis,79.15,724888.00,0.87,0.90,0.00 ,2.26 ,5.76 ,12.35 ,0.75 ,0.96 ,1.03 ,8.28 ,0.00 ,0.00 ,,192774394.31,91.40,0.87,0.98 ,0.78 ,1.78 ,12.03 ,1,20.33,14585,,1.20  aa,
+PLOG11,Imóveis Industriais e Logísticos,66.71,70165.04,0.63,0.70,0.99 ,3.05 ,6.10 ,12.13 ,1.02 ,1.02 ,1.01 ,4.09 ,2.01 ,3.02 ,0.55 ,79648071.76,100.39,0.66,0.75 ,-0.02 ,0.72 ,8.77 ,1,16.63,3284,,,
+PLRI11,Papéis,13.89,2637.84,0.93,0.11,0.92 ,0.92 ,16.59 ,68.68 ,0.92 ,2.77 ,5.72 ,34.31 ,-24.58 ,-23.88 ,25.21 ,14203219.25,18.24,0.76,0.46 ,-43.28 ,-43.02 ,-51.53 ,1,137.90,899,,,
+PMFO11,Misto,85.96,364986.00,0.98,0.84,0.00 ,0.00 ,2.98 ,7.66 ,0.00 ,0.50 ,0.64 ,4.87 ,0.00 ,0.00 ,,85575048.37,,,,,,,14,30.24,193,,,
+PMIS11,Misto,7.77,233570.36,0.83,0.09,1.16 ,3.62 ,7.19 ,14.61 ,1.21 ,1.20 ,1.22 ,9.75 ,-2.58 ,-1.45 ,12.88 ,137595284.54,,,,,,,14,25.61,7069,,,
+PNCR11,Imóveis Residenciais,68.65,2.96,1.33,2.04,0.00 ,0.00 ,0.00 ,9.18 ,0.00 ,0.00 ,0.77 ,12.84 ,0.00 ,0.00 ,,25757149.44,,,,,,,14,60.37,113,,,
+PNDL11,Fundo de Desenvolvimento,1040.00,1691040.00,0.98,3.00,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,153164089.47,,,,,,,14,8.43,56,,,
+PNPR11,Fundo de Desenvolvimento,49.00,1999935.00,1.34,19.05,25.23 ,0.00 ,0.00 ,25.23 ,0.00 ,0.00 ,8.41 ,25.23 ,0.00 ,0.00 ,,32797170.15,,,,,,,1,73.19,17,,,
+PNRC11,Indefinido,64.45,105.00,1.54,0.66,1.02 ,1.02 ,2.26 ,26.96 ,0.34 ,0.38 ,2.25 ,2.72 ,0.00 ,0.00 ,,17198640.96,,,,,,,14,75.84,105,,,
+PORD11,Papéis,8.15,336028.73,0.85,0.09,1.10 ,3.32 ,6.78 ,13.85 ,1.11 ,1.13 ,1.15 ,9.15 ,-2.68 ,-1.61 ,24.58 ,357864371.55,9.60,0.85,0.97 ,-90.21 ,-90.12 ,-89.05 ,1,17.29,44179,,0.90  aa,15.00  aa
+PPEI11,Indefinido,89.00,153594.33,,4.25,4.76 ,4.76 ,4.76 ,9.85 ,1.59 ,0.79 ,1.41 ,4.76 ,13.58 ,18.98 ,18.98 ,,,,,,,,0,29.35,0,,,
+PQAG11,Imóveis Industriais e Logísticos,55.00,2068.61,1.00,0.47,0.84 ,2.54 ,5.19 ,10.27 ,0.85 ,0.87 ,0.86 ,6.89 ,-1.98 ,-1.15 ,9.95 ,775279072.89,55.41,0.99,0.85 ,-3.23 ,-2.41 ,7.21 ,1,32.67,470,,,
+PQDP11,Shoppings,2358.63,164463.36,0.72,18.33,0.74 ,2.84 ,5.69 ,11.36 ,0.95 ,0.95 ,0.95 ,7.54 ,2.16 ,2.91 ,41.92 ,336538742.69,3346.61,0.70,0.73 ,6.79 ,7.58 ,4.00 ,1,21.94,3326,,0.23  aa,
+PRIF11,Indefinido,128.00,106324.39,,1.00,0.00 ,1.01 ,2.93 ,2.93 ,0.34 ,0.98 ,0.98 ,2.93 ,0.00 ,0.00 ,,,,,,,,,0,90.17,0,,,
+PRSV11,Lajes Corporativas,33.43,879.21,0.23,14.10,7.58 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,9.59 ,2.53 ,10.30 ,17.80 ,32323379.12,364.23,0.09,0.44 ,-0.03 ,0.41 ,-3.81 ,1,81.18,830,,,
+PRTS11,Shoppings,15303.08,3768438727.79,239.82,0.05,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,,,,,,,14,18.93,8102,,,
+PULV11,Papéis,7.80,12047.77,0.78,0.10,1.21 ,3.54 ,7.21 ,13.96 ,1.18 ,1.20 ,1.16 ,9.74 ,-1.38 ,-0.19 ,-4.41 ,119281473.10,,,,,,,14,50.77,934,,,
+PVBI11,Lajes Corporativas,72.10,2599105.82,0.67,0.50,0.67 ,1.96 ,3.90 ,8.38 ,0.65 ,0.65 ,0.70 ,5.44 ,-1.54 ,-0.88 ,11.29 ,2926884337.24,107.88,0.67,0.46 ,4.34 ,4.83 ,13.77 ,7,21.12,161941,0.80  aa,0.20  aa,
+QAGR11,,41.00,258464.62,0.77,0.46,0.97 ,3.23 ,6.33 ,12.35 ,1.08 ,1.06 ,1.03 ,4.28 ,17.02 ,18.16 ,15.11 ,305270267.01,60.57,0.68,0.76 ,8.47 ,9.29 ,8.23 ,12,9.70,17348,,1.00  aa,
+QAMI11,Papéis,84.68,67019.00,1.33,1.00,1.17 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,11.32 ,6.69 ,7.94 ,14.22 ,118155565.38,92.80,0.91,1.08 ,1.42 ,2.51 ,14.58 ,14,112.81,8102,,,
+QIRI11,Papéis,78.04,6867.57,1.22,89.64,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,6.90 ,0.00 ,0.00 ,,118155565.38,89.61,0.87,100.03 ,-0.41 ,99.21 ,116.58 ,14,9.65,8102,,,
+QNTS11,Indefinido,,,,0.75,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,234231671.00,,,,,,,2,,135,,,
+RBCO11,Lajes Corporativas,,,,0.50,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,,90.22,,0.22 ,1.03 ,1.25 ,-7.08 ,0,,0,,,
+RBDS11,Fundo de Desenvolvimento,2.25,123.92,0.12,2.35,12.63 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,12.63 ,0.00 ,0.00 ,,2302162.34,22.98,0.10,0.00 ,0.00 ,0.00 ,0.00 ,14,104.58,823,,,20.00  aa
+RBFF11,Fundo de Fundos,50.36,202404.00,0.83,0.51,1.00 ,2.95 ,6.11 ,12.36 ,0.98 ,1.02 ,1.03 ,8.38 ,-2.12 ,-1.14 ,16.89 ,227290900.59,60.62,0.83,0.84 ,-5.03 ,-4.23 ,2.48 ,14,24.46,26329,,0.78  aa,20.00  aa
+RBGS11,Shoppings,28.45,,0.45,0.18,0.62 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.62 ,-1.90 ,-1.29 ,-1.29 ,118155565.38,90.78,0.31,0.18 ,0.00 ,0.18 ,1.17 ,14,,8102,,,
+RBHG11,Papéis,65.69,216859.32,0.75,0.80,1.19 ,3.52 ,7.14 ,14.37 ,1.17 ,1.19 ,1.20 ,9.70 ,2.07 ,3.29 ,2.03 ,190049687.04,87.66,0.75,0.91 ,-4.80 ,-3.93 ,6.32 ,14,21.33,8967,0.68  aa,0.12  aa,
+RBHY11,Papéis,73.51,274207.09,0.79,1.05,1.38 ,3.98 ,8.05 ,16.16 ,1.33 ,1.34 ,1.35 ,10.93 ,-6.76 ,-5.48 ,11.69 ,175658968.85,92.77,0.79,1.13 ,-1.43 ,-0.32 ,13.18 ,14,17.28,3227,0.88  aa,0.12  aa,10.00  aa
+RBIF11,Indefinido,71.95,147611.91,,0.95,1.31 ,3.83 ,7.86 ,14.26 ,1.28 ,1.31 ,1.19 ,10.68 ,-1.87 ,-0.58 ,15.69 ,,,,,,,,0,22.76,0,,,
+RBIR11,Fundo de Desenvolvimento,89.00,55643.59,0.89,2.24,2.47 ,3.63 ,6.57 ,13.27 ,1.21 ,1.10 ,1.11 ,9.66 ,4.51 ,7.09 ,30.93 ,152902096.62,,,,,,,14,20.77,1482,,,
+RBLG11,Imóveis Industriais e Logísticos,38.00,362.50,0.57,0.61,0.00 ,2.25 ,5.48 ,12.32 ,0.75 ,0.91 ,1.03 ,6.73 ,0.00 ,0.00 ,,42424995.66,60.37,0.63,0.75 ,-39.92 ,-39.47 ,-37.26 ,1,79.46,251,,1.00  aa,20.00  aa
+RBOP11,Lajes Corporativas,210.00,19599.76,0.30,3.50,0.97 ,0.00 ,0.00 ,3.53 ,0.00 ,0.00 ,0.29 ,16.71 ,-0.40 ,0.57 ,101.33 ,69575719.75,,,,,,,2,49.32,3016,,1.10  aa,20.00  aa
+RBRD11,Varejo,40.20,50560.00,0.62,0.50,1.23 ,3.88 ,7.98 ,15.60 ,1.29 ,1.33 ,1.30 ,11.09 ,-0.05 ,1.18 ,39.42 ,120071900.41,64.89,0.62,0.89 ,-1.96 ,-1.09 ,-3.08 ,5,24.35,7587,,0.17  aa,
+RBRF11,Fundo de Fundos,6.48,1518959.86,0.76,0.06,0.91 ,2.63 ,5.39 ,13.07 ,0.88 ,0.90 ,1.09 ,8.19 ,-7.99 ,-7.16 ,23.98 ,1179191881.61,8.62,0.75,0.70 ,-89.47 ,-89.40 ,-89.33 ,1,17.22,118187,0.80  aa,0.20  aa,20.00  aa
+RBRI11,Fundo de Desenvolvimento,850.00,1883.67,1.07,173.60,20.42 ,25.54 ,50.20 ,59.58 ,8.51 ,8.37 ,4.97 ,50.20 ,0.00 ,0.00 ,,110947327.98,,,,,,,1,176.84,127,,,
+RBRL11,Imóveis Industriais e Logísticos,83.03,321578.23,0.79,0.75,0.89 ,2.73 ,5.97 ,12.81 ,0.91 ,1.00 ,1.07 ,8.36 ,0.80 ,1.70 ,44.71 ,701629489.22,104.92,0.79,0.71 ,-2.18 ,-1.48 ,6.53 ,6,20.46,13358,1.00  aa,0.18  aa,20.00  aa
+RBRM11,Fundo de Desenvolvimento,94794.81,,17.88,5302.02,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,2860101.93,,,,,,,14,,54,,,
+RBRP11,Lajes Corporativas,50.02,1036636.68,0.65,0.40,0.81 ,2.42 ,5.17 ,11.68 ,0.81 ,0.86 ,0.97 ,7.34 ,-1.58 ,-0.78 ,12.02 ,925847836.27,76.02,0.66,0.53 ,-6.95 ,-6.46 ,-2.77 ,6,21.07,64199,1.00  aa,0.18  aa,20.00  aa
+RBRR11,Papéis,85.88,2107186.18,0.94,0.95,1.08 ,3.23 ,6.82 ,13.32 ,1.08 ,1.14 ,1.11 ,9.14 ,-2.10 ,-1.04 ,29.97 ,1397668320.97,92.82,0.93,0.97 ,-1.33 ,-0.37 ,2.55 ,14,15.14,125510,0.80  aa,0.20  aa,20.00  aa
+RBRS11,Fundo de Desenvolvimento,46.00,34687.35,0.48,0.07,0.16 ,2.59 ,3.22 ,3.42 ,0.86 ,0.54 ,0.29 ,3.42 ,2.18 ,2.34 ,-6.78 ,166302565.93,95.89,0.48,0.07 ,1.91 ,1.99 ,8.10 ,4,44.64,1015,,,
+RBRX11,Indefinido,7.90,438967.27,0.80,0.10,1.19 ,3.43 ,6.69 ,13.20 ,1.14 ,1.12 ,1.10 ,7.81 ,0.25 ,1.44 ,30.08 ,287992121.42,,,,,,,14,17.41,11784,1.30  aa,,20.00  aa
+RBRY11,Papéis,91.90,1800178.64,0.95,1.18,1.28 ,3.72 ,7.30 ,14.27 ,1.24 ,1.22 ,1.19 ,9.80 ,-2.43 ,-1.18 ,36.60 ,1238393970.38,96.98,0.95,1.13 ,-2.91 ,-1.81 ,3.26 ,14,15.02,59466,1.10  aa,0.20  aa,20.00  aa
+RBTS11,Fundo de Desenvolvimento,350.02,2816.00,0.92,6.19,0.00 ,0.00 ,12.69 ,99.32 ,0.00 ,2.12 ,8.28 ,26.82 ,0.00 ,0.00 ,,21480534.45,380.02,0.92,1.63 ,-65.26 ,-64.69 ,-58.05 ,14,357.85,139,,1.32  aa,17.50  aa
+RBVA11,Varejo,8.41,1640732.59,0.79,0.09,1.07 ,3.17 ,6.54 ,13.03 ,1.06 ,1.09 ,1.09 ,8.81 ,-1.29 ,-0.23 ,4.20 ,1659679089.26,10.63,0.79,0.85 ,-90.28 ,-90.20 ,-88.33 ,82,16.17,74116,,0.65  aa,
+RBVO11,Papéis,5.32,1143.43,0.95,5.66,106.30 ,0.00 ,0.00 ,106.30 ,0.00 ,0.00 ,8.86 ,168.13 ,-80.93 ,-60.65 ,146.57 ,2882596.37,,,0.00 ,-100.00 ,0.00 ,0.00 ,14,64.17,6943,0.65  aa,0.10  aa,20.00  aa
+RCFF11,Fundo de Fundos,98.00,588.00,0.96,3.55,3.63 ,3.63 ,9.04 ,37.94 ,1.21 ,1.51 ,3.79 ,9.04 ,-0.11 ,3.51 ,59.17 ,33103577.80,98.80,0.99,5.36 ,8.01 ,13.81 ,14.19 ,14,144.61,127,,,
+RCRB11,Lajes Corporativas,122.65,596099.55,0.62,0.92,0.72 ,1.40 ,3.56 ,8.44 ,0.47 ,0.59 ,0.70 ,5.02 ,-5.19 ,-4.51 ,20.69 ,740716188.56,200.70,0.61,0.22 ,-3.20 ,-2.99 ,6.49 ,9,29.60,27748,,0.70  aa,
+RDCI11,Indefinido,,,,1.44,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,232001869.45,,,,,,,14,,129,,,
+RDPD11,Papéis,22.96,98337.21,1.06,0.30,1.32 ,6.39 ,20.10 ,48.89 ,2.13 ,3.35 ,4.07 ,29.45 ,7.36 ,8.77 ,-0.47 ,24085452.18,33.95,0.68,0.94 ,-37.05 ,-36.45 ,-36.01 ,0,54.16,3141,,,
+RECD11,Papéis,8.47,822.09,0.86,0.11,1.31 ,20.43 ,24.16 ,29.11 ,6.81 ,4.03 ,3.23 ,27.35 ,-7.24 ,-6.03 ,9.30 ,53677077.95,,,,,,,0,79.79,223,,,
+RECM11,Papéis,8.66,8321.86,0.89,0.12,1.35 ,4.18 ,8.21 ,11.53 ,1.39 ,1.37 ,1.44 ,10.61 ,5.69 ,7.11 ,13.93 ,81665375.23,,,,,,,0,75.35,651,,,
+RECR11,Papéis,81.80,1726960.82,0.92,0.95,1.14 ,3.57 ,8.00 ,16.03 ,1.19 ,1.33 ,1.34 ,11.02 ,-3.06 ,-1.96 ,41.47 ,2352735224.48,88.98,0.92,1.18 ,-6.66 ,-5.56 ,7.49 ,1,17.83,170974,,0.20  aa,
+RECT11,Lajes Corporativas,29.94,224271.18,0.33,0.37,1.22 ,3.48 ,6.89 ,14.75 ,1.16 ,1.15 ,1.23 ,9.62 ,-5.25 ,-4.09 ,29.54 ,776670485.74,90.91,0.33,0.41 ,-2.96 ,-2.56 ,-0.47 ,9,23.60,53356,,0.17  aa,
+RECX11,Fundo de Fundos,67.99,2656.22,0.94,12.37,18.19 ,0.00 ,0.00 ,36.46 ,0.00 ,0.00 ,3.04 ,24.82 ,0.00 ,18.19 ,28.18 ,15823826.78,73.69,0.92,0.81 ,-5.69 ,-4.93 ,-9.90 ,14,12.78,577,,,
+REIT11,Papéis,85.00,42.50,0.28,2.91,0.00 ,0.00 ,0.00 ,5.20 ,0.00 ,0.00 ,0.43 ,2.76 ,0.00 ,0.00 ,,8021367.58,,,,,,,1,88.96,62,,,
+RELG11,Imóveis Industriais e Logísticos,69.79,463174.59,0.78,0.80,1.18 ,3.15 ,6.39 ,11.07 ,1.05 ,1.07 ,0.92 ,9.03 ,-7.60 ,-6.51 ,42.78 ,115836673.91,86.80,0.80,0.78 ,-28.91 ,-28.35 ,-22.29 ,5,42.93,4260,1.00  aa,0.18  aa,
+RENV11,Serviços Financeiros Diversos,5.63,11355.82,0.64,0.04,0.71 ,0.71 ,1.05 ,4.40 ,0.71 ,0.21 ,0.88 ,1.05 ,-9.92 ,-9.28 ,-41.17 ,9633869.18,,,,,,,14,139.17,503,,,
+RFOF11,Fundo de Fundos,60.79,315275.27,0.87,0.65,1.02 ,3.08 ,6.52 ,13.47 ,1.03 ,1.09 ,1.12 ,8.92 ,0.84 ,1.87 ,21.33 ,75805461.81,70.31,0.86,0.92 ,-12.05 ,-11.23 ,-10.16 ,14,24.58,4154,,,
+RIFF11,Indefinido,7.40,208600.82,,0.01,0.08 ,1.30 ,5.16 ,10.54 ,0.43 ,0.86 ,0.88 ,7.86 ,-1.41 ,-1.33 ,22.44 ,,,,,,,,0,40.42,0,,,
+RINV11,Indefinido,102.80,330816.45,0.98,1.05,1.00 ,3.04 ,6.39 ,13.18 ,1.01 ,1.07 ,1.10 ,7.55 ,0.91 ,1.92 ,23.71 ,342094735.71,,,,,,,14,11.54,3840,,1.00  aa,15.00  aa
+RMAI11,Lajes Corporativas,77.60,33455.38,0.76,0.54,0.00 ,1.37 ,3.61 ,7.37 ,0.46 ,0.60 ,0.61 ,5.44 ,0.00 ,0.00 ,,260588003.61,106.63,0.73,0.51 ,-1.14 ,-0.64 ,1.57 ,2,36.71,1076,,,
+RNDP11,Papéis,40.50,14794.00,1.01,40.38,99.67 ,0.00 ,101.28 ,152.95 ,0.00 ,16.88 ,12.75 ,145.40 ,-5.64 ,88.42 ,309.72 ,4329855.96,,,0.00 ,-100.00 ,0.00 ,0.00 ,14,105.84,1292,,,
+RNGO11,Lajes Corporativas,49.60,64087.73,0.59,0.27,0.53 ,2.24 ,4.91 ,10.30 ,0.75 ,0.82 ,0.86 ,6.76 ,6.66 ,7.22 ,30.71 ,224144192.73,83.76,0.59,0.47 ,-3.32 ,-2.87 ,1.63 ,4,15.51,7820,,0.20  aa,
+ROOF11,Fundo de Desenvolvimento,386.40,386.00,0.94,9.03,1.31 ,0.00 ,15.90 ,19.61 ,0.00 ,2.65 ,1.63 ,15.90 ,0.00 ,1.31 ,16.09 ,31957721.34,,,,,,,42,42.45,80,,,
+RPRI11,Papéis,85.42,306074.27,0.87,1.05,1.20 ,3.83 ,7.82 ,15.17 ,1.28 ,1.30 ,1.26 ,10.42 ,-0.74 ,0.45 ,21.39 ,343010567.91,,,,,,,14,15.72,4178,,1.60  aa,
+RRCI11,Papéis,76.05,43396.68,0.85,0.85,1.15 ,3.46 ,7.13 ,14.88 ,1.15 ,1.19 ,1.24 ,9.75 ,0.11 ,1.26 ,29.46 ,43459466.59,90.21,0.84,0.94 ,-4.11 ,-3.21 ,7.84 ,14,16.90,1772,,,
+RSPD11,Fundo de Desenvolvimento,1009.99,1010.00,0.96,49.74,4.48 ,4.48 ,6.50 ,11.84 ,1.49 ,1.08 ,0.99 ,9.94 ,11.21 ,16.19 ,15.60 ,156084915.02,1130.10,0.89,0.98 ,-1.08 ,-0.11 ,-0.11 ,14,72.31,137,,,
+RURA11,Indefinido,8.12,1584528.32,0.80,0.11,1.27 ,3.70 ,7.27 ,13.09 ,1.23 ,1.21 ,1.09 ,9.15 ,-0.24 ,1.03 ,25.06 ,1638848963.18,,,0.00 ,0.00 ,0.00 ,0.00 ,0,23.42,87262,,1.00  aa,20.00  aa
+RVBI11,Fundo de Fundos,61.89,558993.14,0.82,0.70,1.11 ,3.26 ,6.66 ,14.01 ,1.09 ,1.11 ,1.17 ,9.23 ,-3.44 ,-2.36 ,21.93 ,776044792.72,75.52,0.82,0.93 ,-10.12 ,-9.28 ,-3.63 ,14,18.65,54579,0.80  aa,0.13  aa,20.00  aa
+RZAG11,Indefinido,8.74,993936.77,0.91,0.13,1.40 ,4.22 ,8.67 ,17.60 ,1.41 ,1.45 ,1.47 ,11.77 ,0.11 ,1.51 ,39.56 ,655460450.13,,,0.00 ,-100.00 ,0.00 ,0.00 ,0,13.85,81472,,1.15  aa,10.00  aa
+RZAK11,Papéis,81.71,976984.86,0.94,1.15,1.39 ,4.14 ,8.93 ,18.77 ,1.38 ,1.49 ,1.56 ,11.37 ,3.63 ,5.07 ,39.75 ,765743167.61,87.01,0.94,1.32 ,-7.15 ,-5.92 ,4.21 ,14,11.69,44935,,1.25  aa,15.00  aa
+RZAT11,Imóveis Industriais e Logísticos,89.85,459708.86,0.88,1.05,1.15 ,3.73 ,7.67 ,15.01 ,1.24 ,1.28 ,1.25 ,8.94 ,1.89 ,3.07 ,32.82 ,429142984.23,,,,,,,13,17.86,35233,,1.00  aa,20.00  aa
+RZEO11,Indefinido,193.00,868.50,0.98,6.35,0.00 ,0.00 ,19.47 ,22.02 ,0.00 ,4.87 ,5.51 ,19.47 ,0.00 ,0.00 ,,623361445.90,,,0.00 ,0.00 ,0.00 ,0.00 ,0,133.53,155,,,
+RZLC11,Papéis,1004.86,853148.13,1.01,13.70,1.35 ,3.73 ,7.01 ,12.35 ,1.24 ,1.17 ,1.24 ,9.23 ,0.20 ,1.55 ,18.74 ,49623360.96,,,,,,,0,15.04,113,,,
+RZTR11,Misto,89.89,2238112.91,0.93,1.00,1.10 ,3.34 ,7.02 ,14.43 ,1.11 ,1.17 ,1.20 ,9.72 ,-4.20 ,-3.15 ,22.31 ,1821196878.55,96.61,0.93,1.09 ,-0.84 ,0.24 ,11.74 ,16,13.59,143080,1.25  aa,,20.00  aa
+RZZR11,Imóveis Industriais e Logísticos,145.00,50146.56,0.79,1.20,0.83 ,1.72 ,4.33 ,7.61 ,0.57 ,0.72 ,0.63 ,5.23 ,0.00 ,0.00 ,,914321804.72,,,,,,,10,69.08,449,,,
+SADI11,Papéis,8.68,154886.77,0.90,0.11,1.31 ,3.78 ,7.28 ,13.91 ,1.26 ,1.21 ,1.16 ,9.66 ,-0.91 ,0.38 ,20.05 ,149553460.60,9.66,0.90,1.04 ,-90.25 ,-90.15 ,-89.07 ,14,11.73,11030,,1.00  aa,
+SALI11,Misto,,,,1.60,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,7522285.20,,,,,,,5,,2,,,
+SAPI11,Misto,8.60,120860.68,0.86,0.11,1.31 ,3.98 ,7.91 ,15.19 ,1.33 ,1.32 ,1.27 ,10.69 ,0.46 ,1.78 ,28.68 ,153749804.96,,,,,,,14,20.88,3134,,,
+SARE11,Misto,4.57,395699.05,0.58,0.03,0.56 ,1.11 ,2.92 ,6.27 ,0.37 ,0.49 ,0.52 ,4.13 ,-1.49 ,-0.94 ,36.29 ,720871525.87,7.81,0.59,0.33 ,-91.72 ,-91.70 ,-91.46 ,2,22.71,29538,,1.25  aa,
+SCPF11,Shoppings,2.87,1910.32,0.27,0.05,1.07 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,1.46 ,-8.68 ,-7.70 ,-11.74 ,44589006.61,11.84,0.24,0.38 ,1.11 ,1.49 ,-3.03 ,2,70.11,4536,,4.00  aa,
+SDIL11,Imóveis Industriais e Logísticos,96.50,1030917.86,1.01,0.75,0.76 ,2.49 ,5.22 ,10.27 ,0.83 ,0.87 ,0.86 ,6.12 ,2.04 ,2.82 ,10.51 ,612048658.06,98.33,0.98,0.83 ,-0.22 ,0.61 ,9.86 ,5,14.97,63292,,0.84  aa,
+SEED11,Indefinido,100.00,200.00,1.12,0.86,0.00 ,0.00 ,3.85 ,8.08 ,0.00 ,0.64 ,0.67 ,5.89 ,0.00 ,0.00 ,,146091052.98,,,,,,,14,30.16,131,,,
+SEQR11,Misto,47.51,99750.59,0.50,0.58,1.23 ,3.59 ,7.37 ,14.99 ,1.20 ,1.23 ,1.25 ,9.94 ,-4.21 ,-3.03 ,15.18 ,154767661.87,92.91,0.51,0.63 ,-0.91 ,-0.29 ,5.56 ,4,15.99,4733,,1.24  aa,20.00  aa
+SHOP11,Shoppings,28.90,1695.71,0.88,6.75,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,73657987.28,,,,,,,1,158.33,91,,,
+SHPH11,Shoppings,990.00,48252.05,0.97,5.30,0.55 ,4.00 ,5.83 ,9.14 ,1.33 ,0.97 ,0.76 ,7.01 ,2.64 ,3.21 ,35.09 ,617432818.11,1013.93,0.98,2.76 ,13.39 ,16.52 ,22.26 ,1,42.48,2134,,0.20  aa,
+SHSO11,Indefinido,,,,0.42,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,,,,,,,14,,8102,,,
+SIGR11,Indefinido,99.90,100.00,10.67,1.30,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,1.32 ,0.00 ,0.00 ,,187684487.17,,,,,,,14,1.55,8845,,,
+SJAU11,Imóveis Industriais e Logísticos,15.60,1754.41,11.14,20.13,69.85 ,69.85 ,255.73 ,255.73 ,34.93 ,127.87 ,127.87 ,255.73 ,58.26 ,168.81 ,168.81 ,11074156.21,,,,,,,14,1025.65,310,,,
+SMRE11,Incorporações,80.20,318878.50,0.78,1.01,1.27 ,3.83 ,7.32 ,14.20 ,1.28 ,1.22 ,1.18 ,9.65 ,-0.25 ,1.02 ,-4.92 ,105815539.20,,,,,,,14,50.48,1422,,,
+SNAG11,Papéis,9.65,889235.91,0.95,0.11,0.00 ,2.27 ,5.84 ,12.76 ,0.76 ,0.97 ,1.06 ,8.34 ,0.00 ,0.00 ,,620589048.00,10.22,0.94,1.08 ,-89.91 ,-89.80 ,-89.47 ,0,14.08,114265,8.00  aa,0.07  aa,
+SNCI11,Papéis,86.22,352089.95,0.88,1.00,1.12 ,3.32 ,6.91 ,14.25 ,1.11 ,1.15 ,1.19 ,8.15 ,-1.45 ,-0.35 ,27.43 ,412335737.64,98.18,0.88,1.02 ,0.80 ,1.83 ,11.90 ,14,18.12,37657,0.70  aa,0.15  aa,
+SNEL11,Fundo de Desenvolvimento,8.45,850571.50,1.04,0.10,0.00 ,2.34 ,5.90 ,13.30 ,0.78 ,0.98 ,1.11 ,8.32 ,0.00 ,0.00 ,,311113515.53,,,,,,,14,13.00,34559,1.08  aa,0.12  aa,20.00  aa
+SNFF11,Fundo de Fundos,68.30,366040.55,0.81,0.72,0.98 ,2.96 ,6.13 ,12.44 ,0.99 ,1.02 ,1.04 ,7.12 ,1.23 ,2.22 ,7.91 ,337297654.89,83.89,0.81,0.86 ,-5.22 ,-4.41 ,-2.81 ,14,15.16,28243,,0.73  aa,10.00  aa
+SNFZ11,Misto,9.73,82138.09,0.96,0.10,0.00 ,1.68 ,3.64 ,7.20 ,0.56 ,0.61 ,0.65 ,4.90 ,0.00 ,0.00 ,,61265796.27,9.88,0.98,0.66 ,0.00 ,0.00 ,0.00 ,0,17.66,3733,0.87  aa,0.13  aa,20.00  aa
+SNID11,Indefinido,10.22,97460.09,,0.12,1.16 ,3.56 ,7.07 ,13.73 ,1.19 ,1.18 ,1.14 ,8.21 ,2.78 ,3.98 ,29.26 ,,,,,,,,0,19.49,0,0.85  aa,0.10  aa,
+SNLG11,Imóveis Industriais e Logísticos,1.24,26310.32,3.52,0.84,8400.00 ,0.00 ,8400.00 ,8934.54 ,0.00 ,1400.00 ,744.55 ,8496.77 ,-96.77 ,174.19 ,457.52 ,796398.41,,,,,,,6,2213.63,11532,,1.00  aa,
+SNME11,Indefinido,9.60,39848.55,0.98,0.11,1.16 ,3.47 ,7.18 ,14.19 ,1.16 ,1.20 ,1.18 ,8.49 ,-0.73 ,0.42 ,14.46 ,71933782.54,,,,,,,2,20.29,3824,0.79  aa,0.20  aa,20.00  aa
+SOLR11,Imóveis Comerciais - Outros,1051.35,4931882.00,1.13,4.77,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,61219343.92,,,,,,,1,121.75,53,,,
+SPDE11,Indefinido,1266.67,2533.30,0.95,4.66,0.00 ,0.00 ,4.23 ,13.45 ,0.00 ,0.71 ,1.35 ,5.91 ,0.00 ,0.00 ,,121410284.36,,,,,,,14,52.17,120,,,
+SPMO11,Indefinido,144.00,335334.00,1.07,0.43,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,244021957.00,,,,,,,14,25.50,14,,,
+SPTW11,Lajes Corporativas,33.60,57426.86,0.60,0.42,1.20 ,3.64 ,7.48 ,15.06 ,1.21 ,1.25 ,1.26 ,10.30 ,-2.91 ,-1.75 ,18.68 ,104783614.61,58.28,0.58,0.72 ,4.56 ,5.31 ,20.92 ,1,24.33,19462,,0.25  aa,
+SPVJ11,Shoppings,,,,0.15,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,126647367.85,20.06,,0.46 ,-82.74 ,-82.66 ,-79.85 ,14,,25,,,
+SPXS11,Indefinido,8.50,225637.09,0.88,0.10,1.24 ,3.59 ,7.06 ,14.62 ,1.20 ,1.18 ,1.22 ,9.72 ,-3.12 ,-1.92 ,17.88 ,190249170.12,,,,,,,14,20.76,19792,,0.80  aa,20.00  aa
+SRVD11,Indefinido,3.00,233.91,5.56,0.20,2.29 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,3.30 ,-9.79 ,-7.73 ,-7.73 ,52239696.15,1.19,2.53,16.87 ,-0.11 ,16.74 ,25.64 ,14,375.98,106,,,
+STRX11,Fundo de Desenvolvimento,153.61,153.00,1.08,0.89,0.00 ,0.00 ,1.63 ,4.19 ,0.00 ,0.27 ,0.35 ,2.76 ,0.00 ,0.00 ,,229025596.30,141.87,1.08,0.67 ,-4.35 ,-3.71 ,7.96 ,3,4.41,109,,,
+TCPF11,Misto,39.53,,0.39,1.31,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,29841590.24,,,,,,,14,,52,,,
+TELM11,Indefinido,9.95,1019.00,1.01,0.10,0.00 ,2.03 ,5.14 ,6.50 ,0.68 ,0.86 ,0.93 ,5.80 ,0.00 ,0.00 ,,21174363.10,,,,,,,14,41.43,113,,,
+TEPP11,Lajes Corporativas,79.94,341628.27,0.82,0.91,1.10 ,3.55 ,7.05 ,13.14 ,1.18 ,1.18 ,1.10 ,9.21 ,-2.15 ,-1.08 ,17.94 ,411153342.61,97.16,0.82,0.98 ,1.50 ,2.50 ,14.40 ,5,15.50,29296,0.90  aa,0.13  aa,
+TGAR11,Fundo de Desenvolvimento,84.20,3681083.36,0.77,1.00,1.22 ,3.43 ,7.00 ,14.32 ,1.14 ,1.17 ,1.19 ,9.64 ,-10.91 ,-9.82 ,0.49 ,2619551443.98,111.15,0.76,0.90 ,-13.01 ,-12.23 ,-2.13 ,9,23.13,155768,1.28  aa,0.22  aa,30.00  aa
+TJKB11,Indefinido,250.45,15381.18,0.97,2.90,1.15 ,3.43 ,7.15 ,12.86 ,1.14 ,1.19 ,1.07 ,7.15 ,-1.74 ,-0.61 ,-0.11 ,301380791.67,,,,,,,8,55.67,324,,0.60  aa,
+TMPS11,Fundo de Fundos,81.09,224071.95,0.87,0.85,1.06 ,3.07 ,6.20 ,15.33 ,1.02 ,1.03 ,1.28 ,9.59 ,-1.91 ,-0.87 ,16.74 ,90320844.45,,,,,,,14,18.29,1958,,,
+TOPP11,Imóveis Comerciais - Outros,69.78,428136.14,0.67,0.84,1.18 ,3.51 ,7.30 ,10.72 ,1.17 ,1.22 ,1.19 ,8.49 ,-0.10 ,1.08 ,20.84 ,475018364.59,,,,,,,2,30.72,4825,,,
+TORD11,Misto,3.32,21136.18,0.09,0.01,0.29 ,2.76 ,2.76 ,3.34 ,0.92 ,0.46 ,0.28 ,3.34 ,0.89 ,1.18 ,-89.14 ,208658880.03,13.94,0.24,0.36 ,8.23 ,8.62 ,12.48 ,1,33.90,50835,,1.50  aa,20.00  aa
+TRBL11,Imóveis Industriais e Logísticos,53.50,371387.91,0.61,0.60,1.11 ,2.94 ,5.83 ,11.63 ,0.98 ,0.97 ,0.97 ,7.81 ,-10.31 ,-9.31 ,-12.50 ,671959446.55,,,,,,,5,32.99,50230,,0.84  aa,
+TRNT11,Lajes Corporativas,95.50,23640.26,0.54,0.07,0.06 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.71 ,0.00 ,0.00 ,,696001157.83,197.64,0.48,0.04 ,0.38 ,0.42 ,-0.87 ,1,44.99,540,,,
+TRXB11,Fundo de Desenvolvimento,151.60,1167.43,1.45,1.60,1.12 ,3.19 ,5.76 ,18.82 ,1.06 ,0.96 ,1.57 ,12.04 ,3.27 ,4.42 ,35.35 ,391074373.45,,,,,,,13,76.12,448,,,
+TRXF11,Imóveis Comerciais - Outros,97.85,5313757.73,0.94,0.93,0.94 ,3.33 ,6.14 ,13.67 ,1.11 ,1.02 ,1.14 ,9.73 ,-3.75 ,-2.85 ,15.17 ,2081229858.98,103.88,0.94,0.90 ,-1.49 ,-0.61 ,15.34 ,44,12.46,184946,1.00  aa,,20.00  aa
+TRXY11,Outros,9.54,66564.77,1.02,0.11,1.14 ,3.57 ,7.11 ,10.13 ,1.19 ,1.19 ,1.45 ,10.13 ,0.83 ,1.98 ,14.49 ,33792780.49,,,,,,,0,33.55,627,,,
+TSER11,Lajes Corporativas,100.80,100.00,1.03,0.96,0.00 ,0.00 ,2.96 ,8.82 ,0.00 ,0.49 ,0.74 ,4.97 ,0.00 ,0.00 ,,135643427.12,,,,,,,1,12.31,19,,,
+TVRI11,Agências de Bancos,91.71,1115579.23,0.87,1.05,1.14 ,3.36 ,6.95 ,13.89 ,1.12 ,1.16 ,1.16 ,9.44 ,-1.82 ,-0.70 ,22.33 ,1654574540.82,,,,,,,61,15.84,61671,,0.28  aa,
+URHF11,Outros,86.00,13366.17,0.90,1.25,1.42 ,4.24 ,8.71 ,16.52 ,1.41 ,1.45 ,1.38 ,11.76 ,-2.20 ,-0.81 ,9.21 ,10612523.13,,,,,,,14,82.58,192,,,
+URPR11,Papéis,33.44,732988.64,0.34,0.40,1.05 ,3.10 ,7.31 ,16.08 ,1.03 ,1.22 ,1.34 ,10.38 ,-5.53 ,-4.53 ,-23.91 ,1170106639.17,99.72,0.34,0.45 ,0.92 ,1.38 ,25.49 ,14,26.78,70562,0.95  aa,0.25  aa,20.00  aa
+VANG11,Indefinido,100.00,11152.67,,1.00,0.00 ,0.00 ,3.00 ,7.93 ,0.00 ,0.50 ,0.88 ,4.98 ,0.00 ,0.00 ,,,,,,,,,0,47.27,0,,,
+VCJR11,Papéis,79.40,1779858.91,0.85,0.95,1.17 ,3.57 ,8.01 ,14.84 ,1.19 ,1.34 ,1.24 ,10.75 ,-1.41 ,-0.26 ,20.42 ,1370775819.61,93.10,0.85,1.02 ,-1.22 ,-0.21 ,12.54 ,14,18.41,30799,,1.60  aa,
+VCRA11,Indefinido,60.64,382019.50,0.62,0.95,1.51 ,3.62 ,8.33 ,17.84 ,1.21 ,1.39 ,1.49 ,11.81 ,-1.96 ,-0.48 ,16.56 ,468082277.10,,,0.00 ,-100.00 ,0.00 ,0.00 ,0,21.08,10309,,1.30  aa,
+VCRI11,Papéis,7.19,197334.41,0.75,0.09,1.19 ,3.97 ,7.93 ,15.39 ,1.32 ,1.32 ,1.28 ,10.53 ,0.27 ,1.46 ,23.46 ,193029888.20,9.40,0.76,1.06 ,-0.53 ,0.53 ,2.31 ,14,18.75,14292,,0.95  aa,20.00  aa
+VCRR11,Imóveis Residenciais,64.10,172529.73,0.50,0.50,0.77 ,2.33 ,4.99 ,10.80 ,0.78 ,0.83 ,0.90 ,6.93 ,-1.95 ,-1.20 ,17.31 ,253895986.63,126.95,0.50,0.39 ,-1.01 ,-0.62 ,13.86 ,14,26.20,3590,,0.80  aa,15.00  aa
+VGHF11,Misto,7.57,2123535.82,0.88,0.09,1.17 ,3.63 ,7.31 ,14.60 ,1.21 ,1.22 ,1.22 ,9.92 ,-0.77 ,0.39 ,18.03 ,1411535079.19,8.57,0.88,1.05 ,-6.44 ,-5.46 ,6.67 ,14,17.25,393854,0.90  aa,,20.00  aa
+VGIA11,Indefinido,9.09,1095360.77,0.95,0.13,1.36 ,4.11 ,8.50 ,18.04 ,1.37 ,1.42 ,1.50 ,10.00 ,1.77 ,3.16 ,43.35 ,834506067.71,9.65,0.94,1.30 ,1.27 ,2.59 ,10.94 ,0,15.68,168977,1.15  aa,,10.00  aa
+VGII11,Tecidos Vestuário e Calçados,101.41,507050.00,1.04,4.82,5.33 ,0.00 ,0.00 ,9.63 ,0.00 ,0.00 ,0.80 ,5.33 ,0.00 ,5.33 ,5.33 ,50473897.62,,,,,,,14,17.52,4,,,
+VGIP11,Papéis,81.69,1327527.68,0.92,1.25,1.48 ,5.33 ,8.62 ,15.50 ,1.78 ,1.44 ,1.29 ,9.92 ,4.13 ,5.67 ,41.14 ,1056132360.53,89.60,0.91,2.21 ,-0.93 ,1.26 ,10.07 ,14,20.24,84158,,1.00  aa,20.00  aa
+VGIR11,Papéis,9.56,3778380.59,0.98,0.12,1.27 ,3.82 ,7.64 ,14.92 ,1.27 ,1.27 ,1.24 ,8.90 ,1.50 ,2.79 ,28.33 ,1426486204.10,9.76,0.98,1.23 ,1.24 ,2.49 ,-88.72 ,1,12.63,258790,0.80  aa,0.20  aa,20.00  aa
+VGRI11,Misto,8.49,322769.95,0.81,0.12,1.37 ,4.27 ,9.62 ,22.06 ,1.42 ,1.60 ,1.84 ,14.08 ,2.81 ,4.22 ,39.27 ,369985507.91,,,,,,,5,21.96,16916,,1.30  aa,
+VIDS11,Fundo de Desenvolvimento,915.64,,1.17,16.06,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,74180036.00,,,,,,,14,0.42,199,,,
+VIFI11,Fundo de Fundos,6.96,30.26,0.87,0.07,1.01 ,0.00 ,1.01 ,6.94 ,0.00 ,0.17 ,0.58 ,3.00 ,-7.57 ,-6.64 ,5.15 ,64507809.24,7.97,0.87,0.88 ,-9.94 ,-9.15 ,-72.22 ,14,18.22,5521,,0.95  aa,20.00  aa
+VIGT11,,36.75,250249.68,,0.15,0.39 ,1.22 ,2.19 ,5.70 ,0.41 ,0.37 ,0.48 ,2.87 ,5.51 ,5.92 ,-30.17 ,,,,,,,,0,56.36,0,,1.50  aa,0.00  aa
+VILG11,Imóveis Industriais e Logísticos,79.43,1050637.59,0.71,0.72,0.88 ,2.50 ,4.98 ,10.01 ,0.83 ,0.83 ,0.83 ,6.81 ,-3.65 ,-2.80 ,20.21 ,1685994235.99,112.42,0.71,0.61 ,0.13 ,0.75 ,6.98 ,15,18.30,145507,,,
+VINO11,Lajes Corporativas,4.96,458069.64,0.49,0.05,0.97 ,3.60 ,6.64 ,12.93 ,1.20 ,1.11 ,1.08 ,8.81 ,0.00 ,0.97 ,20.42 ,847824062.68,10.24,0.48,0.49 ,-81.30 ,-81.21 ,-80.09 ,10,24.07,145576,,1.10  aa,20.00  aa
+VISC11,Shoppings,102.65,2706278.00,0.83,0.81,0.78 ,2.33 ,4.71 ,9.71 ,0.78 ,0.79 ,0.81 ,6.44 ,0.14 ,0.93 ,20.48 ,3573402334.57,123.95,0.83,0.65 ,0.10 ,0.74 ,15.76 ,30,18.32,344153,1.05  aa,,
+VIUR11,Misto,5.30,214918.73,0.60,0.07,1.23 ,3.56 ,7.43 ,14.91 ,1.19 ,1.24 ,1.24 ,10.02 ,-4.88 ,-3.71 ,12.32 ,235716665.21,8.75,0.61,0.77 ,-4.89 ,-4.16 ,-90.01 ,7,22.95,45980,,0.95  aa,20.00  aa
+VJFD11,Papéis,155.02,3889.59,0.95,0.82,0.00 ,0.00 ,1.46 ,3.38 ,0.00 ,0.24 ,0.28 ,2.42 ,0.00 ,0.00 ,,799062011.82,163.87,0.95,0.46 ,20.43 ,20.98 ,27.96 ,39,5.32,96,,,
+VLIQ11,Indefinido,,,,5.04,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,118155565.38,,,,,,,14,,8102,,,
+VLOL11,Lajes Corporativas,88.00,160238.13,1.38,16.30,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,1.99 ,0.00 ,0.00 ,,118155565.38,111.06,0.79,0.55 ,-0.14 ,0.40 ,14.11 ,14,9.89,8102,,,
+VOTS11,Papéis,70.81,2461.44,0.77,0.63,0.89 ,2.49 ,4.93 ,10.83 ,0.83 ,0.82 ,0.90 ,7.21 ,-10.28 ,-9.48 ,11.21 ,75926854.52,91.71,0.77,0.72 ,-1.69 ,-0.99 ,7.91 ,14,45.33,581,,,
+VPPR11,Lajes Corporativas,12.75,73041.95,0.31,0.07,0.53 ,0.00 ,0.00 ,2.29 ,0.00 ,0.00 ,0.19 ,0.53 ,-10.74 ,-10.27 ,-10.27 ,297435707.44,,,,,,,2,14.88,37793,,,
+VRTA11,Papéis,74.72,914112.68,0.89,0.85,1.10 ,3.20 ,6.41 ,12.82 ,1.07 ,1.07 ,1.07 ,8.71 ,-5.38 ,-4.34 ,12.99 ,1318304009.55,84.55,0.88,1.01 ,-7.26 ,-6.33 ,2.15 ,14,15.91,113020,,1.00  aa,
+VRTM11,Misto,6.96,252199.18,0.74,0.09,1.28 ,3.82 ,7.85 ,15.59 ,1.27 ,1.31 ,1.30 ,10.78 ,-0.85 ,0.42 ,17.65 ,438068092.65,,,,,,,4,26.77,11770,,0.90  aa,0.20  aa
+VSEC11,Papéis,0.21,2.50,0.00,2.05,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,138.00 ,0.00 ,0.00 ,,118155565.38,,,,,,,14,904.16,8102,,,
+VSHO11,Shoppings,71.73,20983.86,0.63,0.46,0.64 ,3.03 ,5.80 ,12.29 ,1.01 ,0.97 ,1.02 ,7.97 ,-0.69 ,-0.06 ,20.07 ,242410559.62,115.50,0.62,0.86 ,16.23 ,17.23 ,22.66 ,3,18.93,3202,0.75  aa,,
+VSLH11,Papéis,2.57,91330.05,0.26,0.03,0.93 ,3.19 ,6.84 ,14.15 ,1.06 ,1.14 ,1.18 ,8.98 ,-4.75 ,-3.86 ,0.08 ,301124625.06,10.08,0.25,0.33 ,-2.98 ,-2.67 ,15.89 ,14,19.94,69584,,0.95  aa,20.00  aa
+VTLT11,Imóveis Industriais e Logísticos,85.13,66384.05,0.82,1.03,1.16 ,3.35 ,6.86 ,13.62 ,1.12 ,1.14 ,1.14 ,9.23 ,-1.72 ,-0.58 ,16.99 ,219655269.60,103.86,0.82,0.95 ,3.11 ,4.09 ,11.80 ,1,15.41,5752,0.95  aa,,
+VTPL11,Papéis,72.10,72.00,0.71,5.11,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,140378477.53,,,,,,,2,,124,,,
+VVCO11,Lajes Corporativas,14.08,65488.90,0.98,11.16,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,142750005.31,,,,,,,4,14.73,2703,,,
+VVCR11,Papéis,10.00,53200.68,0.97,0.10,0.98 ,3.27 ,6.75 ,12.76 ,1.09 ,1.13 ,1.06 ,8.02 ,0.89 ,1.88 ,24.59 ,77504273.21,,,,,,,14,22.17,2238,,,
+VVMR11,Lajes Corporativas,84.59,306816.84,0.79,0.20,0.23 ,0.45 ,0.77 ,3.05 ,0.45 ,0.77 ,0.25 ,0.99 ,0.60 ,0.83 ,-5.11 ,302132145.14,,,,,,,5,27.10,628,,,
+VVPR11,Misto,101.50,1249061.55,1.59,0.89,0.89 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,7.45 ,0.40 ,1.30 ,14.44 ,118155565.38,98.03,1.04,0.74 ,-0.10 ,0.64 ,0.09 ,14,3.43,8102,,,
+VVRI11,Indefinido,88.99,325.25,0.95,1.34,0.00 ,1.13 ,3.91 ,8.06 ,0.38 ,0.65 ,0.67 ,3.91 ,0.00 ,0.00 ,,75281372.64,,,,,,,2,90.14,160,,,
+VXXV11,Fundo de Desenvolvimento,700.00,24500.00,1.14,273.35,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,169704571.43,,,,,,,1,3.40,13,,,
+WHGR11,Indefinido,8.79,177915.27,0.89,0.10,1.15 ,2.68 ,6.15 ,13.53 ,0.89 ,1.03 ,1.13 ,9.91 ,-1.03 ,0.11 ,16.38 ,301970146.86,,,,,,,1,16.11,13773,,1.00  aa,20.00  aa
+WPLZ11,Shoppings,49.50,9796.41,0.75,1.00,2.15 ,4.11 ,6.06 ,9.86 ,1.37 ,1.01 ,0.82 ,7.37 ,-3.00 ,-0.92 ,-2.57 ,77891165.28,66.57,0.74,0.48 ,-24.18 ,-23.82 ,-31.55 ,1,44.82,1589,,,
+WSEC11,Indefinido,7.34,25509.05,0.86,0.10,1.32 ,42.28 ,51.72 ,84.02 ,14.09 ,8.62 ,7.00 ,82.19 ,30.19 ,31.91 ,206.88 ,20464908.93,,,,,,,14,94.10,653,,,
+WTSP11B,Misto,36.00,3852.00,0.68,0.05,0.09 ,0.81 ,26.17 ,27.19 ,0.81 ,4.36 ,2.27 ,0.81 ,0.00 ,0.00 ,,104295912.94,84.21,0.43,0.06 ,16.18 ,16.25 ,12.98 ,2,6.67,210,,,
+XPCA11,Indefinido,7.84,534933.86,0.81,0.11,1.38 ,4.16 ,8.61 ,14.15 ,1.39 ,1.44 ,1.18 ,10.37 ,0.00 ,1.38 ,53.42 ,437061366.98,9.60,0.82,1.15 ,1.15 ,2.31 ,15.07 ,0,22.01,96926,,1.00  aa,10.00  aa
+XPCI11,Papéis,79.69,983285.23,0.89,0.96,1.19 ,3.62 ,7.04 ,13.64 ,1.21 ,1.17 ,1.14 ,9.40 ,-0.53 ,0.65 ,22.29 ,780446275.53,89.69,0.89,1.06 ,-2.33 ,-1.30 ,7.43 ,14,18.50,67455,,1.00  aa,
+XPCM11,Lajes Corporativas,7.62,12046.86,0.28,0.02,0.20 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.20 ,-0.87 ,-0.67 ,-0.67 ,63404818.93,29.04,0.26,0.07 ,-34.13 ,-34.09 ,-44.99 ,1,29.54,17705,,0.80  aa,
+XPHT11,Hotéis,123.00,230869.59,0.66,0.41,0.93 ,2.91 ,5.33 ,10.11 ,0.97 ,0.89 ,0.84 ,10.11 ,15.85 ,16.93 ,15.37 ,581976733.73,63.13,1.95,0.65 ,-33.00 ,-32.56 ,-26.69 ,14,29.85,1268,,,
+XPID11,Indefinido,56.25,261823.36,,0.60,1.00 ,3.11 ,6.61 ,14.04 ,1.04 ,1.10 ,1.17 ,9.32 ,4.73 ,5.78 ,14.70 ,,,,,,,,0,22.28,0,,0.95  aa,
+XPIE11,Indefinido,59.50,1008929.14,,0.45,0.73 ,3.96 ,9.02 ,18.95 ,1.32 ,1.50 ,1.58 ,12.46 ,-0.44 ,0.29 ,23.73 ,,,,,,,,0,18.45,0,,1.30  aa,20.00  aa
+XPIN11,Imóveis Industriais e Logísticos,67.81,200711.95,0.65,0.74,1.10 ,3.18 ,6.39 ,13.05 ,1.06 ,1.07 ,1.09 ,8.74 ,-5.62 ,-4.59 ,17.75 ,744290328.49,104.09,0.65,0.71 ,0.19 ,0.90 ,2.38 ,81,16.30,43532,,0.75  aa,
+XPLG11,Imóveis Industriais e Logísticos,96.65,2253611.32,0.90,0.82,0.83 ,2.46 ,5.06 ,10.27 ,0.82 ,0.84 ,0.86 ,6.87 ,-0.50 ,0.32 ,19.65 ,3332662817.78,106.90,0.90,0.77 ,-6.16 ,-5.44 ,5.56 ,18,15.19,338831,0.95  aa,,20.00  aa
+XPML11,Shoppings,100.56,7615346.05,0.86,0.92,0.89 ,2.65 ,5.46 ,11.11 ,0.88 ,0.91 ,0.93 ,6.46 ,-0.39 ,0.50 ,19.11 ,6658222602.66,117.39,0.86,0.78 ,16.30 ,17.21 ,25.60 ,15,14.50,592434,,0.75  aa,20.00  aa
+XPPR11,Lajes Corporativas,12.54,78639.38,0.21,0.07,0.53 ,1.02 ,2.30 ,4.38 ,0.34 ,0.38 ,0.37 ,0.53 ,-9.03 ,-8.55 ,-8.55 ,443953188.51,60.68,0.21,0.12 ,-18.41 ,-18.31 ,-21.40 ,2,21.62,42867,,,
+XPSF11,Fundo de Fundos,5.95,355118.64,0.76,0.07,1.07 ,3.01 ,6.07 ,12.80 ,1.00 ,1.01 ,1.07 ,8.43 ,-1.14 ,-0.08 ,9.29 ,334996606.65,7.74,0.77,0.78 ,-7.31 ,-6.59 ,-90.23 ,14,15.95,61051,,1.00  aa,20.00  aa
+XTED11,Lajes Corporativas,8.82,17641.88,0.68,11.16,,,,,,,,,,,,67378204.04,28.02,0.31,0.00 ,-0.36 ,-0.36 ,-3.45 ,1,29.46,4098,,,
+YUFI11,Fundo de Desenvolvimento,59.50,5.17,1.30,29.23,0.00 ,0.00 ,1.16 ,3.31 ,0.00 ,0.19 ,0.28 ,2.80 ,0.00 ,0.00 ,,22527759.56,,,,,,,38,34.36,56,,,
+YUFI11B,Indefinido,,,,0.63,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,0.00 ,0.00 ,0.00 ,,105.53,,0.60 ,-0.01 ,0.59 ,6.32 ,0,,0,,,
+ZAGH11,Serviços Financeiros Diversos,10.07,5964.14,1.06,0.06,0.55 ,1.92 ,4.12 ,7.20 ,0.64 ,0.69 ,0.60 ,4.76 ,1.57 ,2.13 ,-12.41 ,84492331.36,,,,,,,1,67.46,408,,,
+ZAVC11,Indefinido,8.90,7038.59,0.87,0.13,0.00 ,3.01 ,7.43 ,15.80 ,1.00 ,1.24 ,1.32 ,0.00 ,0.00 ,0.00 ,,36188502.18,,,,,,,1,94.01,350,,,
+ZAVI11,Indefinido,84.95,38286.32,0.63,1.10,1.23 ,3.82 ,7.34 ,14.87 ,1.27 ,1.22 ,1.24 ,10.15 ,-1.12 ,0.10 ,3.49 ,159178677.82,,,,,,,9,31.33,3058,,1.25  aa,20.00  aa
+ZIFI11,Fundo de Desenvolvimento,515.00,2683.25,0.29,3.31,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,0.00 ,,83994704.50,,,,,,,14,55.56,93,,,

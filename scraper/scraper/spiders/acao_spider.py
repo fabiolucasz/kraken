@@ -1,7 +1,6 @@
 import scrapy
 from scrapy.crawler import CrawlerProcess
 import pandas as pd
-import os
 
 
 class AcaoSpider(scrapy.Spider):
@@ -12,16 +11,16 @@ class AcaoSpider(scrapy.Spider):
     dados_indicadores = []
     dados_info = []
     dados_img = []
-    dados_dpa = []
+    #dados_dpa = []
 
     def start_requests(self):
-        # df = pd.read_csv("acoes.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-        # for papel in df['Papel']:
-        #     url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
-        #     yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
-        papel = "BBAS3"
-        url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
-        yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
+        df = pd.read_csv("acoes-listadas-b3.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+        for papel in df['Ticker']:
+            url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
+            yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
+        # papel = "BBAS3"
+        # url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
+        # yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
 
     def parse(self, response):
         try:
@@ -58,56 +57,42 @@ class AcaoSpider(scrapy.Spider):
                 info_values.append("")
             self.dados_info.append(dict(zip(info, info_values), Papel=papel))
 
-            # DPA
-            dpa = [d.strip().replace(" ", "_") for d in response.xpath('//*[@id="table-dividends-history_wrapper"]/div[1]/div[1]/div/table/thead/tr/th[1]/text()').getall() if d.strip()]
-            print(dpa)
-            dpa_values = [dv.strip().replace(" ", "").replace("%", "").replace("R$", "").replace(".", "").replace(",", ".") for dv in response.xpath('//*[@id="table-dividends-history_wrapper"]/div[1]/div[1]/div/table/tbody/tr/td[1]/text()').getall() if dv.strip()]
-            print(dpa_values)
-            while len(dpa_values) < len(dpa):
-                dpa_values.append("")
-            self.dados_dpa.append(dict(zip(dpa, dpa_values), Papel=papel))
+            # # DPA
+            # dpa = [d.strip().replace(" ", "_") for d in response.xpath('//*[@id="table-dividends-history_wrapper"]/div[1]/div[1]/div/table/thead/tr/th[1]/text()').getall() if d.strip()]
+            # print(dpa)
+            # dpa_values = [dv.strip().replace(" ", "").replace("%", "").replace("R$", "").replace(".", "").replace(",", ".") for dv in response.xpath('//*[@id="table-dividends-history_wrapper"]/div[1]/div[1]/div/table/tbody/tr/td[1]/text()').getall() if dv.strip()]
+            # print(dpa_values)
+            # while len(dpa_values) < len(dpa):
+            #     dpa_values.append("")
+            # self.dados_dpa.append(dict(zip(dpa, dpa_values), Papel=papel))
 
             print(f"{papel} coletado com sucesso")
+
+            df1 = pd.DataFrame(self.dados_kpi).fillna("")
+            df2 = pd.DataFrame(self.dados_indicadores).fillna("")
+            df3 = pd.DataFrame(self.dados_info).fillna("")
+            df4 = pd.DataFrame(self.dados_img).fillna("")
+            #df5 = pd.DataFrame(self.dados_dpa)
+            df = pd.merge(df1, df2).merge(df3).merge(df4)
+            df['P/L'] = df['P/L'].apply(remover_segundo_ponto)
+            df['PAYOUT'] = df['PAYOUT'].apply(remover_segundo_ponto)
+            df['ROE'] = df['ROE'].apply(remover_segundo_ponto)
+            df = df.drop(columns=["carteira_investidor_10"])
+            df = df.applymap(lambda x: "" if x == "-" else x)
+            df.to_csv("acoes.csv", index=False, encoding='utf-8')
+            
+            
         except Exception as e:
             self.logger.error(f"Erro ao processar {papel}: {e}")
 
 def run_scraper():
     process = CrawlerProcess(settings={'LOG_LEVEL': 'ERROR'})
-    process.crawl(AcaoSpider)  # Correção: passar a CLASSE, não a instância
+    process.crawl(AcaoSpider)
     process.start()
-
-    # Recupera os dados salvos pela Spider após o crawl
-    kpi_df = pd.DataFrame(AcaoSpider.dados_kpi).fillna("")
-    indicadores_df = pd.DataFrame(AcaoSpider.dados_indicadores).fillna("")
-    info_df = pd.DataFrame(AcaoSpider.dados_info).fillna("")
-    img_df = pd.DataFrame(AcaoSpider.dados_img).fillna("")
-    dpa_df = pd.DataFrame(AcaoSpider.dados_dpa).fillna("")
-
-    kpi_df.to_csv("acoes_consolidadas_kpi.csv", index=False, encoding='utf-8')
-    indicadores_df.to_csv("acoes_consolidadas_indicadores.csv", index=False, encoding='utf-8')
-    info_df.to_csv("acoes_consolidadas_info.csv", index=False, encoding='utf-8')
-    img_df.to_csv("acoes_consolidadas_img.csv", index=False, encoding='utf-8')
-    dpa_df.to_csv("acoes_consolidadas_dpa.csv", index=False, encoding='utf-8')
-    merge_csv()
-
     print("Todos os dados foram salvos com sucesso!")
 
-def merge_csv():
-    df1 = pd.read_csv("acoes_consolidadas_kpi.csv")
-    df2 = pd.read_csv("acoes_consolidadas_indicadores.csv")
-    df3 = pd.read_csv("acoes_consolidadas_info.csv")
-    df4 = pd.read_csv("acoes_consolidadas_img.csv")
-    df = pd.merge(df1, df2).merge(df3).merge(df4)
-    df['P/L'] = df['P/L'].apply(remover_segundo_ponto)
-    df['PAYOUT'] = df['PAYOUT'].apply(remover_segundo_ponto)
-    df['ROE'] = df['ROE'].apply(remover_segundo_ponto)
-    df = df.drop(columns=["carteira_investidor_10"])
-    df = df.applymap(lambda x: "" if x == "-" else x)
-    df.to_csv("acoes.csv", index=False, encoding='utf-8')
-    os.remove("acoes_consolidadas_kpi.csv")
-    os.remove("acoes_consolidadas_indicadores.csv")
-    os.remove("acoes_consolidadas_info.csv")
-    os.remove("acoes_consolidadas_img.csv")
+
+
 
 def remover_segundo_ponto(val):
     if pd.isna(val):
