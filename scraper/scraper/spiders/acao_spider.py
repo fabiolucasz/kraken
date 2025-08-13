@@ -104,8 +104,6 @@ def remover_segundo_ponto(val):
         return '.'.join(partes[:-1]) + partes[-1]
     return val
 
-
-if __name__ == "__main__":
-    run_scraper()
+run_scraper()
 
 

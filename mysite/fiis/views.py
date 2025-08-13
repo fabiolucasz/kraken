@@ -9,7 +9,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 def rank_fiis():
-    df = pd.read_csv("./../fundos_imobiliarios.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+    df = pd.read_csv("./../fiis.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
     df = df.rename(columns={
         "Fundos": "Papel",
         "Preço Atual (R$)": "Cotação",
