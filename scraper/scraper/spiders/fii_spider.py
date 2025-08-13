@@ -93,11 +93,7 @@ class FiiSpider(scrapy.Spider):
 
         return df
 
-
-
-if __name__ == "__main__":
-    # Criar um nome único para o arquivo temporário baseado no timestamp
-    
+def run_fii():
     timestamp = int(time.time())
     temp_file = f'df2_temp_{timestamp}.csv'
     # Configurar o processo do Scrapy
@@ -106,8 +102,6 @@ if __name__ == "__main__":
         'FEED_URI': temp_file,  # Arquivo temporário onde os dados serão salvos
         'LOG_LEVEL': 'ERROR',  # Configuração de log para evitar logs excessivos
     })
-
-
     # Iniciar o Spider
     process.crawl(FiiSpider)
     process.start()
@@ -117,3 +111,7 @@ if __name__ == "__main__":
     df.to_csv('fiis.csv', index=False)
     # Remove o arquivo temporário
     os.remove(temp_file)
+
+    return df
+
+run_fii()
