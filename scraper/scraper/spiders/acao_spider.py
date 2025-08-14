@@ -1,6 +1,69 @@
 import scrapy
 from scrapy.crawler import CrawlerProcess
 import pandas as pd
+import os
+import sys
+import django
+from decimal import Decimal, InvalidOperation
+
+# Configurar Django para poder usar os modelos
+# Obtém o diretório raiz do projeto (o diretório que contém a pasta 'mysite')
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+mysite_path = os.path.join(project_root, 'mysite')
+settings_path = os.path.join(mysite_path, 'mysite', 'settings.py')
+
+# Imprime informações de depuração
+print(f"Project root: {project_root}")
+print(f"Mysite path: {mysite_path}")
+print(f"Settings path: {settings_path}")
+print(f"Current working directory: {os.getcwd()}")
+
+# Adiciona o diretório do projeto ao PYTHONPATH
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+# Verifica se o arquivo de configurações existe
+if not os.path.exists(settings_path):
+    print(f"Erro: O arquivo de configurações {settings_path} não foi encontrado.")
+    DJANGO_AVAILABLE = False
+else:
+    # Define a variável de ambiente para o módulo de configurações do Django
+    settings_module = 'mysite.settings'
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
+    print(f"Usando módulo de configurações: {settings_module}")
+    
+    try:
+        # Adiciona o diretório pai do mysite ao PYTHONPATH
+        parent_dir = os.path.dirname(mysite_path)
+        if parent_dir not in sys.path:
+            sys.path.insert(0, parent_dir)
+        
+        # Adiciona o diretório do projeto Django ao PYTHONPATH
+        if mysite_path not in sys.path:
+            sys.path.insert(0, mysite_path)
+        
+        # Imprime os caminhos para depuração
+        print(f"Python path: {sys.path}")
+        
+        # Verifica se o módulo acoes pode ser importado
+        try:
+            import acoes
+            print(f"Módulo acoes encontrado em: {os.path.dirname(acoes.__file__)}")
+        except ImportError as e:
+            print(f"Erro ao importar módulo acoes: {e}")
+        
+        # Configura o Django
+        django.setup()
+        from acoes.models import Acoes
+        print("Django configurado com sucesso!")
+        DJANGO_AVAILABLE = True
+    except Exception as e:
+        import traceback
+        print(f"Erro ao configurar o Django: {str(e)}")
+        print("Traceback:")
+        traceback.print_exc()
+        print("Os dados serão salvos em um arquivo CSV em vez do banco de dados.")
+        DJANGO_AVAILABLE = False
 
 
 class AcaoSpider(scrapy.Spider):
@@ -79,17 +142,171 @@ class AcaoSpider(scrapy.Spider):
             df['ROE'] = df['ROE'].apply(remover_segundo_ponto)
             df = df.drop(columns=["carteira_investidor_10"])
             df = df.applymap(lambda x: "" if x == "-" else x)
-            df.to_csv("acoes.csv", index=False, encoding='utf-8')
+
+            return df
+
             
             
         except Exception as e:
             self.logger.error(f"Erro ao processar {papel}: {e}")
 
+def salvar_no_banco(df):
+    """Salva os dados diretamente no banco de dados."""
+    # Mapeamento dos campos do CSV para o modelo
+    campos_map = {
+        'Cotação': 'cotation',
+        'VARIAÇÃO_(12M)': 'variation_12m',
+        'P/L': 'pl',
+        'P/VP': 'pv',
+        'DY': 'dy',
+        'Papel': 'papel',
+        'P/RECEITA_(PSR)': 'psr',
+        'PAYOUT': 'payout',
+        'MARGEM_LÍQUIDA': 'margem_liquida',
+        'MARGEM_BRUTA': 'margem_bruta',
+        'MARGEM_EBIT': 'margem_ebit',
+        'MARGEM_EBITDA': 'margem_ebitda',
+        'EV/EBITDA': 'ev_ebitda',
+        'EV/EBIT': 'ev_ebit',
+        'P/EBITDA': 'pebitda',
+        'P/EBIT': 'pebit',
+        'P/ATIVO': 'pativo',
+        'P/CAP.GIRO': 'p_cap_giro',
+        'P/ATIVO_CIRC_LIQ': 'p_ativo_circ_liq',
+        'VPA': 'vpa',
+        'LPA': 'lpa',
+        'GIRO_ATIVOS': 'giro_ativos',
+        'ROE': 'roe',
+        'ROIC': 'roic',
+        'ROA': 'roa',
+        'DÍVIDA_LÍQUIDA_/_PATRIMÔNIO': 'divida_liquida_patrimonio',
+        'DÍVIDA_LÍQUIDA_/_EBITDA': 'divida_liquida_ebitda',
+        'DÍVIDA_LÍQUIDA_/_EBIT': 'divida_liquida_ebit',
+        'DÍVIDA_BRUTA_/_PATRIMÔNIO': 'divida_bruta_patrimonio',
+        'PATRIMÔNIO_/_ATIVOS': 'patrimonio_ativos',
+        'PASSIVOS_/_ATIVOS': 'passivos_ativos',
+        'LIQUIDEZ_CORRENTE': 'liquidez_corrente',
+        'CAGR_RECEITAS_5_ANOS': 'cagr_receitas_5_anos',
+        'CAGR_LUCROS_5_ANOS': 'cagr_lucros_5_anos',
+        'Valor_de_mercado': 'valor_mercado',
+        'Valor_de_firma': 'valor_firma',
+        'Patrimônio_Líquido': 'patrimonio_liquido',
+        'Nº_total_de_papeis': 'numero_papeis',
+        'Ativos': 'ativos',
+        'Ativo_Circulante': 'ativo_circulante',
+        'Dívida_Bruta': 'divida_bruta',
+        'Dívida_Líquida': 'divida_liquida',
+        'Disponibilidade': 'disponibilidade',
+        'Segmento_de_Listagem': 'segmento_listagem',
+        'Free_Float': 'free_float',
+        'Setor': 'setor',
+        'Segmento': 'segmento',
+        'Ticker_Img': 'ticker_img',
+        'Tag_Along': 'tag_along',
+    }
+
+    # Processa cada linha do DataFrame
+    for _, row in df.iterrows():
+        try:
+            papel = str(row['Papel']).strip()
+            print(f"Processando registro para {papel}")
+            
+            # Cria um dicionário para armazenar os dados
+            dados = {}
+            
+            # Processa cada campo
+            for col, campo in campos_map.items():
+                if col in row and pd.notna(row[col]) and str(row[col]).strip() != '':
+                    valor = str(row[col]).strip()
+                    
+                    # Converte valores vazios ou inválidos para None
+                    if valor in ('', '-', 'não disponível', 'não há dados', 'N/A'):
+                        dados[campo] = None
+                        continue
+                        
+                    # Remove caracteres especiais
+                    valor = valor.replace('%', '').replace('R$', '').replace('.', '').replace(',', '.').strip()
+                    
+                    # Tenta converter para o tipo apropriado
+                    try:
+                        # Tenta converter para Decimal primeiro
+                        try:
+                            dados[campo] = Decimal(valor)
+                        except:
+                            # Se falhar, tenta converter para inteiro
+                            try:
+                                dados[campo] = int(float(valor))
+                            except:
+                                # Se ainda falhar, mantém como string
+                                dados[campo] = valor
+                    except:
+                        dados[campo] = valor
+            
+            # Atualiza ou cria o registro no banco de dados
+            Acoes.objects.update_or_create(
+                papel=papel,
+                defaults=dados
+            )
+            print(f"Dados para {papel} salvos com sucesso!")
+            
+        except Exception as e:
+            print(f"Erro ao processar {papel}: {str(e)}")
+
 def run_scraper():
+    # Inicializa o spider e coleta os dados
     process = CrawlerProcess(settings={'LOG_LEVEL': 'ERROR'})
+    spider = AcaoSpider()
     process.crawl(AcaoSpider)
     process.start()
-    print("Todos os dados foram salvos com sucesso!")
+    
+    # Verifica se há dados coletados
+    if not (hasattr(spider, 'dados_kpi') and spider.dados_kpi):
+        print("Nenhum dado foi coletado para salvar.")
+        return
+
+    
+    # Cria o DataFrame a partir dos dados coletados
+    df1 = pd.DataFrame(spider.dados_kpi).fillna("")
+    df2 = pd.DataFrame(spider.dados_indicadores).fillna("")
+    df3 = pd.DataFrame(spider.dados_info).fillna("")
+    df4 = pd.DataFrame(spider.dados_img).fillna("")
+    
+    # Faz o merge dos DataFrames
+    df = pd.merge(df1, df2).merge(df3).merge(df4)
+    
+    # Aplica as transformações necessárias
+    if not df.empty:
+        if 'P/L' in df.columns:
+            df['P/L'] = df['P/L'].apply(remover_segundo_ponto)
+        if 'PAYOUT' in df.columns:
+            df['PAYOUT'] = df['PAYOUT'].apply(remover_segundo_ponto)
+        if 'ROE' in df.columns:
+            df['ROE'] = df['ROE'].apply(remover_segundo_ponto)
+        if 'carteira_investidor_10' in df.columns:
+            df = df.drop(columns=["carteira_investidor_10"])
+        
+        df = df.applymap(lambda x: "" if x == "-" else x)
+    
+    # Tenta salvar no banco de dados se o Django estiver disponível
+    if DJANGO_AVAILABLE and not df.empty:
+        try:
+            salvar_no_banco(df)
+            print("Todos os dados foram salvos no banco de dados com sucesso!")
+            return
+        except Exception as e:
+            import traceback
+            print(f"Erro ao salvar no banco de dados: {e}")
+            print("Traceback:")
+            traceback.print_exc()
+            print("Tentando salvar em um arquivo CSV...")
+    
+    # Se o Django não estiver disponível, ocorrer um erro ou não houver dados, salva em um arquivo CSV
+    if not df.empty:
+        output_file = "acoes.csv"
+        df.to_csv(output_file, index=False, encoding='utf-8')
+        print(f"Dados salvos em {output_file}")
+    else:
+        print("Nenhum dado disponível para salvar.")
 
 
 
