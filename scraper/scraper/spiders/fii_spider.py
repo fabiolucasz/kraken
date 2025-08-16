@@ -1,11 +1,20 @@
 import scrapy
 from scrapy.crawler import CrawlerProcess
 import pandas as pd
-import time
-import os
+from datetime import datetime
 import sys
 import django
 from pathlib import Path
+import time
+import pandas as pd
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import os
 
 # Configurar Django para poder usar os modelos
 # Obtém o diretório raiz do projeto (o diretório que contém a pasta 'mysite')
@@ -75,13 +84,18 @@ class FiiSpider(scrapy.Spider):
 
     def start_requests(self):
         
-            df = pd.read_csv("fiis-listados-b3-tratado.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-            papel = "MXRF11"
-            url = f"https://investidor10.com.br/fiis/{papel.lower()}/"
+        df = pd.read_csv("fiis-listados-b3-tratado.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+        fiis_list = df["Papel"].tolist()
+        
+        # For testing with just one FII
+        #fiis_list = ["MXRF11"]
+        
+        for papel in fiis_list:
+            url = f"https://investidor10.com.br/fiis/{papel.lower().strip()}/"
+            self.logger.info(f"Requisitando dados para {papel}...")
+        
             yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
-            #for papel in df["Papel"]:
-            #    url = f"https://investidor10.com.br/fiis/{papel.lower()}/"
-            #    yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
+
 
     def parse(self, response):
         try:
@@ -163,14 +177,106 @@ class FiiSpider(scrapy.Spider):
                 df1 = pd.DataFrame(self.dados_grid).fillna("")
                 df2 = pd.DataFrame(self.dados_info).fillna("")
                 df = pd.merge(df1, df2)
-                df.to_csv("fiis.csv", index=False)
+                df.to_csv("fiis_detailed.csv", index=False)
+                print("Dados Salvos com sucesso!")
 
-                return df
             else:
-                print("Títulos das informações a mais que o esperado")
-
+                print(f"{papel}: Não foi possível coletar informações adicionais")
+            
+            
+                
         except Exception as e:
             self.logger.error(f"Erro ao processar {response.meta['papel']}: {e}")
+            
+
+    
+def scrape_funds_explorer():
+    try:
+        print("\nIniciando coleta da tabela de fundos...")
+        
+        # Configuração do Selenium
+        options = Options()
+        #options.add_argument("--headless")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--disable-notifications")
+        options.add_argument("--disable-popup-blocking")
+        options.add_argument("--start-minimized")
+
+        service = Service()
+        url_funds = "https://www.fundsexplorer.com.br/ranking"
+
+        # Inicializa o driver
+        driver = webdriver.Chrome(service=service, options=options)
+        
+        print("Acessando a página...")
+        driver.get(url_funds)
+        
+        # Espera explícita para garantir que a página foi carregada
+        wait = WebDriverWait(driver, 20)
+        
+        print("Aguardando carregamento da tabela...")
+        # Primeiro espera o elemento ficar presente na página
+        table_locator = (By.XPATH, "//*[@id='upTo--default-fiis-table']/div/table")
+        table = wait.until(EC.presence_of_element_located(table_locator))
+        wait.until(EC.visibility_of(table))
+        time.sleep(2)  # Pequena pausa para garantir o carregamento
+        
+        # Extrai o HTML da tabela
+        html_content = table.get_attribute("outerHTML")
+        soup = BeautifulSoup(html_content, 'html.parser')
+        
+        # Processa os dados da tabela
+        data = []
+        table = soup.find('table')
+        if not table:
+            raise Exception("Tabela não encontrada no HTML")
+        
+        headers = [th.text.strip() for th in table.find_all('th')]
+        
+        for row in table.find('tbody').find_all('tr'):
+            cols = row.find_all('td')
+            while len(cols) < len(headers):
+                cols.append("")
+            data.append([col.text.strip().replace("%", "").replace("N/A", "").replace(".","").replace(",", ".") for col in cols])
+        
+        if not data:
+            raise Exception("Nenhum dado encontrado na tabela")
+        
+
+        df = pd.DataFrame(data, columns=headers)
+        df = df.rename(columns={"Fundos": "Papel"})
+        df = df.drop(columns=["Tax. Gestão", "Tax. Performance", "Tax. Administração", "P/VP"])
+        
+        output_file = 'fiis_table.csv'
+        df.to_csv(output_file, index=False, encoding='utf-8')
+        print(f"Dados salvos com sucesso em '{output_file}'")
+        return True
+        
+    except Exception as e:
+        print(f"\nErro ao coletar dados do Funds Explorer: {str(e)}")
+        if driver:
+            driver.save_screenshot('error_funds_explorer.png')
+            print("Screenshot salvo como 'error_funds_explorer.png'")
+    finally:
+        if driver:
+            driver.quit()
+
+def merge_datasets():
+    try:
+       df1 = pd.read_csv("fiis_detailed.csv", encoding='utf-8')
+       df2 = pd.read_csv("fiis_table.csv", encoding='utf-8')
+       df = pd.merge(df2, df1, on="Papel", how="left")
+       df.to_csv("fiis.csv", index=False, encoding='utf-8')
+       print("Dados mesclados com sucesso!")
+       os.remove("fiis_detailed.csv")
+       os.remove("fiis_table.csv")
+       return df
+            
+    except Exception as e:
+        print(f"\nErro ao mesclar os dados: {str(e)}")
+        
 
 def salvar_no_banco(df):
     # Mapeia os campos do item para o modelo Fiis
@@ -240,38 +346,49 @@ def salvar_no_banco(df):
     
 
 def run_fii():
-    process = CrawlerProcess(settings={'LOG_LEVEL': 'ERROR'})
+    # Initialize spider and run it
     spider = FiiSpider()
-    process.crawl(FiiSpider)
-    process.start()
+    process = CrawlerProcess(settings={
+        'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+        'LOG_LEVEL': 'ERROR'
 
-    # Verifica se há dados coletados
-    if not (hasattr(spider, 'dados_kpi') and spider.dados_kpi):
-        print("Nenhum dado foi coletado para salvar.")
-        return
+    })
 
-    df = pd.DataFrame(spider.dados_kpi).fillna("")
+    # Run the spider
+    # process.crawl(FiiSpider)
+    # process.start()
+    
+    # After spider finishes, run the funds explorer scraper
+    print("\nIniciando coleta do Funds Explorer...")
+    scrape_funds_explorer()
+    
+   
+    merge_datasets()
+
+    print("\nProcesso de coleta de dados finalizado.")
+
+    df = pd.read_csv("fiis.csv", encoding='utf-8')
 
     # Tenta salvar no banco de dados se o Django estiver disponível
-    if DJANGO_AVAILABLE and not df.empty:
-        try:
-            salvar_no_banco(df)
-            print("Todos os dados foram salvos no banco de dados com sucesso!")
-            return
-        except Exception as e:
-            import traceback
-            print(f"Erro ao salvar no banco de dados: {e}")
-            print("Traceback:")
-            traceback.print_exc()
-            print("Tentando salvar em um arquivo CSV...")
+    # if DJANGO_AVAILABLE and not df.empty:
+    #     try:
+    #         salvar_no_banco(df)
+    #         print("Todos os dados foram salvos no banco de dados com sucesso!")
+    #         return
+    #     except Exception as e:
+    #         import traceback
+    #         print(f"Erro ao salvar no banco de dados: {e}")
+    #         print("Traceback:")
+    #         traceback.print_exc()
+    #         print("Tentando salvar em um arquivo CSV...")
     
-    # Se o Django não estiver disponível, ocorrer um erro ou não houver dados, salva em um arquivo CSV
-    if not df.empty:
-        output_file = "fiis.csv"
-        df.to_csv(output_file, index=False, encoding='utf-8')
-        print(f"Dados salvos em {output_file}")
-    else:
-        print("Nenhum dado disponível para salvar.")
+    # # Se o Django não estiver disponível, ocorrer um erro ou não houver dados, salva em um arquivo CSV
+    # if not df.empty:
+    #     output_file = "fiis.csv"
+    #     df.to_csv(output_file, index=False, encoding='utf-8')
+    #     print(f"Dados salvos em {output_file}")
+    # else:
+    #     print("Nenhum dado disponível para salvar.")
 
 
 
