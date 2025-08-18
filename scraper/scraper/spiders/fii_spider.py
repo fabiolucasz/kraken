@@ -15,6 +15,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import os
+from decimal import Decimal
 
 # Configurar Django para poder usar os modelos
 # Obtém o diretório raiz do projeto (o diretório que contém a pasta 'mysite')
@@ -84,7 +85,7 @@ class FiiSpider(scrapy.Spider):
 
     def start_requests(self):
         
-        df = pd.read_csv("fiis-listados-b3-tratado.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+        df = pd.read_csv(f"{project_root}/fiis-listados-b3-tratado.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
         fiis_list = df["Papel"].tolist()
         
         # For testing with just one FII
@@ -172,13 +173,11 @@ class FiiSpider(scrapy.Spider):
 
                 self.dados_info.append(dict(zip(titulo_info, valores_tabela_info)))
 
-                print(f"{papel} coletado com sucesso")
-
                 df1 = pd.DataFrame(self.dados_grid).fillna("")
                 df2 = pd.DataFrame(self.dados_info).fillna("")
                 df = pd.merge(df1, df2)
-                df.to_csv("fiis_detailed.csv", index=False)
-                print("Dados Salvos com sucesso!")
+                df = df.drop(columns=["NUMERO DE COTISTAS, TAXA DE ADMINISTRAÇÂO"])
+                df.to_csv(f"{project_root}/fiis_detailed.csv", index=False)
 
             else:
                 print(f"{papel}: Não foi possível coletar informações adicionais")
@@ -249,7 +248,7 @@ def scrape_funds_explorer():
         df = df.rename(columns={"Fundos": "Papel"})
         df = df.drop(columns=["Tax. Gestão", "Tax. Performance", "Tax. Administração", "P/VP"])
         
-        output_file = 'fiis_table.csv'
+        output_file = f"{project_root}/fiis_table.csv"
         df.to_csv(output_file, index=False, encoding='utf-8')
         print(f"Dados salvos com sucesso em '{output_file}'")
         return True
@@ -265,13 +264,13 @@ def scrape_funds_explorer():
 
 def merge_datasets():
     try:
-       df1 = pd.read_csv("fiis_detailed.csv", encoding='utf-8')
-       df2 = pd.read_csv("fiis_table.csv", encoding='utf-8')
-       df = pd.merge(df2, df1, on="Papel", how="left")
-       df.to_csv("fiis.csv", index=False, encoding='utf-8')
+       df1 = pd.read_csv(f"{project_root}/fiis_detailed.csv", encoding='utf-8')
+       df2 = pd.read_csv(f"{project_root}/fiis_table.csv", encoding='utf-8')
+       df = pd.merge(df2, df1)
+       df.to_csv(f"{project_root}/fiis.csv", index=False, encoding='utf-8')
        print("Dados mesclados com sucesso!")
-       os.remove("fiis_detailed.csv")
-       os.remove("fiis_table.csv")
+    #    os.remove(f"{project_root}/fiis_detailed.csv")
+    #    os.remove(f"{project_root}/fiis_table.csv")
        return df
             
     except Exception as e:
@@ -281,21 +280,52 @@ def merge_datasets():
 def salvar_no_banco(df):
     # Mapeia os campos do item para o modelo Fiis
     campos_map = {
-        'papel': 'papel',
-        'cotacao': 'cotacao',
-        'dividend_yield': 'dy',
-        'p_vp': 'pvp',
-        'liquidez_diaria': 'liquidez',
-        'variacao': 'variacao',
-        'dy_pago_ult_12m': 'dy_pago_ult_12m',
-        'setor': 'setor',
-        'tipo': 'tipo',
-        'taxa_administracao': 'taxa_administracao',
-        'vacancia': 'vacancia',
-        'valor_patrimonial': 'valor_patrimonial',
-        'ultimo_rendimento': 'ultimo_rendimento',
-        'num_cotistas': 'num_cotistas',
-        'cotas_emitidas': 'cotas_emitidas',
+        'Papel': 'papel',
+        'Setor': 'setor',
+        'Preço Atual (R$)': 'preco_atual',
+        'liquidez Diária (R$)': 'liquidez_diaria_rs',
+        'Último Dividendo': 'ultimo_dividendo',
+        'Dividend Yield': 'dividend_yield',
+        'DY (3M) Acumulado': 'dy_3m_acumulado',
+        'DY (6M) Acumulado': 'dy_6m_acumulado',
+        'DY (12M) Acumulado': 'dy_12m_acumulado',
+        'DY (3M) média': 'dy_3m_media',
+        'DY (6M) média': 'dy_6m_media',
+        'DY (12M) média': 'dy_12m_media',
+        'DY Ano': 'dy_ano',
+        'Variação Preço': 'variacao_preco',
+        'Rentab. Período': 'rentab_periodo',
+        'Rentab. Acumulada': 'rentab_acumulada',
+        'Patrimônio Líquido': 'patrimonio_liquido',
+        'VPA': 'vpa',
+        'P/VPA': 'p_vpa',
+        'DY Patrimonial': 'dy_patrimonial',
+        'Variação Patrimonial': 'variacao_patrimonial',
+        'Rentab. Patr. Período': 'rentab_patr_periodo',
+        'Rentab. Patr. Acumulada': 'rentab_patr_acumulada',
+        'Quant. Ativos': 'quant_ativos',
+        'Volatilidade': 'volatilidade',
+        'Num. Cotistas': 'num_cotistas',
+        'Cotação': 'cotacao',
+        'DY': 'dy',
+        'P/VP': 'pvp',
+        'Liquidez Diária': 'liquidez_diaria',
+        'Liquidez Unidade': 'liquidez_unidade',
+        'VARIAÇÃO': 'variacao',
+        'Razão Social': 'razao_social',
+        'CNPJ': 'cnpj',
+        'PÚBLICO-ALVO': 'publico_alvo',
+        'MANDATO': 'mandato',
+        'SEGMENTO': 'segmento',
+        'TIPO DE FUNDO': 'tipo',
+        'PRAZO DE DURAÇÃO': 'prazo_duracao',
+        'TIPO DE GESTÃO': 'tipo_gestao',
+        'VACÂNCIA': 'vacancia',
+        'COTAS EMITIDAS': 'cotas_emitidas',
+        'VAL. PATRIMONIAL P/ COTA': 'valor_patrimonial_cota',
+        'VALOR PATRIMONIAL': 'valor_patrimonial',
+        'ÚLTIMO RENDIMENTO': 'ultimo_rendimento',
+        'Valor Patrimonial Unidade': 'valor_patrimonial_unidade'
     }
     # Processa cada linha do DataFrame
     for _, row in df.iterrows():
@@ -317,7 +347,7 @@ def salvar_no_banco(df):
                         continue
                         
                     # Remove caracteres especiais
-                    valor = valor.replace('%', '').replace('R$', '').replace('.', '').replace(',', '.').strip()
+                    #valor = valor.replace('%', '').replace('R$', '').replace('.', '').replace(',', '.').strip()
                     
                     # Tenta converter para o tipo apropriado
                     try:
@@ -358,37 +388,36 @@ def run_fii():
     # process.crawl(FiiSpider)
     # process.start()
     
-    # After spider finishes, run the funds explorer scraper
-    print("\nIniciando coleta do Funds Explorer...")
-    scrape_funds_explorer()
+    # # After spider finishes, run the funds explorer scraper
+    # print("\nIniciando coleta do Funds Explorer...")
+    # scrape_funds_explorer()
     
    
     merge_datasets()
 
     print("\nProcesso de coleta de dados finalizado.")
 
-    df = pd.read_csv("fiis.csv", encoding='utf-8')
+    df = pd.read_csv(f"{project_root}/fiis.csv", encoding='utf-8')
 
     # Tenta salvar no banco de dados se o Django estiver disponível
-    # if DJANGO_AVAILABLE and not df.empty:
-    #     try:
-    #         salvar_no_banco(df)
-    #         print("Todos os dados foram salvos no banco de dados com sucesso!")
-    #         return
-    #     except Exception as e:
-    #         import traceback
-    #         print(f"Erro ao salvar no banco de dados: {e}")
-    #         print("Traceback:")
-    #         traceback.print_exc()
-    #         print("Tentando salvar em um arquivo CSV...")
-    
-    # # Se o Django não estiver disponível, ocorrer um erro ou não houver dados, salva em um arquivo CSV
-    # if not df.empty:
-    #     output_file = "fiis.csv"
-    #     df.to_csv(output_file, index=False, encoding='utf-8')
-    #     print(f"Dados salvos em {output_file}")
-    # else:
-    #     print("Nenhum dado disponível para salvar.")
+    if DJANGO_AVAILABLE and not df.empty:
+        try:
+            salvar_no_banco(df)
+            print("Todos os dados foram salvos no banco de dados com sucesso!")
+            return
+        except Exception as e:
+            import traceback
+            print(f"Erro ao salvar no banco de dados: {e}")
+            print("Traceback:")
+            traceback.print_exc()
+            print("Tentando salvar em um arquivo CSV...")
+    # Se o Django não estiver disponível, ocorrer um erro ou não houver dados, salva em um arquivo CSV
+    if not df.empty:
+        output_file = f"{project_root}/fiis.csv"
+        df.to_csv(output_file, index=False, encoding='utf-8')
+        print(f"Dados salvos em {output_file}")
+    else:
+        print("Nenhum dado disponível para salvar.")
 
 
 
@@ -402,8 +431,6 @@ def remover_segundo_ponto(val):
     if len(partes) > 2:
         return '.'.join(partes[:-1]) + partes[-1]
     return val
-    
 
-
-
-run_fii()
+if __name__ == "__main__":
+    run_fii()

@@ -54,6 +54,8 @@ class Acoes(models.Model):
     segmento = models.CharField(max_length=255, null=True, blank=True)
     ticker_img = models.URLField(max_length=2000, null=True, blank=True)
 
+    data_atualizacao = models.DateTimeField(auto_now=True)
+
     class Meta:
         ordering = ['papel']
 

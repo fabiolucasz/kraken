@@ -6,48 +6,54 @@ from decimal import Decimal
 User = get_user_model()
 
 class Fiis(models.Model):
-    # Identificação
-    papel = models.CharField(max_length=10, unique=True)
-    setor = models.CharField(max_length=100, blank=True, null=True)
-    
-    # Preços e Valores
-    preco_atual = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True)
-    liquidez_diaria = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True)
-    p_vp = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    ultimo_dividendo = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True)
-    
-    # Dividend Yields
-    dividend_yield = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    dy_3m_acumulado = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    dy_6m_acumulado = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    dy_12m_acumulado = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    dy_3m_media = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    dy_6m_media = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    dy_12m_media = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    dy_ano = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    
-    # Variações e Rentabilidades
-    variacao_preco = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    rentabilidade_periodo = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    rentabilidade_acumulada = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    
-    # Patrimônio e VPA
-    patrimonio_liquido = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True)
-    vpa = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True)
-    p_vpa = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    dy_patrimonial = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    variacao_patrimonial = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    rentabilidade_patr_periodo = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    rentabilidade_patr_acumulada = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    
-    # Outras Informações
-    quant_ativos = models.IntegerField(blank=True, null=True)
-    volatilidade = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    num_cotistas = models.IntegerField(blank=True, null=True)
-    taxa_gestao = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    taxa_performance = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    taxa_administracao = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    
+
+    papel = models.CharField(max_length=20, unique=True, verbose_name='Papel')
+    setor = models.CharField(max_length=100, blank=True, null=True, verbose_name='Setor')
+    preco_atual = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Preço Atual (R$)')
+    liquidez_diaria_rs = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True, verbose_name='Liquidez Diária (R$)')
+    ultimo_dividendo = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Último Dividendo')
+    dividend_yield = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Dividend Yield')
+    dy_3m_acumulado = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='DY (3M) Acumulado')
+    dy_6m_acumulado = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='DY (6M) Acumulado')
+    dy_12m_acumulado = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='DY (12M) Acumulado')
+    dy_3m_media = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='DY (3M) média')
+    dy_6m_media = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='DY (6M) média')
+    dy_12m_media = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='DY (12M) média')
+    dy_ano = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='DY Ano')
+    variacao_preco = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Variação Preço')
+    rentab_periodo = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Rentab. Período')
+    rentab_acumulada = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Rentab. Acumulada')
+    patrimonio_liquido = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True, verbose_name='Patrimônio Líquido')
+    vpa = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='VPA')
+    p_vpa = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='P/VPA')
+    dy_patrimonial = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='DY Patrimonial')
+    variacao_patrimonial = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Variação Patrimonial')
+    rentab_patr_periodo = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Rentab. Patr. Período')
+    rentab_patr_acumulada = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Rentab. Patr. Acumulada')
+    quant_ativos = models.IntegerField(blank=True, null=True, verbose_name='Quant. Ativos')
+    volatilidade = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Volatilidade')
+    num_cotistas = models.IntegerField(blank=True, null=True, verbose_name='Nº de Cotistas')
+    cotacao = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Cotação')
+    dy = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='DY')
+    pvp = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='P/VP')
+    liquidez_diaria = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True, verbose_name='Liquidez Diária')
+    liquidez_unidade = models.CharField(max_length=20, blank=True, null=True, verbose_name='Liquidez por Unidade')
+    variacao = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Variação')
+    razao_social = models.CharField(max_length=200, blank=True, null=True, verbose_name='Razão Social')
+    cnpj = models.CharField(max_length=20, blank=True, null=True, verbose_name='CNPJ')
+    publico_alvo = models.CharField(max_length=100, blank=True, null=True, verbose_name='Público-Alvo')
+    mandato = models.CharField(max_length=100, blank=True, null=True, verbose_name='Mandato')
+    segmento = models.CharField(max_length=100, blank=True, null=True, verbose_name='Segmento')
+    tipo = models.CharField(max_length=100, blank=True, null=True, verbose_name='Tipo de Fundo')
+    prazo_duracao = models.CharField(max_length=100, blank=True, null=True, verbose_name='Prazo de Duração')
+    tipo_gestao = models.CharField(max_length=100, blank=True, null=True, verbose_name='Tipo de Gestão')
+    vacancia = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Vacância')
+    cotas_emitidas = models.BigIntegerField(blank=True, null=True, verbose_name='Cotas Emitidas')
+    valor_patrimonial_cota = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Variação Patrimonial')
+    valor_patrimonial = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True, verbose_name='Valor Patrimonial')
+    ultimo_rendimento = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Último Rendimento')
+    valor_patrimonial_unidade = models.CharField(max_length=20, blank=True, null=True, verbose_name='Valor Patrimonial por Unidade')
+ 
     # Datas
     data_atualizacao = models.DateTimeField(auto_now=True)
     
