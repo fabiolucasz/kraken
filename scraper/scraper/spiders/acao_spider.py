@@ -4,55 +4,37 @@ import pandas as pd
 import os
 import sys
 import django
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal
 
-# Configurar Django para poder usar os modelos
-# Obtém o diretório raiz do projeto (o diretório que contém a pasta 'mysite')
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 mysite_path = os.path.join(project_root, 'mysite')
 settings_path = os.path.join(mysite_path, 'mysite', 'settings.py')
 
-# Imprime informações de depuração
-print(f"Project root: {project_root}")
-print(f"Mysite path: {mysite_path}")
-print(f"Settings path: {settings_path}")
-print(f"Current working directory: {os.getcwd()}")
 
-# Adiciona o diretório do projeto ao PYTHONPATH
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-# Verifica se o arquivo de configurações existe
+
 if not os.path.exists(settings_path):
     print(f"Erro: O arquivo de configurações {settings_path} não foi encontrado.")
     DJANGO_AVAILABLE = False
 else:
-    # Define a variável de ambiente para o módulo de configurações do Django
     settings_module = 'mysite.settings'
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
-    print(f"Usando módulo de configurações: {settings_module}")
     
     try:
-        # Adiciona o diretório pai do mysite ao PYTHONPATH
         parent_dir = os.path.dirname(mysite_path)
         if parent_dir not in sys.path:
             sys.path.insert(0, parent_dir)
-        
-        # Adiciona o diretório do projeto Django ao PYTHONPATH
         if mysite_path not in sys.path:
             sys.path.insert(0, mysite_path)
         
-        # Imprime os caminhos para depuração
-        print(f"Python path: {sys.path}")
-        
-        # Verifica se o módulo acoes pode ser importado
         try:
             import acoes
             print(f"Módulo acoes encontrado em: {os.path.dirname(acoes.__file__)}")
         except ImportError as e:
             print(f"Erro ao importar módulo acoes: {e}")
         
-        # Configura o Django
         django.setup()
         from acoes.models import Acoes
         print("Django configurado com sucesso!")
@@ -62,7 +44,6 @@ else:
         print(f"Erro ao configurar o Django: {str(e)}")
         print("Traceback:")
         traceback.print_exc()
-        print("Os dados serão salvos em um arquivo CSV em vez do banco de dados.")
         DJANGO_AVAILABLE = False
 
 
@@ -74,16 +55,12 @@ class AcaoSpider(scrapy.Spider):
     dados_indicadores = []
     dados_info = []
     dados_img = []
-    #dados_dpa = []
 
     def start_requests(self):
-        df = pd.read_csv("acoes-listadas-b3.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+        df = pd.read_csv(f"{project_root}/acoes-listadas-b3.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
         for papel in df['Ticker']:
             url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
             yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
-        # papel = "BBAS3"
-        # url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
-        # yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
 
     def parse(self, response):
         try:
@@ -120,22 +97,11 @@ class AcaoSpider(scrapy.Spider):
                 info_values.append("")
             self.dados_info.append(dict(zip(info, info_values), Papel=papel))
 
-            # # DPA
-            # dpa = [d.strip().replace(" ", "_") for d in response.xpath('//*[@id="table-dividends-history_wrapper"]/div[1]/div[1]/div/table/thead/tr/th[1]/text()').getall() if d.strip()]
-            # print(dpa)
-            # dpa_values = [dv.strip().replace(" ", "").replace("%", "").replace("R$", "").replace(".", "").replace(",", ".") for dv in response.xpath('//*[@id="table-dividends-history_wrapper"]/div[1]/div[1]/div/table/tbody/tr/td[1]/text()').getall() if dv.strip()]
-            # print(dpa_values)
-            # while len(dpa_values) < len(dpa):
-            #     dpa_values.append("")
-            # self.dados_dpa.append(dict(zip(dpa, dpa_values), Papel=papel))
-
-            print(f"{papel} coletado com sucesso")
-
             df1 = pd.DataFrame(self.dados_kpi).fillna("")
             df2 = pd.DataFrame(self.dados_indicadores).fillna("")
             df3 = pd.DataFrame(self.dados_info).fillna("")
             df4 = pd.DataFrame(self.dados_img).fillna("")
-            #df5 = pd.DataFrame(self.dados_dpa)
+
             df = pd.merge(df1, df2).merge(df3).merge(df4)
             df['P/L'] = df['P/L'].apply(remover_segundo_ponto)
             df['PAYOUT'] = df['PAYOUT'].apply(remover_segundo_ponto)
@@ -151,8 +117,7 @@ class AcaoSpider(scrapy.Spider):
             self.logger.error(f"Erro ao processar {papel}: {e}")
 
 def salvar_no_banco(df):
-    """Salva os dados diretamente no banco de dados."""
-    # Mapeamento dos campos do CSV para o modelo
+
     campos_map = {
         'Cotação': 'cotation',
         'VARIAÇÃO_(12M)': 'variation_12m',
@@ -205,76 +170,66 @@ def salvar_no_banco(df):
         'Tag_Along': 'tag_along',
     }
 
-    # Processa cada linha do DataFrame
     for _, row in df.iterrows():
         try:
             papel = str(row['Papel']).strip()
-            print(f"Processando registro para {papel}")
-            
-            # Cria um dicionário para armazenar os dados
+
             dados = {}
             
-            # Processa cada campo
+
             for col, campo in campos_map.items():
                 if col in row and pd.notna(row[col]) and str(row[col]).strip() != '':
                     valor = str(row[col]).strip()
                     
-                    # Converte valores vazios ou inválidos para None
+
                     if valor in ('', '-', 'não disponível', 'não há dados', 'N/A'):
                         dados[campo] = None
                         continue
-                        
-                    # Remove caracteres especiais
+
                     valor = valor.replace('%', '').replace('R$', '').replace('.', '').replace(',', '.').strip()
-                    
-                    # Tenta converter para o tipo apropriado
+
                     try:
-                        # Tenta converter para Decimal primeiro
+
                         try:
                             dados[campo] = Decimal(valor)
                         except:
-                            # Se falhar, tenta converter para inteiro
+
                             try:
                                 dados[campo] = int(float(valor))
                             except:
-                                # Se ainda falhar, mantém como string
+
                                 dados[campo] = valor
                     except:
                         dados[campo] = valor
             
-            # Atualiza ou cria o registro no banco de dados
+
             Acoes.objects.update_or_create(
                 papel=papel,
                 defaults=dados
             )
-            print(f"Dados para {papel} salvos com sucesso!")
             
         except Exception as e:
             print(f"Erro ao processar {papel}: {str(e)}")
 
 def run_scraper():
-    # Inicializa o spider e coleta os dados
+
     process = CrawlerProcess(settings={'LOG_LEVEL': 'ERROR'})
     spider = AcaoSpider()
     process.crawl(AcaoSpider)
     process.start()
     
-    # Verifica se há dados coletados
+
     if not (hasattr(spider, 'dados_kpi') and spider.dados_kpi):
         print("Nenhum dado foi coletado para salvar.")
         return
 
-    
-    # Cria o DataFrame a partir dos dados coletados
     df1 = pd.DataFrame(spider.dados_kpi).fillna("")
     df2 = pd.DataFrame(spider.dados_indicadores).fillna("")
     df3 = pd.DataFrame(spider.dados_info).fillna("")
     df4 = pd.DataFrame(spider.dados_img).fillna("")
     
-    # Faz o merge dos DataFrames
     df = pd.merge(df1, df2).merge(df3).merge(df4)
     
-    # Aplica as transformações necessárias
     if not df.empty:
         if 'P/L' in df.columns:
             df['P/L'] = df['P/L'].apply(remover_segundo_ponto)
@@ -287,7 +242,7 @@ def run_scraper():
         
         df = df.applymap(lambda x: "" if x == "-" else x)
     
-    # Tenta salvar no banco de dados se o Django estiver disponível
+
     if DJANGO_AVAILABLE and not df.empty:
         try:
             salvar_no_banco(df)
@@ -299,17 +254,13 @@ def run_scraper():
             print("Traceback:")
             traceback.print_exc()
             print("Tentando salvar em um arquivo CSV...")
-    
-    # Se o Django não estiver disponível, ocorrer um erro ou não houver dados, salva em um arquivo CSV
+
     if not df.empty:
         output_file = "acoes.csv"
         df.to_csv(output_file, index=False, encoding='utf-8')
         print(f"Dados salvos em {output_file}")
     else:
         print("Nenhum dado disponível para salvar.")
-
-
-
 
 def remover_segundo_ponto(val):
     if pd.isna(val):
@@ -321,6 +272,5 @@ def remover_segundo_ponto(val):
         return '.'.join(partes[:-1]) + partes[-1]
     return val
 
-run_scraper()
-
-
+if __name__ == "__main__":
+    run_scraper()
