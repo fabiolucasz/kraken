@@ -283,7 +283,7 @@ def salvar_no_banco(df):
         'Papel': 'papel',
         'Setor': 'setor',
         'Preço Atual (R$)': 'preco_atual',
-        'liquidez Diária (R$)': 'liquidez_diaria_rs',
+        'Liquidez Diária (R$)': 'liquidez_diaria_rs',
         'Último Dividendo': 'ultimo_dividendo',
         'Dividend Yield': 'dividend_yield',
         'DY (3M) Acumulado': 'dy_3m_acumulado',

@@ -261,8 +261,14 @@
 {% endblock %}
 {% block content %}
 
+{% if debug_info %}
+<div class="debug-info" style="background: #f8f9fa; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd;">
+    <h4>Debug Information</h4>
+    <pre>{{ debug_info|pprint }}</pre>
+</div>
+{% endif %}
 
-<div class="filter">
+ <div class="filter">
     <form id="filter-form" method="POST">
         {% csrf_token %}
         <div class="toolbar">
@@ -318,7 +324,7 @@
 
                     <div class="form-inline d-flex justify-content-center align-items-center">
                         <input type="number" name="liquidez_min" class="js-input-form form-control form-control-sm"
-                            style="width: 48%" value="{{ filters.liquidez_min|stringformat:'d' }}">
+                            style="width: 48%" value="{{ filters.liquidez_min|floatformat }}">
                     </div>
 
 
@@ -366,7 +372,7 @@
         </footer>
 
     </form>
-</div>
+</div> 
 
 
 <div class="box margin-top advanced" style id="container-table-advanced-search">
@@ -385,61 +391,42 @@
                 <thead>
                     <tr>
                         <th></th>
-                        {% for col in columns %}
-                        <th>{{ col }}</th>
-                        {% endfor %}
+                        <th>Rank</th>
+                        <th>Papel</th>
+                        <th>Cotação</th>
+                        <th>DY(12m)</th>
+                        <th>P/VP</th>
+                        <th>Liquidez Diária</th>
+                        <th>DY(1m)</th>
+                        <th>Vacância</th>
+
+
                     </tr>
                 </thead>
                 <tbody>
+                    {{ total_fiis }}
                     {% for row in data %}
-                    <tr>
+                    <td>
+                        <a href="{% url 'fiis:toggle_favorite' row.papel %}"
+                            class="favorite-star {% if row.is_favorite %}favorite-star-yellow{% else %}favorite-star-gray{% endif %}">
+                            ★
+                        </a>
+                    </td>
+                        <td>{{ row.Rank }}º</td>
                         <td>
-                            <a href="{% url 'fiis:toggle_favorite' row.Papel %}"
-                                class="favorite-star {% if row.is_favorite %}favorite-star-yellow{% else %}favorite-star-gray{% endif %}">
-                                ★
-                            </a>
-                        </td>
-
-
-
-
-                        <td>
-                            {{ row|get_item:'Rank' }}º
-                        </td>
-                        <td>
-                            <a href="https://investidor10.com.br/fiis/{{ row|get_item:'Papel' }}/">
+                            <a href="https://investidor10.com.br/fiis/{{ row.papel|lower }}/" target="_blank" title="Abrir no Investidor10">
                                 <div class="logo">
-                                    <span>{{ row|get_item:'Papel' }}</span>
+                                    <span>{{ row.papel|upper }}</span>
                                 </div>
                             </a>
-
-
                         </td>
 
-
-                        <td>
-                            {{ row|get_item:'Setor' }}
-                        </td>
-                        <td>
-                            R$ {{ row|get_item:'Cotação' }}
-                        </td>
-                        <td>
-                            {{ row|get_item:'DY' }} %
-                        </td>
-                        <td>
-                            {{ row|get_item:'P/VP' }} %
-                        </td>
-
-
-                        <td>
-                            R$ {{ row|get_item:'Liquidez' }}
-                        </td>
-
-                        <td>
-                            {{ row|get_item:'Dividend_Yield' }} %
-                        </td>
-
-
+                        <td>R$ {{ row.cotacao }}</td>
+                        <td>{{ row.dy }}%</td>
+                        <td>{{ row.pvp }}</td>
+                        <td>R$ {{ row.liquidez_diaria_rs }}</td>
+                        <td>{{ row.dividend_yield }}%</td>
+                        <td>{{ row.vacancia }}%</td>
                     </tr>
                     {% endfor %}
                 </tbody>
