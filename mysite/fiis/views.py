@@ -3,64 +3,112 @@ from django.core.cache import cache
 from django.contrib.auth.decorators import login_required
 from .models import Fiis, UserFavoriteFiis
 from django.contrib import messages
-from django.shortcuts import redirect
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 
-def rank_fiis():
-    df = pd.read_csv("./../fiis.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-    df = df.rename(columns={
-        "Fundos": "Papel",
-        "Preço Atual (R$)": "Cotação",
-        "DY (12M) Acumulado": "DY",
-        "Liquidez Diária (R$)": "Liquidez",
-    })
+def rank_fiis(filters=None):
+    queryset = Fiis.objects.all()
+    
+    # filtro prévio com os nomes corretos dos campos
+    queryset = queryset.filter(dy__gte=6)
+    queryset = queryset.filter(liquidez_diaria_rs__gte=500000)
+    queryset = queryset.filter(pvp__gte=0.75)
+    queryset = queryset.filter(vacancia__lte=30)
 
-    #filtro prévio
-    df = df[df['DY'] > 6]
-    df = df[df['Liquidez'] > 500000]
-    df = df[df['P/VP'] >= 0.75]
+    if filters:
+        # DY
+        if 'dy_min' in filters:
+            try:
+                min_dy = float(filters['dy_min'])
+                queryset = queryset.filter(dy__gte=min_dy)
+            except ValueError:
+                pass
+
+        # Liquidez
+        if 'liquidez_min' in filters:
+            try:
+                min_liquidez = float(filters['liquidez_min'])
+                queryset = queryset.filter(liquidez_diaria_rs__gte=min_liquidez)
+            except ValueError:
+                pass
+
+        # PVP
+        if 'pvp_min' in filters:
+            try:
+                min_pvp = float(filters['pvp_min'])
+                queryset = queryset.filter(pvp__lte=min_pvp)
+            except ValueError:
+                pass
+
+        if 'pvp_max' in filters:
+            try:
+                max_pvp = float(filters['pvp_max'])
+                queryset = queryset.filter(pvp__lte=max_pvp)
+            except ValueError:
+                pass
+
+        if 'vacancia_max' in filters:
+            try:
+                max_vacancia = float(filters['vacancia_max'])
+                queryset = queryset.filter(vacancia__lte=max_vacancia)
+            except ValueError:
+                pass
+        
+        
+        if 'setor' in filters:
+            try:
+                queryset = queryset.filter(setor__icontains=filters['setor'])
+            except ValueError:
+                pass
+
+    df = pd.DataFrame(list(queryset.values(
+        'id',
+        'dy',
+        'dividend_yield',
+        'liquidez_diaria_rs',
+        'papel',
+        'cotacao',
+        'pvp',
+        'setor',
+        'ultimo_dividendo',
+        'vacancia',
+    )))
+    print(df)
+
 
     # Indicadores relevantes
     indicadores = {
-        'DY': 1,  # quanto maior, melhor
-        'Liquidez': 0.5,  # quanto maior, melhor
-        'P/VP': -0.5  # quanto menor, melhor
+        'dy': 1,  # quanto maior, melhor
+        'liquidez_diaria_rs': 0.5,  # quanto maior, melhor
+        'pvp': -0.5,  # quanto menor, melhor
+        'vacancia': -0.5,  # quanto menor, melhor
     }
+
+   
 
     # Normalizar os dados
     scaler = MinMaxScaler()
 
     for col, peso in indicadores.items():
         # Normalizar entre 0 e 1
-        norm = scaler.fit_transform(df[[col]])
+        norm = scaler.fit_transform(df[[col]].fillna(0))
         if peso < 0:
             norm = 1 - norm  # inverter se menor é melhor
         df[f'{col}_score'] = norm * abs(peso)
 
-    # Rank final como soma ponderada dos scores
+    # Rank final como soma ponderada dos score
     df['Rank_ponderado'] = df[[f'{col}_score' for col in indicadores]].sum(axis=1)
-
-    # Converter colunas para numérico, forçando erros para NaN
-    df['Último Dividendo'] = pd.to_numeric(df['Último Dividendo'], errors='coerce')
-    df['Cotação'] = pd.to_numeric(df['Cotação'], errors='coerce')
-    df['DY'] = pd.to_numeric(df['DY'], errors='coerce')
-
-    # Calcular o DY/mês e YOC
-    df['DY/mês'] = ((df['Último Dividendo'] / df['Cotação']) * 100).round(2)
-    df['YOC'] = ((df['DY'] / df['Cotação']) * 100).round(2)
-
-    # Ordenar
-    df.drop(columns=['P/VP_score', 'DY_score', 'Liquidez_score'])
     df = df.sort_values(by='Rank_ponderado', ascending=False)
-    df.insert(0, 'Rank', range(1, len(df) + 1))
+    df['Rank'] = range(1, len(df) + 1)
 
     # Organizando as colunas finais
-    ordered_df = df[['Rank', 'Papel', 'Setor', 'Cotação', 'DY', 'P/VP', 'Liquidez', 'Dividend Yield']]
+    ordered_df = df[['Rank', 'papel', 'cotacao', 'dy', 'pvp', 'liquidez_diaria_rs', 'dividend_yield', 'vacancia']]
     df = ordered_df
+    print(f'Final df:\n {df}')
 
     return df
+rank_fiis(filters=None)
 
 def index(request):
     # Se for POST, salvamos os filtros no cache
@@ -72,104 +120,53 @@ def index(request):
         # Se não for POST, recuperamos os filtros do cache
         cache_key = f"fiis_filters_{request.session.session_key}"
         filters = cache.get(cache_key, {})
+      
+    # Obtém os dados dos FIIs
+    df = rank_fiis(filters=filters)
 
-    # Carregamos o DataFrame
-    df = rank_fiis()
-    segmentos_unicos = df['Setor'].dropna().unique()
-
-    # Aplicamos os filtros
-    if filters:
-        # Dividend Yield
-        if 'dividend_yield_min' in filters:
-            try:
-                min_yield = float(filters['dividend_yield_min'])
-                df = df[df['DY'] >= min_yield]
-            except ValueError:
-                pass
-       
-        # Liquidez
-        if 'liquidez_min' in filters:
-            try:
-                min_liquidez = float(filters['liquidez_min'])
-                df = df[df['Liquidez'] >= min_liquidez]
-            except ValueError:
-                pass
-       
-        # PVP
-        if 'pvp_min' in filters:
-            try:
-                min_pvp = float(filters['pvp_min'])
-                df = df[df['P/VP'] >= min_pvp]
-            except ValueError:
-                pass
-       
-        if 'pvp_max' in filters:
-            try:
-                max_pvp = float(filters['pvp_max'])
-                df = df[df['P/VP'] <= max_pvp]
-            except ValueError:
-                pass
-       
-        # Segmento
-        if 'Setor' in filters:
-            segmento = filters['Setor'].strip()
-            if segmento:
-                df = df[df['Setor'].str.contains(segmento, case=False, na=False)]
-
-    # Recalcular o ranking após os filtros
-    df = df.reset_index(drop=True)
-    df['Rank'] = range(1, len(df) + 1)
-    df = df.sort_values('Rank')
-
-    # Preparar os dados para o template
+    # Obtém setores únicos para o filtro
+    segmentos_unicos = sorted(df['setor'].dropna().unique().tolist()) if 'setor' in df.columns else []
+    
+    # Prepara os dados para o template
     data = []
-    columns = df.columns.tolist()
-   
-    # Adicionar status de favorito para cada FII se o usuário estiver logado
+
+    # Adicionar status de favorito para cada Ação se o usuário estiver logado
     if request.user.is_authenticated:
         favorites = UserFavoriteFiis.objects.filter(user=request.user)
         favorite_dict = {fav.fiis.papel: fav.is_favorite for fav in favorites}
-   
-    # Converter DataFrame para lista de dicionários compatível com o template
+
     for index, row in df.iterrows():
         row_data = {}
-       
+        
         # Primeiro, garantimos que temos o papel
-        papel = str(row['Papel']) if 'Papel' in df.columns else str(row['papel'])
-        row_data['Papel'] = papel
-       
+        papel = str(row['papel']) if 'papel' in df.columns else str(row['papel'])
+        row_data['papel'] = papel
+        
         # Adicionamos o status de favorito
         if request.user.is_authenticated:
             row_data['is_favorite'] = favorite_dict.get(papel, False)
-       
-        # Adicionamos os outros campos, garantindo que os nomes sejam compatíveis com o template
-        for col in columns:
-            if col != 'Papel':  # Já adicionamos o Papel acima
-                # Normalizar o nome da coluna para o template
-                col_name = col.replace(' ', '_')  # Substituir espaços por underscores
-                row_data[col_name] = row[col]
-       
+        
+        # Adicionamos o rank
+        row_data['Rank'] = row['Rank']
+        row_data['cotacao'] = row['cotacao']
+        row_data['dy'] = row['dy']
+        row_data['pvp'] = row['pvp']
+        row_data['liquidez_diaria_rs'] = row['liquidez_diaria_rs']
+        row_data['dividend_yield'] = row['dividend_yield']
+        row_data['vacancia'] = row['vacancia']            
         data.append(row_data)
-   
-    # Adiciona status de favorito para cada FII
-    if request.user.is_authenticated:
-        favorites = UserFavoriteFiis.objects.filter(user=request.user)
-        favorite_dict = {fav.fiis.papel: fav.is_favorite for fav in favorites}
-    else:
-        favorite_dict = {}
-   
-    # Adiciona o status de favorito em cada linha de dados
-    for row in data:
-        row['is_favorite'] = favorite_dict.get(row['Papel'], False)
-   
+
     return render(request, 'fiis/index.html', {
         'data': data,
-        'columns': columns,
         'filters': filters,
         'setores': segmentos_unicos,
+        'total_fiis': len(data),
     })
+   
 
-
+def fii(request, papel):
+    fiis = get_object_or_404(Fiis, papel=papel)
+    return render(request, 'fiis/fii.html', {'fiis': fiis})
 @login_required
 def toggle_favorite(request, papel):
     fiis = get_object_or_404(Fiis, papel=papel)

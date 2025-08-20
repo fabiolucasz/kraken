@@ -106,7 +106,7 @@ def rank_acoes(filters=None):
     
     for col, peso in indicadores.items():
         # Normalizar entre 0 e 1
-        norm = scaler.fit_transform(df[[col]].fillna(0))  # Preencher NaN com 0
+        norm = scaler.fit_transform(df[[col]].fillna(0))  # Preencher NaN com 0 
         if peso < 0:
             norm = 1 - norm  # inverter se menor é melhor
         df[f'{col}_score'] = norm * abs(peso)
