@@ -4,7 +4,8 @@ import pandas as pd
 import os
 import sys
 import django
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
+from django.db import models
 
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 mysite_path = os.path.join(project_root, 'mysite')
@@ -83,7 +84,7 @@ class AcaoSpider(scrapy.Spider):
 
             # Indicadores
             indicadores = [i.strip().replace(" ", "_").replace(f"DIVIDEND_YIELD__-_{response.meta['papel']}", "DY") for i in response.css('div.cell span.d-flex::text').getall() if i.strip()]
-            indicadores_values = [iv.strip().replace(",", ".").replace("%", "") for iv in response.css('div.value span::text').getall() if iv.strip()]
+            indicadores_values = [iv.strip().replace(".", "").replace(",", ".").replace("%", "") for iv in response.css('div.value span::text').getall() if iv.strip()]
             while len(indicadores_values) < len(indicadores):
                 indicadores_values.append("")
             self.dados_indicadores.append(dict(zip(indicadores, indicadores_values), Papel=papel))
@@ -98,9 +99,13 @@ class AcaoSpider(scrapy.Spider):
             self.dados_info.append(dict(zip(info, info_values), Papel=papel))
 
             df1 = pd.DataFrame(self.dados_kpi).fillna("")
+            df1.to_csv("acoes_kpi_debug.csv", index=False)
             df2 = pd.DataFrame(self.dados_indicadores).fillna("")
+            df2.to_csv("acoes_indicadores_debug.csv", index=False)
             df3 = pd.DataFrame(self.dados_info).fillna("")
+            df3.to_csv("acoes_info_debug.csv", index=False)
             df4 = pd.DataFrame(self.dados_img).fillna("")
+            df4.to_csv("acoes_img_debug.csv", index=False)
 
             df = pd.merge(df1, df2).merge(df3).merge(df4)
             df['P/L'] = df['P/L'].apply(remover_segundo_ponto)
@@ -181,26 +186,53 @@ def salvar_no_banco(df):
                 if col in row and pd.notna(row[col]) and str(row[col]).strip() != '':
                     valor = str(row[col]).strip()
                     
-
+                    # Skip empty or special values
                     if valor in ('', '-', 'não disponível', 'não há dados', 'N/A'):
                         dados[campo] = None
                         continue
 
-                    valor = valor.replace('%', '').replace('R$', '').replace('.', '').replace(',', '.').strip()
-
+                    # Get the field type from the model
+                    field = Acoes._meta.get_field(campo)
+                    
+                    # Handle different field types appropriately
                     try:
-
-                        try:
-                            dados[campo] = Decimal(valor)
-                        except:
-
+                        if isinstance(field, (models.DecimalField, models.FloatField, models.IntegerField)):
+                            # For numeric fields, clean the value and convert to appropriate type
+                            clean_val = valor.strip()
+                            
+                            # Remove percentage and currency symbols
+                            clean_val = clean_val.replace('%', '').replace('R$', '').strip()
+                            
+                            # Handle different decimal/thousand separators
+                            if '.' in clean_val and ',' in clean_val:
+                                # Format: 1.000,50 (thousands separator and decimal comma)
+                                clean_val = clean_val.replace('.', '').replace(',', '.')
+                            elif ',' in clean_val and clean_val.count(',') == 1:
+                                # Format: 1000,50 (just decimal comma)
+                                clean_val = clean_val.replace(',', '.')
+                            
+                            # Convert to appropriate numeric type
                             try:
-                                dados[campo] = int(float(valor))
-                            except:
-
-                                dados[campo] = valor
-                    except:
-                        dados[campo] = valor
+                                if clean_val.replace('.', '').isdigit() or (clean_val.startswith('-') and clean_val[1:].replace('.', '').isdigit()):
+                                    if isinstance(field, models.DecimalField):
+                                        dados[campo] = Decimal(clean_val)
+                                    elif isinstance(field, models.FloatField):
+                                        dados[campo] = float(clean_val)
+                                    elif isinstance(field, models.IntegerField):
+                                        dados[campo] = int(round(float(clean_val)))
+                                else:
+                                    dados[campo] = None
+                            except (ValueError, TypeError, InvalidOperation):
+                                dados[campo] = None
+                        else:
+                            # For CharField and other non-numeric fields, keep as is
+                            dados[campo] = valor
+                    except (ValueError, TypeError):
+                        # If conversion fails, set to None for numeric fields, keep as is for others
+                        if isinstance(field, (models.DecimalField, models.FloatField, models.IntegerField)):
+                            dados[campo] = None
+                        else:
+                            dados[campo] = valor
             
 
             Acoes.objects.update_or_create(
