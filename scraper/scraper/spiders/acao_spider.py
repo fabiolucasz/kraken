@@ -99,13 +99,13 @@ class AcaoSpider(scrapy.Spider):
             self.dados_info.append(dict(zip(info, info_values), Papel=papel))
 
             df1 = pd.DataFrame(self.dados_kpi).fillna("")
-            df1.to_csv("acoes_kpi_debug.csv", index=False)
+            #df1.to_csv("acoes_kpi_debug.csv", index=False)
             df2 = pd.DataFrame(self.dados_indicadores).fillna("")
-            df2.to_csv("acoes_indicadores_debug.csv", index=False)
+            #df2.to_csv("acoes_indicadores_debug.csv", index=False)
             df3 = pd.DataFrame(self.dados_info).fillna("")
-            df3.to_csv("acoes_info_debug.csv", index=False)
+            #df3.to_csv("acoes_info_debug.csv", index=False)
             df4 = pd.DataFrame(self.dados_img).fillna("")
-            df4.to_csv("acoes_img_debug.csv", index=False)
+            #df4.to_csv("acoes_img_debug.csv", index=False)
 
             df = pd.merge(df1, df2).merge(df3).merge(df4)
             df['P/L'] = df['P/L'].apply(remover_segundo_ponto)

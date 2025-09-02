@@ -11,7 +11,7 @@ def rank_fiis(filters=None):
     queryset = Fiis.objects.all()
     
     # filtro prévio com os nomes corretos dos campos
-    queryset = queryset.filter(dy__gte=6)
+    queryset = queryset.filter(dividend_yield__gte=6)
     queryset = queryset.filter(liquidez_diaria_rs__gte=500000)
     queryset = queryset.filter(pvp__gte=0.75)
     queryset = queryset.filter(vacancia__lte=30)
@@ -21,7 +21,7 @@ def rank_fiis(filters=None):
         if 'dy_min' in filters:
             try:
                 min_dy = float(filters['dy_min'])
-                queryset = queryset.filter(dy__gte=min_dy)
+                queryset = queryset.filter(dividend_yield__gte=min_dy)
             except ValueError:
                 pass
 
@@ -64,7 +64,6 @@ def rank_fiis(filters=None):
 
     df = pd.DataFrame(list(queryset.values(
         'id',
-        'dy',
         'dividend_yield',
         'liquidez_diaria_rs',
         'papel',
@@ -74,7 +73,6 @@ def rank_fiis(filters=None):
         'ultimo_dividendo',
         'vacancia',
     )))
-    print(df)
 
 
     # Indicadores relevantes
@@ -103,12 +101,13 @@ def rank_fiis(filters=None):
     df['Rank'] = range(1, len(df) + 1)
 
     # Organizando as colunas finais
-    ordered_df = df[['Rank', 'papel', 'cotacao', 'dy', 'pvp', 'liquidez_diaria_rs', 'dividend_yield', 'vacancia']]
+    ordered_df = df[['Rank', 'papel', 'cotacao', 'dividend_yield', 'pvp', 'liquidez_diaria_rs', 'vacancia']]
     df = ordered_df
-    print(f'Final df:\n {df}')
 
     return df
-rank_fiis(filters=None)
+
+# Comentado para evitar execução durante a importação
+# rank_fiis(filters=None)
 
 def index(request):
     # Se for POST, salvamos os filtros no cache

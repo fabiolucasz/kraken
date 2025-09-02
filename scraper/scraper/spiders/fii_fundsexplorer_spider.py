@@ -176,8 +176,10 @@ class FiiSpider(scrapy.Spider):
                 df1 = pd.DataFrame(self.dados_grid).fillna("")
                 df2 = pd.DataFrame(self.dados_info).fillna("")
                 df = pd.merge(df1, df2)
-                df = df.drop(columns=["NUMERO DE COTISTAS, TAXA DE ADMINISTRAÇÂO"])
+                #df = df.drop(columns=["NUMERO DE COTISTAS, TAXA DE ADMINISTRAÇÂO"])
                 df.to_csv(f"{project_root}/fiis_detailed.csv", index=False)
+
+                return df
 
             else:
                 print(f"{papel}: Não foi possível coletar informações adicionais")
@@ -385,12 +387,12 @@ def run_fii():
     })
 
     # Run the spider
-    # process.crawl(FiiSpider)
-    # process.start()
+    process.crawl(FiiSpider)
+    process.start()
     
-    # # After spider finishes, run the funds explorer scraper
-    # print("\nIniciando coleta do Funds Explorer...")
-    # scrape_funds_explorer()
+    # After spider finishes, run the funds explorer scraper
+    print("\nIniciando coleta do Funds Explorer...")
+    scrape_funds_explorer()
     
    
     merge_datasets()

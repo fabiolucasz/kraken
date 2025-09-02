@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.utils import timezone
 # Create your models here.
 class Acoes(models.Model):
     id = models.AutoField(primary_key=True)
@@ -54,7 +54,7 @@ class Acoes(models.Model):
     segmento = models.CharField(max_length=255, null=True, blank=True)
     ticker_img = models.URLField(max_length=2000, null=True, blank=True)
 
-    data_atualizacao = models.DateTimeField(auto_now=True)
+    data_atualizacao = models.DateTimeField(default=timezone.now)
 
     class Meta:
         ordering = ['papel']

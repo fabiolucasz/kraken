@@ -65,6 +65,31 @@ class Fiis(models.Model):
     def __str__(self):
         return self.papel
 
+class FiisKpi(models.Model):
+    __tablename__ = "fiis_kpi"
+    papel = models.CharField(max_length=20, unique=True, verbose_name='Papel')
+    cotacao = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Cotação')
+    dy_12m = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='DY (12M)')
+    pvp = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='PVP')
+    liquidez_diaria = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True, verbose_name='Liquidez Diária')
+    liquidez_diaria_unidade = models.CharField(max_length=20, blank=True, null=True, verbose_name='Liquidez por Unidade')
+    variacao_12m = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Variação 12M')
+
+    data_atualizacao = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'KPI do FII'
+        verbose_name_plural = 'KPIs dos FII'
+        ordering = ['papel']
+    
+    def __str__(self):
+        return self.papel
+    
+class FiisInfo(models.Model):
+    __tablename__ = "fiis_info"
+    papel = models.CharField(max_length=20, unique=True, verbose_name='Papel')
+    
+
 class UserFavoriteFiis(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     fiis = models.ForeignKey(Fiis, on_delete=models.CASCADE)
