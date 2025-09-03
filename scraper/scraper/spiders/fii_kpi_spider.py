@@ -53,7 +53,7 @@ else:
         
         # Configura o Django
         django.setup()
-        from fiis.models import FiisKpi
+        from fiis.models import FiisKpi, FiisInfo
         print("Django configurado com sucesso!")
         DJANGO_AVAILABLE = True
     except Exception as e:
@@ -74,10 +74,10 @@ class FiiSpider(scrapy.Spider):
     def start_requests(self):
         
         df = pd.read_csv(f"{project_root}/fiis-listados-b3-tratado.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-        fiis_list = df["Papel"].tolist()
+        #fiis_list = df["Papel"].tolist()
         
         # For testing with just one FII
-        #fiis_list = ["MXRF11"]
+        fiis_list = ["MXRF11"]
         
         for papel in fiis_list:
             url = f"https://investidor10.com.br/fiis/{papel.lower().strip()}/"
@@ -104,13 +104,22 @@ class FiiSpider(scrapy.Spider):
             titulo_papel = "Papel"
             titulo_kpi = [titulo_cotacao, titulo_dy, titulo_pvp, titulo_liquidez, titulo_liquidez_unidade, titulo_variacao, titulo_papel]
 
+            # valores_kpi = response.xpath('//div[@class="_card-body"]//span/text()').getall()
+            # cotacao = valores_kpi[0].strip().replace("R$ ", "").replace(",", ".")
+            # dy = valores_kpi[1].strip().replace("%", "").replace(",", ".")
+            # pvp = valores_kpi[2].strip().replace("%", "").replace(",", ".")
+            # liquidez = valores_kpi[3].strip().split(" ")[1].replace(",", ".")
+            # liquidez_unidade = valores_kpi[3].strip().split(" ")[2]
+            # variacao = valores_kpi[4].strip().replace("%", "").replace(",", ".")
+            # papel = response.meta['papel']
+
             valores_kpi = response.xpath('//div[@class="_card-body"]//span/text()').getall()
-            cotacao = valores_kpi[0].strip().replace("R$ ", "").replace(",", ".")
-            dy = valores_kpi[1].strip().replace("%", "").replace(",", ".")
-            pvp = valores_kpi[2].strip().replace("%", "").replace(",", ".")
-            liquidez = valores_kpi[3].strip().split(" ")[1].replace(",", ".")
+            cotacao = valores_kpi[0].strip().replace("R$ ", "")
+            dy = valores_kpi[1].strip().replace("%", "")
+            pvp = valores_kpi[2].strip().replace("%", "")
+            liquidez = valores_kpi[3].strip().split(" ")[1]
             liquidez_unidade = valores_kpi[3].strip().split(" ")[2]
-            variacao = valores_kpi[4].strip().replace("%", "").replace(",", ".")
+            variacao = valores_kpi[4].strip().replace("%", "")
             papel = response.meta['papel']
 
             valores_kpi = [cotacao, dy, pvp, liquidez, liquidez_unidade, variacao, papel]
@@ -121,8 +130,8 @@ class FiiSpider(scrapy.Spider):
             self.dados_kpi.append(dict(zip(titulo_kpi, valores_kpi)))
             
             df_kpi = pd.DataFrame(self.dados_kpi).fillna("")
-
-            df_kpi.to_csv(f"{project_root}/fiis_kpis.csv", index=False)
+            # Save with semicolon as separator
+            df_kpi.to_csv(f"{project_root}/fiis_kpis.csv", index=False, sep=';', decimal=',', encoding='utf-8')
 
 
             ### INFO ###
@@ -137,7 +146,7 @@ class FiiSpider(scrapy.Spider):
 
 
             valores_tabela_info = response.xpath('//div[@class="value"]/span/text()').getall()
-            valores_tabela_info = [valor.strip().replace(".", "").replace(",", ".").replace("R$ ", "").split("%")[0] for valor in valores_tabela_info]
+            valores_tabela_info = [valor.strip().replace("R$ ", "").split("%")[0] for valor in valores_tabela_info]
             valor1=valores_tabela_info[0]
             valor2=valores_tabela_info[1]
             valor3=valores_tabela_info[2]
@@ -164,13 +173,13 @@ class FiiSpider(scrapy.Spider):
 
             df_info = pd.DataFrame(self.dados_info).fillna("")
 
-            df_info.to_csv(f"{project_root}/fiis_info.csv", index=False)
+            df_info.to_csv(f"{project_root}/fiis_info.csv", index=False, sep=';', decimal=',', encoding='utf-8')
 
          
         except Exception as e:
             self.logger.error(f"Erro ao processar {response.meta['papel']}: {e}")
             
-def salvar_no_banco(df):
+def salvar_kpis(df):
     # Mapeia os campos do item para o modelo Fiis
     campos_kpi_map = {
         'Papel': 'papel',
@@ -182,8 +191,7 @@ def salvar_no_banco(df):
         'VARIAÇÃO': 'variacao_12m',
     }
 
-    campos_info_map = {
-    }
+    
     # Processa cada linha do DataFrame
     for _, row in df.iterrows():
         try:
@@ -192,7 +200,7 @@ def salvar_no_banco(df):
             dados = {}
             
 
-            for col, campo in campos_kpi_map.items() and campos_info_map.items():
+            for col, campo in campos_kpi_map.items():
                 if col in row and pd.notna(row[col]) and str(row[col]).strip() != '':
                     valor = str(row[col]).strip()
                     
@@ -253,7 +261,95 @@ def salvar_no_banco(df):
             
         except Exception as e:
             print(f"Erro ao processar {papel}: {str(e)}")
+
+def salvar_info(df):
+    campos_info_map = {
+        'Papel': 'papel',
+        'Razão Social': 'razao_social',
+        'CNPJ': 'cnpj',
+        'PÚBLICO-ALVO': 'publico_alvo',
+        'MANDATO': 'mandato',
+        'SEGMENTO': 'segmento',
+        'TIPO DE FUNDO': 'tipo_fundo',
+        'PRAZO DE DURAÇÃO': 'prazo_duracao',
+        'TIPO DE GESTÃO': 'tipo_gestao',
+        'TAXA DE ADMINISTRAÇÃO': 'taxa_administracao',
+        'VACÂNCIA': 'vacancia',
+        'NUMERO DE COTISTAS': 'numero_cotistas',
+        'COTAS EMITIDAS': 'cotas_emitidas',
+        'VAL. PATRIMONIAL P/ COTA': 'valor_patrimonial_cota',
+        'VALOR PATRIMONIAL': 'valor_patrimonial',
+        'ÚLTIMO RENDIMENTO': 'ultimo_rendimento',
+        'Valor Patrimonial Unidade': 'valor_patrimonial_unidade'
+    }
     
+    for _, row in df.iterrows():
+        try:
+            papel = str(row['Papel']).strip()
+
+            dados = {}
+            
+            for col, campo in campos_info_map.items():
+                if col in row and pd.notna(row[col]) and str(row[col]).strip() != '':
+                    valor = str(row[col]).strip()
+                    
+                    # Skip empty or special values
+                    if valor in ('', '-', 'não disponível', 'não há dados', 'N/A'):
+                        dados[campo] = None
+                        continue
+
+                    # Get the field type from the model
+                    field = FiisInfo._meta.get_field(campo)
+                    
+                    # Handle different field types appropriately
+                    try:
+                        if isinstance(field, (models.DecimalField, models.FloatField, models.IntegerField)):
+                            # For numeric fields, clean the value and convert to appropriate type
+                            clean_val = valor.strip()
+                            
+                            # Remove percentage and currency symbols
+                            clean_val = clean_val.replace('%', '').replace('R$', '').strip()
+                            
+                            # Handle different decimal/thousand separators
+                            if '.' in clean_val and ',' in clean_val:
+                                # Format: 1.000,50 (thousands separator and decimal comma)
+                                clean_val = clean_val.replace('.', '').replace(',', '.')
+                            elif ',' in clean_val and clean_val.count(',') == 1:
+                                # Format: 1000,50 (just decimal comma)
+                                clean_val = clean_val.replace(',', '.')
+                            
+                            # Convert to appropriate numeric type
+                            try:
+                                if clean_val.replace('.', '').isdigit() or (clean_val.startswith('-') and clean_val[1:].replace('.', '').isdigit()):
+                                    if isinstance(field, models.DecimalField):
+                                        dados[campo] = Decimal(clean_val)
+                                    elif isinstance(field, models.FloatField):
+                                        dados[campo] = float(clean_val)
+                                    elif isinstance(field, models.IntegerField):
+                                        dados[campo] = int(round(float(clean_val)))
+                                else:
+                                    dados[campo] = None
+                            except (ValueError, TypeError, InvalidOperation):
+                                dados[campo] = None
+                        else:
+                            # For CharField and other non-numeric fields, keep as is
+                            dados[campo] = valor
+                    except (ValueError, TypeError):
+                        # If conversion fails, set to None for numeric fields, keep as is for others
+                        if isinstance(field, (models.DecimalField, models.FloatField, models.IntegerField)):
+                            dados[campo] = None
+                        else:
+                            dados[campo] = valor
+            
+            # Atualiza ou cria o registro no banco de dados
+            FiisInfo.objects.update_or_create(
+                papel=papel,
+                defaults=dados
+            )
+            print(f"Dados para {papel} salvos com sucesso!")
+            
+        except Exception as e:
+            print(f"Erro ao processar {papel}: {str(e)}")
 
 def run_fii():
     # Initialize spider and run it
@@ -264,32 +360,52 @@ def run_fii():
     })
 
     # Run the spider
-    # process.crawl(FiiSpider)
-    # process.start()
+    process.crawl(FiiSpider)
+    process.start()
     
     print("\nProcesso de coleta de dados finalizado.")
 
-    df = pd.read_csv(f"{project_root}/fiis_kpis.csv", encoding='utf-8')
+    # df_kpi = pd.read_csv(f"{project_root}/fiis_kpis.csv", encoding='utf-8')
+    # df_info = pd.read_csv(f"{project_root}/fiis_info.csv", encoding='utf-8')
 
-    # Tenta salvar no banco de dados se o Django estiver disponível
-    if DJANGO_AVAILABLE and not df.empty:
-        try:
-            salvar_no_banco(df)
-            print("Todos os dados foram salvos no banco de dados com sucesso!")
-            return
-        except Exception as e:
-            import traceback
-            print(f"Erro ao salvar no banco de dados: {e}")
-            print("Traceback:")
-            traceback.print_exc()
-            print("Tentando salvar em um arquivo CSV...")
-    # Se o Django não estiver disponível, ocorrer um erro ou não houver dados, salva em um arquivo CSV
-    if not df.empty:
-        output_file = f"{project_root}/fiis_kpis.csv"
-        df.to_csv(output_file, index=False, encoding='utf-8')
-        print(f"Dados salvos em {output_file}")
-    else:
-        print("Nenhum dado disponível para salvar.")
+    # # Tenta salvar no banco de dados se o Django estiver disponível
+    # if DJANGO_AVAILABLE and not df_kpi.empty:
+    #     try:
+    #         salvar_kpis(df_kpi)
+    #         print("Todos os dados foram salvos no banco de dados com sucesso!")
+    #         return
+    #     except Exception as e:
+    #         import traceback
+    #         print(f"Erro ao salvar no banco de dados: {e}")
+    #         print("Traceback:")
+    #         traceback.print_exc()
+    #         print("Tentando salvar em um arquivo CSV...")
+    # # Se o Django não estiver disponível, ocorrer um erro ou não houver dados, salva em um arquivo CSV
+    # if not df_kpi.empty:
+    #     output_file = f"{project_root}/fiis_kpis.csv"
+    #     df_kpi.to_csv(output_file, index=False, encoding='utf-8')
+    #     print(f"Dados salvos em {output_file}")
+    # else:
+    #     print("Nenhum dado disponível para salvar.")
+
+    # if DJANGO_AVAILABLE and not df_info.empty:
+    #     try:
+    #         salvar_info(df_info)
+    #         print("Todos os dados foram salvos no banco de dados com sucesso!")
+    #         return
+    #     except Exception as e:
+    #         import traceback
+    #         print(f"Erro ao salvar no banco de dados: {e}")
+    #         print("Traceback:")
+    #         traceback.print_exc()
+    #         print("Tentando salvar em um arquivo CSV...")
+    # # Se o Django não estiver disponível, ocorrer um erro ou não houver dados, salva em um arquivo CSV
+    # if not df_info.empty:
+    #     output_file = f"{project_root}/fiis_info.csv"
+    #     df_info.to_csv(output_file, index=False, encoding='utf-8')
+    #     print(f"Dados salvos em {output_file}")
+    # else:
+    #     print("Nenhum dado disponível para salvar.")
 
 
 
