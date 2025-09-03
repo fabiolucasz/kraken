@@ -58,6 +58,7 @@ class Fiis(models.Model):
     data_atualizacao = models.DateTimeField(auto_now=True)
     
     class Meta:
+        db_table = "fiis"
         verbose_name = 'Fundo Imobiliário'
         verbose_name_plural = 'Fundos Imobiliários'
         ordering = ['papel']
@@ -78,6 +79,7 @@ class FiisKpi(models.Model):
     data_atualizacao = models.DateTimeField(auto_now=True)
 
     class Meta:
+        db_table = "fiis_kpi"
         verbose_name = 'KPI do FII'
         verbose_name_plural = 'KPIs dos FII'
         ordering = ['papel']
@@ -88,6 +90,32 @@ class FiisKpi(models.Model):
 class FiisInfo(models.Model):
     __tablename__ = "fiis_info"
     papel = models.CharField(max_length=20, unique=True, verbose_name='Papel')
+    razao_social = models.CharField(max_length=200, blank=True, null=True, verbose_name='Razão Social')
+    cnpj = models.CharField(max_length=20, blank=True, null=True, verbose_name='CNPJ')
+    publico_alvo = models.CharField(max_length=100, blank=True, null=True, verbose_name='Público-Alvo')
+    mandato = models.CharField(max_length=100, blank=True, null=True, verbose_name='Mandato')
+    segmento = models.CharField(max_length=100, blank=True, null=True, verbose_name='Segmento')
+    tipo_fundo = models.CharField(max_length=100, blank=True, null=True, verbose_name='Tipo de Fundo')
+    prazo_duracao = models.CharField(max_length=100, blank=True, null=True, verbose_name='Prazo de Duração')
+    tipo_gestao = models.CharField(max_length=100, blank=True, null=True, verbose_name='Tipo de Gestão')
+    taxa_administracao = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Taxa de Administração')
+    vacancia = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Vacância')
+    numero_cotistas = models.IntegerField(blank=True, null=True, verbose_name='Nº de Cotistas')
+    cotas_emitidas = models.BigIntegerField(blank=True, null=True, verbose_name='Cotas Emitidas')
+    valor_patrimonial_cota = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Variação Patrimonial')
+    valor_patrimonial = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True, verbose_name='Valor Patrimonial')
+    ultimo_rendimento = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Último Rendimento')
+    valor_patrimonial_unidade = models.CharField(max_length=20, blank=True, null=True, verbose_name='Valor Patrimonial por Unidade')
+    data_atualizacao = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        db_table = "fiis_info"
+        verbose_name = 'Informações do FII'
+        verbose_name_plural = 'Informações dos FII'
+        ordering = ['papel']
+    
+    def __str__(self):
+        return self.papel
     
 
 class UserFavoriteFiis(models.Model):
@@ -98,6 +126,7 @@ class UserFavoriteFiis(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        db_table = "user_favorite_fiis"
         unique_together = ('user', 'fiis')
         verbose_name = 'Favorito do Usuário'
         verbose_name_plural = 'Favoritos dos Usuários'
