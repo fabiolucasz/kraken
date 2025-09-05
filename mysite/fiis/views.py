@@ -77,7 +77,7 @@ def rank_fiis(filters=None):
 
     # Indicadores relevantes
     indicadores = {
-        'dy': 1,  # quanto maior, melhor
+        'dividend_yield': 1,  # quanto maior, melhor
         'liquidez_diaria_rs': 0.5,  # quanto maior, melhor
         'pvp': -0.5,  # quanto menor, melhor
         'vacancia': -0.5,  # quanto menor, melhor
@@ -148,7 +148,6 @@ def index(request):
         # Adicionamos o rank
         row_data['Rank'] = row['Rank']
         row_data['cotacao'] = row['cotacao']
-        row_data['dy'] = row['dy']
         row_data['pvp'] = row['pvp']
         row_data['liquidez_diaria_rs'] = row['liquidez_diaria_rs']
         row_data['dividend_yield'] = row['dividend_yield']
