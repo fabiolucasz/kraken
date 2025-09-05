@@ -116,8 +116,45 @@ class FiisInfo(models.Model):
     
     def __str__(self):
         return self.papel
-    
 
+class FiisFundsExplorer(models.Model):
+    papel = models.CharField(max_length=20, unique=True, verbose_name='Papel')
+    setor = models.CharField(max_length=100, blank=True, null=True, verbose_name='Setor')
+    cotacao = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Preço Atual')
+    liquidez_diaria_rs = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True, verbose_name='Liquidez Diária (R$)')
+    ultimo_dividendo = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Último Dividendo')
+    dividend_yield = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Dividend Yield')
+    dy_3m_acumulado = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='DY (3M) Acumulado')
+    dy_6m_acumulado = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='DY (6M) Acumulado')
+    dy_12m_acumulado = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='DY (12M) Acumulado')
+    dy_3m_media = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='DY (3M) Média')
+    dy_6m_media = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='DY (6M) Média')
+    dy_12m_media = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='DY (12M) Média')
+    dy_ano = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='DY (Ano)')
+    variacao_preco = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Variação Preço')
+    rentab_periodo = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Rentabilidade do Período')
+    rentab_acumulada = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Rentabilidade Acumulada')
+    patrimonio_liquido = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True, verbose_name='Patrimônio Líquido')
+    vpa = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True, verbose_name='VPA')
+    p_vpa = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True, verbose_name='P/VPA')
+    dy_patrimonial = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='DY Patrimonial')
+    variacao_patrimonial = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Variação Patrimonial')
+    rentab_patr_periodo = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Rentabilidade Patrimonial do Período')
+    rentab_patr_acumulada = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Rentabilidade Patrimonial Acumulada')
+    quant_ativos = models.IntegerField(blank=True, null=True, verbose_name='Quantidade de Ativos')
+    volatilidade = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True, verbose_name='Volatilidade')
+    num_cotistas = models.IntegerField(blank=True, null=True, verbose_name='Nº de Cotistas')
+    data_atualizacao = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "fiis_funds_explorer"
+        verbose_name = 'Fundo Imobiliário'
+        verbose_name_plural = 'Fundos Imobiliários'
+        ordering = ['papel']
+    
+    def __str__(self):
+        return self.papel
+    
 class UserFavoriteFiis(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     fiis = models.ForeignKey(Fiis, on_delete=models.CASCADE)

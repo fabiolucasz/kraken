@@ -4,8 +4,15 @@ import pandas as pd
 import os
 import sys
 import django
-from decimal import Decimal, InvalidOperation
-from django.db import models
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
+import pandas as pd
+from bs4 import BeautifulSoup
 
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 mysite_path = os.path.join(project_root, 'mysite')
@@ -74,10 +81,10 @@ class FiiSpider(scrapy.Spider):
     def start_requests(self):
         
         df = pd.read_csv(f"{project_root}/fiis-listados-b3-tratado.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-        #fiis_list = df["Papel"].tolist()
+        fiis_list = df["Papel"].tolist()
         
         # For testing with just one FII
-        fiis_list = ["MXRF11"]
+        #fiis_list = ["MXRF11"]
         
         for papel in fiis_list:
             url = f"https://investidor10.com.br/fiis/{papel.lower().strip()}/"
@@ -103,15 +110,6 @@ class FiiSpider(scrapy.Spider):
             titulo_variacao = titulos_kpi[4].strip().split(" ")[0]
             titulo_papel = "Papel"
             titulo_kpi = [titulo_cotacao, titulo_dy, titulo_pvp, titulo_liquidez, titulo_liquidez_unidade, titulo_variacao, titulo_papel]
-
-            # valores_kpi = response.xpath('//div[@class="_card-body"]//span/text()').getall()
-            # cotacao = valores_kpi[0].strip().replace("R$ ", "").replace(",", ".")
-            # dy = valores_kpi[1].strip().replace("%", "").replace(",", ".")
-            # pvp = valores_kpi[2].strip().replace("%", "").replace(",", ".")
-            # liquidez = valores_kpi[3].strip().split(" ")[1].replace(",", ".")
-            # liquidez_unidade = valores_kpi[3].strip().split(" ")[2]
-            # variacao = valores_kpi[4].strip().replace("%", "").replace(",", ".")
-            # papel = response.meta['papel']
 
             valores_kpi = response.xpath('//div[@class="_card-body"]//span/text()').getall()
             cotacao = valores_kpi[0].strip().replace("R$ ", "")
@@ -179,7 +177,7 @@ class FiiSpider(scrapy.Spider):
         except Exception as e:
             self.logger.error(f"Erro ao processar {response.meta['papel']}: {e}")
             
-def salvar_kpis(df):
+def salvar_kpis(df_kpi):
     # Mapeia os campos do item para o modelo Fiis
     campos_kpi_map = {
         'Papel': 'papel',
@@ -190,10 +188,9 @@ def salvar_kpis(df):
         'Liquidez Unidade': 'liquidez_diaria_unidade',
         'VARIAÇÃO': 'variacao_12m',
     }
-
     
     # Processa cada linha do DataFrame
-    for _, row in df.iterrows():
+    for _, row in df_kpi.iterrows():
         try:
             papel = str(row['Papel']).strip()
 
@@ -211,46 +208,6 @@ def salvar_kpis(df):
 
                     # Get the field type from the model
                     field = FiisKpi._meta.get_field(campo)
-                    
-                    # Handle different field types appropriately
-                    try:
-                        if isinstance(field, (models.DecimalField, models.FloatField, models.IntegerField)):
-                            # For numeric fields, clean the value and convert to appropriate type
-                            clean_val = valor.strip()
-                            
-                            # Remove percentage and currency symbols
-                            clean_val = clean_val.replace('%', '').replace('R$', '').strip()
-                            
-                            # Handle different decimal/thousand separators
-                            if '.' in clean_val and ',' in clean_val:
-                                # Format: 1.000,50 (thousands separator and decimal comma)
-                                clean_val = clean_val.replace('.', '').replace(',', '.')
-                            elif ',' in clean_val and clean_val.count(',') == 1:
-                                # Format: 1000,50 (just decimal comma)
-                                clean_val = clean_val.replace(',', '.')
-                            
-                            # Convert to appropriate numeric type
-                            try:
-                                if clean_val.replace('.', '').isdigit() or (clean_val.startswith('-') and clean_val[1:].replace('.', '').isdigit()):
-                                    if isinstance(field, models.DecimalField):
-                                        dados[campo] = Decimal(clean_val)
-                                    elif isinstance(field, models.FloatField):
-                                        dados[campo] = float(clean_val)
-                                    elif isinstance(field, models.IntegerField):
-                                        dados[campo] = int(round(float(clean_val)))
-                                else:
-                                    dados[campo] = None
-                            except (ValueError, TypeError, InvalidOperation):
-                                dados[campo] = None
-                        else:
-                            # For CharField and other non-numeric fields, keep as is
-                            dados[campo] = valor
-                    except (ValueError, TypeError):
-                        # If conversion fails, set to None for numeric fields, keep as is for others
-                        if isinstance(field, (models.DecimalField, models.FloatField, models.IntegerField)):
-                            dados[campo] = None
-                        else:
-                            dados[campo] = valor
             
             # Atualiza ou cria o registro no banco de dados
             FiisKpi.objects.update_or_create(
@@ -262,7 +219,7 @@ def salvar_kpis(df):
         except Exception as e:
             print(f"Erro ao processar {papel}: {str(e)}")
 
-def salvar_info(df):
+def salvar_info(df_info):
     campos_info_map = {
         'Papel': 'papel',
         'Razão Social': 'razao_social',
@@ -283,7 +240,7 @@ def salvar_info(df):
         'Valor Patrimonial Unidade': 'valor_patrimonial_unidade'
     }
     
-    for _, row in df.iterrows():
+    for _, row in df_info.iterrows():
         try:
             papel = str(row['Papel']).strip()
 
@@ -300,46 +257,6 @@ def salvar_info(df):
 
                     # Get the field type from the model
                     field = FiisInfo._meta.get_field(campo)
-                    
-                    # Handle different field types appropriately
-                    try:
-                        if isinstance(field, (models.DecimalField, models.FloatField, models.IntegerField)):
-                            # For numeric fields, clean the value and convert to appropriate type
-                            clean_val = valor.strip()
-                            
-                            # Remove percentage and currency symbols
-                            clean_val = clean_val.replace('%', '').replace('R$', '').strip()
-                            
-                            # Handle different decimal/thousand separators
-                            if '.' in clean_val and ',' in clean_val:
-                                # Format: 1.000,50 (thousands separator and decimal comma)
-                                clean_val = clean_val.replace('.', '').replace(',', '.')
-                            elif ',' in clean_val and clean_val.count(',') == 1:
-                                # Format: 1000,50 (just decimal comma)
-                                clean_val = clean_val.replace(',', '.')
-                            
-                            # Convert to appropriate numeric type
-                            try:
-                                if clean_val.replace('.', '').isdigit() or (clean_val.startswith('-') and clean_val[1:].replace('.', '').isdigit()):
-                                    if isinstance(field, models.DecimalField):
-                                        dados[campo] = Decimal(clean_val)
-                                    elif isinstance(field, models.FloatField):
-                                        dados[campo] = float(clean_val)
-                                    elif isinstance(field, models.IntegerField):
-                                        dados[campo] = int(round(float(clean_val)))
-                                else:
-                                    dados[campo] = None
-                            except (ValueError, TypeError, InvalidOperation):
-                                dados[campo] = None
-                        else:
-                            # For CharField and other non-numeric fields, keep as is
-                            dados[campo] = valor
-                    except (ValueError, TypeError):
-                        # If conversion fails, set to None for numeric fields, keep as is for others
-                        if isinstance(field, (models.DecimalField, models.FloatField, models.IntegerField)):
-                            dados[campo] = None
-                        else:
-                            dados[campo] = valor
             
             # Atualiza ou cria o registro no banco de dados
             FiisInfo.objects.update_or_create(
@@ -365,60 +282,22 @@ def run_fii():
     
     print("\nProcesso de coleta de dados finalizado.")
 
-    # df_kpi = pd.read_csv(f"{project_root}/fiis_kpis.csv", encoding='utf-8')
-    # df_info = pd.read_csv(f"{project_root}/fiis_info.csv", encoding='utf-8')
+    df_kpi = pd.read_csv(f"{project_root}/fiis_kpis.csv", sep=';',thousands='.', decimal=',', encoding='utf-8')
+    df_info = pd.read_csv(f"{project_root}/fiis_info.csv", sep=';',thousands='.', decimal=',', encoding='utf-8')
 
-    # # Tenta salvar no banco de dados se o Django estiver disponível
-    # if DJANGO_AVAILABLE and not df_kpi.empty:
-    #     try:
-    #         salvar_kpis(df_kpi)
-    #         print("Todos os dados foram salvos no banco de dados com sucesso!")
-    #         return
-    #     except Exception as e:
-    #         import traceback
-    #         print(f"Erro ao salvar no banco de dados: {e}")
-    #         print("Traceback:")
-    #         traceback.print_exc()
-    #         print("Tentando salvar em um arquivo CSV...")
-    # # Se o Django não estiver disponível, ocorrer um erro ou não houver dados, salva em um arquivo CSV
-    # if not df_kpi.empty:
-    #     output_file = f"{project_root}/fiis_kpis.csv"
-    #     df_kpi.to_csv(output_file, index=False, encoding='utf-8')
-    #     print(f"Dados salvos em {output_file}")
-    # else:
-    #     print("Nenhum dado disponível para salvar.")
-
-    # if DJANGO_AVAILABLE and not df_info.empty:
-    #     try:
-    #         salvar_info(df_info)
-    #         print("Todos os dados foram salvos no banco de dados com sucesso!")
-    #         return
-    #     except Exception as e:
-    #         import traceback
-    #         print(f"Erro ao salvar no banco de dados: {e}")
-    #         print("Traceback:")
-    #         traceback.print_exc()
-    #         print("Tentando salvar em um arquivo CSV...")
-    # # Se o Django não estiver disponível, ocorrer um erro ou não houver dados, salva em um arquivo CSV
-    # if not df_info.empty:
-    #     output_file = f"{project_root}/fiis_info.csv"
-    #     df_info.to_csv(output_file, index=False, encoding='utf-8')
-    #     print(f"Dados salvos em {output_file}")
-    # else:
-    #     print("Nenhum dado disponível para salvar.")
-
-
-
-
-def remover_segundo_ponto(val):
-    if pd.isna(val):
-        return val
-    val = str(val).strip()
-    val = val.replace(',', '.')        
-    partes = val.split('.')           
-    if len(partes) > 2:
-        return '.'.join(partes[:-1]) + partes[-1]
-    return val
+    # Tenta salvar no banco de dados se o Django estiver disponível
+    if DJANGO_AVAILABLE and not df_kpi.empty and not df_info.empty:
+        try:
+            salvar_kpis(df_kpi)
+            salvar_info(df_info)
+            print("Todos os dados foram salvos no banco de dados com sucesso!")
+            return
+        except Exception as e:
+            import traceback
+            print(f"Erro ao salvar no banco de dados: {e}")
+            print("Traceback:")
+            traceback.print_exc()
+            print("Tentando salvar em um arquivo CSV...")
 
 if __name__ == "__main__":
     run_fii()
