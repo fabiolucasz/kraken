@@ -58,7 +58,13 @@ class AcaoSpider(scrapy.Spider):
     dados_img = []
 
     def start_requests(self):
-        df = pd.read_csv(f"{project_root}/acoes-listadas-b3.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+        # Ensure data directory exists
+        data_dir = os.path.join(os.path.dirname(__file__), 'data')
+        os.makedirs(data_dir, exist_ok=True)
+        
+        # Read the input file from data directory
+        input_path = os.path.join(data_dir, 'acoes-listadas-b3.csv')
+        df = pd.read_csv(input_path, quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
         for papel in df['Ticker']:
             url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
             yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
@@ -99,13 +105,13 @@ class AcaoSpider(scrapy.Spider):
             self.dados_info.append(dict(zip(info, info_values), Papel=papel))
 
             df1 = pd.DataFrame(self.dados_kpi).fillna("")
-            #df1.to_csv("acoes_kpi_debug.csv", index=False)
+            #df1.to_csv(os.path.join(data_dir, "acoes_kpi_debug.csv"), index=False)
             df2 = pd.DataFrame(self.dados_indicadores).fillna("")
-            #df2.to_csv("acoes_indicadores_debug.csv", index=False)
+            #df2.to_csv(os.path.join(data_dir, "acoes_indicadores_debug.csv"), index=False)
             df3 = pd.DataFrame(self.dados_info).fillna("")
-            #df3.to_csv("acoes_info_debug.csv", index=False)
+            #df3.to_csv(os.path.join(data_dir, "acoes_info_debug.csv"), index=False)
             df4 = pd.DataFrame(self.dados_img).fillna("")
-            #df4.to_csv("acoes_img_debug.csv", index=False)
+            #df4.to_csv(os.path.join(data_dir, "acoes_img_debug.csv"), index=False)
 
             df = pd.merge(df1, df2).merge(df3).merge(df4)
             df['P/L'] = df['P/L'].apply(remover_segundo_ponto)

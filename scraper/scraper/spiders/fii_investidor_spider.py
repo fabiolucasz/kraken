@@ -4,15 +4,7 @@ import pandas as pd
 import os
 import sys
 import django
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
 import pandas as pd
-from bs4 import BeautifulSoup
 
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 mysite_path = os.path.join(project_root, 'mysite')
@@ -80,11 +72,11 @@ class FiiSpider(scrapy.Spider):
 
     def start_requests(self):
         
-        df = pd.read_csv(f"{project_root}/fiis-listados-b3-tratado.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
-        fiis_list = df["Papel"].tolist()
+        # df = pd.read_csv(f"{project_root}/fiis-listados-b3-tratado.csv", quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+        # fiis_list = df["Papel"].tolist()
         
         # For testing with just one FII
-        #fiis_list = ["MXRF11"]
+        fiis_list = ["MXRF11"]
         
         for papel in fiis_list:
             url = f"https://investidor10.com.br/fiis/{papel.lower().strip()}/"
@@ -129,7 +121,8 @@ class FiiSpider(scrapy.Spider):
             
             df_kpi = pd.DataFrame(self.dados_kpi).fillna("")
             # Save with semicolon as separator
-            df_kpi.to_csv(f"{project_root}/fiis_kpis.csv", index=False, sep=';', decimal=',', encoding='utf-8')
+            os.makedirs(os.path.dirname(__file__) + '/data', exist_ok=True)
+            df_kpi.to_csv(os.path.join(os.path.dirname(__file__), 'data/fiis_kpis.csv'), index=False, sep=';', decimal=',', encoding='utf-8')
 
 
             ### INFO ###
@@ -171,7 +164,7 @@ class FiiSpider(scrapy.Spider):
 
             df_info = pd.DataFrame(self.dados_info).fillna("")
 
-            df_info.to_csv(f"{project_root}/fiis_info.csv", index=False, sep=';', decimal=',', encoding='utf-8')
+            df_info.to_csv(os.path.join(os.path.dirname(__file__), 'data/fiis_info.csv'), index=False, sep=';', decimal=',', encoding='utf-8')
 
          
         except Exception as e:
@@ -282,8 +275,8 @@ def run_fii():
     
     print("\nProcesso de coleta de dados finalizado.")
 
-    df_kpi = pd.read_csv(f"{project_root}/fiis_kpis.csv", sep=';',thousands='.', decimal=',', encoding='utf-8')
-    df_info = pd.read_csv(f"{project_root}/fiis_info.csv", sep=';',thousands='.', decimal=',', encoding='utf-8')
+    df_kpi = pd.read_csv(f"./scraper/scraper/spiders/data/fiis_kpis.csv", sep=';',thousands='.', decimal=',', encoding='utf-8')
+    df_info = pd.read_csv(f"./scraper/scraper/spiders/data/fiis_info.csv", sep=';',thousands='.', decimal=',', encoding='utf-8')
 
     # Tenta salvar no banco de dados se o Django estiver disponível
     if DJANGO_AVAILABLE and not df_kpi.empty and not df_info.empty:

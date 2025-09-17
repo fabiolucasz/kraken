@@ -126,7 +126,10 @@ def scrape_funds_explorer():
         df = df.drop(columns=["Tax. Gestão", "Tax. Performance", "Tax. Administração", "P/VP"])
         
 
-        df.to_csv(f"{project_root}/fiis_funds.csv",sep=';', decimal=',', index=False, encoding='utf-8')
+        # Create data directory if it doesn't exist
+        os.makedirs(os.path.join(os.path.dirname(__file__), 'data'), exist_ok=True)
+        output_path = os.path.join(os.path.dirname(__file__), 'data/fiis_funds.csv')
+        df.to_csv(output_path, sep=';', decimal=',', index=False, encoding='utf-8')
 
         if not data:
             raise Exception("Nenhum dado encontrado na tabela")
