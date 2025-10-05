@@ -229,7 +229,9 @@ def run_fii_fundsexplorer():
 
     print("\nProcesso de coleta de dados finalizado.")
 
-    df = pd.read_csv(f"{project_root}/fiis_funds.csv", sep=';', decimal=',', encoding='utf-8')
+    # Read from the data directory
+    data_dir = os.path.join(os.path.dirname(__file__), 'data')
+    df = pd.read_csv(os.path.join(data_dir, 'fiis_funds.csv'), sep=';', decimal=',', encoding='utf-8')
 
     # Tenta salvar no banco de dados se o Django estiver disponível
     if DJANGO_AVAILABLE and not df.empty:

@@ -11,3 +11,5 @@ selenium==4.34.2
 webdriver-manager==4.0.2
 python-dotenv==1.1.1
 psycopg2-binary==2.9.10
+fastapi==0.116.2
+sqlalchemy==2.0.43

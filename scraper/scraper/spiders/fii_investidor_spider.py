@@ -240,22 +240,23 @@ def salvar_info(df_info):
             dados = {}
             
             for col, campo in campos_info_map.items():
-                if col in row and pd.notna(row[col]) and str(row[col]).strip() != '':
-                    valor = str(row[col]).strip()
+                if col not in row or pd.isna(row[col]) or str(row[col]).strip() == '':
+                    dados[campo] = None
+                    continue
                     
-                    # Skip empty or special values
-                    if valor in ('', '-', 'não disponível', 'não há dados', 'N/A'):
-                        dados[campo] = None
-                        continue
+                valor = str(row[col]).strip()
+                
+                # Pula valores vazios ou inválidos
+                if valor.lower() in ('', '-', 'não disponível', 'não há dados', 'n/a'):
+                    dados[campo] = None
+                    continue
 
-                    # Get the field type from the model
-                    field = FiisInfo._meta.get_field(campo)
-            
             # Atualiza ou cria o registro no banco de dados
             FiisInfo.objects.update_or_create(
                 papel=papel,
                 defaults=dados
             )
+            print(df_info)
             print(f"Dados para {papel} salvos com sucesso!")
             
         except Exception as e:
@@ -275,8 +276,10 @@ def run_fii():
     
     print("\nProcesso de coleta de dados finalizado.")
 
-    df_kpi = pd.read_csv(f"./scraper/scraper/spiders/data/fiis_kpis.csv", sep=';',thousands='.', decimal=',', encoding='utf-8')
-    df_info = pd.read_csv(f"./scraper/scraper/spiders/data/fiis_info.csv", sep=';',thousands='.', decimal=',', encoding='utf-8')
+    # Read from the data directory
+    data_dir = os.path.join(os.path.dirname(__file__), 'data')
+    df_kpi = pd.read_csv(os.path.join(data_dir, 'fiis_kpis.csv'), sep=';', thousands='.', decimal=',', encoding='utf-8')
+    df_info = pd.read_csv(os.path.join(data_dir, 'fiis_info.csv'), sep=';', thousands='.', decimal=',', encoding='utf-8')
 
     # Tenta salvar no banco de dados se o Django estiver disponível
     if DJANGO_AVAILABLE and not df_kpi.empty and not df_info.empty:
