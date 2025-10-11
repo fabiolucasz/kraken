@@ -21,7 +21,7 @@ O Kraken é uma plataforma web para análise e rankeamento de ativos financeiros
 - 📈 Visualização clara dos principais indicadores financeiros
 - 🚀 Interface responsiva e moderna
 
-<img src="imgs/image.png" alt="Acoes">
+<img src="pics/image.png" alt="Acoes">
 
 ## 🛠️ Tecnologias
 
