@@ -30,20 +30,20 @@ def create_schemas():
     )
 
     @task
-    def upsert_csv_to_silver():
+    def upsert_csv_to_bronze():
         """
-        Faz UPSERT dos dados dos CSVs para as tabelas do schema silver.
+        Faz UPSERT dos dados dos CSVs para as tabelas do schema bronze.
         Usa ON CONFLICT para atualizar registros existentes baseado no campo 'papel'.
         """
-        # Mapeamento: arquivo CSV -> tabela no schema silver
+        # Mapeamento: arquivo CSV -> tabela no schema bronze
         csv_table_mapping = {
-            #'/usr/local/airflow/dags/scraper/scraper/spiders/data/fiis_kpis.csv': 'silver.fiis_kpi',
-            #'/usr/local/airflow/dags/scraper/scraper/spiders/data/fiis_info.csv': 'silver.fiis_info',
-            #'/usr/local/airflow/dags/scraper/scraper/spiders/data/fiis_funds.csv': 'silver.fiis_funds_explorer',
-            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_kpi.csv': 'silver.acoes_kpi',
-            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_indicadores.csv': 'silver.acoes_indicadores',
-            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_info.csv': 'silver.acoes_info',
-            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_img.csv': 'silver.acoes_img',
+            #'/usr/local/airflow/dags/scraper/scraper/spiders/data/fiis_kpis.csv': 'bronze.fiis_kpi',
+            #'/usr/local/airflow/dags/scraper/scraper/spiders/data/fiis_info.csv': 'bronze.fiis_info',
+            #'/usr/local/airflow/dags/scraper/scraper/spiders/data/fiis_funds.csv': 'bronze.fiis_funds_explorer',
+            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_kpi.csv': 'bronze.acoes_kpi',
+            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_indicadores.csv': 'bronze.acoes_indicadores',
+            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_info.csv': 'bronze.acoes_info',
+            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_img.csv': 'bronze.acoes_img',
         }
         
         # Conectar ao PostgreSQL
@@ -134,7 +134,7 @@ def create_schemas():
         print("\n✓ UPSERT concluído para todas as tabelas!")
     
     # Definir dependências
-    create_schemas >> create_tables >> upsert_csv_to_silver()
+    create_schemas >> create_tables >> upsert_csv_to_bronze()
 
 
 # Instanciar o DAG
