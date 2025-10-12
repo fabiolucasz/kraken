@@ -20,31 +20,20 @@ def create_schemas():
     # Criar os schemas bronze, silver e gold
     # Nota: Esta task usa a conexão 'airflowteste' que você configurou
     create_schemas = PostgresOperator(
-        task_id='create_schemas',
-        postgres_conn_id='airflowteste',
-        sql='airflow/scripts/create_schemas.sql',  # Arquivo SQL na mesma pasta dags/
-    )
+    task_id='create_schemas',
+    postgres_conn_id='airflowteste',
+    sql='scripts/create_schemas.sql',
+)
 
     create_tables = PostgresOperator(
         task_id='create_tables',
         postgres_conn_id='airflowteste',
-        sql='airflow/scripts/create_tables.sql',
+        sql='scripts/create_tables.sql',
     )
-
-    # prepare_data = BashOperator(
-    # task_id='prepare_data',
-    # bash_command='''
-    # mkdir -p /tmp/scraper_data && \
-    # cp /usr/local/airflow/dags/scraper/scraper/spiders/data/*.csv /tmp/scraper_data/ && \
-    # chmod -R 777 /tmp/scraper_data
-    # '''
-    # )
-
 
     crawl = PythonOperator(
         task_id='crawl',
         python_callable=main,
-        #bash_command='cd /usr/local/airflow/dags/scraper/scraper && python3 pipelines.py',
     )
 
     @task
