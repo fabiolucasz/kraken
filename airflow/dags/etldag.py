@@ -1,10 +1,12 @@
 from airflow.decorators import dag, task
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
+from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
 from pendulum import datetime
 import pandas as pd
 import os
-
+from dags.scraper.scraper.pipelines import main
 
 @dag(
     start_date=datetime(2024, 1, 1),
@@ -27,6 +29,22 @@ def create_schemas():
         task_id='create_tables',
         postgres_conn_id='airflowteste',
         sql='scripts/create_tables.sql',
+    )
+
+    prepare_data = BashOperator(
+    task_id='prepare_data',
+    bash_command='''
+    mkdir -p /tmp/scraper_data && \
+    cp /usr/local/airflow/dags/scraper/scraper/spiders/data/*.csv /tmp/scraper_data/ && \
+    chmod -R 777 /tmp/scraper_data
+    '''
+    )
+
+
+    crawl = PythonOperator(
+        task_id='crawl',
+        python_callable=main,
+        #bash_command='cd /usr/local/airflow/dags/scraper/scraper && python3 pipelines.py',
     )
 
     @task
@@ -134,7 +152,7 @@ def create_schemas():
         print("\n✓ UPSERT concluído para todas as tabelas!")
     
     # Definir dependências
-    create_schemas >> create_tables >> upsert_csv_to_bronze()
+    create_schemas >> create_tables >> prepare_data >> crawl >> upsert_csv_to_bronze()
 
 
 # Instanciar o DAG

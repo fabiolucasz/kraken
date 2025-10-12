@@ -2,6 +2,7 @@ import scrapy
 from scrapy.crawler import CrawlerProcess
 import pandas as pd
 import os
+#from pathlib import Path
 
 class FiiSpider(scrapy.Spider):
     name = "fii_kpi_spider"
@@ -11,7 +12,9 @@ class FiiSpider(scrapy.Spider):
 
     def start_requests(self):
         data_dir = os.path.join(os.path.dirname(__file__), 'data')
+        #data_dir = Path('usr/local/airflow/dags/scraper/scraper/data')
         os.makedirs(data_dir, exist_ok=True)
+        os.chmod(data_dir, 0o777)
         # df = pd.read_csv(os.path.join(data_dir,"fiis-listados-b3-tratado.csv"), quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
         # fiis_list = df["Papel"].tolist()
         
@@ -28,6 +31,7 @@ class FiiSpider(scrapy.Spider):
     def parse(self, response):
         try:
             data_dir = os.path.join(os.path.dirname(__file__), 'data')
+            #data_dir = Path('usr/local/airflow/dags/scraper/scraper/data')
             papel = response.meta['papel']
 
 

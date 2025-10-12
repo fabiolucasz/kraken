@@ -1,9 +1,8 @@
 import time
 from multiprocessing import Process
-from spiders.fii_investidor_spider import run_fii
-from spiders.acao_spider import run_scraper
-from spiders.fii_fundsexplorer_spider import run_fii_fundsexplorer
-import schedule
+from dags.scraper.scraper.spiders.fii_investidor_spider import run_fii
+from dags.scraper.scraper.spiders.acao_spider import run_scraper
+from dags.scraper.scraper.spiders.fii_fundsexplorer_spider import run_fii_fundsexplorer
 
 
 def run_fii_spider():
@@ -42,11 +41,11 @@ def main():
     fii_process.start()
     fii_process.join()
 
-    time.sleep(2)
+    # time.sleep(2)
 
-    fii_fundsexplorer_process = Process(target=run_fii_fundsexplorer_spider)
-    fii_fundsexplorer_process.start()
-    fii_fundsexplorer_process.join()
+    # fii_fundsexplorer_process = Process(target=run_fii_fundsexplorer_spider)
+    # fii_fundsexplorer_process.start()
+    # fii_fundsexplorer_process.join()
 
     time.sleep(2)
 
@@ -62,23 +61,4 @@ def main():
 
 
 if __name__ == "__main__":
-    import datetime
-    
-    def is_time_between(start, end, now=None):
-        now = now or datetime.datetime.now().time()
-        if start <= end:
-            return start <= now <= end
-        else:
-            return now >= start or now <= end
-
-    if is_time_between(datetime.time(10, 0), datetime.time(18, 0)):
-        main()
-
-    for hour in range(10, 18):
-        schedule.every().day.at(f"{hour:02d}:00").do(main)
-
-    while True:
-        current_time = datetime.datetime.now().time()
-        if is_time_between(datetime.time(10, 0), datetime.time(18, 0)):
-            schedule.run_pending()
-        time.sleep(60)
+    main()
