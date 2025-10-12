@@ -11,10 +11,12 @@ class FiiSpider(scrapy.Spider):
     dados_info = []
 
     def start_requests(self):
-        data_dir = os.path.join(os.path.dirname(__file__), 'data')
+        #data_dir = os.path.join(os.path.dirname(__file__), 'data')
         #data_dir = Path('usr/local/airflow/dags/scraper/scraper/data')
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
+        data_dir = os.path.join(base_dir, 'airflow', 'data')
+        print(f'data_dir: {data_dir}')
         os.makedirs(data_dir, exist_ok=True)
-        os.chmod(data_dir, 0o777)
         # df = pd.read_csv(os.path.join(data_dir,"fiis-listados-b3-tratado.csv"), quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
         # fiis_list = df["Papel"].tolist()
         
@@ -30,8 +32,11 @@ class FiiSpider(scrapy.Spider):
 
     def parse(self, response):
         try:
-            data_dir = os.path.join(os.path.dirname(__file__), 'data')
+            #data_dir = os.path.join(os.path.dirname(__file__), 'data')
             #data_dir = Path('usr/local/airflow/dags/scraper/scraper/data')
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
+            data_dir = os.path.join(base_dir, 'airflow', 'data')
+            print(f'data_dir: {data_dir}')
             papel = response.meta['papel']
 
 
@@ -107,9 +112,7 @@ class FiiSpider(scrapy.Spider):
 
             df_info = pd.DataFrame(self.dados_info).fillna("")
 
-            df_info.columns = df_info.columns.str.lower().str.strip().str.replace('-', '').str.replace('/', '').str.replace('.', '').str.replace(' ', '_')
-            order = ['papel', 'razão_social', 'cnpj', 'público_alvo', 'mandato', 'segmento', 'tipo_de_fundo', 'prazo_de_duracao', 'tipo_de_gestao', 'taxa_de_administração', 'vacância', 'numero_de_cotistas', 'cotas_emitidas', 'val_patrimonial_p_cota', 'valor_patrimonial', 'último_rendimento', 'valor_patrimonial_unidade']
-            df_info = df_info[order]
+            df_info.columns = df_info.columns.str.lower().str.strip().str.replace('-', '_').str.replace('/', '').str.replace('.', '').str.replace(' ', '_')
             df_info.to_csv(os.path.join(data_dir, 'fiis_info.csv'), index=False, sep=';', decimal=',', encoding='utf-8')
 
          

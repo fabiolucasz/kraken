@@ -6,7 +6,7 @@ from airflow.operators.bash import BashOperator
 from pendulum import datetime
 import pandas as pd
 import os
-from dags.scraper.scraper.pipelines import main
+from scraper.scraper.pipelines import main
 
 @dag(
     start_date=datetime(2024, 1, 1),
@@ -22,23 +22,23 @@ def create_schemas():
     create_schemas = PostgresOperator(
         task_id='create_schemas',
         postgres_conn_id='airflowteste',
-        sql='scripts/create_schemas.sql',  # Arquivo SQL na mesma pasta dags/
+        sql='airflow/scripts/create_schemas.sql',  # Arquivo SQL na mesma pasta dags/
     )
 
     create_tables = PostgresOperator(
         task_id='create_tables',
         postgres_conn_id='airflowteste',
-        sql='scripts/create_tables.sql',
+        sql='airflow/scripts/create_tables.sql',
     )
 
-    prepare_data = BashOperator(
-    task_id='prepare_data',
-    bash_command='''
-    mkdir -p /tmp/scraper_data && \
-    cp /usr/local/airflow/dags/scraper/scraper/spiders/data/*.csv /tmp/scraper_data/ && \
-    chmod -R 777 /tmp/scraper_data
-    '''
-    )
+    # prepare_data = BashOperator(
+    # task_id='prepare_data',
+    # bash_command='''
+    # mkdir -p /tmp/scraper_data && \
+    # cp /usr/local/airflow/dags/scraper/scraper/spiders/data/*.csv /tmp/scraper_data/ && \
+    # chmod -R 777 /tmp/scraper_data
+    # '''
+    # )
 
 
     crawl = PythonOperator(
@@ -53,16 +53,20 @@ def create_schemas():
         Faz UPSERT dos dados dos CSVs para as tabelas do schema bronze.
         Usa ON CONFLICT para atualizar registros existentes baseado no campo 'papel'.
         """
+        
         # Mapeamento: arquivo CSV -> tabela no schema bronze
         csv_table_mapping = {
-            #'/usr/local/airflow/dags/scraper/scraper/spiders/data/fiis_kpis.csv': 'bronze.fiis_kpi',
-            #'/usr/local/airflow/dags/scraper/scraper/spiders/data/fiis_info.csv': 'bronze.fiis_info',
-            #'/usr/local/airflow/dags/scraper/scraper/spiders/data/fiis_funds.csv': 'bronze.fiis_funds_explorer',
-            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_kpi.csv': 'bronze.acoes_kpi',
-            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_indicadores.csv': 'bronze.acoes_indicadores',
-            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_info.csv': 'bronze.acoes_info',
-            '/usr/local/airflow/dags/scraper/scraper/spiders/data/acoes_img.csv': 'bronze.acoes_img',
+            '/usr/local/airflow/data/fiis_kpis.csv': 'bronze.fiis_kpi',
+            '/usr/local/airflow/data/fiis_info.csv': 'bronze.fiis_info',
+            '/usr/local/airflow/data/fiis_funds.csv': 'bronze.fiis_funds_explorer',
+            '/usr/local/airflow/data/acoes_kpi.csv': 'bronze.acoes_kpi',
+            '/usr/local/airflow/data/acoes_indicadores.csv': 'bronze.acoes_indicadores',
+            '/usr/local/airflow/data/acoes_info.csv': 'bronze.acoes_info',
+            '/usr/local/airflow/data/acoes_img.csv': 'bronze.acoes_img',
+
         }
+
+        
         
         # Conectar ao PostgreSQL
         hook = PostgresHook(postgres_conn_id='airflowteste')
@@ -152,7 +156,7 @@ def create_schemas():
         print("\n✓ UPSERT concluído para todas as tabelas!")
     
     # Definir dependências
-    create_schemas >> create_tables >> prepare_data >> crawl >> upsert_csv_to_bronze()
+    create_schemas >> create_tables >>  crawl >> upsert_csv_to_bronze()
 
 
 # Instanciar o DAG

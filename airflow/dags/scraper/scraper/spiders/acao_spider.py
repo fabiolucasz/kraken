@@ -15,10 +15,12 @@ class AcaoSpider(scrapy.Spider):
 
     def start_requests(self):
         # Ensure data directory exists
-        data_dir = os.path.join(os.path.dirname(__file__), 'data')
+        #data_dir = os.path.join(os.path.dirname(__file__), 'data')
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
+        data_dir = os.path.join(base_dir, 'airflow', 'data')
+        print(f'data_dir: {data_dir}')
         #data_dir = Path('usr/local/airflow/dags/scraper/scraper/data')
         os.makedirs(data_dir, exist_ok=True)
-        os.chmod(data_dir, 0o777)
         
         # Read the input file from data directory
         input_path = os.path.join(data_dir, 'acoes-listadas-b3.csv')
@@ -29,7 +31,9 @@ class AcaoSpider(scrapy.Spider):
 
     def parse(self, response):
         try:
-            data_dir = os.path.join(os.path.dirname(__file__), 'data')
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
+            data_dir = os.path.join(base_dir, 'airflow', 'data')
+            print(f'data_dir: {data_dir}')
             #data_dir = Path('usr/local/airflow/dags/scraper/scraper/data')
             papel = response.meta['papel']
             print(f"Processando: {papel}")
