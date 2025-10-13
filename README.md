@@ -27,10 +27,36 @@ O Kraken é uma plataforma web para análise e rankeamento de ativos financeiros
 
 - **Backend:** Django 5.2
 - **Frontend:** HTML5, CSS3, JavaScript, Bootstrap 5
+- **Banco de Dados:** PostgreSQL
+- **Orquestração:** Apache Airflow
+- **ETL:** SQL, Pandas
 - **Análise de Dados:** Pandas, Scikit-learn
 - **Web Scraping:** Scrapy, BeautifulSoup, Selenium
 - **Containerização:** Docker, Docker Compose
 - **Outras:** aiohttp, lxml, html5lib
+
+## 🏗️ Arquitetura ETL
+
+O fluxo de ETL (Extração, Transformação e Carregamento) é orquestrado pelo Apache Airflow, garantindo a confiabilidade e rastreabilidade de todo o processo. A arquitetura segue o seguinte fluxo:
+
+1. **Extração**
+   - Utilização do Scrapy e Selenium para coleta de dados de fontes financeiras
+   - Dados brutos são armazenados temporariamente em formato estruturado
+
+2. **Transformação**
+   - Limpeza e normalização dos dados brutos
+   - Cálculo de indicadores financeiros
+   - Validação e tratamento de dados ausentes
+   - Aplicação de regras de negócio
+
+3. **Carregamento**
+   - Criação automática de schemas e tabelas no PostgreSQL
+   - Carga incremental dos dados processados
+   - Manutenção de histórico para análise temporal
+
+![Arquitetura ETL](pics/arquitetura.svg)
+
+O Airflow gerencia todo o fluxo com DAGs (Directed Acyclic Graphs) que são agendadas e monitoradas, garantindo que cada etapa seja executada na ordem correta e com tratamento de falhas adequado.
 
 ## 🚀 Instalação
 
