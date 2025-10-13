@@ -1,36 +1,37 @@
+-- Criar schemas apenas se não existirem
+CREATE SCHEMA IF NOT EXISTS bronze;
+CREATE SCHEMA IF NOT EXISTS silver;
+CREATE SCHEMA IF NOT EXISTS gold;
+
 -- ============================================
 -- Tabela: fiis_kpi
 -- ============================================
 CREATE TABLE IF NOT EXISTS bronze.fiis_kpi (
     id SERIAL PRIMARY KEY,
-    papel VARCHAR(20) UNIQUE NOT NULL,
     cotação NUMERIC(15, 2),
     dy NUMERIC(10, 2),
     pvp NUMERIC(10, 2),
     liquidez_diária NUMERIC(50, 2),
     liquidez_unidade VARCHAR(20),
-    variacao NUMERIC(10, 2),
+    variação NUMERIC(10, 2),
+    papel VARCHAR(20) UNIQUE NOT NULL,
     data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-CREATE INDEX IF NOT EXISTS idx_fiis_kpi_papel ON bronze.fiis_kpi(papel);
-
 
 -- ============================================
 -- Tabela: fiis_info
 -- ============================================
 CREATE TABLE IF NOT EXISTS bronze.fiis_info (
     id SERIAL PRIMARY KEY,
-    papel VARCHAR(20) UNIQUE NOT NULL,
     razão_social VARCHAR(200),
-    cnpj VARCHAR(20),
+    cnpj VARCHAR(50),
     público_alvo VARCHAR(100),
     mandato VARCHAR(100),
     segmento VARCHAR(100),
     tipo_de_fundo VARCHAR(100),
-    prazo_de_duracao VARCHAR(100),
-    tipo_de_gestao VARCHAR(100),
-    taxa_de_administração NUMERIC(10, 2),
+    prazo_de_duração VARCHAR(100),
+    tipo_de_gestão VARCHAR(100),
+    taxa_de_administração VARCHAR(100),
     vacância NUMERIC(10, 2),
     numero_de_cotistas INTEGER,
     cotas_emitidas BIGINT,
@@ -38,11 +39,10 @@ CREATE TABLE IF NOT EXISTS bronze.fiis_info (
     valor_patrimonial NUMERIC(20, 2),
     último_rendimento NUMERIC(15, 2),
     valor_patrimonial_unidade VARCHAR(20),
+    papel VARCHAR(20) UNIQUE NOT NULL,
     data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX IF NOT EXISTS idx_fiis_info_papel ON bronze.fiis_info(papel);
-CREATE INDEX IF NOT EXISTS idx_fiis_info_cnpj ON bronze.fiis_info(cnpj);
 
 
 -- ============================================
@@ -79,8 +79,6 @@ CREATE TABLE IF NOT EXISTS bronze.fiis_funds_explorer (
     data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX IF NOT EXISTS idx_fiis_funds_explorer_papel ON bronze.fiis_funds_explorer(papel);
-CREATE INDEX IF NOT EXISTS idx_fiis_funds_explorer_setor ON bronze.fiis_funds_explorer(setor);
 
 
 -- ============================================

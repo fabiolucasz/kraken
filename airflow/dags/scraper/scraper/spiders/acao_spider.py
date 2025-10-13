@@ -15,16 +15,14 @@ class AcaoSpider(scrapy.Spider):
 
     def start_requests(self):
         # Ensure data directory exists
-        #data_dir = os.path.join(os.path.dirname(__file__), 'data')
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
         data_dir = os.path.join(base_dir, 'airflow', 'data')
-        print(f'data_dir: {data_dir}')
-        #data_dir = Path('usr/local/airflow/dags/scraper/scraper/data')
         os.makedirs(data_dir, exist_ok=True)
         
         # Read the input file from data directory
         input_path = os.path.join(data_dir, 'acoes-listadas-b3.csv')
         df = pd.read_csv(input_path, quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
+        print(f"Total de Ações para coletar: {len(df['Ticker'])}")
         for papel in df['Ticker']:
             url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
             yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
@@ -33,8 +31,6 @@ class AcaoSpider(scrapy.Spider):
         try:
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
             data_dir = os.path.join(base_dir, 'airflow', 'data')
-            print(f'data_dir: {data_dir}')
-            #data_dir = Path('usr/local/airflow/dags/scraper/scraper/data')
             papel = response.meta['papel']
             print(f"Processando: {papel}")
 

@@ -2,11 +2,13 @@ from airflow.decorators import dag, task
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.operators.python import PythonOperator
-from airflow.operators.bash import BashOperator
 from pendulum import datetime
 import pandas as pd
 import os
-from scraper.scraper.pipelines import main
+#from scraper.scraper.pipelines import main
+from scraper.scraper.spiders.acao_spider import run_scraper
+#from scraper.scraper.spiders.fii_fundsexplorer_spider import run_fii_fundsexplorer
+from scraper.scraper.spiders.fii_investidor_spider import run_fii
 
 @dag(
     start_date=datetime(2024, 1, 1),
@@ -15,25 +17,24 @@ from scraper.scraper.pipelines import main
     default_args={"owner": "Astro", "retries": 1},
     tags=["database", "setup", "postgres", "sql"],
 )
-def create_schemas():
+def kraken_test():
     
     # Criar os schemas bronze, silver e gold
     # Nota: Esta task usa a conexão 'airflowteste' que você configurou
-    create_schemas = PostgresOperator(
-    task_id='create_schemas',
-    postgres_conn_id='airflowteste',
-    sql='scripts/create_schemas.sql',
-)
-
     create_tables = PostgresOperator(
         task_id='create_tables',
         postgres_conn_id='airflowteste',
         sql='scripts/create_tables.sql',
     )
 
-    crawl = PythonOperator(
-        task_id='crawl',
-        python_callable=main,
+    crawl_acoes = PythonOperator(
+        task_id='crawl_acoes',
+        python_callable=run_scraper,
+    )
+
+    crawl_fiis_investidor = PythonOperator(
+        task_id='crawl_fiis_investidor',
+        python_callable=run_fii,
     )
 
     @task
@@ -47,7 +48,6 @@ def create_schemas():
         csv_table_mapping = {
             '/usr/local/airflow/data/fiis_kpis.csv': 'bronze.fiis_kpi',
             '/usr/local/airflow/data/fiis_info.csv': 'bronze.fiis_info',
-            '/usr/local/airflow/data/fiis_funds.csv': 'bronze.fiis_funds_explorer',
             '/usr/local/airflow/data/acoes_kpi.csv': 'bronze.acoes_kpi',
             '/usr/local/airflow/data/acoes_indicadores.csv': 'bronze.acoes_indicadores',
             '/usr/local/airflow/data/acoes_info.csv': 'bronze.acoes_info',
@@ -145,8 +145,7 @@ def create_schemas():
         print("\n✓ UPSERT concluído para todas as tabelas!")
     
     # Definir dependências
-    create_schemas >> create_tables >>  crawl >> upsert_csv_to_bronze()
-
+    create_tables >>  [crawl_acoes, crawl_fiis_investidor] >> upsert_csv_to_bronze()
 
 # Instanciar o DAG
-create_schemas()
+kraken_test()
