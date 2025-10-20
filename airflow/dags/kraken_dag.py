@@ -12,7 +12,7 @@ from scraper.scraper.spiders.fii_investidor_spider import run_fii
 
 @dag(
     start_date=datetime(2024, 1, 1),
-    schedule=None,  # Execução manual
+    schedule='0 9-18 * * 1-5',
     catchup=False,
     default_args={"owner": "Astro", "retries": 1},
     tags=["database", "setup", "postgres", "sql"],
