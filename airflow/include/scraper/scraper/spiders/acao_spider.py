@@ -16,7 +16,7 @@ class AcaoSpider(scrapy.Spider):
     def start_requests(self):
         # Ensure data directory exists
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-        data_dir = os.path.join(base_dir, 'airflow', 'data')
+        data_dir = os.path.join(base_dir, 'airflow','include', 'data')
         os.makedirs(data_dir, exist_ok=True)
         
         # Read the input file from data directory
@@ -27,10 +27,10 @@ class AcaoSpider(scrapy.Spider):
             url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
             yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
 
-    def parse(self, response):
+    async def parse(self, response):
         try:
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-            data_dir = os.path.join(base_dir, 'airflow', 'data')
+            data_dir = os.path.join(base_dir, 'airflow', 'include', 'data')
             papel = response.meta['papel']
             print(f"Processando: {papel}")
 

@@ -6,9 +6,9 @@ from pendulum import datetime
 import pandas as pd
 import os
 #from scraper.scraper.pipelines import main
-from scraper.scraper.spiders.acao_spider import run_scraper
+from include.scraper.scraper.spiders.acao_spider import run_scraper
 #from scraper.scraper.spiders.fii_fundsexplorer_spider import run_fii_fundsexplorer
-from scraper.scraper.spiders.fii_investidor_spider import run_fii
+from include.scraper.scraper.spiders.fii_investidor_spider import run_fii
 
 @dag(
     start_date=datetime(2024, 1, 1),
@@ -16,6 +16,7 @@ from scraper.scraper.spiders.fii_investidor_spider import run_fii
     catchup=False,
     default_args={"owner": "Astro", "retries": 1},
     tags=["database", "setup", "postgres", "sql"],
+    template_searchpath='/usr/local/airflow/include/scripts/'
 )
 def kraken_test():
     
@@ -24,7 +25,7 @@ def kraken_test():
     create_tables = PostgresOperator(
         task_id='create_tables',
         postgres_conn_id='airflowteste',
-        sql='scripts/create_tables.sql',
+        sql='create_tables.sql',
     )
 
     crawl_acoes = PythonOperator(

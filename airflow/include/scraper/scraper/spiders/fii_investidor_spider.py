@@ -12,7 +12,7 @@ class FiiSpider(scrapy.Spider):
 
     def start_requests(self):
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-        data_dir = os.path.join(base_dir, 'airflow', 'data')
+        data_dir = os.path.join(base_dir, 'airflow', 'include', 'data')
         os.makedirs(data_dir, exist_ok=True)
         df = pd.read_csv(os.path.join(data_dir,"fiis-listados-b3-tratado.csv"), quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
         fiis_list = df["Papel"].tolist()
@@ -28,10 +28,10 @@ class FiiSpider(scrapy.Spider):
             yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
 
 
-    def parse(self, response):
+    async def parse(self, response):
         try:
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-            data_dir = os.path.join(base_dir, 'airflow', 'data')
+            data_dir = os.path.join(base_dir, 'airflow', 'include', 'data')
             papel = response.meta['papel']
 
 
