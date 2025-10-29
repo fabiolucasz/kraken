@@ -47,12 +47,12 @@ def kraken_test():
         
         # Mapeamento: arquivo CSV -> tabela no schema bronze
         csv_table_mapping = {
-            '/usr/local/airflow/data/fiis_kpis.csv': 'bronze.fiis_kpi',
-            '/usr/local/airflow/data/fiis_info.csv': 'bronze.fiis_info',
-            '/usr/local/airflow/data/acoes_kpi.csv': 'bronze.acoes_kpi',
-            '/usr/local/airflow/data/acoes_indicadores.csv': 'bronze.acoes_indicadores',
-            '/usr/local/airflow/data/acoes_info.csv': 'bronze.acoes_info',
-            '/usr/local/airflow/data/acoes_img.csv': 'bronze.acoes_img',
+            '/usr/local/airflow/include/data/fiis_kpis.csv': 'bronze.fiis_kpi',
+            '/usr/local/airflow/include/data/fiis_info.csv': 'bronze.fiis_info',
+            '/usr/local/airflow/include/data/acoes_kpi.csv': 'bronze.acoes_kpi',
+            '/usr/local/airflow/include/data/acoes_indicadores.csv': 'bronze.acoes_indicadores',
+            '/usr/local/airflow/include/data/acoes_info.csv': 'bronze.acoes_info',
+            '/usr/local/airflow/include/data/acoes_img.csv': 'bronze.acoes_img',
 
         }
 
