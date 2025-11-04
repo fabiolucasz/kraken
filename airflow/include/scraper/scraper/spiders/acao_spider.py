@@ -57,6 +57,7 @@ class AcaoSpider(scrapy.Spider):
             df_kpi = pd.DataFrame(self.dados_kpi).fillna("")
             df_kpi.columns = df_kpi.columns.str.lower().str.strip().str.replace(' ', '_').str.replace('-', '').str.replace('/','_').str.replace('(','').str.replace(')','')
             df_kpi = df_kpi.applymap(lambda x: str(x).lower().strip().replace('-', '').replace('_', ' ') if isinstance(x, str) else x)
+            df_kpi = df_kpi.drop(columns=["carteira_investidor_10"])
             df_kpi.to_csv(os.path.join(data_dir, "acoes_kpi.csv"), index=False)
 
             # Indicadores

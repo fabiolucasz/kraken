@@ -10,29 +10,24 @@ app = FastAPI()
 async def root():
     return {"message": "API is running"}
 
-@app.get("/acoes_info")
-async def get_acoes_info(db: Session = Depends(get_db)) -> List[Dict[str, Any]]:
-    result = db.execute(text("SELECT * FROM bronze.acoes_info"))
-    acoes_info = [dict(row._mapping) for row in result]
-    return acoes_info
+@app.get("/acoes_ranking")
+async def get_acoes_ranking(db: Session = Depends(get_db)) -> List[Dict[str, Any]]:
+    """
+    Retorna todos os dados da tabela gold.acoes_ranking.
+    """
+    result = db.execute(text("SELECT * FROM gold.acoes_ranking"))
+    acoes_ranking = [dict(row._mapping) for row in result]
+    return acoes_ranking
 
-@app.get("/acoes_kpi")
-async def get_acoes_kpi(db: Session = Depends(get_db)) -> List[Dict[str, Any]]:
-    result = db.execute(text("SELECT * FROM bronze.acoes_kpi"))
-    acoes_kpi = [dict(row._mapping) for row in result]
-    return acoes_kpi
+@app.get("/fiis_ranking")
+async def get_fiis_ranking(db: Session = Depends(get_db)) -> List[Dict[str, Any]]:
+    """
+    Retorna todos os dados da tabela gold.fiis_ranking.
+    """
+    result = db.execute(text("SELECT * FROM gold.fiis_ranking"))
+    fiis_ranking = [dict(row._mapping) for row in result]
+    return fiis_ranking
 
-@app.get("/acoes_indicadores")
-async def get_acoes_indicadores(db: Session = Depends(get_db)) -> List[Dict[str, Any]]:
-    result = db.execute(text("SELECT * FROM bronze.acoes_indicadores"))
-    acoes_indicadores = [dict(row._mapping) for row in result]
-    return acoes_indicadores
-
-@app.get("/acoes_img")
-async def get_acoes_img(db: Session = Depends(get_db)) -> List[Dict[str, Any]]:
-    result = db.execute(text("SELECT * FROM bronze.acoes_img"))
-    acoes_img = [dict(row._mapping) for row in result]
-    return acoes_img
 
 if __name__ == "__main__":
     import uvicorn

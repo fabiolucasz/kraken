@@ -91,7 +91,6 @@ CREATE TABLE IF NOT EXISTS bronze.acoes_kpi (
     p_l NUMERIC(15, 2),
     p_vp NUMERIC(15, 2),
     dy NUMERIC(15, 2),
-    carteira_investidor_10 VARCHAR(50),
     papel VARCHAR(20) UNIQUE NOT NULL,
     data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

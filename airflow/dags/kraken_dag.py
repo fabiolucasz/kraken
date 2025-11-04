@@ -145,8 +145,20 @@ def kraken_test():
         
         print("\n✓ UPSERT concluído para todas as tabelas!")
     
+    create_silver_tables = PostgresOperator(
+        task_id='create_silver_tables',
+        postgres_conn_id='airflowteste',
+        sql='silver_tables.sql',
+    )
+    
+    create_gold_tables = PostgresOperator(
+        task_id='create_gold_tables',
+        postgres_conn_id='airflowteste',
+        sql='gold_tables.sql',
+    )
+    
     # Definir dependências
-    create_tables >>  [crawl_acoes, crawl_fiis_investidor] >> upsert_csv_to_bronze()
+    create_tables >>  [crawl_acoes, crawl_fiis_investidor] >> upsert_csv_to_bronze() >> create_silver_tables >> create_gold_tables
 
 # Instanciar o DAG
 kraken_test()
