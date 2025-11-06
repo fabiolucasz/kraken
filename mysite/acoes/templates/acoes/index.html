@@ -416,65 +416,63 @@
             <table class="table table-dark table-hover">
                 <thead>
                     <tr>
-                        
-                        <!-- {% for col in columns %}
-                        <th>{{ col }}</th>
-                        {% endfor %} -->
                         <th></th>
-                        <th>Rank</th>
-                        <th>Ticker</th>
-                        <th>Preço</th>
+                        <th>Papel</th>
+                        <th>Cotação</th>
                         <th>P/L</th>
                         <th>DY</th>
                         <th>P/VP</th>
                         <th>ROE</th>
+                        <th>PAYOUT</th>
+                        <th>MARGEM LÍQ.</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    {% for row in data %}
-                    <tr>
-                        <td>
-                            <a href="{% url 'acoes:toggle_favorite' row.Papel %}"
-                                class="favorite-star {% if row.is_favorite %}favorite-star-yellow{% else %}favorite-star-gray{% endif %}">
-                                ★
-                            </a>
-                        </td>
-
-
-
-
-                        <td>
-                            {{ row.Rank }}º
-                        </td>
-                        <td>
-                            <a href="{% url 'acoes:acao' row.Papel %}">
-                                <div class="logo">
-                                    
-                                    
-                                    <img src="{{ row.Ticker_Img }}" alt="{{ row.Papel }}">
-                                    
-                                    <span>{{ row.Papel }}</span>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            {{ row.Cotação }}
-                        </td>
-                        <td>
-                            {{ row.PL }}
-                        </td>
-                        <td>
-                            {{ row.DY }}
-                        </td>
-                        <td>
-                            {{ row.PVP }}
-                        </td>
-                        <td>
-                            {{ row.ROE }}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
+    {% for row in data %}
+    <tr>
+        <!-- Rank -->
+        <td class="text-center">{{ row.Rank }}º</td>
+        
+        <!-- Papel -->
+        <td>
+            <a href="#">
+                <div class="logo">
+                    <img src="{{ row.Ticker_Img|default:'/static/images/default-ticker.png' }}" alt="{{ row.papel }}" 
+                         onerror="this.onerror=null; this.src='/static/images/default-ticker.png'">
+                    <span>{{ row.papel }}</span>
+                </div>
+            </a>
+        </td>
+        
+        <!-- Cotação -->
+        <td>R$ {{ row.Cotação|floatformat:2 }}</td>
+        
+        <!-- P/L -->
+        <td>{{ row.PL|floatformat:2 }}</td>
+        
+        <!-- DY -->
+        <td>{{ row.DY|floatformat:2 }}%</td>
+        
+        <!-- P/VP -->
+        <td>{{ row.PVP|floatformat:2 }}</td>
+        
+        <!-- ROE -->
+        <td>{{ row.ROE|floatformat:2 }}%</td>
+        
+        <!-- PAYOUT -->
+        <td>{{ row.PAYOUT|floatformat:2 }}%</td>
+        
+        <!-- MARGEM LÍQUIDA -->
+        <td>{{ row.MARGEM_LÍQUIDA|floatformat:2 }}%</td>
+        
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="10" class="text-center">Nenhuma ação encontrada com os filtros selecionados.</td>
+    </tr>
+    {% endfor %}
+</tbody>
             </table>
         </div>
     </div>

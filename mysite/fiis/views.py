@@ -1,86 +1,93 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.cache import cache
 from django.contrib.auth.decorators import login_required
-from .models import Fiis, UserFavoriteFiis
 from django.contrib import messages
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
+from .client import KrakenAPIClient
+
 
 
 def rank_fiis(filters=None):
-    queryset = Fiis.objects.all()
+    # queryset = Fiis.objects.all()
     
-    # filtro prévio com os nomes corretos dos campos
-    queryset = queryset.filter(dividend_yield__gte=6)
-    queryset = queryset.filter(liquidez_diaria_rs__gte=500000)
-    queryset = queryset.filter(pvp__gte=0.75)
-    queryset = queryset.filter(vacancia__lte=30)
+    # # filtro prévio com os nomes corretos dos campos
+    # queryset = queryset.filter(dividend_yield__gte=6)
+    # queryset = queryset.filter(liquidez_diaria_rs__gte=500000)
+    # queryset = queryset.filter(pvp__gte=0.75)
+    # queryset = queryset.filter(vacancia__lte=30)
 
-    if filters:
-        # DY
-        if 'dy_min' in filters:
-            try:
-                min_dy = float(filters['dy_min'])
-                queryset = queryset.filter(dividend_yield__gte=min_dy)
-            except ValueError:
-                pass
+    fiis = KrakenAPIClient().get_fiis_ranking()
+    df = pd.DataFrame(fiis)
+    df = df[df['pvp'].astype(float) >= 0.75]
+    df = df[df['vacância'].astype(float) <= 30.00]
+    df = df[df['dividend_yield'].astype(float) >= 6.00]
 
-        # Liquidez
-        if 'liquidez_min' in filters:
-            try:
-                min_liquidez = float(filters['liquidez_min'])
-                queryset = queryset.filter(liquidez_diaria_rs__gte=min_liquidez)
-            except ValueError:
-                pass
+    # if filters:
+    #     # DY
+    #     if 'dy_min' in filters:
+    #         try:
+    #             min_dy = float(filters['dy_min'])
+    #             queryset = queryset.filter(dividend_yield__gte=min_dy)
+    #         except ValueError:
+    #             pass
 
-        # PVP
-        if 'pvp_min' in filters:
-            try:
-                min_pvp = float(filters['pvp_min'])
-                queryset = queryset.filter(pvp__lte=min_pvp)
-            except ValueError:
-                pass
+    #     # Liquidez
+    #     if 'liquidez_min' in filters:
+    #         try:
+    #             min_liquidez = float(filters['liquidez_min'])
+    #             queryset = queryset.filter(liquidez_diaria_rs__gte=min_liquidez)
+    #         except ValueError:
+    #             pass
 
-        if 'pvp_max' in filters:
-            try:
-                max_pvp = float(filters['pvp_max'])
-                queryset = queryset.filter(pvp__lte=max_pvp)
-            except ValueError:
-                pass
+    #     # PVP
+    #     if 'pvp_min' in filters:
+    #         try:
+    #             min_pvp = float(filters['pvp_min'])
+    #             queryset = queryset.filter(pvp__lte=min_pvp)
+    #         except ValueError:
+    #             pass
 
-        if 'vacancia_max' in filters:
-            try:
-                max_vacancia = float(filters['vacancia_max'])
-                queryset = queryset.filter(vacancia__lte=max_vacancia)
-            except ValueError:
-                pass
+    #     if 'pvp_max' in filters:
+    #         try:
+    #             max_pvp = float(filters['pvp_max'])
+    #             queryset = queryset.filter(pvp__lte=max_pvp)
+    #         except ValueError:
+    #             pass
+
+    #     if 'vacancia_max' in filters:
+    #         try:
+    #             max_vacancia = float(filters['vacancia_max'])
+    #             queryset = queryset.filter(vacancia__lte=max_vacancia)
+    #         except ValueError:
+    #             pass
         
         
-        if 'setor' in filters:
-            try:
-                queryset = queryset.filter(setor__icontains=filters['setor'])
-            except ValueError:
-                pass
+    #     if 'setor' in filters:
+    #         try:
+    #             queryset = queryset.filter(setor__icontains=filters['setor'])
+    #         except ValueError:
+    #             pass
 
-    df = pd.DataFrame(list(queryset.values(
-        'id',
-        'dividend_yield',
-        'liquidez_diaria_rs',
-        'papel',
-        'cotacao',
-        'pvp',
-        'setor',
-        'ultimo_dividendo',
-        'vacancia',
-    )))
+    # df = pd.DataFrame(list(queryset.values(
+    #     'id',
+    #     'dividend_yield',
+    #     'liquidez_diaria_rs',
+    #     'papel',
+    #     'cotacao',
+    #     'pvp',
+    #     'setor',
+    #     'ultimo_dividendo',
+    #     'vacancia',
+    # )))
 
 
     # Indicadores relevantes
     indicadores = {
         'dividend_yield': 1,  # quanto maior, melhor
-        'liquidez_diaria_rs': 0.5,  # quanto maior, melhor
+        'liquidez_diária': 0.5,  # quanto maior, melhor
         'pvp': -0.5,  # quanto menor, melhor
-        'vacancia': -0.5,  # quanto menor, melhor
+        'vacância': -0.5,  # quanto menor, melhor
     }
 
    
@@ -101,7 +108,7 @@ def rank_fiis(filters=None):
     df['Rank'] = range(1, len(df) + 1)
 
     # Organizando as colunas finais
-    ordered_df = df[['Rank', 'papel', 'cotacao', 'dividend_yield', 'pvp', 'liquidez_diaria_rs', 'vacancia']]
+    ordered_df = df[['Rank', 'papel', 'cotacao_atual', 'dividend_yield', 'pvp', 'liquidez_diária', 'vacância']]
     df = ordered_df
 
     return df
@@ -129,10 +136,10 @@ def index(request):
     # Prepara os dados para o template
     data = []
 
-    # Adicionar status de favorito para cada Ação se o usuário estiver logado
-    if request.user.is_authenticated:
-        favorites = UserFavoriteFiis.objects.filter(user=request.user)
-        favorite_dict = {fav.fiis.papel: fav.is_favorite for fav in favorites}
+    # # Adicionar status de favorito para cada Ação se o usuário estiver logado
+    # if request.user.is_authenticated:
+    #     favorites = UserFavoriteFiis.objects.filter(user=request.user)
+    #     favorite_dict = {fav.fiis.papel: fav.is_favorite for fav in favorites}
 
     for index, row in df.iterrows():
         row_data = {}
@@ -141,17 +148,17 @@ def index(request):
         papel = str(row['papel']) if 'papel' in df.columns else str(row['papel'])
         row_data['papel'] = papel
         
-        # Adicionamos o status de favorito
-        if request.user.is_authenticated:
-            row_data['is_favorite'] = favorite_dict.get(papel, False)
+        # # Adicionamos o status de favorito
+        # if request.user.is_authenticated:
+        #     row_data['is_favorite'] = favorite_dict.get(papel, False)
         
         # Adicionamos o rank
         row_data['Rank'] = row['Rank']
-        row_data['cotacao'] = row['cotacao']
+        row_data['cotacao_atual'] = row['cotacao_atual']
         row_data['pvp'] = row['pvp']
-        row_data['liquidez_diaria_rs'] = row['liquidez_diaria_rs']
+        row_data['liquidez_diária'] = row['liquidez_diária']
         row_data['dividend_yield'] = row['dividend_yield']
-        row_data['vacancia'] = row['vacancia']            
+        row_data['vacância'] = row['vacância']            
         data.append(row_data)
 
     return render(request, 'fiis/index.html', {
@@ -162,26 +169,26 @@ def index(request):
     })
    
 
-def fii(request, papel):
-    fiis = get_object_or_404(Fiis, papel=papel)
-    return render(request, 'fiis/fii.html', {'fiis': fiis})
-@login_required
-def toggle_favorite(request, papel):
-    fiis = get_object_or_404(Fiis, papel=papel)
-    favorite, created = UserFavoriteFiis.objects.get_or_create(
-        user=request.user,
-        fiis=fiis
-    )
+# def fii(request, papel):
+#     fiis = get_object_or_404(Fiis, papel=papel)
+#     return render(request, 'fiis/fii.html', {'fiis': fiis})
+# @login_required
+# def toggle_favorite(request, papel):
+#     fiis = get_object_or_404(Fiis, papel=papel)
+#     favorite, created = UserFavoriteFiis.objects.get_or_create(
+#         user=request.user,
+#         fiis=fiis
+#     )
    
-    # Altera o estado de favorito
-    favorite.is_favorite = not favorite.is_favorite
-    favorite.save()
+#     # Altera o estado de favorito
+#     favorite.is_favorite = not favorite.is_favorite
+#     favorite.save()
    
-    # Adiciona mensagem de feedback
-    if favorite.is_favorite:
-        messages.success(request, f'FII {papel} adicionado aos favoritos!')
-    else:
-        messages.success(request, f'FII {papel} removido dos favoritos!')
+#     # Adiciona mensagem de feedback
+#     if favorite.is_favorite:
+#         messages.success(request, f'FII {papel} adicionado aos favoritos!')
+#     else:
+#         messages.success(request, f'FII {papel} removido dos favoritos!')
    
-    # Redireciona de volta para a página principal
-    return redirect('fiis:index')
+#     # Redireciona de volta para a página principal
+#     return redirect('fiis:index')

@@ -16,7 +16,8 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
-
+# settings.py
+KRAKEN_API_URL = 'http://localhost:8001' 
 
 # Application definition
 

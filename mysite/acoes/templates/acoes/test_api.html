@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Teste de Conexão com a API de Ações</h2>
+    
+    {% if status == 'error' %}
+        <div class="alert alert-danger">
+            <h4>Erro!</h4>
+            <p>{{ message }}</p>
+        </div>
+    {% else %}
+        <div class="alert alert-success">
+            <h4>Conexão bem-sucedida!</h4>
+            <p>Total de ações retornadas: {{ count }}</p>
+        </div>
+
+        <h3>Dados das Ações (amostra):</h3>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        {% for key in data.0.keys %}
+                            <th>{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for acao in data %}
+                        <tr>
+                            {% for value in acao.values %}
+                                <td>{{ value|default:"-" }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Dados Brutos (JSON):</h3>
+        <pre>{{ raw_data }}</pre>
+    {% endif %}
+</div>
+{% endblock %}

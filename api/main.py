@@ -31,4 +31,4 @@ async def get_fiis_ranking(db: Session = Depends(get_db)) -> List[Dict[str, Any]
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)

@@ -407,10 +407,7 @@
                     {{ total_fiis }}
                     {% for row in data %}
                     <td>
-                        <a href="{% url 'fiis:toggle_favorite' row.papel %}"
-                            class="favorite-star {% if row.is_favorite %}favorite-star-yellow{% else %}favorite-star-gray{% endif %}">
-                            ★
-                        </a>
+
                     </td>
                         <td>{{ row.Rank }}º</td>
                         <td>
@@ -421,12 +418,12 @@
                             </a>
                         </td>
 
-                        <td>R$ {{ row.cotacao }}</td>
+                        <td>R$ {{ row.cotacao_atual }}</td>
                         <td>{{ row.dividend_yield }}%</td>
                         <td>{{ row.pvp }}</td>
-                        <td>R$ {{ row.liquidez_diaria_rs }}</td>
+                        <td>R$ {{ row.liquidez_diária }}</td>
                         <td>{{ row.dividend_yield }}%</td>
-                        <td>{{ row.vacancia }}%</td>
+                        <td>{{ row.vacância }}%</td>
                     </tr>
                     {% endfor %}
                 </tbody>
