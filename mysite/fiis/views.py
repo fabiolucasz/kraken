@@ -9,14 +9,7 @@ from .client import KrakenAPIClient
 
 
 def rank_fiis(filters=None):
-    # queryset = Fiis.objects.all()
-    
-    # # filtro prévio com os nomes corretos dos campos
-    # queryset = queryset.filter(dividend_yield__gte=6)
-    # queryset = queryset.filter(liquidez_diaria_rs__gte=500000)
-    # queryset = queryset.filter(pvp__gte=0.75)
-    # queryset = queryset.filter(vacancia__lte=30)
-
+    # # filtro prévio com os nomes corretos dos campo
     fiis = KrakenAPIClient().get_fiis_ranking()
     df = pd.DataFrame(fiis)
     df = df[df['pvp'].astype(float) >= 0.75]

@@ -16,8 +16,8 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
-# settings.py
-KRAKEN_API_URL = 'http://localhost:8001' 
+# Configuração da API
+KRAKEN_API_URL = os.environ.get('KRAKEN_API_URL', 'http://localhost:8001')
 
 # Application definition
 
