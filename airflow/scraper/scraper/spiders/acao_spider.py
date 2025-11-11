@@ -16,7 +16,8 @@ class AcaoSpider(scrapy.Spider):
     def start_requests(self):
         # Ensure data directory exists
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-        data_dir = os.path.join(base_dir, 'airflow','include', 'data')
+        data_dir = os.path.join(base_dir,'local', 'airflow','data')
+        print(f"data_dir start_requests: {data_dir}")
         #os.makedirs(data_dir, exist_ok=True)
         
         # Read the input file from data directory
@@ -30,7 +31,8 @@ class AcaoSpider(scrapy.Spider):
     async def parse(self, response):
         try:
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-            data_dir = os.path.join(base_dir, 'airflow', 'include', 'dbt_dw', 'kraken_dw', 'seeds')
+            data_dir = os.path.join(base_dir, 'local', 'airflow', 'dbt_dw', 'kraken_dw', 'seeds')
+            print(f"data_dir parse: {data_dir}")
             papel = response.meta['papel']
             print(f"Processando: {papel}")
 
