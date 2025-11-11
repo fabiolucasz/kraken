@@ -28,7 +28,23 @@ DOWNLOAD_DELAY = 1
 
 # Disable cookies (enabled by default)
 #COOKIES_ENABLED = False
+DOWNLOADER_MIDDLEWARES = {
+    "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    #"scrapy_playwright.middleware.ScrapyPlaywrightDownloaderMiddleware": 543,
+}
 
+TWISTED_REACTOR = "twisted.internet.asyncio.AsyncIOReactor"
+DOWNLOAD_HANDLERS = {
+    "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+}
+
+TWISTED_REACTOR = "twisted.internet.asyncio.AsyncIOReactor"
+PLAYWRIGHT_LAUNCH_OPTIONS = {
+    "headless": False,  # Defina como False para ver o navegador em ação
+    "timeout": 20 * 1000,  # 20 segundos
+}
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
 

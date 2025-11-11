@@ -17,7 +17,7 @@ class AcaoSpider(scrapy.Spider):
         # Ensure data directory exists
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
         data_dir = os.path.join(base_dir, 'airflow','include', 'data')
-        os.makedirs(data_dir, exist_ok=True)
+        #os.makedirs(data_dir, exist_ok=True)
         
         # Read the input file from data directory
         input_path = os.path.join(data_dir, 'acoes-listadas-b3.csv')
@@ -30,7 +30,7 @@ class AcaoSpider(scrapy.Spider):
     async def parse(self, response):
         try:
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-            data_dir = os.path.join(base_dir, 'airflow', 'include', 'data')
+            data_dir = os.path.join(base_dir, 'airflow', 'include', 'dbt_dw', 'kraken_dw', 'seeds')
             papel = response.meta['papel']
             print(f"Processando: {papel}")
 

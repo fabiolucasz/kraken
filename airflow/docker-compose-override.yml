@@ -1,0 +1,11 @@
+services:
+  scheduler:
+    volumes:
+      - ./dbt_dw/:/usr/local/airflow/dbt/dbt_dw
+      - ./pipelines/scraper/:/usr/local/airflow/scraper
+      - ./pipelines/data/:/usr/local/airflow/data
+  dag-processor:
+    volumes:
+      - ./dbt_dw/:/usr/local/airflow/dbt/dbt_dw
+      - ./pipelines/scraper/:/usr/local/airflow/scraper
+      - ./pipelines/data/:/usr/local/airflow/data

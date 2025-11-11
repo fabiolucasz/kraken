@@ -1,0 +1,6 @@
+beautifulsoup4==4.13.4
+pandas==2.3.3
+requests==2.32.4
+scrapy==2.13.3
+scrapy-playwright==0.0.44
+playwright==1.55.0

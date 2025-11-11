@@ -1,0 +1,29 @@
+name: 'kraken_dw'
+version: '1.0.0'
+
+profile: 'kraken_dw'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+    "dbt_date:time_zone": "America/Sao_Paulo"
+
+models:
+  kraken_dw:
+    staging:
+      +materialized: view
+
+    intermediate:
+      +materialized: table
+
+    mart:
+      +materialized: table

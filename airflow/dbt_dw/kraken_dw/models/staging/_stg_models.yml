@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_fiis_kpi
+    description: "Modelo staging para a tabela de cadastros de clientes. Contém dados limpos e padronizados dos clientes."
+    columns:
+      - name: papel
+        description: "Papel do FIIS"
+        tests:
+          - unique
+          - not_null
+      - name: cotacao
+        description: "Cotação do FIIS"
+        tests:
+          - not_null
+      - name: dividend_yield
+        description: "Dividend Yield do FIIS"
+        tests:
+          - not_null
+      - name: pvp
+        description: "P/VP do FIIS"
+        tests:
+          - not_null
+      - name: liquidez_diaria
+        description: "Liquidez Diária do FIIS"
+        tests:
+          - not_null
+      - name: liquidez_unidade
+        description: "Unidade monetária da liquidez diária do FIIS"
+        tests:
+          - not_null
+      - name: variacao
+        description: "Variação do FIIS"
+        tests:
+          - not_null
+      - name: etl_inserted_at
+        description: "Timestamp de quando o dado foi carregado no modelo"
+        tests:
+          - not_null

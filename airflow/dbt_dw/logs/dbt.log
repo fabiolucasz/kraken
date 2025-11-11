@@ -1,0 +1,28 @@
+[0m14:24:06.912539 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C022575C70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C025E50CE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C0272951C0>]}
+
+
+============================== 14:24:06.952189 | 26e70231-599d-4973-b2e2-257bcfcda203 ==============================
+[0m14:24:06.952189 [info ] [MainThread]: Running with dbt=1.10.13
+[0m14:24:06.952701 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\Fabio\\.dbt', 'cache_selected_only': 'False', 'use_colors': 'True', 'warn_error': 'None', 'static_parser': 'True', 'partial_parse': 'True', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': 'logs', 'use_experimental_parser': 'False', 'version_check': 'True', 'introspect': 'True', 'quiet': 'False', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'no_print': 'None', 'invocation_command': 'dbt init', 'printer_width': '80', 'write_json': 'True'}
+[0m14:24:16.037854 [debug] [MainThread]: Starter project path: C:\Users\Fabio\Documents\github\kraken\airflow\include\dbt_dw\.venv\Lib\site-packages\dbt\include\starter_project
+[0m14:24:16.107194 [info ] [MainThread]: 
+Your new dbt project "kraken_dw" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m14:24:16.109179 [info ] [MainThread]: Setting up your profile.
+[0m14:24:56.540891 [debug] [MainThread]: Command `dbt init` succeeded at 14:24:56.540567 after 49.85 seconds
+[0m14:24:56.540891 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C025BF1160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C02274C2F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C025B8E240>]}
+[0m14:24:56.540891 [debug] [MainThread]: Flushing usage events
+[0m14:24:57.766090 [debug] [MainThread]: An error was encountered while trying to flush usage events
