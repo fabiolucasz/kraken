@@ -13,3 +13,4 @@ python-dotenv==1.1.1
 dbt-core==1.10.13
 dbt-postgres==1.9.1
 duckdb==1.4.1
+

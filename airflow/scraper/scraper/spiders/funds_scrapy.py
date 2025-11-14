@@ -31,7 +31,7 @@ class FundsexplorerSpider(scrapy.Spider):
                 "playwright_include_page": True,
                 "playwright_page_methods": [
                     PageMethod("wait_for_selector", "div table tbody tr:nth-child(100)", state="attached", timeout=10000),
-                    PageMethod("wait_for_timeout", 1000),
+                    PageMethod("wait_for_timeout", 100000),
 
             
             ],
@@ -40,7 +40,7 @@ class FundsexplorerSpider(scrapy.Spider):
 
     async def parse(self, response):
         page = response.meta["playwright_page"]
-        await page.wait_for_selector("div table tbody tr:nth-child(100)", state="attached", timeout=10000)
+        await page.wait_for_selector("div table tbody tr:nth-child(100)", state="attached", timeout=100000)
         table = response.css("table").get()
         soup = BeautifulSoup(table, "html.parser")
         table = soup.find("table")
@@ -65,15 +65,18 @@ class FundsexplorerSpider(scrapy.Spider):
 
         # Create data directory if it doesn't exist
         #os.makedirs(os.path.join(os.path.dirname(__file__), 'data'), exist_ok=True)
-        #base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-        #output_path = os.path.join(base_dir, 'data')
-        #df.to_csv(os.path.join(output_path, "fiis_funds.csv"), sep=',', decimal='.', index=False, encoding='utf-8')
-        df.to_csv("fiis_funds_playwright.csv", sep=',', decimal='.', index=False, encoding='utf-8')
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
+        print(f"Base dir: {base_dir}")
+        output_path = os.path.join(base_dir, 'data')
+        print(f"Output path: {output_path}")
+        df.to_csv(os.path.join(output_path, "fiis_funds.csv"), sep=',', decimal='.', index=False, encoding='utf-8')
+        print(f"File saved to: {os.path.join(output_path, "fiis_funds.csv")}")
+        #df.to_csv("fiis_funds_playwright.csv", sep=',', decimal='.', index=False, encoding='utf-8')
 
         print(soup)
 
 def main():
-    process = CrawlerProcess(settings={"DEBUG": False})
+    process = CrawlerProcess(settings={"LOG_LEVEL": "ERROR"})
     process.crawl(FundsexplorerSpider)
     process.start()
 

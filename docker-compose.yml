@@ -21,6 +21,16 @@ services:
     networks:
       - app-network
 
+  dag-processor:
+    build: ./airflow
+    container_name: dag-processor
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+
 networks:
   app-network:
     driver: bridge
