@@ -11,8 +11,8 @@ class FiiSpider(scrapy.Spider):
     dados_info = []
 
     def start_requests(self):
-        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-        data_dir = os.path.join(base_dir, 'local', 'airflow', 'data')
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
+        data_dir = os.path.join(base_dir, 'include', 'data')
         #os.makedirs(data_dir, exist_ok=True)
         df = pd.read_csv(os.path.join(data_dir,"fiis-listados-b3-tratado.csv"), quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
         fiis_list = df["Papel"].tolist()
@@ -30,8 +30,8 @@ class FiiSpider(scrapy.Spider):
 
     async def parse(self, response):
         try:
-            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-            data_dir = os.path.join(base_dir, 'local', 'airflow', 'dbt_dw', 'kraken_dw', 'seeds')
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
+            data_dir = os.path.join(base_dir, 'include', 'dbt_dw', 'kraken_dw', 'seed')
             papel = response.meta['papel']
 
 

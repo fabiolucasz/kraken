@@ -16,7 +16,7 @@ async def fetch_data(playwright: Playwright):
     
     try:
         await page.goto("https://www.fundsexplorer.com.br/ranking")
-        await page.wait_for_selector("div table tbody tr:nth-child(100)", state="attached", timeout=100000)
+        await page.wait_for_selector("div table tbody tr:nth-child(100)", state="attached", timeout=180000)
         table = await page.content()
         soup = BeautifulSoup(table, "html.parser")
         
@@ -50,11 +50,10 @@ def save_to_csv(output_path=None):
     
     if output_path is None:
         # Default output path if none provided
-        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-        print(f"base_dir: {base_dir}")
-        data_dir = os.path.join(base_dir, 'local', 'airflow', 'dbt_dw', 'kraken_dw', 'seeds')
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
+        data_dir = os.path.join(base_dir, 'include', 'dbt_dw', 'kraken_dw', 'seed')
         print(f"data_dir: {data_dir}")
-        output_path = os.path.join(data_dir, "fiis_fundsexplorer_final.csv")
+        output_path = os.path.join(data_dir, "fiis_fundsexplorer.csv")
     
     # Create directory if it doesn't exist
     #os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -63,6 +62,7 @@ def save_to_csv(output_path=None):
     scraped_data.to_csv(output_path, sep=',', decimal='.', index=False, encoding='utf-8')
     print(f"scraped_data saved: {scraped_data}")
     print(f"Arquivo salvo em: {output_path}")
+
 
 async def run_fii_fundsexplorer():
     """Main async function to run the scraper"""

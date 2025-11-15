@@ -2,7 +2,6 @@ import scrapy
 from scrapy.crawler import CrawlerProcess
 import pandas as pd
 import os
-from pathlib import Path
 
 class AcaoSpider(scrapy.Spider):
     name = "acao_spider"
@@ -15,8 +14,8 @@ class AcaoSpider(scrapy.Spider):
 
     def start_requests(self):
         # Ensure data directory exists
-        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-        data_dir = os.path.join(base_dir,'local', 'airflow','data')
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
+        data_dir = os.path.join(base_dir, 'include', 'data')
         print(f"data_dir start_requests: {data_dir}")
         #os.makedirs(data_dir, exist_ok=True)
         
@@ -30,8 +29,8 @@ class AcaoSpider(scrapy.Spider):
 
     async def parse(self, response):
         try:
-            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-            data_dir = os.path.join(base_dir, 'local', 'airflow', 'dbt_dw', 'kraken_dw', 'seeds')
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
+            data_dir = os.path.join(base_dir, 'include', 'dbt_dw', 'kraken_dw', 'seed')
             print(f"data_dir parse: {data_dir}")
             papel = response.meta['papel']
             print(f"Processando: {papel}")
@@ -87,6 +86,8 @@ class AcaoSpider(scrapy.Spider):
             df_info.columns = df_info.columns.str.lower().str.strip().str.replace(' ', '_').str.replace('º', '').str.replace('-', '').str.replace('/','_').str.replace('(','').str.replace(')','')
             df_info = df_info.applymap(lambda x: str(x).lower().strip().replace('-', '').replace('_', ' ').replace('_', ' ') if isinstance(x, str) else x)
             df_info.to_csv(os.path.join(data_dir, "acoes_info.csv"), index=False)
+            #teste de path
+            #df_info.to_csv("acoes_info.csv", index=False)
 
         except Exception as e:
             self.logger.error(f"Erro ao processar {papel}: {e}")

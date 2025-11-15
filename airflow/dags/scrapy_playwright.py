@@ -2,9 +2,9 @@ from airflow.decorators import dag
 from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
 from pendulum import datetime
-#from scraper.scraper.spiders.acao_spider import run_scraper
-from scraper.scraper.spiders.funds_scrapy import main
-#from scraper.scraper.spiders.fii_investidor_spider import run_fii
+#from include.scraper.scraper.spiders.acao_spider import run_scraper
+from include.scraper.scraper.spiders.funds_scrapy import main
+#from include.scraper.scraper.spiders.fii_investidor_spider import run_fii
 
 @dag(
     start_date=datetime(2024, 1, 1),

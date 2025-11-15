@@ -15,3 +15,4 @@ RUN mkdir -p /home/astro/.cache/ms-playwright && \
     chown -R astro:astro /home/astro/.cache
 
 USER astro
+
