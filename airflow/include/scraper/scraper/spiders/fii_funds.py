@@ -26,7 +26,7 @@ async def fetch_data(playwright: Playwright):
         if not table:
             raise Exception("Tabela não encontrada no HTML")
         
-        headers = [th.text.strip() for th in table.find_all('th')]
+        headers = [th.text.strip().replace(" ", "_").replace(".", "").replace("/", "_").replace("_(R$)", "").replace('_(', '_').replace(')_', '_').lower() for th in table.find_all('th')]
         
         for row in table.find('tbody').find_all('tr'):
             cols = row.find_all('td')
@@ -36,7 +36,7 @@ async def fetch_data(playwright: Playwright):
         
         # Store the processed data in the global variable
         scraped_data = pd.DataFrame(data, columns=headers).fillna("")
-        scraped_data = scraped_data.rename(columns={"Fundos": "Papel"})
+        scraped_data = scraped_data.rename(columns={"fundos": "papel"})
         print(f"scraped_data: {scraped_data}")
         
     finally:
@@ -51,7 +51,7 @@ def save_to_csv(output_path=None):
     if output_path is None:
         # Default output path if none provided
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
-        data_dir = os.path.join(base_dir, 'include', 'dbt_dw', 'kraken_dw', 'seed')
+        data_dir = os.path.join(base_dir, 'include', 'dbt_dw', 'kraken_dw', 'seeds')
         print(f"data_dir: {data_dir}")
         output_path = os.path.join(data_dir, "fiis_fundsexplorer.csv")
     

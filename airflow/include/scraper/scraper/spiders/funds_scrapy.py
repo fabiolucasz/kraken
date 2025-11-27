@@ -67,7 +67,7 @@ class FundsexplorerSpider(scrapy.Spider):
         # Create data directory if it doesn't exist
         #os.makedirs(os.path.join(os.path.dirname(__file__), 'data'), exist_ok=True)
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
-        data_dir = os.path.join(base_dir, 'include', 'dbt_dw', 'kraken_dw', 'seed')
+        data_dir = os.path.join(base_dir, 'include', 'dbt_dw', 'kraken_dw', 'seeds')
         df.to_csv(os.path.join(data_dir, "fiis_funds.csv"), sep=',', decimal='.', index=False, encoding='utf-8')
         print(f"File saved to: {os.path.join(data_dir, "fiis_funds.csv")}")
         #df.to_csv("fiis_funds_playwright.csv", sep=',', decimal='.', index=False, encoding='utf-8')

@@ -30,7 +30,7 @@ class AcaoSpider(scrapy.Spider):
     async def parse(self, response):
         try:
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
-            data_dir = os.path.join(base_dir, 'include', 'dbt_dw', 'kraken_dw', 'seed')
+            data_dir = os.path.join(base_dir, 'include', 'dbt_dw', 'kraken_dw', 'seeds')
             print(f"data_dir parse: {data_dir}")
             papel = response.meta['papel']
             print(f"Processando: {papel}")

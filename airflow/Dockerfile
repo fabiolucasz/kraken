@@ -1,7 +1,11 @@
 # Primeiro estágio: Base do Airflow
 FROM astrocrpublic.azurecr.io/runtime:3.1-2
 
+RUN python -m venv dbt_venv && source dbt_venv/bin/activate && \
+    pip install --no-cache-dir dbt-postgres==1.9.0 && deactivate
+
 USER root
+
 RUN pip install playwright pandas beautifulsoup4
 
 # Instala o Playwright no diretório padrão
