@@ -34,15 +34,15 @@ def kraken_pipeline():
         bash_command='cd /usr/local/airflow/include/scraper/scraper/spiders && python3 fii_funds.py',
     )
 
-    run_dbt = BashOperator(
-        task_id='run_dbt',
-        bash_command='cd /usr/local/airflow/include/dbt_dw/kraken_dw && dbt build',
-    )
+    # run_dbt = BashOperator(
+    #     task_id='run_dbt',
+    #     bash_command='cd /usr/local/airflow/include/dbt_dw/kraken_dw && dbt build',
+    # )
 
     
     
     # Definir dependências
-    [crawl_acoes, crawl_fiis_investidor] >> crawl_fiis_fundsexplorer >> run_dbt
+    [crawl_acoes, crawl_fiis_investidor] >> crawl_fiis_fundsexplorer
 
 # Instanciar o DAG
 kraken_pipeline()

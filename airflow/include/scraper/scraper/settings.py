@@ -28,13 +28,24 @@ DOWNLOAD_DELAY = 1
 
 # Disable cookies (enabled by default)
 #COOKIES_ENABLED = False
+
+ROTATING_PROXY_LIST = [
+    '43.225.151.82:1120',
+    '154.65.39.8:80',
+    '82.115.24.134:9090',
+    '121.165.169.133:8079'
+
+]
+
+
 DOWNLOADER_MIDDLEWARES = {
     "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
     "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+    'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
     #"scrapy_playwright.middleware.ScrapyPlaywrightDownloaderMiddleware": 543,
 }
 
-TWISTED_REACTOR = "twisted.internet.asyncio.AsyncIOReactor"
 DOWNLOAD_HANDLERS = {
     "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
     "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
@@ -42,7 +53,7 @@ DOWNLOAD_HANDLERS = {
 
 TWISTED_REACTOR = "twisted.internet.asyncio.AsyncIOReactor"
 PLAYWRIGHT_LAUNCH_OPTIONS = {
-    "headless": False,  # Defina como False para ver o navegador em ação
+    "headless": True,  # Defina como False para ver o navegador em ação
     "timeout": 20 * 1000,  # 20 segundos
 }
 # Disable Telnet Console (enabled by default)

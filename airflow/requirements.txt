@@ -1,5 +1,5 @@
 # Astro Runtime includes the following pre-installed providers packages: https://www.astronomer.io/docs/astro/runtime-image-architecture#provider-packages
-#apache-airflow-providers-postgres==5.12.0
+apache-airflow-providers-postgres==5.12.0
 
 # DBT
 astronomer-cosmos==1.10.1
@@ -10,5 +10,3 @@ astronomer-cosmos==1.10.1
 scrapy==2.13.3
 #scrapy-playwright==0.0.44
 #playwright==1.56.0
-python-dotenv==1.1.1
-
