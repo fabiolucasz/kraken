@@ -82,7 +82,14 @@ Preencha os valores nos arquivos `.env` para conectar ao seu banco de dados e ou
 
 ## Executar pipelines com astronomer
 
+- Entre na pasta airflow
+
+```bash
+cd airflow
+```
+
 - Execute o seguinte comando
+
 
 ```bash
 astro dev start
@@ -90,6 +97,8 @@ astro dev start
 
 
 ## Executar web app com docker compose
+
+- Execute o seguinte comando na pasta raiz do projeto: 
 
 ```bash
 docker compose up
