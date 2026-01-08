@@ -105,7 +105,7 @@ Fabio Lucas - [LinkedIn](https://www.linkedin.com/in/fabiolucamz/)
 
 Link do Projeto: [https://github.com/fabiolucasz/kraken](https://github.com/fabiolucasz/kraken)
 
-## 📌 Greetings
+## 📌 Agradecimentos
 
 - [Django](https://www.djangoproject.com/)
 - [Bootstrap](https://getbootstrap.com/)
