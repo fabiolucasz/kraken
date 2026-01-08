@@ -59,47 +59,47 @@ O fluxo de ETL (Extração, Transformação e Carregamento) é orquestrado pelo 
 O Airflow gerencia todo o fluxo com DAGs (Directed Acyclic Graphs) que são agendadas e monitoradas, garantindo que cada etapa seja executada na ordem correta e com tratamento de falhas adequado.
 
 
-## Requirements
+## Requisitos
 
 - Astronomer-cli - [Download](https://www.astronomer.io/docs/astro/cli/install-cli) 
 - Docker - [Download](https://www.docker.com/get-started/) 
 - Docker Compose 
 
-# How to run 
+## Como usar
 
-Clone this repository in your local machine
+Clone o repositório em sua máquina local
 
 ```bash
 git clone https://github.com/fabiolucasz/kraken.git
 ```
 
- Rename the files from `.env-example`  to `.env` in the following directories:
+Renomeie os arquivos `.env-example`  para `.env` nas seguintes pastas:
 
     - kraken/airflow/.env-example
     - kraken/api/.env-example
 
-then fill the values in the `.env` files to connect your database and other services.
+Preencha os valores nos arquivos `.env` para conectar ao seu banco de dados e outros serviços.
 
-## Run pipelines with astronomer
+## Executar pipelines com astronomer
 
-- run the following command
+- Execute o seguinte comando
 
 ```bash
 astro dev start
 ```
 
 
-## Run web app with docker compose
+## Executar web app com docker compose
 
 ```bash
 docker compose up
 ```
 
-## 📄 License
+## 📄 Licença
 
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
-## ✉️ Contact
+## ✉️ Contato
 
 Fabio Lucas - [LinkedIn](https://www.linkedin.com/in/fabiolucamz/)
 
