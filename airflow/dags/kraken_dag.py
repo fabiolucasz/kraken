@@ -1,9 +1,7 @@
 from airflow.decorators import dag
 from airflow.operators.python import PythonOperator
-from airflow.operators.bash import BashOperator
 from pendulum import datetime
 from include.scraper.scraper.spiders.acao_spider import run_scraper
-#from include.scraper.scraper.spiders.fii_funds import run_fii_fundsexplorer
 from include.scraper.scraper.spiders.fii_investidor_spider import run_fii
 
 @dag(
@@ -25,24 +23,14 @@ def kraken_pipeline():
         python_callable=run_fii,
     )
 
-    # crawl_fiis_fundsexplorer = PythonOperator(
+
+    # crawl_fiis_fundsexplorer = BashOperator(
     #     task_id='crawl_fiis_fundsexplorer',
-    #     python_callable=run_fii_fundsexplorer,
+    #     bash_command='cd /usr/local/airflow/include/scraper/scraper/spiders && python3 fii_funds.py',
     # )
-    crawl_fiis_fundsexplorer = BashOperator(
-        task_id='crawl_fiis_fundsexplorer',
-        bash_command='cd /usr/local/airflow/include/scraper/scraper/spiders && python3 fii_funds.py',
-    )
-
-    # run_dbt = BashOperator(
-    #     task_id='run_dbt',
-    #     bash_command='cd /usr/local/airflow/include/dbt_dw/kraken_dw && dbt build',
-    # )
-
-    
-    
+ 
     # Definir dependências
-    [crawl_acoes, crawl_fiis_investidor] >> crawl_fiis_fundsexplorer
+    [crawl_acoes, crawl_fiis_investidor]
 
 # Instanciar o DAG
 kraken_pipeline()
