@@ -1,8 +1,11 @@
 from airflow.decorators import dag
+from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from pendulum import datetime
 from include.scraper.scraper.spiders.acao_spider import run_scraper
 from include.scraper.scraper.spiders.fii_investidor_spider import run_fii
+from airflow.models import Variable
 
 @dag(
     start_date=datetime(2024, 1, 1),
@@ -12,7 +15,7 @@ from include.scraper.scraper.spiders.fii_investidor_spider import run_fii
     tags=["database", "setup", "postgres", "sql"]
 )
 def kraken_pipeline():
-
+    dbt_env = Variable.get("dbt_env", default_var="dev").lower()
     crawl_acoes = PythonOperator(
         task_id='crawl_acoes',
         python_callable=run_scraper,
@@ -23,14 +26,18 @@ def kraken_pipeline():
         python_callable=run_fii,
     )
 
+    start = EmptyOperator(task_id='start')
+    end = EmptyOperator(task_id='end')
 
-    # crawl_fiis_fundsexplorer = BashOperator(
-    #     task_id='crawl_fiis_fundsexplorer',
-    #     bash_command='cd /usr/local/airflow/include/scraper/scraper/spiders && python3 fii_funds.py',
-    # )
- 
-    # Definir dependências
-    [crawl_acoes, crawl_fiis_investidor]
+    trigger_pipeline = TriggerDagRunOperator(
+        task_id='trigger_pipeline',
+        trigger_dag_id=f'dag_kraken_dw_{dbt_env}',  
+        wait_for_completion=False,  
+        reset_dag_run=True,         
+        poke_interval=60            
+    )
 
-# Instanciar o DAG
+    start >> [crawl_acoes, crawl_fiis_investidor] >> end >> trigger_pipeline
+    return trigger_pipeline
+
 kraken_pipeline()

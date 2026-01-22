@@ -45,5 +45,5 @@ my_cosmos_dag = DbtDag(
     catchup=False,
     dag_id=f"dag_kraken_dw_{dbt_env}",
     default_args={"retries": 2},
-    #atualizando
+    tags=["kraken", "dbt", "postgres", "sql", "transform"]
 )

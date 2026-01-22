@@ -33,6 +33,10 @@ models:
         description: "Variação do FIIS"
         tests:
           - not_null
+      - name: liquidez_diaria_F
+        description: "Liquidez diária formatada do FIIS"
+        tests:
+          - not_null
       - name: etl_inserted_at
         description: "Timestamp de quando o dado foi carregado no modelo"
         tests:
