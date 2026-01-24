@@ -24,7 +24,6 @@ class AcaoSpider(scrapy.Spider):
         df = pd.read_csv(input_path, quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
         print(f"Total de Ações para coletar: {len(df['Ticker'])}")
         #limitar para testes
-        #df = df.head(10)
         for papel in df['Ticker']:
             url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
             yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
@@ -46,7 +45,6 @@ class AcaoSpider(scrapy.Spider):
 
             df_img = pd.DataFrame(self.dados_img).fillna("")
             df_img.columns = df_img.columns.str.lower().str.strip().str.replace(' ', '_').str.replace('-', '').str.replace('/','_').str.replace('(','').str.replace(')','')
-            #df_img = df_img.applymap(lambda x: str(x).lower().strip().replace('-', '') if isinstance(x, str) else x)
             df_img.to_csv(os.path.join(data_dir, "acoes_img.csv"), index=False)
 
             # KPIs
@@ -56,9 +54,8 @@ class AcaoSpider(scrapy.Spider):
                 kpi_values.append("")
             self.dados_kpi.append(dict(zip(kpis, kpi_values), Papel=papel))
 
-            df_kpi = pd.DataFrame(self.dados_kpi).fillna("")
+            df_kpi = pd.DataFrame(self.dados_kpi).fillna(0)
             df_kpi.columns = df_kpi.columns.str.lower().str.strip().str.replace(' ', '_').str.replace('-', '').str.replace('/','_').str.replace('(','').str.replace(')','')
-            #df_kpi = df_kpi.applymap(lambda x: str(x).lower().strip().replace('-', '').replace('_', ' ') if isinstance(x, str) else x)
             df_kpi = df_kpi.drop(columns=["carteira_investidor_10"])
             df_kpi.to_csv(os.path.join(data_dir, "acoes_kpi.csv"), index=False)
 
@@ -69,9 +66,8 @@ class AcaoSpider(scrapy.Spider):
                 indicadores_values.append("")
             self.dados_indicadores.append(dict(zip(indicadores, indicadores_values), Papel=papel))
 
-            df_indicadores = pd.DataFrame(self.dados_indicadores).fillna("")
+            df_indicadores = pd.DataFrame(self.dados_indicadores).fillna(0)
             df_indicadores.columns = df_indicadores.columns.str.lower().str.strip().str.replace('-', '').str.replace('/','_').str.replace('(','').str.replace(')','')
-            #df_indicadores = df_indicadores.applymap(lambda x: str(x).lower().strip().replace('-', '').replace('_', ' ') if isinstance(x, str) else x)
             df_indicadores.to_csv(os.path.join(data_dir, "acoes_indicadores.csv"), index=False)
 
             # Informações da ação
@@ -109,7 +105,7 @@ class AcaoSpider(scrapy.Spider):
                 self.dados_info.append(dict(zip(detail_titles, detail_values), Papel=papel))
                 
                 # Transformando e salvando
-                df_info = pd.DataFrame(self.dados_info)
+                df_info = pd.DataFrame(self.dados_info).fillna(0)
                 df_info.columns = df_info.columns.str.lower().str.strip().str.replace(' ', '_').str.replace('º', '').str.replace('-', '').str.replace('/','_').str.replace('(','').str.replace(')','')
                 df_info = df_info.replace('-','')
                 df_info.to_csv(os.path.join(data_dir, "acoes_info.csv"), index=False)
@@ -119,15 +115,6 @@ class AcaoSpider(scrapy.Spider):
         except Exception as e:
             self.logger.error(f"Erro ao processar {papel}: {e}")
 
-def remover_segundo_ponto(val):
-    if pd.isna(val):
-        return val
-    val = str(val).strip()
-    val = val.replace(',', '.')        
-    partes = val.split('.')           
-    if len(partes) > 2:
-        return '.'.join(partes[:-1]) + partes[-1]
-    return val
 
 def run_scraper():
 
