@@ -24,12 +24,12 @@ class AcaoSpider(scrapy.Spider):
         df = pd.read_csv(input_path, quotechar='"', sep=',', decimal='.', encoding='utf-8', skipinitialspace=True)
         print(f"Total de Ações para coletar: {len(df['Ticker'])}")
         #limitar para testes
-        df = df.head(10)
+        #df = df.head(10)
         for papel in df['Ticker']:
             url = f"https://investidor10.com.br/acoes/{papel.lower()}/"
             yield scrapy.Request(url, callback=self.parse, meta={'papel': papel})
 
-    async def parse(self, response):
+    async def parse(self, response):    
         try:
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
             data_dir = os.path.join(base_dir, 'include', 'dbt_dw', 'kraken_dw', 'seeds')
@@ -108,9 +108,10 @@ class AcaoSpider(scrapy.Spider):
             if detail_titles and detail_values:
                 self.dados_info.append(dict(zip(detail_titles, detail_values), Papel=papel))
                 
-                # Resto do seu código para salvar o DataFrame
+                # Transformando e salvando
                 df_info = pd.DataFrame(self.dados_info)
                 df_info.columns = df_info.columns.str.lower().str.strip().str.replace(' ', '_').str.replace('º', '').str.replace('-', '').str.replace('/','_').str.replace('(','').str.replace(')','')
+                df_info = df_info.replace('-','')
                 df_info.to_csv(os.path.join(data_dir, "acoes_info.csv"), index=False)
                 df_info.to_json(os.path.join(data_dir, "acoes_info.json"), orient='records', indent=2, force_ascii=False)
                 print(f"Processado: {papel}")

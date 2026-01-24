@@ -51,43 +51,69 @@ models:
           - unique
           - not_null
       - name: valor_de_mercado
-        description: "Valor de mercado da ação"
+        description: "Valor de mercado da ação em R$"
+        tests:
+          - not_null
 
       - name: valor_de_firma
-        description: "Valor de firma da ação"
+        description: "Valor de firma da ação em R$"
+        tests:
+          - not_null
 
       - name: patrimonio_liquido
-        description: "Patrimônio líquido da ação"
+        description: "Patrimônio líquido da ação em R$"
+        tests:
+          - not_null
 
       - name: n_total_de_papeis
         description: "Número total de papeis da ação"
+        tests:
+          - not_null
 
       - name: ativos
-        description: "Ativos da ação"
+        description: "Ativos da ação em R$"
+        tests:
+          - not_null
 
       - name: ativo_circulante
-        description: "Ativo circulante da ação"
+        description: "Ativo circulante da ação em R$"
+        tests:
+          - not_null
 
       - name: disponibilidade
-        description: "Disponibilidade da ação"
+        description: "Disponibilidade da ação em R$"
+        tests:
+          - not_null
 
       - name: segmento_de_listagem
         description: "Segmento de listagem da ação"
+        tests:
+          - not_null
 
       - name: free_float
         description: "Free float da ação"
+        tests:
+          - not_null
 
       - name: tag_along
         description: "Tag along da ação"
+        tests:
+          - not_null
 
       - name: liquidez_media_diaria
-        description: "Liquidez média diária da ação"
+        description: "Liquidez média diária da ação em R$"
+        tests:
+          - not_null
 
       - name: setor
         description: "Setor da ação"
+        tests:
+          - not_null
 
       - name: segmento
         description: "Segmento da ação"
+        tests:
+          - not_null
 
       - name: etl_inserted_at
         description: "Timestamp de quando o dado foi carregado no modelo"
