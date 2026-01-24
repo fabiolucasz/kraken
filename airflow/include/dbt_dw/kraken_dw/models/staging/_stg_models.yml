@@ -41,3 +41,55 @@ models:
         description: "Timestamp de quando o dado foi carregado no modelo"
         tests:
           - not_null
+
+  - name: stg_acoes_info
+    description: "Modelo staging para a tabela de informações das ações. Contém dados limpos e padronizados das ações."
+    columns:
+      - name: papel
+        description: "Papel da ação"
+        tests:
+          - unique
+          - not_null
+      - name: valor_de_mercado
+        description: "Valor de mercado da ação"
+
+      - name: valor_de_firma
+        description: "Valor de firma da ação"
+
+      - name: patrimonio_liquido
+        description: "Patrimônio líquido da ação"
+
+      - name: n_total_de_papeis
+        description: "Número total de papeis da ação"
+
+      - name: ativos
+        description: "Ativos da ação"
+
+      - name: ativo_circulante
+        description: "Ativo circulante da ação"
+
+      - name: disponibilidade
+        description: "Disponibilidade da ação"
+
+      - name: segmento_de_listagem
+        description: "Segmento de listagem da ação"
+
+      - name: free_float
+        description: "Free float da ação"
+
+      - name: tag_along
+        description: "Tag along da ação"
+
+      - name: liquidez_media_diaria
+        description: "Liquidez média diária da ação"
+
+      - name: setor
+        description: "Setor da ação"
+
+      - name: segmento
+        description: "Segmento da ação"
+
+      - name: etl_inserted_at
+        description: "Timestamp de quando o dado foi carregado no modelo"
+        tests:
+          - not_null
