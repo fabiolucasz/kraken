@@ -41,7 +41,14 @@ models:
         description: "Timestamp de quando o dado foi carregado no modelo"
         tests:
           - not_null
-
+  - name: stg_fiis_info
+    description: "Modelo staging para a tabela de informações dos FIIs. Contém dados limpos e padronizados dos FIIs."
+    columns:
+      - name: papel
+        description: "Papel do FIIS"
+        tests:
+          - unique
+          - not_null
   - name: stg_acoes_info
     description: "Modelo staging para a tabela de informações das ações. Contém dados limpos e padronizados das ações."
     columns:
@@ -118,4 +125,20 @@ models:
       - name: etl_inserted_at
         description: "Timestamp de quando o dado foi carregado no modelo"
         tests:
+          - not_null
+  - name: stg_acoes_indicadores
+    description: "Modelo staging para a tabela de indicadores das ações. Contém dados limpos e padronizados das ações."
+    columns:
+      - name: papel
+        description: "Papel da ação"
+        tests:
+          - unique
+          - not_null
+  - name: stg_acoes_kpi
+    description: "Modelo staging para a tabela de KPIs das ações. Contém dados limpos e padronizados das ações."
+    columns:
+      - name: papel
+        description: "Papel da ação"
+        tests:
+          - unique
           - not_null
