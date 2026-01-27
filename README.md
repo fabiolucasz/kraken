@@ -10,13 +10,7 @@
 
 ## 📋 Visão Geral
 
-O Kraken é uma plataforma web para análise e rankeamento de ativos financeiros (FIIs e Ações) com base em indicadores fundamentais. A ferramenta utiliza técnicas de machine learning para classificar os melhores investimentos de acordo com critérios personalizáveis.
-
-## ✨ Funcionalidades
-
-- 🏦 Análise detalhada de FIIs e Ações
-- 📈 Principais indicadores financeiros
-
+Pipeline para extração, análise e rankeamento de ativos financeiros (FIIs e Ações) com base em indicadores fundamentais.
 
 ## 🛠️ Tecnologias
 
@@ -61,7 +55,7 @@ O Airflow gerencia todo o fluxo com DAGs (Directed Acyclic Graphs) que são agen
 Clone o repositório em sua máquina local
 
 ```bash
-git clone https://github.com/fabiolucasz/kraken.git
+git clone https://github.com/fabiolucasz/pipeline-acoes-airflow.git
 ```
 
 
@@ -95,7 +89,7 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 Fabio Lucas - [LinkedIn](https://www.linkedin.com/in/fabiolucamz/)
 
-Link do Projeto: [https://github.com/fabiolucasz/kraken](https://github.com/fabiolucasz/kraken)
+Link do Projeto: [https://github.com/fabiolucasz/pipelina-acoes-airflow](https://github.com/fabiolucasz/pipeline-acoes-airflow)
 
 ## 📌 Agradecimentos
 
