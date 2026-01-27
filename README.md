@@ -1,4 +1,4 @@
-# 🏦 Kraken - Análise de Investimentos
+# 🏦  ETL de Ações e Fundos Imobiliários
 
 <div align="center">
   <img src="https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python">
