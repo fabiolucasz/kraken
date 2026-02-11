@@ -8,7 +8,7 @@ profile_config_dev = ProfileConfig(
     profile_name="kraken_dw",
     target_name="dev",
     profile_mapping=PostgresUserPasswordProfileMapping(
-        conn_id="airflowteste",
+        conn_id="postgres_dev",
         profile_args={"schema": "public"},
     ),
 )
@@ -16,7 +16,7 @@ profile_config_prod = ProfileConfig(
     profile_name="kraken_dw",
     target_name="prod",
     profile_mapping=PostgresUserPasswordProfileMapping(
-        conn_id="supabase_postgres_db",
+        conn_id="supabase_postgres_prod",
         profile_args={"schema": "public"},
     ),
 )
